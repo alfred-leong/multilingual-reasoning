@@ -1,0 +1,14 @@
+# ml-delta-reasoning requirements
+torch>=2.1.0
+transformers>=4.40.0
+datasets>=2.18.0
+trl>=0.8.0
+peft>=0.10.0
+accelerate>=0.28.0
+pandas>=2.0.0
+pyyaml>=6.0
+sentencepiece>=0.2.0
+protobuf>=4.25.0
+openai>=1.30.0
+vllm>=0.6.0
+tqdm>=4.66.0
