@@ -4,6 +4,7 @@ models
 
 outputs-delta_learning
 outputs-translate_dpo/dpo_*
+outputs-translate_sft
 *.log
 data/filtered
 data/raw

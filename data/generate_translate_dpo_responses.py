@@ -141,7 +141,7 @@ def generate_response_api(
 
     if thinking_prefix:
         messages = list(messages) + [
-            {"role": "assistant", "content": f"<think>\n{thinking_prefix}\n"}
+            {"role": "assistant", "content": f"<think>{thinking_prefix}"}
         ]
         extra["continue_final_message"] = True
         extra["add_generation_prompt"] = False

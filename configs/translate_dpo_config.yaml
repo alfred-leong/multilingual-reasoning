@@ -45,7 +45,7 @@ dpo:
   num_train_epochs: 1
   per_device_train_batch_size: 2
   gradient_accumulation_steps: 8
-  max_length: 2048
+  max_length: 4096
 
 vllm_ports:
   generation: 8300

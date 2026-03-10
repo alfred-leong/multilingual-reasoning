@@ -16,9 +16,9 @@
 #   Phase 5: Summary report
 #
 # GPU layout:
-#   GPU 1 — JA_JP (generation → translation server → training → eval)
-#   GPU 2 — BN_BD (generation → translation server → training → eval)
-#   GPU 3 — SW_KE (generation → translation server → training → eval)
+#   GPU 5 — JA_JP (generation → translation server → training → eval)
+#   GPU 6 — BN_BD (generation → translation server → training → eval)
+#   GPU 7 — SW_KE (generation → translation server → training → eval)
 #
 # Usage:
 #   bash scripts/run_translate_dpo_experiment.sh
@@ -30,7 +30,7 @@ PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 CONFIG="${PROJECT_ROOT}/configs/translate_dpo_config.yaml"
 
 LANGUAGES=("JA_JP" "BN_BD" "SW_KE")
-GPUS=(1 2 3)
+GPUS=(5 6 7)
 GEN_PORTS=(8301 8302 8303)
 TRANS_PORTS=(8401 8402 8403)
 
@@ -180,94 +180,94 @@ wait_for_server() {
 # echo "===== Phase 0': Stopping generation servers ====="
 # stop_vllm_servers
 
-# ---------------------------------------------------------------------------
-# Phase 2a: Start 3 vLLM TranslateGemma servers (1 per GPU)
-# ---------------------------------------------------------------------------
-echo ""
-echo "===== Phase 2a: Starting 3 vLLM TranslateGemma servers (1 per GPU) ====="
-> "${VLLM_PID_FILE}"
-for i in 0 1 2; do
-    GPU="${GPUS[$i]}"
-    LANG="${LANGUAGES[$i]}"
-    PORT="${TRANS_PORTS[$i]}"
-    LABEL="trans_${LANG}"
-    LOG_FILE="${LOG_DIR}/vllm_${LABEL}_port${PORT}.log"
-    echo "  Starting ${LABEL} on GPU ${GPU}, port ${PORT} → ${LOG_FILE}"
-    CUDA_VISIBLE_DEVICES="${GPU}" python "${SCRIPT_DIR}/launch_vllm_patched.py" \
-        "${TRANS_MODEL_HF}" \
-        --host 127.0.0.1 \
-        --port "${PORT}" \
-        --dtype bfloat16 \
-        --max-model-len "${MAX_MODEL_LEN}" \
-        --gpu-memory-utilization "${TRANS_GPU_UTIL}" \
-        --trust-remote-code \
-        > "${LOG_FILE}" 2>&1 &
-    echo "$!" >> "${VLLM_PID_FILE}"
-done
+# # ---------------------------------------------------------------------------
+# # Phase 2a: Start 3 vLLM TranslateGemma servers (1 per GPU)
+# # ---------------------------------------------------------------------------
+# echo ""
+# echo "===== Phase 2a: Starting 3 vLLM TranslateGemma servers (1 per GPU) ====="
+# > "${VLLM_PID_FILE}"
+# for i in 0 1 2; do
+#     GPU="${GPUS[$i]}"
+#     LANG="${LANGUAGES[$i]}"
+#     PORT="${TRANS_PORTS[$i]}"
+#     LABEL="trans_${LANG}"
+#     LOG_FILE="${LOG_DIR}/vllm_${LABEL}_port${PORT}.log"
+#     echo "  Starting ${LABEL} on GPU ${GPU}, port ${PORT} → ${LOG_FILE}"
+#     CUDA_VISIBLE_DEVICES="${GPU}" python "${SCRIPT_DIR}/launch_vllm_patched.py" \
+#         "${TRANS_MODEL_HF}" \
+#         --host 127.0.0.1 \
+#         --port "${PORT}" \
+#         --dtype bfloat16 \
+#         --max-model-len "${MAX_MODEL_LEN}" \
+#         --gpu-memory-utilization "${TRANS_GPU_UTIL}" \
+#         --trust-remote-code \
+#         > "${LOG_FILE}" 2>&1 &
+#     echo "$!" >> "${VLLM_PID_FILE}"
+# done
 
-# Wait for all translation servers to become healthy
-for i in 0 1 2; do
-    LANG="${LANGUAGES[$i]}"
-    PORT="${TRANS_PORTS[$i]}"
-    wait_for_server "${PORT}" "trans_${LANG}" 600
-done
-echo "Phase 2a complete.  3 vLLM servers running."
+# # Wait for all translation servers to become healthy
+# for i in 0 1 2; do
+#     LANG="${LANGUAGES[$i]}"
+#     PORT="${TRANS_PORTS[$i]}"
+#     wait_for_server "${PORT}" "trans_${LANG}" 600
+# done
+# echo "Phase 2a complete.  3 vLLM servers running."
 
-# ---------------------------------------------------------------------------
-# Phase 2b: Translate English responses (3 workers per language)
-#           All workers for one language query the same vLLM server.
-#           Each worker processes a 1/TRANS_SHARDS slice of the dataset.
-# ---------------------------------------------------------------------------
-echo ""
-echo "===== Phase 2b: Translating English responses — ${TRANS_SHARDS} workers per language ====="
-TRANS_PIDS=()
-TRANS_LABELS=()
-for i in 0 1 2; do
-    LANG="${LANGUAGES[$i]}"
-    PORT="${TRANS_PORTS[$i]}"
-    for s in $(seq 0 $((TRANS_SHARDS - 1))); do
-        LOG="${LOG_DIR}/${LANG}_translate_shard${s}.log"
-        echo "  [${LANG}] shard ${s}/${TRANS_SHARDS} → port ${PORT}"
-        python "${PROJECT_ROOT}/data/translate_with_gemma.py" \
-            --language "${LANG}" \
-            --config "${CONFIG}" \
-            --port "${PORT}" \
-            --shard_id "${s}" \
-            --num_shards "${TRANS_SHARDS}" \
-            > "${LOG}" 2>&1 &
-        TRANS_PIDS+=($!)
-        TRANS_LABELS+=("${LANG}_shard${s}")
-    done
-done
+# # ---------------------------------------------------------------------------
+# # Phase 2b: Translate English responses (3 workers per language)
+# #           All workers for one language query the same vLLM server.
+# #           Each worker processes a 1/TRANS_SHARDS slice of the dataset.
+# # ---------------------------------------------------------------------------
+# echo ""
+# echo "===== Phase 2b: Translating English responses — ${TRANS_SHARDS} workers per language ====="
+# TRANS_PIDS=()
+# TRANS_LABELS=()
+# for i in 0 1 2; do
+#     LANG="${LANGUAGES[$i]}"
+#     PORT="${TRANS_PORTS[$i]}"
+#     for s in $(seq 0 $((TRANS_SHARDS - 1))); do
+#         LOG="${LOG_DIR}/${LANG}_translate_shard${s}.log"
+#         echo "  [${LANG}] shard ${s}/${TRANS_SHARDS} → port ${PORT}"
+#         python "${PROJECT_ROOT}/data/translate_with_gemma.py" \
+#             --language "${LANG}" \
+#             --config "${CONFIG}" \
+#             --port "${PORT}" \
+#             --shard_id "${s}" \
+#             --num_shards "${TRANS_SHARDS}" \
+#             > "${LOG}" 2>&1 &
+#         TRANS_PIDS+=($!)
+#         TRANS_LABELS+=("${LANG}_shard${s}")
+#     done
+# done
 
-# Wait for all translation workers (3 languages × TRANS_SHARDS)
-FAIL=0
-for idx in "${!TRANS_PIDS[@]}"; do
-    if wait "${TRANS_PIDS[$idx]}"; then
-        echo "  [${TRANS_LABELS[$idx]}] Done."
-    else
-        echo "  [${TRANS_LABELS[$idx]}] FAILED. Check ${LOG_DIR}/"
-        FAIL=1
-    fi
-done
-[[ ${FAIL} -eq 1 ]] && { echo "Phase 2b (translation) failed."; exit 1; }
-echo "Phase 2b complete."
+# # Wait for all translation workers (3 languages × TRANS_SHARDS)
+# FAIL=0
+# for idx in "${!TRANS_PIDS[@]}"; do
+#     if wait "${TRANS_PIDS[$idx]}"; then
+#         echo "  [${TRANS_LABELS[$idx]}] Done."
+#     else
+#         echo "  [${TRANS_LABELS[$idx]}] FAILED. Check ${LOG_DIR}/"
+#         FAIL=1
+#     fi
+# done
+# [[ ${FAIL} -eq 1 ]] && { echo "Phase 2b (translation) failed."; exit 1; }
+# echo "Phase 2b complete."
 
-# ---------------------------------------------------------------------------
-# Phase 2c: Merge translation shards + stop vLLM servers
-# ---------------------------------------------------------------------------
-echo ""
-echo "===== Phase 2c: Merging shards & stopping vLLM servers ====="
-for LANG in "${LANGUAGES[@]}"; do
-    python "${PROJECT_ROOT}/data/translate_with_gemma.py" \
-        --language "${LANG}" \
-        --config "${CONFIG}" \
-        --merge_shards \
-        --num_shards "${TRANS_SHARDS}"
-done
-stop_vllm_servers
-trap - EXIT
-echo "Phase 2 complete."
+# # ---------------------------------------------------------------------------
+# # Phase 2c: Merge translation shards + stop vLLM servers
+# # ---------------------------------------------------------------------------
+# echo ""
+# echo "===== Phase 2c: Merging shards & stopping vLLM servers ====="
+# for LANG in "${LANGUAGES[@]}"; do
+#     python "${PROJECT_ROOT}/data/translate_with_gemma.py" \
+#         --language "${LANG}" \
+#         --config "${CONFIG}" \
+#         --merge_shards \
+#         --num_shards "${TRANS_SHARDS}"
+# done
+# stop_vllm_servers
+# trap - EXIT
+# echo "Phase 2 complete."
 
 # ---------------------------------------------------------------------------
 # Phase 3: DPO training (all languages in parallel, one GPU each)
@@ -277,7 +277,7 @@ echo "===== Phase 3: DPO training — parallel ====="
 TRAIN_PIDS=()
 for i in 0 1 2; do
     LANG="${LANGUAGES[$i]}"
-    LOG="${LOG_DIR}/${LANG}_dpo_train.log"
+    LOG="${LOG_DIR}/${LANG}_dpo_train_removethink+filter.log"
     echo "  [${LANG}] Training DPO on GPU ${GPUS[$i]} …"
     CUDA_VISIBLE_DEVICES="${GPUS[$i]}" \
         python "${PROJECT_ROOT}/training/run_translate_dpo_training.py" \
@@ -289,9 +289,9 @@ done
 FAIL=0
 for i in 0 1 2; do
     if wait "${TRAIN_PIDS[$i]}"; then
-        echo "  [${LANGUAGES[$i]}] Done. Log: ${LOG_DIR}/${LANGUAGES[$i]}_dpo_train.log"
+        echo "  [${LANGUAGES[$i]}] Done. Log: ${LOG_DIR}/${LANGUAGES[$i]}_dpo_train_removethink+filter.log"
     else
-        echo "  [${LANGUAGES[$i]}] FAILED. Log: ${LOG_DIR}/${LANGUAGES[$i]}_dpo_train.log"
+        echo "  [${LANGUAGES[$i]}] FAILED. Log: ${LOG_DIR}/${LANGUAGES[$i]}_dpo_train_removethink+filter.log"
         FAIL=1
     fi
 done
@@ -300,33 +300,32 @@ echo "Phase 3 complete."
 
 # ---------------------------------------------------------------------------
 # Phase 4: MGSM evaluation (all languages in parallel, one GPU each)
+#          Only evaluate the new DPO model (base eval already done).
 # ---------------------------------------------------------------------------
 echo ""
-echo "===== Phase 4: MGSM evaluation — parallel ====="
+echo "===== Phase 4: MGSM evaluation (dpo_removethink+filter) — parallel ====="
 EVAL_PIDS=()
 for i in 0 1 2; do
     LANG="${LANGUAGES[$i]}"
-    (
-        for MODEL_TYPE in base dpo; do
-            LOG="${LOG_DIR}/${LANG}_eval_${MODEL_TYPE}.log"
-            echo "  [${LANG}/${MODEL_TYPE}] Evaluating on GPU ${GPUS[$i]} …"
-            CUDA_VISIBLE_DEVICES="${GPUS[$i]}" \
-                python "${PROJECT_ROOT}/evaluation/run_translate_dpo_eval.py" \
-                    --language "${LANG}" \
-                    --model_type "${MODEL_TYPE}" \
-                    --config "${CONFIG}" \
-                    > "${LOG}" 2>&1
-            echo "  [${LANG}/${MODEL_TYPE}] Done. Log: ${LOG}"
-        done
-    ) &
+    LOG="${LOG_DIR}/${LANG}_eval_dpo_removethink+filter.log"
+    ADAPTER="${PROJECT_ROOT}/outputs-translate_dpo/dpo_${LANG}_removethink+filter"
+    echo "  [${LANG}/dpo] Evaluating on GPU ${GPUS[$i]} …"
+    CUDA_VISIBLE_DEVICES="${GPUS[$i]}" \
+        python "${PROJECT_ROOT}/evaluation/run_translate_dpo_eval.py" \
+            --language "${LANG}" \
+            --model_type dpo \
+            --config "${CONFIG}" \
+            --adapter_dir "${ADAPTER}" \
+            --output_suffix "_removethink+filter" \
+            > "${LOG}" 2>&1 &
     EVAL_PIDS+=($!)
 done
 FAIL=0
 for i in 0 1 2; do
     if wait "${EVAL_PIDS[$i]}"; then
-        echo "  [${LANGUAGES[$i]}] Eval complete."
+        echo "  [${LANGUAGES[$i]}] Eval complete. Log: ${LOG_DIR}/${LANGUAGES[$i]}_eval_dpo_removethink+filter.log"
     else
-        echo "  [${LANGUAGES[$i]}] Eval FAILED."
+        echo "  [${LANGUAGES[$i]}] Eval FAILED. Log: ${LOG_DIR}/${LANGUAGES[$i]}_eval_dpo_removethink+filter.log"
         FAIL=1
     fi
 done
@@ -334,31 +333,40 @@ done
 echo "Phase 4 complete."
 
 # ---------------------------------------------------------------------------
-# Phase 5: Summary
+# Phase 5: Summary (base + dpo + dpo_removethink+filter)
 # ---------------------------------------------------------------------------
 echo ""
 echo "===== Phase 5: Results Summary ====="
 
 OUTPUT_DIR="${PROJECT_ROOT}/outputs-translate_dpo"
 
+# model_label  →  eval file suffix
+# base         →  eval_{LANG}_base.json           (from previous run)
+# dpo          →  eval_{LANG}_dpo.json             (from previous run)
+# dpo_rt+f     →  eval_{LANG}_dpo_removethink+filter.json  (from this run)
+
 echo ""
-printf "%-8s  %-6s  %8s  %12s  %12s  %14s  %14s\n" \
+printf "%-8s  %-12s  %8s  %12s  %12s  %14s  %14s\n" \
     "Lang" "Model" "Accuracy" "Full Native" "Full English" "Think Native" "Think English"
-printf "%s\n" "$(printf '=%.0s' {1..90})"
+printf "%s\n" "$(printf '=%.0s' {1..96})"
 
 for LANG in "${LANGUAGES[@]}"; do
-    for MODEL_TYPE in base dpo; do
-        EVAL_FILE="${OUTPUT_DIR}/eval_${LANG}_${MODEL_TYPE}.json"
+    for MODEL_LABEL in base dpo "dpo_rt+f"; do
+        case "${MODEL_LABEL}" in
+            base)       EVAL_FILE="${OUTPUT_DIR}/eval_${LANG}_base.json" ;;
+            dpo)        EVAL_FILE="${OUTPUT_DIR}/eval_${LANG}_dpo.json" ;;
+            dpo_rt+f)   EVAL_FILE="${OUTPUT_DIR}/eval_${LANG}_dpo_removethink+filter.json" ;;
+        esac
         if [[ -f "${EVAL_FILE}" ]]; then
             ACC=$(python3 -c "import json; d=json.load(open('${EVAL_FILE}')); print(f\"{d['accuracy']:.2%}\")")
             FT=$(python3 -c "import json; d=json.load(open('${EVAL_FILE}')); print(f\"{d['mean_full_target_ratio']:.3f}\")")
             FE=$(python3 -c "import json; d=json.load(open('${EVAL_FILE}')); print(f\"{d['mean_full_english_ratio']:.3f}\")")
             TT=$(python3 -c "import json; d=json.load(open('${EVAL_FILE}')); print(f\"{d['mean_think_target_ratio']:.3f}\")")
             TE=$(python3 -c "import json; d=json.load(open('${EVAL_FILE}')); print(f\"{d['mean_think_english_ratio']:.3f}\")")
-            printf "%-8s  %-6s  %8s  %12s  %12s  %14s  %14s\n" \
-                "${LANG}" "${MODEL_TYPE}" "${ACC}" "${FT}" "${FE}" "${TT}" "${TE}"
+            printf "%-8s  %-12s  %8s  %12s  %12s  %14s  %14s\n" \
+                "${LANG}" "${MODEL_LABEL}" "${ACC}" "${FT}" "${FE}" "${TT}" "${TE}"
         else
-            printf "%-8s  %-6s  %8s\n" "${LANG}" "${MODEL_TYPE}" "(missing)"
+            printf "%-8s  %-12s  %8s\n" "${LANG}" "${MODEL_LABEL}" "(missing)"
         fi
     done
 done

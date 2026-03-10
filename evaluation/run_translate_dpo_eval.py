@@ -117,6 +117,9 @@ def _generate_response(
     messages: list[dict],
     thinking_prefix: str = "",
     max_new_tokens: int = 2048,
+    do_sample: bool = False,
+    temperature: float | None = None,
+    top_p: float | None = None,
 ) -> str:
     """Generate a response with optional thinking prefix.
 
@@ -148,14 +151,19 @@ def _generate_response(
         )
 
     inputs = tokenizer(text, return_tensors="pt").to(model.device)
+    gen_kwargs = dict(
+        **inputs,
+        max_new_tokens=max_new_tokens,
+        do_sample=do_sample,
+    )
+    if do_sample:
+        gen_kwargs["temperature"] = temperature if temperature is not None else 0.6
+        gen_kwargs["top_p"] = top_p if top_p is not None else 0.95
+    else:
+        gen_kwargs["temperature"] = None
+        gen_kwargs["top_p"] = None
     with torch.no_grad():
-        output_ids = model.generate(
-            **inputs,
-            max_new_tokens=max_new_tokens,
-            do_sample=False,
-            temperature=None,
-            top_p=None,
-        )
+        output_ids = model.generate(**gen_kwargs)
     generated_ids = output_ids[0, inputs["input_ids"].shape[1]:]
     generated_text = tokenizer.decode(generated_ids, skip_special_tokens=True)
 
@@ -178,6 +186,11 @@ def evaluate(
     model_type: str,
     config: dict,
     max_samples: int | None = None,
+    adapter_dir_override: str | None = None,
+    do_sample: bool = False,
+    temperature: float | None = None,
+    top_p: float | None = None,
+    full_finetune: bool = False,
 ) -> dict:
     """Run MGSM evaluation and return results dict.
 
@@ -186,6 +199,9 @@ def evaluate(
         model_type: ``"base"`` or ``"dpo"``.
         config: Parsed config dict.
         max_samples: Optional cap for debugging.
+        adapter_dir_override: Path to adapter (LoRA) or full model directory.
+        full_finetune: If True and model_type is ``"dpo"``, load the full
+            fine-tuned model directly instead of using LoRA adapters.
 
     Returns:
         Results dict with accuracy, native language ratio, and per-example
@@ -221,26 +237,44 @@ def evaluate(
             trust_remote_code=True,
         )
     elif model_type == "dpo":
-        adapter_dir = (
-            PROJECT_ROOT / "outputs-translate_dpo" / f"dpo_{language_code}"
-        )
+        if adapter_dir_override is not None:
+            adapter_dir = Path(adapter_dir_override)
+        else:
+            adapter_dir = (
+                PROJECT_ROOT / "outputs-translate_dpo" / f"dpo_{language_code}"
+            )
         if not adapter_dir.exists():
             raise FileNotFoundError(
-                f"Translate-DPO checkpoint not found: {adapter_dir}. "
-                "Run run_translate_dpo_training.py first."
+                f"Checkpoint not found: {adapter_dir}. "
+                "Run training first."
             )
-        print(f"Loading {base_model_name} + LoRA adapter from {adapter_dir}")
-        tokenizer = AutoTokenizer.from_pretrained(
-            str(adapter_dir), trust_remote_code=True
-        )
-        base_model = AutoModelForCausalLM.from_pretrained(
-            base_model_name,
-            torch_dtype=dtype,
-            device_map="auto",
-            trust_remote_code=True,
-        )
-        model = PeftModel.from_pretrained(base_model, str(adapter_dir))
-        model = model.merge_and_unload()
+
+        if full_finetune:
+            # Full fine-tuned model: load directly from checkpoint directory
+            print(f"Loading full fine-tuned model from {adapter_dir}")
+            tokenizer = AutoTokenizer.from_pretrained(
+                str(adapter_dir), trust_remote_code=True
+            )
+            model = AutoModelForCausalLM.from_pretrained(
+                str(adapter_dir),
+                torch_dtype=dtype,
+                device_map="auto",
+                trust_remote_code=True,
+            )
+        else:
+            # LoRA adapter: load base model + merge adapter
+            print(f"Loading {base_model_name} + LoRA adapter from {adapter_dir}")
+            tokenizer = AutoTokenizer.from_pretrained(
+                str(adapter_dir), trust_remote_code=True
+            )
+            base_model = AutoModelForCausalLM.from_pretrained(
+                base_model_name,
+                torch_dtype=dtype,
+                device_map="auto",
+                trust_remote_code=True,
+            )
+            model = PeftModel.from_pretrained(base_model, str(adapter_dir))
+            model = model.merge_and_unload()
     else:
         raise ValueError(f"Unknown model_type: {model_type!r}")
 
@@ -276,6 +310,9 @@ def evaluate(
         response = _generate_response(
             model, tokenizer, messages,
             thinking_prefix=thinking_prefix,
+            do_sample=do_sample,
+            temperature=temperature,
+            top_p=top_p,
         )
 
         predicted_str = _extract_numerical_answer(response)
@@ -386,6 +423,34 @@ def main() -> None:
         "--max_samples", type=int, default=None,
         help="Max examples (for debugging).",
     )
+    parser.add_argument(
+        "--adapter_dir", type=str, default=None,
+        help="Path to a LoRA adapter directory (overrides the default "
+             "outputs-translate_dpo/dpo_{LANG} path). Only used when "
+             "model_type is 'dpo'.",
+    )
+    parser.add_argument(
+        "--output_suffix", type=str, default="",
+        help="Suffix appended to the output JSON filename, e.g. "
+             "'_removethink+filter' → eval_JA_JP_dpo_removethink+filter.json",
+    )
+    parser.add_argument(
+        "--full_finetune", action="store_true",
+        help="Load a full fine-tuned model (no LoRA) from --adapter_dir. "
+             "Only used when model_type is 'dpo'.",
+    )
+    parser.add_argument(
+        "--do_sample", action="store_true",
+        help="Enable sampling (default: greedy decoding).",
+    )
+    parser.add_argument(
+        "--temperature", type=float, default=0.6,
+        help="Sampling temperature (only used when --do_sample is set).",
+    )
+    parser.add_argument(
+        "--top_p", type=float, default=0.95,
+        help="Top-p nucleus sampling (only used when --do_sample is set).",
+    )
     args = parser.parse_args()
 
     config = _load_config(args.config)
@@ -410,9 +475,15 @@ def main() -> None:
                 model_type=mt,
                 config=config,
                 max_samples=args.max_samples,
+                adapter_dir_override=args.adapter_dir,
+                do_sample=args.do_sample,
+                temperature=args.temperature,
+                top_p=args.top_p,
+                full_finetune=args.full_finetune,
             )
 
-            out_path = output_base / f"eval_{lang}_{mt}.json"
+            suffix = args.output_suffix
+            out_path = output_base / f"eval_{lang}_{mt}{suffix}.json"
             with open(out_path, "w", encoding="utf-8") as f:
                 json.dump(results, f, indent=2, ensure_ascii=False)
 

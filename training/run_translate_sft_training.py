@@ -1,19 +1,20 @@
 #!/usr/bin/env python3
 """
-DPO training for the Translate-DPO experiment.
+SFT (Supervised Fine-Tuning) with LoRA on the Translate-DPO translated data.
 
-Trains a Qwen3-1.7B model with LoRA using Direct Preference Optimisation.
-For each example:
-  - **Chosen** = English response translated to native language
-  - **Rejected** = Directly-generated native-language response
+Trains a Qwen3-1.7B model with LoRA using standard SFT on
+translated English reasoning traces.
 
-The intuition is that models reason better in English, so translated English
-reasoning traces should be higher quality than direct native-language traces.
+Two modes:
+  - **Mode 1** – Remove think tags and SFT on *all* data samples (~14k per lang).
+  - **Mode 2** – Remove think tags, then filter to keep only samples where the
+                 English response was correct (english_answer == gold_answer).
 
 Usage::
 
-    python training/run_translate_dpo_training.py --language JA_JP
-    python training/run_translate_dpo_training.py              # all languages
+    python training/run_translate_sft_training.py --language JA_JP --mode 1
+    python training/run_translate_sft_training.py --language BN_BD --mode 2
+    python training/run_translate_sft_training.py --mode 1   # all languages
 """
 
 import argparse
@@ -27,7 +28,7 @@ import yaml
 from datasets import Dataset
 from peft import LoraConfig, TaskType, get_peft_model
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from trl import DPOConfig, DPOTrainer
+from trl import SFTConfig, SFTTrainer
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -55,12 +56,7 @@ def _load_jsonl(path: Path) -> list[dict]:
 
 
 def _strip_think_tags(text: str) -> str:
-    """Remove ``<think>`` and ``</think>`` tags, returning plain text.
-
-    This collapses the thinking trace and the final answer into a single
-    flat string so that DPO compares reasoning *content* rather than
-    learning a structural preference for tag placement.
-    """
+    """Remove ``<think>`` and ``</think>`` tags, returning plain text."""
     return re.sub(r"</?think>", "", text).strip()
 
 
@@ -69,16 +65,19 @@ def _strip_think_tags(text: str) -> str:
 # ---------------------------------------------------------------------------
 
 
-def train_translate_dpo(
+def train_translate_sft(
     language_code: str,
+    mode: int,
     config: dict,
     output_base: Path,
     full_finetune: bool = False,
 ) -> None:
-    """Run DPO training for one language.
+    """Run SFT training for one language and mode.
 
     Args:
         language_code: E.g. ``"JA_JP"``.
+        mode: 1 = all data (think tags removed),
+              2 = correct-only filtered (think tags removed).
         config: Parsed translate-DPO config dict.
         output_base: Root directory for model checkpoints.
         full_finetune: If True, train all parameters (no LoRA).
@@ -95,92 +94,74 @@ def train_translate_dpo(
         )
 
     records = _load_jsonl(translated_path)
-    print(f"[{language_code}] Loaded {len(records)} translated pairs.")
+    print(f"[{language_code}] Loaded {len(records)} translated records.")
 
-    # --- Build DPO dataset --------------------------------------------------
-    # Use the native system prompt as the DPO conditioning context, matching
-    # the deployment setting (Setting 2).
+    # --- Build SFT dataset --------------------------------------------------
     prompts = get_translate_dpo_prompts(language_code)
     native_sp = prompts["native_system_prompt"]
 
-    # Load tokenizer first to format prompts via chat template
+    # Load tokenizer to format prompts via chat template
     model_name = config["models"]["base_model"]
     tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
 
-    dpo_records = []
-    skipped = 0
+    sft_records = []
+    skipped_empty = 0
     skipped_correctness = 0
+
     for r in records:
         translated = r.get("translated_response", "")
-        native = r.get("native_response", "")
-        if not translated.strip() or not native.strip():
-            skipped += 1
+        if not translated.strip():
+            skipped_empty += 1
             continue
 
-        # --- Correctness-based filtering ------------------------------------
-        # Only keep pairs where the English response was correct and the
-        # native response was incorrect.  This ensures the DPO signal is
-        # unambiguously "translated reasoning is better" rather than noise
-        # from pairs where both are correct (no quality gap) or the native
-        # response is actually better (reversed signal).
-        english_answer = r.get("english_answer", "")
-        native_answer = r.get("native_answer", "")
-        gold_answer = r.get("gold_answer", "")
-        if not (english_answer == gold_answer and english_answer
-                and native_answer != gold_answer):
-            skipped_correctness += 1
-            continue
+        # --- Mode 2: correctness filter -------------------------------------
+        if mode == 2:
+            english_answer = r.get("english_answer", "")
+            gold_answer = r.get("gold_answer", "")
+            if not (english_answer and english_answer == gold_answer):
+                skipped_correctness += 1
+                continue
 
         # --- Strip <think> tags ---------------------------------------------
-        # Remove structural tags so DPO focuses on reasoning *content*
-        # quality, not on tag placement (the native response closes <think>
-        # immediately and reasons outside the tags, creating a confounding
-        # formatting difference rather than a reasoning quality difference).
-        chosen = _strip_think_tags(translated)
-        rejected = _strip_think_tags(native)
-
-        if not chosen or not rejected:
-            skipped += 1
+        response = _strip_think_tags(translated)
+        if not response:
+            skipped_empty += 1
             continue
 
-        # Format the prompt (system + user) using the chat template.
-        # add_generation_prompt=True appends the assistant header so the
-        # chosen/rejected text is treated as the model's response.
-        prompt_messages = [
+        # Format the full conversation using chat template
+        messages = [
             {"role": "system", "content": native_sp},
             {"role": "user", "content": r["native_question"]},
+            {"role": "assistant", "content": response},
         ]
-        prompt_text = tokenizer.apply_chat_template(
-            prompt_messages,
+        text = tokenizer.apply_chat_template(
+            messages,
             tokenize=False,
-            add_generation_prompt=True,
+            add_generation_prompt=False,
         )
 
-        dpo_records.append({
-            "prompt": prompt_text,
-            "chosen": chosen,
-            "rejected": rejected,
-        })
+        sft_records.append({"text": text})
 
-    if skipped:
-        print(f"[{language_code}] Skipped {skipped} records (empty response).")
+    if skipped_empty:
+        print(f"[{language_code}] Skipped {skipped_empty} records (empty response).")
     if skipped_correctness:
         print(f"[{language_code}] Filtered out {skipped_correctness} records "
-              f"(correctness filter: kept only EN-correct & NA-incorrect).")
-    print(f"[{language_code}] {len(dpo_records)} DPO pairs prepared.")
+              f"(correctness filter: kept only EN-correct).")
+    print(f"[{language_code}] mode={mode}: {len(sft_records)} SFT examples prepared.")
 
-    dataset = Dataset.from_list(dpo_records)
+    dataset = Dataset.from_list(sft_records)
 
-    # --- Save DPO pairs for reproducibility ---------------------------------
-    pairs_dir = PROJECT_ROOT / "data" / "translate_dpo" / "dpo_pairs"
+    # --- Save SFT data for reproducibility ----------------------------------
+    mode_label = f"mode{mode}"
+    pairs_dir = PROJECT_ROOT / "data" / "translate_sft" / f"mode_{mode}"
     pairs_dir.mkdir(parents=True, exist_ok=True)
-    pairs_path = pairs_dir / f"{language_code}_dpo_pairs_removethink+filter.jsonl"
+    pairs_path = pairs_dir / f"{language_code}_sft_{mode_label}.jsonl"
     with open(pairs_path, "w", encoding="utf-8") as f:
-        for rec in dpo_records:
+        for rec in sft_records:
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
-    print(f"[{language_code}] DPO pairs saved → {pairs_path}")
+    print(f"[{language_code}] SFT data saved → {pairs_path}")
 
     # --- Model --------------------------------------------------------------
     dtype = torch.bfloat16 if torch.cuda.is_available() else torch.float32
@@ -211,36 +192,34 @@ def train_translate_dpo(
         model = get_peft_model(model, lora_config)
         model.print_trainable_parameters()
 
-    # --- DPO config ---------------------------------------------------------
-    dpo_params = config["dpo"]
+    # --- SFT config ---------------------------------------------------------
+    dpo_params = config["dpo"]  # reuse same hyperparam section
     ft_suffix = "_full" if full_finetune else ""
-    output_dir = output_base / f"dpo_{language_code}_removethink+filter{ft_suffix}"
+    output_dir = output_base / f"sft_{language_code}_{mode_label}{ft_suffix}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    training_args = DPOConfig(
+    training_args = SFTConfig(
         output_dir=str(output_dir),
         learning_rate=float(dpo_params["learning_rate"]),
-        beta=float(dpo_params["beta"]),
         num_train_epochs=int(dpo_params["num_train_epochs"]),
         per_device_train_batch_size=int(dpo_params["per_device_train_batch_size"]),
         gradient_accumulation_steps=int(dpo_params["gradient_accumulation_steps"]),
-        max_length=int(dpo_params["max_length"]),
         logging_steps=10,
         save_strategy="epoch",
         bf16=torch.cuda.is_available(),
-        remove_unused_columns=False,
         report_to="none",
+        dataset_text_field="text",
     )
 
     # --- Train --------------------------------------------------------------
-    trainer = DPOTrainer(
+    trainer = SFTTrainer(
         model=model,
         args=training_args,
         train_dataset=dataset,
         processing_class=tokenizer,
     )
 
-    print(f"[{language_code}] Starting DPO training …")
+    print(f"[{language_code}] Starting SFT training (mode={mode}) …")
     train_result = trainer.train()
 
     # Save model + tokenizer
@@ -251,12 +230,13 @@ def train_translate_dpo(
     # Save training log
     log_path = output_dir / "training_log.json"
     log_data = {
-        "experiment": "translate_dpo",
+        "experiment": "translate_sft",
         "language": language_code,
+        "mode": mode,
         "full_finetune": full_finetune,
         "train_loss": train_result.training_loss,
         "metrics": train_result.metrics,
-        "num_examples": len(dpo_records),
+        "num_examples": len(sft_records),
     }
     with open(log_path, "w", encoding="utf-8") as f:
         json.dump(log_data, f, indent=2, ensure_ascii=False)
@@ -270,11 +250,15 @@ def train_translate_dpo(
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Run Translate-DPO training."
+        description="Run Translate-SFT training (LoRA or full fine-tuning)."
     )
     parser.add_argument(
         "--language", type=str, default=None,
         help="Language code (e.g. JA_JP). If omitted, train all.",
+    )
+    parser.add_argument(
+        "--mode", type=int, required=True, choices=[1, 2],
+        help="Mode 1 = all data, Mode 2 = correct-only filtered.",
     )
     parser.add_argument(
         "--config", type=str,
@@ -287,14 +271,14 @@ def main() -> None:
     args = parser.parse_args()
 
     config = _load_config(args.config)
-    output_base = PROJECT_ROOT / "outputs-translate_dpo"
+    output_base = PROJECT_ROOT / "outputs-translate_sft"
 
     languages = (
         [args.language] if args.language
         else [l["code"] for l in config["languages"]]
     )
     for lang in languages:
-        train_translate_dpo(lang, config, output_base,
+        train_translate_sft(lang, args.mode, config, output_base,
                             full_finetune=args.full_finetune)
 
 
