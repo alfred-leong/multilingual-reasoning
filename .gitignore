@@ -2,20 +2,11 @@
 .env
 models
 
-outputs-delta_learning
+*delta_learning_deprecated*
 outputs-translate_dpo/dpo_*
 outputs-translate_sft
 *.log
-data/filtered
-data/raw
 data/translate_dpo
-data/filter_preference_data.py
-data/generate_preference_data.py
-prompts/system_prompts.py
+data/translate_sft
 testing/
-training/run_dpo.py
-scripts/run_all_experiments.sh
-scripts/run_base_eval.sh
-scripts/start_vllm_servers.sh
-configs/config.yaml
 *__pycache__/
