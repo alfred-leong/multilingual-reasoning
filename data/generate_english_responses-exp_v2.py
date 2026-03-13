@@ -106,9 +106,9 @@ def _generation_worker(
 ) -> None:
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     logger = _setup_logger(
-        name=f"gen_eng.w{rank}",
+        name=f"{dataset}_gen_eng.w{rank}",
         log_dir=Path(log_dir),
-        filename=f"gen_eng_w{rank}_{ts}.log",
+        filename=f"{dataset}_gen_eng_w{rank}_{ts}.log",
     )
     logger.info("Worker %d processing %d rows", rank, len(rows))
 

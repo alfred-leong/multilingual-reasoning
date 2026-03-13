@@ -3,7 +3,7 @@ set -e
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 
-source /home/alfred/miniconda3/etc/profile.d/conda.sh
+source /tier1/home/lweilun/miniconda3/etc/profile.d/conda.sh
 conda activate ml-delta
 
 # Settings
@@ -56,15 +56,15 @@ done
 echo " ready! (${elapsed}s)"
 
 # Run generation for MGSM and MMMLU
-# echo "Generating English responses for MGSM..."
-# python3 "${PROJECT_ROOT}/data/generate_english_responses-exp_v2.py" --dataset mgsm --port "$PORT" --workers 4
+echo "Generating English responses for MGSM..."
+python3 "${PROJECT_ROOT}/data/generate_english_responses-exp_v2.py" --dataset mgsm --port "$PORT" --workers 4
 
 echo "Generating English responses for MMMLU..."
 python3 "${PROJECT_ROOT}/data/generate_english_responses-exp_v2.py" --dataset mmmlu --port "$PORT" --workers 4
 
 # Check outputs
-# echo "Checking MGSM responses:"
-# python3 "${PROJECT_ROOT}/data/check_english_responses-exp_v2.py" --dataset mgsm
+echo "Checking MGSM responses:"
+python3 "${PROJECT_ROOT}/data/check_english_responses-exp_v2.py" --dataset mgsm
 
 echo "Checking MMMLU responses:"
 python3 "${PROJECT_ROOT}/data/check_english_responses-exp_v2.py" --dataset mmmlu

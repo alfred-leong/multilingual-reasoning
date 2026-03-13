@@ -3,7 +3,7 @@ set -e
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 
-source /home/alfred/miniconda3/etc/profile.d/conda.sh
+source /tier1/home/lweilun/miniconda3/etc/profile.d/conda.sh
 conda activate ml-delta
 
 # Settings
@@ -12,7 +12,7 @@ PORTS=(8401 8402 8403)
 GPUS=(5 6 7)
 LANGS=("ja" "bn" "sw")
 PORT_WAIT=600
-MAX_MODEL_LEN=8192
+MAX_MODEL_LEN=70000
 GPU_UTIL=0.85
 LOG_DIR="${PROJECT_ROOT}/outputs-exp_v2/logs"
 PID_FILE="/tmp/vllm_translate_gen_pids.txt"
@@ -70,15 +70,15 @@ for i in {0..2}; do
     lang="${LANGS[$i]}"
     port="${PORTS[$i]}"
     
-    # mgsm
-    python3 "${PROJECT_ROOT}/data/translate_responses-exp_v2.py" --dataset mgsm --language "$lang" --port "$port" --workers 3 \
-        > "${LOG_DIR}/trans_mgsm_${lang}.log" 2>&1 &
-    TRANS_PIDS+=($!)
-    
-    # # mmmlu
-    # python3 "${PROJECT_ROOT}/data/translate_responses-exp_v2.py" --dataset mmmlu --language "$lang" --port "$port" --workers 3 \
-    #     > "${LOG_DIR}/trans_mmmlu_${lang}.log" 2>&1 &
+    # # mgsm
+    # python3 "${PROJECT_ROOT}/data/translate_responses-exp_v2.py" --dataset mgsm --language "$lang" --port "$port" --workers 3 \
+    #     > "${LOG_DIR}/trans_mgsm_${lang}.log" 2>&1 &
     # TRANS_PIDS+=($!)
+    
+    # mmmlu
+    python3 "${PROJECT_ROOT}/data/translate_responses-exp_v2.py" --dataset mmmlu --language "$lang" --port "$port" --workers 3 \
+        > "${LOG_DIR}/trans_mmmlu_${lang}.log" 2>&1 &
+    TRANS_PIDS+=($!)
 done
 
 FAIL=0
@@ -94,10 +94,10 @@ if [[ $FAIL -eq 1 ]]; then
 fi
 
 # Check outputs
-echo "Checking MGSM translated responses:"
+echo "Checking MGSM and MMMLU translated responses:"
 for lang in "${LANGS[@]}"; do
     python3 "${PROJECT_ROOT}/data/check_translated_responses-exp_v2.py" --dataset mgsm --language "$lang"
-    # python3 "${PROJECT_ROOT}/data/check_translated_responses-exp_v2.py" --dataset mmmlu --language "$lang"
+    python3 "${PROJECT_ROOT}/data/check_translated_responses-exp_v2.py" --dataset mmmlu --language "$lang"
 done
 
 echo "Translation complete. Stopping vLLM..."

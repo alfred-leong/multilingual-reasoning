@@ -104,7 +104,7 @@ def translate_text(
     model_name: str,
     text: str,
     target_lang_code: str,
-    max_tokens: int = 8192,
+    max_tokens: int = 32768,
     temperature: float = 0.3,
     top_p: float = 0.95,
 ) -> str:
@@ -143,7 +143,7 @@ def translate_response(
     model_name: str,
     english_response: str,
     target_lang_code: str,
-    max_tokens: int = 8192,
+    max_tokens: int = 32768,
     temperature: float = 0.3,
     top_p: float = 0.95,
 ) -> str:
@@ -178,9 +178,9 @@ def _translation_worker(
 ) -> None:
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     logger = _setup_logger(
-        name=f"trans.{target_lang}.w{rank}",
+        name=f"{dataset}_trans.{target_lang}.w{rank}",
         log_dir=Path(log_dir),
-        filename=f"trans_{target_lang}_w{rank}_{ts}.log",
+        filename=f"{dataset}_trans_{target_lang}_w{rank}_{ts}.log",
     )
     logger.info("Worker %d processing %d rows for %s", rank, len(rows), target_lang)
 
@@ -217,6 +217,8 @@ def _translation_worker(
             record = row.copy()
             record["translated_response"] = translated_response
             record["translated_answer"] = translated_answer
+            is_same = (row.get("english_answer", "") == translated_answer)
+            record["english_ans=translated_ans"] = is_same
 
             fout.write(json.dumps(record, ensure_ascii=False) + "\n")
 
@@ -245,8 +247,50 @@ def main() -> None:
         print(f"Error: {input_file} does not exist.")
         return
 
+    # Check if translated_{args.language}_responses.jsonl exists
+    if (out_dir / f"translated_{args.language}_responses.jsonl").exists():
+        print(f"Warning: {out_dir / f'translated_{args.language}_responses.jsonl'} already exists... Skipping translation.")
+        return
+
+    # Check for existing progress
+    processed_qids = set()
+    resumed_records = []
+    existing_parts = list(out_dir.glob(f"part_{args.language}_*.jsonl"))
+    if existing_parts:
+        print(f"Found {len(existing_parts)} existing part files. Checking for progress...")
+        for p in existing_parts:
+            with open(p, "r", encoding="utf-8") as f:
+                for line in f:
+                    try:
+                        record = json.loads(line)
+                        qid = record.get("question_index")
+                        if qid is not None:
+                            processed_qids.add(qid)
+                        
+                        # Add/Update the keys
+                        eng_ans = record.get("english_answer", "")
+                        trans_ans = record.get("translated_answer", "")
+                        is_same = (eng_ans == trans_ans)
+                        record["english_ans=translated_ans"] = is_same
+                        resumed_records.append(record)
+                    except json.JSONDecodeError:
+                        continue
+    
+    rows = [r for r in rows if r.get("question_index") not in processed_qids]
     total = len(rows)
-    print(f"Loaded {total} rows. Distributing to {args.workers} workers on port {args.port}.")
+    print(f"Resuming: {len(processed_qids)} already done. {total} remaining. Distributing to {args.workers} workers on port {args.port}.")
+
+    resumed_path = None
+    if resumed_records:
+        resumed_path = out_dir / f"part_{args.language}_resumed.jsonl"
+        with open(resumed_path, "w", encoding="utf-8") as f:
+            for rec in resumed_records:
+                f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+        
+        # Now safe to delete old parts that aren't the resumed one
+        for p in existing_parts:
+            if p != resumed_path:
+                p.unlink()
 
     chunk_size = math.ceil(total / args.workers)
     chunks = [rows[i * chunk_size : (i + 1) * chunk_size] for i in range(args.workers) if i * chunk_size < total]
@@ -274,8 +318,12 @@ def main() -> None:
     # Merge
     out_path = out_dir / f"translated_{args.language}_responses.jsonl"
     total_written = 0
+    all_tmp_paths = tmp_paths
+    if resumed_path and resumed_path.exists():
+        all_tmp_paths = [str(resumed_path)] + all_tmp_paths
+
     with open(out_path, "w", encoding="utf-8") as fout:
-        for tmp_path in tmp_paths:
+        for tmp_path in all_tmp_paths:
             tmp = Path(tmp_path)
             if tmp.exists():
                 with open(tmp, "r", encoding="utf-8") as fin:

@@ -120,22 +120,20 @@ def _native_generation_worker(
     target_lang: str,
     tmp_path: str,
     port: int,
-    prompts: dict,
+    system_prompt: str,
+    thinking_prefix: str,
     log_dir: str,
 ) -> None:
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     logger = _setup_logger(
-        name=f"native.{target_lang}.w{rank}",
+        name=f"{dataset}_native.{target_lang}.w{rank}",
         log_dir=Path(log_dir),
-        filename=f"native_gen_{target_lang}_w{rank}_{ts}.log",
+        filename=f"{dataset}_native_gen_{target_lang}_w{rank}_{ts}.log",
     )
     logger.info("Worker %d processing %d rows for %s", rank, len(rows), target_lang)
 
     client = openai.OpenAI(base_url=f"http://localhost:{port}/v1", api_key="EMPTY")
     model_name = "Qwen/Qwen3-1.7B"
-
-    native_sp = prompts["native_system_prompt"]
-    thinking_prefix = prompts["thinking_prefix"]
 
     with (
         open(tmp_path, "w", encoding="utf-8") as fout,
@@ -158,7 +156,7 @@ def _native_generation_worker(
                     else:
                         gold_answer = str(ans_val)
 
-            msgs = build_messages(native_sp, native_question)
+            msgs = build_messages(system_prompt, native_question)
             
             fut: Future = pool.submit(
                 generate_response_api,
@@ -216,21 +214,10 @@ def main() -> None:
 
     # For math datasets vs MMMLU, we might need to adjust the system prompt slightly to include the json or boxed rule
     if args.dataset == "mgsm":
-        # we can append the translation of the 'boxed' rule to native_system_prompt if needed.
-        # However, looking at the user instructions:
-        # "Use a system prompt that translates the English system prompt to the native language and explicit tells the model to generate responses in the native language"
-        # Since translate_dpo_prompts does precisely this already, we just use it.
-        pass
+        system_prompt = prompts["native_system_prompt_mgsm"]
     else:
-        # for multiple choice, similarly we just use the dpo system prompts but append the json rule
-        # 'translate_dpo_prompts' does not natively have this. For robust testing, we append a small rule
-        # The prompt in English: 'Please show your choice in the answer field with only the choice letter, e.g., "answer": "C".'
-        if args.language == "ja":
-            prompts["native_system_prompt"] += ' 解答欄には選択肢の文字のみを記述してください。例："answer": "C"'
-        elif args.language == "bn":
-            prompts["native_system_prompt"] += ' উত্তর ক্ষেত্রে আপনার পছন্দ শুধুমাত্র অক্ষরের সাথে দেখান, যেমন, "answer": "C"' # basic translation
-        elif args.language == "sw":
-            prompts["native_system_prompt"] += ' Tafadhali onyesha chaguo lako katika sehemu ya jibu na herufi ya chaguo pekee, k.m., "answer": "C"'
+        system_prompt = prompts["native_system_prompt_mmmlu"]
+    thinking_prefix = prompts["thinking_prefix"]
 
     total = len(rows)
     print(f"Loaded {total} rows. Distributing to {args.workers} workers on port {args.port}.")
@@ -244,7 +231,7 @@ def main() -> None:
     for rank, (chunk, tmp_path) in enumerate(zip(chunks, tmp_paths)):
         p = ctx.Process(
             target=_native_generation_worker,
-            args=(rank, chunk, args.dataset, args.language, tmp_path, args.port, prompts, str(log_dir)),
+            args=(rank, chunk, args.dataset, args.language, tmp_path, args.port, system_prompt, thinking_prefix, str(log_dir)),
         )
         p.start()
         procs.append(p)

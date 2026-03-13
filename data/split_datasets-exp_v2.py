@@ -35,7 +35,7 @@ def load_data(dataset_name):
         
         if dataset_name == "mgsm":
             # Load local TSV
-            filepath = f"/external1/alfred/datasets/ml-delta-reasoning/mgsm_{info['name']}.tsv"
+            filepath = f"/tier1/home/lweilun/multilingual-reasoning/data/mgsm/mgsm_{info['name']}.tsv"
             list_data = []
             with open(filepath, "r", encoding="utf-8") as f:
                 for line in f:
