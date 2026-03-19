@@ -1,0 +1,54 @@
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/alfred/.netrc.
+wandb: Currently logged in as: alfred-leong (alfred-leong-national-university-of-singapore) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run wscca37s
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /home/alfred/multilingual-reasoning/wandb/run-20260316_133807-wscca37s
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run sft_no-filter_lora_mgsm_sw
+wandb: ⭐️ View project at https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning
+wandb: 🚀 View run at https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning/runs/wscca37s
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.27it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.54it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.21it/s]
+Adding EOS to train dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Adding EOS to train dataset: 100%|██████████| 200/200 [00:00<00:00, 14750.24 examples/s]
+Tokenizing train dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Tokenizing train dataset:  12%|█▏        | 24/200 [00:00<00:00, 224.05 examples/s]Tokenizing train dataset:  30%|███       | 60/200 [00:00<00:00, 295.13 examples/s]Tokenizing train dataset:  46%|████▋     | 93/200 [00:00<00:00, 308.09 examples/s]Tokenizing train dataset:  65%|██████▌   | 130/200 [00:00<00:00, 323.77 examples/s]Tokenizing train dataset:  84%|████████▎ | 167/200 [00:00<00:00, 337.71 examples/s]Tokenizing train dataset: 100%|██████████| 200/200 [00:00<00:00, 291.13 examples/s]
+Truncating train dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Truncating train dataset: 100%|██████████| 200/200 [00:00<00:00, 41529.82 examples/s]
+The model is already on multiple devices. Skipping the move to device specified in `args`.
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+  0%|          | 0/39 [00:00<?, ?it/s]  3%|▎         | 1/39 [00:05<03:31,  5.58s/it]  5%|▌         | 2/39 [00:10<03:11,  5.16s/it]  8%|▊         | 3/39 [00:14<02:55,  4.87s/it] 10%|█         | 4/39 [00:18<02:37,  4.50s/it] 13%|█▎        | 5/39 [00:22<02:18,  4.08s/it] 15%|█▌        | 6/39 [00:25<02:07,  3.87s/it] 18%|█▊        | 7/39 [00:28<01:56,  3.64s/it] 21%|██        | 8/39 [00:31<01:43,  3.34s/it] 23%|██▎       | 9/39 [00:34<01:36,  3.20s/it] 26%|██▌       | 10/39 [00:37<01:31,  3.16s/it]                                                26%|██▌       | 10/39 [00:37<01:31,  3.16s/it] 28%|██▊       | 11/39 [00:40<01:28,  3.15s/it] 31%|███       | 12/39 [00:43<01:23,  3.11s/it] 33%|███▎      | 13/39 [00:45<01:09,  2.68s/it] 36%|███▌      | 14/39 [00:49<01:15,  3.00s/it] 38%|███▊      | 15/39 [00:52<01:11,  2.97s/it] 41%|████      | 16/39 [00:54<01:06,  2.89s/it] 44%|████▎     | 17/39 [00:57<01:05,  2.96s/it] 46%|████▌     | 18/39 [01:00<01:00,  2.89s/it] 49%|████▊     | 19/39 [01:03<00:56,  2.85s/it] 51%|█████▏    | 20/39 [01:06<00:54,  2.86s/it]                                                51%|█████▏    | 20/39 [01:06<00:54,  2.86s/it] 54%|█████▍    | 21/39 [01:09<00:53,  2.98s/it] 56%|█████▋    | 22/39 [01:12<00:51,  3.00s/it] 59%|█████▉    | 23/39 [01:15<00:48,  3.05s/it] 62%|██████▏   | 24/39 [01:19<00:47,  3.16s/it] 64%|██████▍   | 25/39 [01:22<00:43,  3.10s/it] 67%|██████▋   | 26/39 [01:23<00:33,  2.59s/it] 69%|██████▉   | 27/39 [01:27<00:37,  3.13s/it] 72%|███████▏  | 28/39 [01:30<00:33,  3.05s/it] 74%|███████▍  | 29/39 [01:33<00:31,  3.12s/it] 77%|███████▋  | 30/39 [01:36<00:27,  3.06s/it]                                                77%|███████▋  | 30/39 [01:36<00:27,  3.06s/it] 79%|███████▉  | 31/39 [01:40<00:24,  3.09s/it] 82%|████████▏ | 32/39 [01:43<00:21,  3.04s/it] 85%|████████▍ | 33/39 [01:45<00:17,  2.96s/it] 87%|████████▋ | 34/39 [01:48<00:14,  2.90s/it] 90%|████████▉ | 35/39 [01:51<00:11,  3.00s/it] 92%|█████████▏| 36/39 [01:54<00:08,  2.95s/it] 95%|█████████▍| 37/39 [01:57<00:05,  2.95s/it] 97%|█████████▋| 38/39 [02:00<00:03,  3.01s/it]100%|██████████| 39/39 [02:02<00:00,  2.50s/it]                                               100%|██████████| 39/39 [02:02<00:00,  2.50s/it]100%|██████████| 39/39 [02:02<00:00,  3.15s/it]
+wandb: updating run metadata
+wandb: uploading config.yaml
+wandb: uploading console lines 9-11
+wandb: 
+wandb: Run history:
+wandb:             train/entropy ▁▄▆█
+wandb:               train/epoch ▁▃▆█
+wandb:         train/global_step ▁▃▆█
+wandb:           train/grad_norm █▄▁
+wandb:       train/learning_rate █▄▁
+wandb:                train/loss █▅▁
+wandb: train/mean_token_accuracy ▁▁█▂
+wandb:          train/num_tokens ▁▃▆█
+wandb: 
+wandb: Run summary:
+wandb:                total_flos 9751320333987840.0
+wandb:             train/entropy 1.15444
+wandb:               train/epoch 3
+wandb:         train/global_step 39
+wandb:           train/grad_norm 0.65481
+wandb:       train/learning_rate 1e-05
+wandb:                train/loss 1.6613
+wandb: train/mean_token_accuracy 0.66924
+wandb:          train/num_tokens 1147890.0
+wandb:                train_loss 1.75896
+wandb:                        +3 ...
+wandb: 
+wandb: 🚀 View run sft_no-filter_lora_mgsm_sw at: https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning/runs/wscca37s
+wandb: ⭐️ View project at: https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260316_133807-wscca37s/logs
+{'loss': 1.8712, 'grad_norm': 1.0932955741882324, 'learning_rate': 1.5384615384615387e-05, 'entropy': 0.8575304940342903, 'num_tokens': 304855.0, 'mean_token_accuracy': 0.6668364409357309, 'epoch': 0.8}
+{'loss': 1.7876, 'grad_norm': 0.8362851738929749, 'learning_rate': 1.0256410256410256e-05, 'entropy': 0.9820466594476449, 'num_tokens': 583441.0, 'mean_token_accuracy': 0.6673797680751273, 'epoch': 1.56}
+{'loss': 1.6613, 'grad_norm': 0.6548076868057251, 'learning_rate': 5.128205128205128e-06, 'entropy': 1.062411236527719, 'num_tokens': 894577.0, 'mean_token_accuracy': 0.6802208541255248, 'epoch': 2.32}
+{'train_runtime': 122.9133, 'train_samples_per_second': 4.881, 'train_steps_per_second': 0.317, 'train_loss': 1.75896116403433, 'entropy': 1.1544437956284075, 'num_tokens': 1147890.0, 'mean_token_accuracy': 0.6692430611480685, 'epoch': 3.0}
+Saved SFT model to /external1/alfred/models/ml-reasoning-exp_v2/sft_no-filter_lora_mgsm_sw
+[W316 13:40:33.457588947 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

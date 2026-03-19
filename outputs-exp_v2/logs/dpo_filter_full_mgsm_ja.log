@@ -1,0 +1,84 @@
+The following values were not passed to `accelerate launch` and had defaults used instead:
+		More than one GPU was found, enabling multi-GPU training.
+		If this was unintended please pass in `--num_processes=1`.
+	`--num_machines` was set to a value of `1`
+	`--mixed_precision` was set to a value of `'no'`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+W0316 11:17:55.232000 1392491 site-packages/torch/distributed/run.py:803] 
+W0316 11:17:55.232000 1392491 site-packages/torch/distributed/run.py:803] *****************************************
+W0316 11:17:55.232000 1392491 site-packages/torch/distributed/run.py:803] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0316 11:17:55.232000 1392491 site-packages/torch/distributed/run.py:803] *****************************************
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/alfred/.netrc.
+wandb: Currently logged in as: alfred-leong (alfred-leong-national-university-of-singapore) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]wandb: setting up run bztdo6ze
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 45.37it/s]
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /home/alfred/multilingual-reasoning/wandb/run-20260316_111800-bztdo6ze
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run dpo_filter_full_mgsm_ja
+wandb: ⭐️ View project at https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning
+wandb: 🚀 View run at https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning/runs/bztdo6ze
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 51.47it/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 33.77it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 63.50it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 64.71it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 69.43it/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 61.17it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 46.24it/s]
+Adding EOS to train dataset:   0%|          | 0/72 [00:00<?, ? examples/s]Adding EOS to train dataset: 100%|██████████| 72/72 [00:00<00:00, 3968.90 examples/s]
+Tokenizing train dataset:   0%|          | 0/72 [00:00<?, ? examples/s]Tokenizing train dataset:  19%|█▉        | 14/72 [00:00<00:00, 132.35 examples/s]Tokenizing train dataset:  43%|████▎     | 31/72 [00:00<00:00, 148.91 examples/s]Tokenizing train dataset:  67%|██████▋   | 48/72 [00:00<00:00, 155.47 examples/s]Tokenizing train dataset:  93%|█████████▎| 67/72 [00:00<00:00, 164.85 examples/s]Tokenizing train dataset: 100%|██████████| 72/72 [00:00<00:00, 146.79 examples/s]
+Adding EOS to train dataset:   0%|          | 0/72 [00:00<?, ? examples/s]Adding EOS to train dataset:   0%|          | 0/72 [00:00<?, ? examples/s]Adding EOS to train dataset:   0%|          | 0/72 [00:00<?, ? examples/s]Adding EOS to train dataset: 100%|██████████| 72/72 [00:00<00:00, 3367.72 examples/s]
+Adding EOS to train dataset: 100%|██████████| 72/72 [00:00<00:00, 3345.18 examples/s]
+Adding EOS to train dataset: 100%|██████████| 72/72 [00:00<00:00, 3306.98 examples/s]
+Tokenizing train dataset:   0%|          | 0/72 [00:00<?, ? examples/s]Tokenizing train dataset:   0%|          | 0/72 [00:00<?, ? examples/s]Tokenizing train dataset:   0%|          | 0/72 [00:00<?, ? examples/s]Tokenizing train dataset:  22%|██▏       | 16/72 [00:00<00:00, 152.32 examples/s]Tokenizing train dataset:  21%|██        | 15/72 [00:00<00:00, 139.94 examples/s]Tokenizing train dataset:  22%|██▏       | 16/72 [00:00<00:00, 153.54 examples/s]Tokenizing train dataset:  56%|█████▌    | 40/72 [00:00<00:00, 197.57 examples/s]Tokenizing train dataset:  56%|█████▌    | 40/72 [00:00<00:00, 199.28 examples/s]Tokenizing train dataset:  54%|█████▍    | 39/72 [00:00<00:00, 190.56 examples/s]Tokenizing train dataset:  89%|████████▉ | 64/72 [00:00<00:00, 214.52 examples/s]Tokenizing train dataset:  88%|████████▊ | 63/72 [00:00<00:00, 207.99 examples/s]Tokenizing train dataset:  90%|█████████ | 65/72 [00:00<00:00, 216.21 examples/s]Tokenizing train dataset: 100%|██████████| 72/72 [00:00<00:00, 190.10 examples/s]
+Tokenizing train dataset: 100%|██████████| 72/72 [00:00<00:00, 191.47 examples/s]
+Tokenizing train dataset: 100%|██████████| 72/72 [00:00<00:00, 183.16 examples/s]
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+Gradient accumulation steps mismatch: GradientAccumulationPlugin has 1, DeepSpeed config has 16. Using DeepSpeed's value.
+  0%|          | 0/6 [00:00<?, ?it/s] 17%|█▋        | 1/6 [00:17<01:26, 17.31s/it] 33%|███▎      | 2/6 [00:18<00:32,  8.02s/it] 50%|█████     | 3/6 [00:44<00:47, 15.95s/it] 67%|██████▋   | 4/6 [00:45<00:20, 10.21s/it] 83%|████████▎ | 5/6 [01:08<00:14, 14.87s/it]100%|██████████| 6/6 [01:10<00:00, 10.35s/it]                                             {'train_runtime': 82.29, 'train_samples_per_second': 2.625, 'train_steps_per_second': 0.073, 'train_loss': 0.11526296536127727, 'entropy': 0.4099392361111111, 'num_tokens': 436656.0, 'logits/chosen': -2.510988374636725, 'logits/rejected': -2.57260719218274, 'mean_token_accuracy': 0.7980313069290585, 'rewards/chosen': 24.609953703703702, 'rewards/rejected': -3.130353009259259, 'rewards/accuracies': 0.7037037037037037, 'rewards/margins': 27.725694444444443, 'logps/chosen': -1203.7777777777778, 'logps/rejected': -201.4814814814815, 'epoch': 3.0}
+100%|██████████| 6/6 [01:22<00:00, 10.35s/it]100%|██████████| 6/6 [01:22<00:00, 13.71s/it]
+Saved DPO model to /external1/alfred/models/ml-reasoning-exp_v2/dpo_filter_full_mgsm_ja
+Saved DPO model to /external1/alfred/models/ml-reasoning-exp_v2/dpo_filter_full_mgsm_ja
+Saved DPO model to /external1/alfred/models/ml-reasoning-exp_v2/dpo_filter_full_mgsm_ja
+wandb: updating run metadata
+wandb: uploading output.log; uploading wandb-summary.json
+wandb: 
+wandb: Run history:
+wandb:             train/entropy ▁
+wandb:               train/epoch ▁
+wandb:         train/global_step ▁
+wandb:       train/logits/chosen ▁
+wandb:     train/logits/rejected ▁
+wandb:        train/logps/chosen ▁
+wandb:      train/logps/rejected ▁
+wandb: train/mean_token_accuracy ▁
+wandb:          train/num_tokens ▁
+wandb:  train/rewards/accuracies ▁
+wandb:                        +3 ...
+wandb: 
+wandb: Run summary:
+wandb:                total_flos 458863591424.0
+wandb:             train/entropy 0.40994
+wandb:               train/epoch 3
+wandb:         train/global_step 6
+wandb:       train/logits/chosen -2.51099
+wandb:     train/logits/rejected -2.57261
+wandb:        train/logps/chosen -1203.77778
+wandb:      train/logps/rejected -201.48148
+wandb: train/mean_token_accuracy 0.79803
+wandb:          train/num_tokens 436656
+wandb:                        +8 ...
+wandb: 
+wandb: 🚀 View run dpo_filter_full_mgsm_ja at: https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning/runs/bztdo6ze
+wandb: ⭐️ View project at: https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260316_111800-bztdo6ze/logs
+Saved DPO model to /external1/alfred/models/ml-reasoning-exp_v2/dpo_filter_full_mgsm_ja

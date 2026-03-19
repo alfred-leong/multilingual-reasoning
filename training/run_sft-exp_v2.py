@@ -8,7 +8,7 @@ from pathlib import Path
 import torch
 import wandb
 from datasets import Dataset
-from peft import LoraConfig, TaskType, get_peft_model
+from peft import LoraConfig, TaskType
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from trl import SFTConfig, SFTTrainer
 
@@ -60,30 +60,35 @@ def main():
     wandb.init(project="ml-reasoning", name=run_name, group=args.dataset, job_type="sft")
 
     # Load model
+    # device_map="auto" conflicts with DeepSpeed/accelerate multi-GPU management;
+    # only use it for single-GPU LoRA runs.
     dtype = torch.bfloat16 if torch.cuda.is_available() else torch.float32
-    model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=dtype, device_map="auto", trust_remote_code=True)
+    device_map = "auto" if not args.full_finetune else None
+    model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=dtype, device_map=device_map, trust_remote_code=True)
 
+    peft_config = None
     if not args.full_finetune:
-        lora_config = LoraConfig(
+        peft_config = LoraConfig(
             task_type=TaskType.CAUSAL_LM,
             r=16,
             lora_alpha=32,
             lora_dropout=0.05,
             target_modules=["q_proj", "k_proj", "v_proj", "o_proj"]
         )
-        model = get_peft_model(model, lora_config)
 
     sft_config = SFTConfig(
         output_dir=str(output_dir),
         learning_rate=2e-5,
         num_train_epochs=3,
-        per_device_train_batch_size=4,
-        gradient_accumulation_steps=4,
+        per_device_train_batch_size=1,
+        gradient_accumulation_steps=16,
         save_strategy="epoch",
         bf16=torch.cuda.is_available(),
         report_to="wandb",
         dataset_text_field="text",
-        max_seq_length=4096,
+        max_length=12288,
+        gradient_checkpointing=True,
+        gradient_checkpointing_kwargs={"use_reentrant": False},
     )
 
     trainer = SFTTrainer(
@@ -91,6 +96,7 @@ def main():
         args=sft_config,
         train_dataset=dataset,
         processing_class=tokenizer,
+        peft_config=peft_config,
     )
 
     trainer.train()

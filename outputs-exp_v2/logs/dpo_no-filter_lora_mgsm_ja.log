@@ -1,0 +1,81 @@
+The following values were not passed to `accelerate launch` and had defaults used instead:
+		More than one GPU was found, enabling multi-GPU training.
+		If this was unintended please pass in `--num_processes=1`.
+	`--num_machines` was set to a value of `1`
+	`--mixed_precision` was set to a value of `'no'`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/alfred/.netrc.
+wandb: Currently logged in as: alfred-leong (alfred-leong-national-university-of-singapore) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 44.96it/s]
+wandb: setting up run wvuo8imx
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /home/alfred/multilingual-reasoning/wandb/run-20260316_114443-wvuo8imx
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run dpo_no-filter_lora_mgsm_ja
+wandb: ⭐️ View project at https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning
+wandb: 🚀 View run at https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning/runs/wvuo8imx
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 45.08it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 48.89it/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 50.12it/s]
+Adding EOS to train dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Adding EOS to train dataset: 100%|██████████| 200/200 [00:00<00:00, 10198.79 examples/s]
+Tokenizing train dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Tokenizing train dataset:   9%|▉         | 18/200 [00:00<00:01, 177.79 examples/s]Tokenizing train dataset:  23%|██▎       | 46/200 [00:00<00:00, 230.21 examples/s]Tokenizing train dataset:  37%|███▋      | 74/200 [00:00<00:00, 243.60 examples/s]Tokenizing train dataset:  50%|█████     | 101/200 [00:00<00:00, 249.54 examples/s]Tokenizing train dataset:  64%|██████▎   | 127/200 [00:00<00:00, 250.67 examples/s]Tokenizing train dataset:  77%|███████▋  | 154/200 [00:00<00:00, 255.48 examples/s]Tokenizing train dataset:  90%|█████████ | 181/200 [00:00<00:00, 258.11 examples/s]Tokenizing train dataset: 100%|██████████| 200/200 [00:00<00:00, 230.20 examples/s]
+Adding EOS to train dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Adding EOS to train dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Adding EOS to train dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Adding EOS to train dataset: 100%|██████████| 200/200 [00:00<00:00, 4429.74 examples/s]
+Adding EOS to train dataset: 100%|██████████| 200/200 [00:00<00:00, 4485.69 examples/s]
+Adding EOS to train dataset: 100%|██████████| 200/200 [00:00<00:00, 4464.64 examples/s]
+Tokenizing train dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Tokenizing train dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Tokenizing train dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Tokenizing train dataset:  10%|▉         | 19/200 [00:00<00:00, 182.10 examples/s]Tokenizing train dataset:  10%|▉         | 19/200 [00:00<00:01, 177.21 examples/s]Tokenizing train dataset:  10%|▉         | 19/200 [00:00<00:00, 181.38 examples/s]Tokenizing train dataset:  22%|██▎       | 45/200 [00:00<00:00, 223.01 examples/s]Tokenizing train dataset:  23%|██▎       | 46/200 [00:00<00:00, 228.83 examples/s]Tokenizing train dataset:  24%|██▍       | 49/200 [00:00<00:00, 242.15 examples/s]Tokenizing train dataset:  36%|███▋      | 73/200 [00:00<00:00, 243.32 examples/s]Tokenizing train dataset:  46%|████▋     | 93/200 [00:00<00:00, 325.21 examples/s]Tokenizing train dataset:  37%|███▋      | 74/200 [00:00<00:00, 246.40 examples/s]Tokenizing train dataset:  49%|████▉     | 98/200 [00:00<00:00, 243.90 examples/s]Tokenizing train dataset:  70%|██████▉   | 139/200 [00:00<00:00, 371.58 examples/s]Tokenizing train dataset:  50%|█████     | 101/200 [00:00<00:00, 251.38 examples/s]Tokenizing train dataset:  62%|██████▏   | 124/200 [00:00<00:00, 248.19 examples/s]Tokenizing train dataset:  93%|█████████▎| 186/200 [00:00<00:00, 402.73 examples/s]Tokenizing train dataset:  64%|██████▎   | 127/200 [00:00<00:00, 252.54 examples/s]Tokenizing train dataset: 100%|██████████| 200/200 [00:00<00:00, 336.92 examples/s]
+Tokenizing train dataset:  76%|███████▌  | 151/200 [00:00<00:00, 252.96 examples/s]Tokenizing train dataset:  78%|███████▊  | 155/200 [00:00<00:00, 258.77 examples/s]Tokenizing train dataset:  89%|████████▉ | 178/200 [00:00<00:00, 257.20 examples/s]Tokenizing train dataset:  91%|█████████ | 182/200 [00:00<00:00, 259.68 examples/s]Tokenizing train dataset: 100%|██████████| 200/200 [00:00<00:00, 231.05 examples/s]
+Tokenizing train dataset: 100%|██████████| 200/200 [00:00<00:00, 227.91 examples/s]
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+  0%|          | 0/12 [00:00<?, ?it/s][rank0]:[W316 11:45:21.637617514 reducer.cpp:1431] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank2]:[W316 11:45:21.659128943 reducer.cpp:1431] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank1]:[W316 11:45:21.660967901 reducer.cpp:1431] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank3]:[W316 11:45:21.842547411 reducer.cpp:1431] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+  8%|▊         | 1/12 [00:10<01:52, 10.19s/it] 17%|█▋        | 2/12 [00:18<01:30,  9.04s/it] 25%|██▌       | 3/12 [00:25<01:12,  8.08s/it] 33%|███▎      | 4/12 [00:26<00:42,  5.27s/it] 42%|████▏     | 5/12 [00:34<00:44,  6.34s/it] 50%|█████     | 6/12 [00:41<00:38,  6.45s/it] 58%|█████▊    | 7/12 [00:49<00:34,  6.89s/it] 67%|██████▋   | 8/12 [00:50<00:20,  5.03s/it] 75%|███████▌  | 9/12 [00:58<00:17,  5.97s/it] 83%|████████▎ | 10/12 [01:05<00:12,  6.34s/it]                                               {'loss': 0.4172, 'grad_norm': 20.589086532592773, 'learning_rate': 2.5e-06, 'entropy': 0.3100526934546052, 'num_tokens': 951748.0, 'logits/chosen': -3.6291987487044977, 'logits/rejected': -3.6805556444169913, 'mean_token_accuracy': 0.776879864208626, 'rewards/chosen': 0.7511729912648937, 'rewards/rejected': -0.03302577556160307, 'rewards/accuracies': 0.8068181818181818, 'rewards/margins': 0.7841987678019161, 'logps/chosen': -1341.049042672822, 'logps/rejected': -158.0790541677764, 'epoch': 2.64}
+ 83%|████████▎ | 10/12 [01:05<00:12,  6.34s/it] 92%|█████████▏| 11/12 [01:12<00:06,  6.58s/it]100%|██████████| 12/12 [01:13<00:00,  4.83s/it]                                               {'train_runtime': 74.1391, 'train_samples_per_second': 8.093, 'train_steps_per_second': 0.162, 'train_loss': 0.3702605664730072, 'entropy': 0.32615235282315147, 'num_tokens': 1079382.0, 'logits/chosen': -3.5888602357126578, 'logits/rejected': -3.6483142316314474, 'mean_token_accuracy': 0.7699980603324043, 'rewards/chosen': 1.776790784464942, 'rewards/rejected': -0.05042136491586765, 'rewards/accuracies': 1.0, 'rewards/margins': 1.827212154865265, 'logps/chosen': -1389.3500434027778, 'logps/rejected': -155.00938415527344, 'epoch': 3.0}
+100%|██████████| 12/12 [01:14<00:00,  4.83s/it]100%|██████████| 12/12 [01:14<00:00,  6.17s/it]
+Saved DPO model to /external1/alfred/models/ml-reasoning-exp_v2/dpo_no-filter_lora_mgsm_ja
+Saved DPO model to /external1/alfred/models/ml-reasoning-exp_v2/dpo_no-filter_lora_mgsm_ja
+Saved DPO model to /external1/alfred/models/ml-reasoning-exp_v2/dpo_no-filter_lora_mgsm_ja
+wandb: updating run metadata
+wandb: uploading history steps 1-1, summary, console lines 5-5
+wandb: uploading console lines 7-7
+wandb: 
+wandb: Run history:
+wandb:         train/entropy ▁█
+wandb:           train/epoch ▁█
+wandb:     train/global_step ▁█
+wandb:       train/grad_norm ▁
+wandb:   train/learning_rate ▁
+wandb:   train/logits/chosen ▁█
+wandb: train/logits/rejected ▁█
+wandb:    train/logps/chosen █▁
+wandb:  train/logps/rejected ▁█
+wandb:            train/loss ▁
+wandb:                    +6 ...
+wandb: 
+wandb: Run summary:
+wandb:            total_flos 1.3342307986178048e+16
+wandb:         train/entropy 0.32615
+wandb:           train/epoch 3
+wandb:     train/global_step 12
+wandb:       train/grad_norm 20.58909
+wandb:   train/learning_rate 0.0
+wandb:   train/logits/chosen -3.58886
+wandb: train/logits/rejected -3.64831
+wandb:    train/logps/chosen -1389.35004
+wandb:  train/logps/rejected -155.00938
+wandb:                   +11 ...
+wandb: 
+wandb: 🚀 View run dpo_no-filter_lora_mgsm_ja at: https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning/runs/wvuo8imx
+wandb: ⭐️ View project at: https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260316_114443-wvuo8imx/logs
+Saved DPO model to /external1/alfred/models/ml-reasoning-exp_v2/dpo_no-filter_lora_mgsm_ja

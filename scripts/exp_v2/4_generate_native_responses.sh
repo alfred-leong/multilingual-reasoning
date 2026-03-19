@@ -3,7 +3,7 @@ set -e
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 
-source /tier1/home/lweilun/miniconda3/etc/profile.d/conda.sh
+source /home/alfred/miniconda3/etc/profile.d/conda.sh
 conda activate ml-delta
 
 # Settings

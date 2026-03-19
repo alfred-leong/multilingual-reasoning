@@ -1,0 +1,80 @@
+The following values were not passed to `accelerate launch` and had defaults used instead:
+		More than one GPU was found, enabling multi-GPU training.
+		If this was unintended please pass in `--num_processes=1`.
+	`--num_machines` was set to a value of `1`
+	`--mixed_precision` was set to a value of `'no'`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/alfred/.netrc.
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 105.96it/s]
+wandb: Currently logged in as: alfred-leong (alfred-leong-national-university-of-singapore) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 45.32it/s]
+wandb: setting up run w703brki
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /home/alfred/multilingual-reasoning/wandb/run-20260316_104742-w703brki
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run dpo_filter_lora_mgsm_ja
+wandb: ⭐️ View project at https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning
+wandb: 🚀 View run at https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning/runs/w703brki
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 52.07it/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 46.95it/s]
+Adding EOS to train dataset:   0%|          | 0/72 [00:00<?, ? examples/s]Adding EOS to train dataset: 100%|██████████| 72/72 [00:00<00:00, 12131.52 examples/s]
+Tokenizing train dataset:   0%|          | 0/72 [00:00<?, ? examples/s]Tokenizing train dataset:  51%|█████▏    | 37/72 [00:00<00:00, 357.52 examples/s]Tokenizing train dataset: 100%|██████████| 72/72 [00:00<00:00, 353.09 examples/s]
+Adding EOS to train dataset:   0%|          | 0/72 [00:00<?, ? examples/s]Adding EOS to train dataset:   0%|          | 0/72 [00:00<?, ? examples/s]Adding EOS to train dataset:   0%|          | 0/72 [00:00<?, ? examples/s]Adding EOS to train dataset: 100%|██████████| 72/72 [00:00<00:00, 2558.91 examples/s]
+Adding EOS to train dataset: 100%|██████████| 72/72 [00:00<00:00, 2749.04 examples/s]
+Adding EOS to train dataset: 100%|██████████| 72/72 [00:00<00:00, 2741.85 examples/s]
+Tokenizing train dataset:   0%|          | 0/72 [00:00<?, ? examples/s]Tokenizing train dataset:   0%|          | 0/72 [00:00<?, ? examples/s]Tokenizing train dataset:   0%|          | 0/72 [00:00<?, ? examples/s]Tokenizing train dataset:  15%|█▌        | 11/72 [00:00<00:00, 101.56 examples/s]Tokenizing train dataset:  15%|█▌        | 11/72 [00:00<00:00, 104.41 examples/s]Tokenizing train dataset:  15%|█▌        | 11/72 [00:00<00:00, 101.44 examples/s]Tokenizing train dataset:  47%|████▋     | 34/72 [00:00<00:00, 170.83 examples/s]Tokenizing train dataset:  57%|█████▋    | 41/72 [00:00<00:00, 213.12 examples/s]Tokenizing train dataset:  47%|████▋     | 34/72 [00:00<00:00, 170.08 examples/s]Tokenizing train dataset: 100%|██████████| 72/72 [00:00<00:00, 236.72 examples/s]
+Tokenizing train dataset:  83%|████████▎ | 60/72 [00:00<00:00, 205.20 examples/s]Tokenizing train dataset:  83%|████████▎ | 60/72 [00:00<00:00, 204.94 examples/s]Tokenizing train dataset: 100%|██████████| 72/72 [00:00<00:00, 197.12 examples/s]
+Tokenizing train dataset: 100%|██████████| 72/72 [00:00<00:00, 181.71 examples/s]
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+  0%|          | 0/6 [00:00<?, ?it/s][rank2]:[W316 10:48:16.683023426 reducer.cpp:1431] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank1]:[W316 10:48:16.693920691 reducer.cpp:1431] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank3]:[W316 10:48:16.884767947 reducer.cpp:1431] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank0]:[W316 10:48:16.901176174 reducer.cpp:1431] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+ 17%|█▋        | 1/6 [00:09<00:49,  9.88s/it] 33%|███▎      | 2/6 [00:10<00:18,  4.52s/it] 50%|█████     | 3/6 [00:19<00:20,  6.69s/it] 67%|██████▋   | 4/6 [00:20<00:08,  4.45s/it] 83%|████████▎ | 5/6 [00:29<00:06,  6.00s/it]100%|██████████| 6/6 [00:30<00:00,  4.32s/it]                                             {'train_runtime': 31.5466, 'train_samples_per_second': 6.847, 'train_steps_per_second': 0.19, 'train_loss': 0.5678526163101196, 'entropy': 0.30903022432768784, 'num_tokens': 436656.0, 'logits/chosen': -3.5268148034321283, 'logits/rejected': -3.546651002567364, 'mean_token_accuracy': 0.7854950836411229, 'rewards/chosen': 0.335229159505279, 'rewards/rejected': -0.0030763302757232276, 'rewards/accuracies': 0.6435185185185185, 'rewards/margins': 0.33830549057435105, 'logps/chosen': -1446.0757751464844, 'logps/rejected': -170.41665112530742, 'epoch': 3.0}
+100%|██████████| 6/6 [00:31<00:00,  4.32s/it]100%|██████████| 6/6 [00:31<00:00,  5.25s/it]
+Saved DPO model to /external1/alfred/models/ml-reasoning-exp_v2/dpo_filter_lora_mgsm_ja
+Saved DPO model to /external1/alfred/models/ml-reasoning-exp_v2/dpo_filter_lora_mgsm_ja
+Saved DPO model to /external1/alfred/models/ml-reasoning-exp_v2/dpo_filter_lora_mgsm_ja
+wandb: updating run metadata
+wandb: uploading history steps 0-0, summary, console lines 5-6
+wandb: 
+wandb: Run history:
+wandb:             train/entropy ▁
+wandb:               train/epoch ▁
+wandb:         train/global_step ▁
+wandb:       train/logits/chosen ▁
+wandb:     train/logits/rejected ▁
+wandb:        train/logps/chosen ▁
+wandb:      train/logps/rejected ▁
+wandb: train/mean_token_accuracy ▁
+wandb:          train/num_tokens ▁
+wandb:  train/rewards/accuracies ▁
+wandb:                        +3 ...
+wandb: 
+wandb: Run summary:
+wandb:                total_flos 5375191299391488.0
+wandb:             train/entropy 0.30903
+wandb:               train/epoch 3
+wandb:         train/global_step 6
+wandb:       train/logits/chosen -3.52681
+wandb:     train/logits/rejected -3.54665
+wandb:        train/logps/chosen -1446.07578
+wandb:      train/logps/rejected -170.41665
+wandb: train/mean_token_accuracy 0.7855
+wandb:          train/num_tokens 436656
+wandb:                        +8 ...
+wandb: 
+wandb: 🚀 View run dpo_filter_lora_mgsm_ja at: https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning/runs/w703brki
+wandb: ⭐️ View project at: https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260316_104742-w703brki/logs
+Saved DPO model to /external1/alfred/models/ml-reasoning-exp_v2/dpo_filter_lora_mgsm_ja
+[rank0]:[W316 10:48:41.396359284 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

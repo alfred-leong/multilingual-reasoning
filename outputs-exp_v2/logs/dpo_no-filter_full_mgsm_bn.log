@@ -1,0 +1,86 @@
+The following values were not passed to `accelerate launch` and had defaults used instead:
+		More than one GPU was found, enabling multi-GPU training.
+		If this was unintended please pass in `--num_processes=1`.
+	`--num_machines` was set to a value of `1`
+	`--mixed_precision` was set to a value of `'no'`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+W0316 12:02:28.661000 1412359 site-packages/torch/distributed/run.py:803] 
+W0316 12:02:28.661000 1412359 site-packages/torch/distributed/run.py:803] *****************************************
+W0316 12:02:28.661000 1412359 site-packages/torch/distributed/run.py:803] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0316 12:02:28.661000 1412359 site-packages/torch/distributed/run.py:803] *****************************************
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/alfred/.netrc.
+wandb: Currently logged in as: alfred-leong (alfred-leong-national-university-of-singapore) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+`torch_dtype` is deprecated! Use `dtype` instead!
+wandb: setting up run 8btqhtmm
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 48.14it/s]
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /home/alfred/multilingual-reasoning/wandb/run-20260316_120234-8btqhtmm
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run dpo_no-filter_full_mgsm_bn
+wandb: ⭐️ View project at https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning
+wandb: 🚀 View run at https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning/runs/8btqhtmm
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 57.02it/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 47.55it/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 47.53it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 55.45it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 58.41it/s]
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 57.26it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 35.35it/s]
+Adding EOS to train dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Adding EOS to train dataset: 100%|██████████| 200/200 [00:00<00:00, 2932.28 examples/s]
+Tokenizing train dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Tokenizing train dataset:   6%|▋         | 13/200 [00:00<00:01, 115.62 examples/s]Tokenizing train dataset:  14%|█▍        | 29/200 [00:00<00:02, 73.33 examples/s] Tokenizing train dataset:  20%|█▉        | 39/200 [00:00<00:02, 76.22 examples/s]Tokenizing train dataset:  26%|██▋       | 53/200 [00:00<00:01, 92.29 examples/s]Tokenizing train dataset:  32%|███▎      | 65/200 [00:00<00:01, 98.27 examples/s]Tokenizing train dataset:  40%|███▉      | 79/200 [00:00<00:01, 107.70 examples/s]Tokenizing train dataset:  46%|████▋     | 93/200 [00:00<00:00, 113.06 examples/s]Tokenizing train dataset:  54%|█████▍    | 108/200 [00:01<00:00, 122.97 examples/s]Tokenizing train dataset:  61%|██████    | 122/200 [00:01<00:00, 124.56 examples/s]Tokenizing train dataset:  68%|██████▊   | 135/200 [00:01<00:00, 121.31 examples/s]Tokenizing train dataset:  74%|███████▍  | 149/200 [00:01<00:00, 103.57 examples/s]Tokenizing train dataset:  80%|████████  | 160/200 [00:01<00:00, 99.60 examples/s] Tokenizing train dataset:  88%|████████▊ | 177/200 [00:01<00:00, 95.44 examples/s]Tokenizing train dataset:  96%|█████████▌| 192/200 [00:01<00:00, 91.67 examples/s]Tokenizing train dataset: 100%|██████████| 200/200 [00:02<00:00, 88.10 examples/s]
+Adding EOS to train dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Adding EOS to train dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Adding EOS to train dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Adding EOS to train dataset: 100%|██████████| 200/200 [00:00<00:00, 5511.93 examples/s]
+Adding EOS to train dataset: 100%|██████████| 200/200 [00:00<00:00, 2944.60 examples/s]
+Adding EOS to train dataset: 100%|██████████| 200/200 [00:00<00:00, 2877.59 examples/s]
+Tokenizing train dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Tokenizing train dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Tokenizing train dataset:   0%|          | 0/200 [00:00<?, ? examples/s]Tokenizing train dataset:   8%|▊         | 17/200 [00:00<00:01, 133.85 examples/s]Tokenizing train dataset:   7%|▋         | 14/200 [00:00<00:01, 131.33 examples/s]Tokenizing train dataset:   7%|▋         | 14/200 [00:00<00:01, 128.89 examples/s]Tokenizing train dataset:  16%|█▌        | 32/200 [00:00<00:01, 140.78 examples/s]Tokenizing train dataset:  26%|██▌       | 51/200 [00:00<00:00, 156.72 examples/s]Tokenizing train dataset:  14%|█▍        | 28/200 [00:00<00:02, 85.71 examples/s] Tokenizing train dataset:  14%|█▍        | 28/200 [00:00<00:02, 83.49 examples/s] Tokenizing train dataset:  36%|███▌      | 72/200 [00:00<00:00, 173.28 examples/s]Tokenizing train dataset:  20%|█▉        | 39/200 [00:00<00:02, 76.80 examples/s]Tokenizing train dataset:  48%|████▊     | 97/200 [00:00<00:00, 195.62 examples/s]Tokenizing train dataset:  20%|█▉        | 39/200 [00:00<00:02, 74.87 examples/s]Tokenizing train dataset:  27%|██▋       | 54/200 [00:00<00:01, 94.81 examples/s]Tokenizing train dataset:  61%|██████    | 122/200 [00:00<00:00, 209.85 examples/s]Tokenizing train dataset:  26%|██▋       | 53/200 [00:00<00:01, 91.07 examples/s]Tokenizing train dataset:  34%|███▎      | 67/200 [00:00<00:01, 101.39 examples/s]Tokenizing train dataset:  32%|███▎      | 65/200 [00:00<00:01, 97.92 examples/s]Tokenizing train dataset:  74%|███████▎  | 147/200 [00:00<00:00, 189.95 examples/s]Tokenizing train dataset:  40%|████      | 81/200 [00:00<00:01, 110.49 examples/s]Tokenizing train dataset:  40%|████      | 80/200 [00:00<00:01, 109.19 examples/s]Tokenizing train dataset:  48%|████▊     | 95/200 [00:00<00:00, 116.97 examples/s]Tokenizing train dataset:  85%|████████▌ | 170/200 [00:00<00:00, 170.84 examples/s]Tokenizing train dataset:  48%|████▊     | 95/200 [00:00<00:00, 116.78 examples/s]Tokenizing train dataset:  56%|█████▌    | 111/200 [00:01<00:00, 127.04 examples/s]Tokenizing train dataset:  94%|█████████▍| 188/200 [00:01<00:00, 165.57 examples/s]Tokenizing train dataset:  56%|█████▌    | 111/200 [00:01<00:00, 126.75 examples/s]Tokenizing train dataset:  66%|██████▌   | 131/200 [00:01<00:00, 125.37 examples/s]Tokenizing train dataset:  66%|██████▌   | 131/200 [00:01<00:00, 126.66 examples/s]Tokenizing train dataset: 100%|██████████| 200/200 [00:01<00:00, 153.45 examples/s]
+Tokenizing train dataset:  76%|███████▋  | 153/200 [00:01<00:00, 125.36 examples/s]Tokenizing train dataset:  74%|███████▍  | 149/200 [00:01<00:00, 108.99 examples/s]Tokenizing train dataset:  84%|████████▎ | 167/200 [00:01<00:00, 125.63 examples/s]Tokenizing train dataset:  83%|████████▎ | 166/200 [00:01<00:00, 100.32 examples/s]Tokenizing train dataset:  92%|█████████▏| 183/200 [00:01<00:00, 131.92 examples/s]Tokenizing train dataset:  88%|████████▊ | 177/200 [00:01<00:00, 100.61 examples/s]Tokenizing train dataset:  99%|█████████▉| 198/200 [00:01<00:00, 134.52 examples/s]Tokenizing train dataset: 100%|██████████| 200/200 [00:01<00:00, 108.12 examples/s]
+Tokenizing train dataset:  96%|█████████▌| 192/200 [00:01<00:00, 94.19 examples/s] Tokenizing train dataset: 100%|██████████| 200/200 [00:02<00:00, 89.90 examples/s]
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+Gradient accumulation steps mismatch: GradientAccumulationPlugin has 1, DeepSpeed config has 16. Using DeepSpeed's value.
+  0%|          | 0/12 [00:00<?, ?it/s]  8%|▊         | 1/12 [00:51<09:22, 51.16s/it] 17%|█▋        | 2/12 [01:47<09:00, 54.06s/it] 25%|██▌       | 3/12 [02:38<07:57, 53.00s/it] 33%|███▎      | 4/12 [02:44<04:33, 34.17s/it][2026-03-16 12:07:03,282] [WARNING] [stage3.py:2284:step] 1 pytorch allocator cache flushes since last step. this happens when there is high memory pressure and is detrimental to performance. if this is happening frequently consider adjusting settings to reduce memory consumption. If you are unable to make the cache flushes go away consider adding get_accelerator().empty_cache() calls in your training loop to ensure that all ranks flush their caches at the same time
+ 42%|████▏     | 5/12 [03:56<05:35, 47.95s/it] 50%|█████     | 6/12 [04:30<04:19, 43.28s/it] 58%|█████▊    | 7/12 [05:26<03:56, 47.38s/it] 67%|██████▋   | 8/12 [05:31<02:15, 33.77s/it] 75%|███████▌  | 9/12 [06:38<02:13, 44.34s/it] 83%|████████▎ | 10/12 [07:21<01:27, 43.90s/it]                                               {'loss': 0.0691, 'grad_norm': 5.284591518806597e-12, 'learning_rate': 2.5e-06, 'entropy': 0.3087343158143939, 'num_tokens': 3862226.0, 'logits/chosen': -2.0396927169348986, 'logits/rejected': -2.6599082121081254, 'mean_token_accuracy': 0.8803573268832583, 'rewards/chosen': 31.007102272727273, 'rewards/rejected': -6.937573982007576, 'rewards/accuracies': 0.8787878787878788, 'rewards/margins': 37.953598484848484, 'logps/chosen': -1495.878787878788, 'logps/rejected': -271.969696969697, 'epoch': 2.64}
+ 83%|████████▎ | 10/12 [07:21<01:27, 43.90s/it] 92%|█████████▏| 11/12 [08:11<00:45, 45.77s/it]100%|██████████| 12/12 [08:20<00:00, 34.46s/it]                                               {'train_runtime': 512.4413, 'train_samples_per_second': 1.171, 'train_steps_per_second': 0.023, 'train_loss': 0.05762417117754618, 'entropy': 0.4146050347222222, 'num_tokens': 4394589.0, 'logits/chosen': -1.2061205029655575, 'logits/rejected': -1.6388978659313267, 'mean_token_accuracy': 0.8801394502321879, 'rewards/chosen': 37.326388888888886, 'rewards/rejected': -15.229166666666666, 'rewards/accuracies': 1.0, 'rewards/margins': 52.541666666666664, 'logps/chosen': -1425.111111111111, 'logps/rejected': -349.8888888888889, 'epoch': 3.0}
+100%|██████████| 12/12 [08:32<00:00, 34.46s/it]100%|██████████| 12/12 [08:32<00:00, 42.70s/it]
+Saved DPO model to /external1/alfred/models/ml-reasoning-exp_v2/dpo_no-filter_full_mgsm_bn
+Saved DPO model to /external1/alfred/models/ml-reasoning-exp_v2/dpo_no-filter_full_mgsm_bn
+Saved DPO model to /external1/alfred/models/ml-reasoning-exp_v2/dpo_no-filter_full_mgsm_bn
+wandb: updating run metadata
+wandb: uploading output.log; uploading wandb-summary.json
+wandb: 
+wandb: Run history:
+wandb:         train/entropy ▁█
+wandb:           train/epoch ▁█
+wandb:     train/global_step ▁█
+wandb:       train/grad_norm ▁
+wandb:   train/learning_rate ▁
+wandb:   train/logits/chosen ▁█
+wandb: train/logits/rejected ▁█
+wandb:    train/logps/chosen ▁█
+wandb:  train/logps/rejected █▁
+wandb:            train/loss ▁
+wandb:                    +6 ...
+wandb: 
+wandb: Run summary:
+wandb:            total_flos 5183259279360.0
+wandb:         train/entropy 0.41461
+wandb:           train/epoch 3
+wandb:     train/global_step 12
+wandb:       train/grad_norm 0.0
+wandb:   train/learning_rate 0.0
+wandb:   train/logits/chosen -1.20612
+wandb: train/logits/rejected -1.6389
+wandb:    train/logps/chosen -1425.11111
+wandb:  train/logps/rejected -349.88889
+wandb:                   +11 ...
+wandb: 
+wandb: 🚀 View run dpo_no-filter_full_mgsm_bn at: https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning/runs/8btqhtmm
+wandb: ⭐️ View project at: https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260316_120234-8btqhtmm/logs
+Saved DPO model to /external1/alfred/models/ml-reasoning-exp_v2/dpo_no-filter_full_mgsm_bn

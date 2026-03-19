@@ -3,49 +3,81 @@ set -e
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 
-source /tier1/home/lweilun/miniconda3/etc/profile.d/conda.sh
+source /home/alfred/miniconda3/etc/profile.d/conda.sh
 conda activate ml-delta
 
 DATASET=${1:-"mmmlu"}
-TRAIN_METHOD=${2:-"sft"} # "sft" or "dpo"
-FILTER=${3:-"no-filter"}
-MODEL_TYPE=${4:-"lora"} # "lora" or "full"
+SUBSET=${2:-""}
 
 LANGS=("ja" "bn" "sw")
 GPUS=(5 6 7)
+MODEL_STORE="/external1/alfred/models/ml-reasoning-exp_v2"
 LOG_DIR="${PROJECT_ROOT}/outputs-exp_v2/logs"
 mkdir -p "$LOG_DIR"
 
-echo "Evaluating Models -> Dataset: $DATASET | Method: $TRAIN_METHOD | Filter: $FILTER | Type: $MODEL_TYPE"
+BASE_MODEL="Qwen/Qwen3-1.7B"
 
-EXTRA_ARGS="" 
-if [ "$MODEL_TYPE" == "full" ]; then
-    EXTRA_ARGS="--full_finetune"
+SUBSET_ARGS=""
+SUBSET_TAG=""
+if [ -n "$SUBSET" ]; then
+    SUBSET_ARGS="--subset $SUBSET"
+    SUBSET_TAG="_${SUBSET}"
 fi
 
+echo "Evaluating All Models -> Dataset: $DATASET (subset: ${SUBSET:-full})"
+
 PIDS=()
+
 for i in {0..2}; do
     lang="${LANGS[$i]}"
     gpu="${GPUS[$i]}"
-    run_name="${TRAIN_METHOD}_${FILTER}_${MODEL_TYPE}_${DATASET}_${lang}"
-    model_dir="/external1/alfred/models/ml-reasoning-exp_v2/${run_name}"
-    log_file="${LOG_DIR}/eval_${run_name}.log"
-    
-    if [ ! -d "$model_dir" ]; then
-        echo "  [${lang}] Model directory $model_dir does not exist. Skipping."
-        continue
-    fi
-    
-    echo "  [${lang}] Evaluating on GPU ${gpu} -> ${log_file}"
-    
-    CUDA_VISIBLE_DEVICES="$gpu" python3 "${PROJECT_ROOT}/evaluation/run_eval-exp_v2.py" \
-        --dataset "$DATASET" --language "$lang" --model_dir "$model_dir" $EXTRA_ARGS \
-        > "$log_file" 2>&1 &
-    
+
+    # Collect all model dirs for this language+dataset
+    mapfile -t MODEL_DIRS < <(find "$MODEL_STORE" -maxdepth 1 -type d -name "*${DATASET}*${lang}*" | sort)
+
+    (
+        set -e
+
+        # 1. Base Model
+        log_file="${LOG_DIR}/eval_base_${DATASET}${SUBSET_TAG}_${lang}.log"
+        out_file="${PROJECT_ROOT}/outputs-exp_v2/eval_${DATASET}${SUBSET_TAG}_${lang}_Qwen3-1.7B.json"
+        if [ -f "$out_file" ]; then
+            echo "  [${lang}] BASE already evaluated. Skipping."
+        else
+            echo "  [${lang}] Evaluating BASE on GPU ${gpu} -> ${log_file}"
+            CUDA_VISIBLE_DEVICES="$gpu" python3 "${PROJECT_ROOT}/evaluation/run_eval-exp_v2.py" \
+                --dataset "$DATASET" --language "$lang" --model_dir "$BASE_MODEL" --full_finetune $SUBSET_ARGS \
+                > "$log_file" 2>&1
+        fi
+
+        # 2. All discovered model dirs — sequential on this GPU
+        for model_dir in "${MODEL_DIRS[@]}"; do
+            model_name="$(basename "$model_dir")"
+            log_file="${LOG_DIR}/eval_${model_name}${SUBSET_TAG}.log"
+            out_file="${PROJECT_ROOT}/outputs-exp_v2/eval_${DATASET}${SUBSET_TAG}_${lang}_${model_name}.json"
+
+            if [ -f "$out_file" ]; then
+                echo "  [${lang}] ${model_name} already evaluated. Skipping."
+                continue
+            fi
+
+            # Detect LoRA vs full finetune by presence of adapter_config.json
+            EXTRA_ARGS=""
+            if [ ! -f "${model_dir}/adapter_config.json" ]; then
+                EXTRA_ARGS="--full_finetune"
+            fi
+
+            echo "  [${lang}] Evaluating ${model_name} on GPU ${gpu} -> ${log_file}"
+            CUDA_VISIBLE_DEVICES="$gpu" python3 "${PROJECT_ROOT}/evaluation/run_eval-exp_v2.py" \
+                --dataset "$DATASET" --language "$lang" --model_dir "$model_dir" $EXTRA_ARGS $SUBSET_ARGS \
+                > "$log_file" 2>&1
+        done
+    ) &
     PIDS+=($!)
 done
 
-# Wait
+# Wait for all language subshells
+echo "Waiting for all evaluation processes to complete..."
 FAIL=0
 for pid in "${PIDS[@]}"; do
     if ! wait "$pid"; then
@@ -54,7 +86,7 @@ for pid in "${PIDS[@]}"; do
 done
 
 if [[ $FAIL -eq 1 ]]; then
-    echo "Evaluation encountered an error. Check logs."
+    echo "Evaluation encountered an error. Check logs in $LOG_DIR"
     exit 1
 fi
 

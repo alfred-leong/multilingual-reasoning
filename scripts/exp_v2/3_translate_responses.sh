@@ -3,11 +3,11 @@ set -e
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 
-source /tier1/home/lweilun/miniconda3/etc/profile.d/conda.sh
+source /home/alfred/miniconda3/etc/profile.d/conda.sh
 conda activate ml-delta
 
 # Settings
-MODEL="google/translategemma-4b-it"
+MODEL="google/translategemma-27b-it"
 PORTS=(8401 8402 8403)
 GPUS=(5 6 7)
 LANGS=("ja" "bn" "sw")
@@ -64,7 +64,7 @@ done
 
 # Run generation for MGSM and MMMLU concurrently across languages
 # echo "Translating MGSM & MMMLU responses..."
-echo "Translating MGSM responses..."
+echo "Translating MMMLU responses..."
 TRANS_PIDS=()
 for i in {0..2}; do
     lang="${LANGS[$i]}"
@@ -96,7 +96,7 @@ fi
 # Check outputs
 echo "Checking MGSM and MMMLU translated responses:"
 for lang in "${LANGS[@]}"; do
-    python3 "${PROJECT_ROOT}/data/check_translated_responses-exp_v2.py" --dataset mgsm --language "$lang"
+    # python3 "${PROJECT_ROOT}/data/check_translated_responses-exp_v2.py" --dataset mgsm --language "$lang"
     python3 "${PROJECT_ROOT}/data/check_translated_responses-exp_v2.py" --dataset mmmlu --language "$lang"
 done
 

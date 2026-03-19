@@ -8,7 +8,7 @@ from pathlib import Path
 import torch
 import wandb
 from datasets import Dataset
-from peft import LoraConfig, TaskType, get_peft_model
+from peft import LoraConfig, TaskType
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from trl import DPOConfig, DPOTrainer
 
@@ -62,34 +62,40 @@ def main():
     output_dir = Path("/external1/alfred/models/ml-reasoning-exp_v2") / run_name
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    wandb.init(project="ml-reasoning", name=run_name, group=args.dataset, job_type="dpo")
+    if os.environ.get("RANK", "0") == "0":
+        wandb.init(project="ml-reasoning", name=run_name, group=args.dataset, job_type="dpo")
 
     # Load model
     dtype = torch.bfloat16 if torch.cuda.is_available() else torch.float32
-    model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=dtype, device_map="auto", trust_remote_code=True)
-    ref_model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=dtype, device_map="auto", trust_remote_code=True) if args.full_finetune else None
+    model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=dtype, trust_remote_code=True)
+    ref_model = None
+    peft_config = None
 
-    if not args.full_finetune:
-        lora_config = LoraConfig(
+    if args.full_finetune:
+        ref_model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=dtype, trust_remote_code=True)
+    else:
+        # Let DPOTrainer handle LoRA wrapping so it can use the base weights as
+        # the implicit reference model (avoids loading a separate ref_model copy).
+        peft_config = LoraConfig(
             task_type=TaskType.CAUSAL_LM,
             r=16,
             lora_alpha=32,
             lora_dropout=0.05,
             target_modules=["q_proj", "k_proj", "v_proj", "o_proj"]
         )
-        model = get_peft_model(model, lora_config)
 
     dpo_config = DPOConfig(
         output_dir=str(output_dir),
         learning_rate=1e-5,
         num_train_epochs=3,
-        per_device_train_batch_size=2,
-        gradient_accumulation_steps=8,
+        per_device_train_batch_size=1,
+        gradient_accumulation_steps=16,
         save_strategy="epoch",
         bf16=torch.cuda.is_available(),
         report_to="wandb",
-        max_length=4096,
-        max_prompt_length=2048,
+        max_length=12288,
+        gradient_checkpointing=True,
+        gradient_checkpointing_kwargs={"use_reentrant": False},
     )
 
     trainer = DPOTrainer(
@@ -98,12 +104,14 @@ def main():
         args=dpo_config,
         train_dataset=dataset,
         processing_class=tokenizer,
+        peft_config=peft_config,
     )
 
     trainer.train()
     trainer.save_model(str(output_dir))
     tokenizer.save_pretrained(str(output_dir))
-    wandb.finish()
+    if os.environ.get("RANK", "0") == "0":
+        wandb.finish()
     print(f"Saved DPO model to {output_dir}")
 
 if __name__ == "__main__":

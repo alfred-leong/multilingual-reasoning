@@ -1,0 +1,106 @@
+The following values were not passed to `accelerate launch` and had defaults used instead:
+		More than one GPU was found, enabling multi-GPU training.
+		If this was unintended please pass in `--num_processes=1`.
+	`--num_machines` was set to a value of `1`
+	`--mixed_precision` was set to a value of `'no'`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+W0316 13:27:03.193000 1434360 site-packages/torch/distributed/run.py:803] 
+W0316 13:27:03.193000 1434360 site-packages/torch/distributed/run.py:803] *****************************************
+W0316 13:27:03.193000 1434360 site-packages/torch/distributed/run.py:803] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0316 13:27:03.193000 1434360 site-packages/torch/distributed/run.py:803] *****************************************
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/alfred/.netrc.
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/alfred/.netrc.
+wandb: Currently logged in as: alfred-leong (alfred-leong-national-university-of-singapore) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Currently logged in as: alfred-leong (alfred-leong-national-university-of-singapore) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/alfred/.netrc.
+wandb: Currently logged in as: alfred-leong (alfred-leong-national-university-of-singapore) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run ilit2mgl
+wandb: setting up run wq4jrrcf
+wandb: setting up run vh9yxnwc
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /home/alfred/multilingual-reasoning/wandb/run-20260316_132709-wq4jrrcf
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run sft_filter_full_mgsm_ja
+wandb: ⭐️ View project at https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning
+wandb: 🚀 View run at https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning/runs/wq4jrrcf
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /home/alfred/multilingual-reasoning/wandb/run-20260316_132708-vh9yxnwc
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run sft_filter_full_mgsm_ja
+wandb: ⭐️ View project at https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning
+wandb: 🚀 View run at https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning/runs/vh9yxnwc
+wandb: Tracking run with wandb version 0.25.1
+wandb: Run data is saved locally in /home/alfred/multilingual-reasoning/wandb/run-20260316_132708-ilit2mgl
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run sft_filter_full_mgsm_ja
+wandb: ⭐️ View project at https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning
+wandb: 🚀 View run at https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning/runs/ilit2mgl
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 50.75it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 43.55it/s]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 41.39it/s]
+Adding EOS to train dataset:   0%|          | 0/184 [00:00<?, ? examples/s]Adding EOS to train dataset: 100%|██████████| 184/184 [00:00<00:00, 6702.84 examples/s]
+Tokenizing train dataset:   0%|          | 0/184 [00:00<?, ? examples/s]Tokenizing train dataset:  18%|█▊        | 34/184 [00:00<00:00, 330.91 examples/s]Tokenizing train dataset:  39%|███▉      | 72/184 [00:00<00:00, 355.21 examples/s]Tokenizing train dataset:  59%|█████▉    | 109/184 [00:00<00:00, 359.30 examples/s]Tokenizing train dataset:  80%|████████  | 148/184 [00:00<00:00, 370.26 examples/s]Tokenizing train dataset: 100%|██████████| 184/184 [00:00<00:00, 337.57 examples/s]
+Truncating train dataset:   0%|          | 0/184 [00:00<?, ? examples/s]Truncating train dataset: 100%|██████████| 184/184 [00:00<00:00, 47789.46 examples/s]
+Adding EOS to train dataset:   0%|          | 0/184 [00:00<?, ? examples/s]Adding EOS to train dataset:   0%|          | 0/184 [00:00<?, ? examples/s]Adding EOS to train dataset: 100%|██████████| 184/184 [00:00<00:00, 12880.35 examples/s]
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+Adding EOS to train dataset: 100%|██████████| 184/184 [00:00<00:00, 5091.01 examples/s]
+Tokenizing train dataset:   0%|          | 0/184 [00:00<?, ? examples/s]Tokenizing train dataset:   0%|          | 0/184 [00:00<?, ? examples/s]Tokenizing train dataset:  18%|█▊        | 34/184 [00:00<00:00, 329.91 examples/s]Tokenizing train dataset:  18%|█▊        | 34/184 [00:00<00:00, 331.06 examples/s]Gradient accumulation steps mismatch: GradientAccumulationPlugin has 1, DeepSpeed config has 16. Using DeepSpeed's value.
+Tokenizing train dataset:  39%|███▉      | 72/184 [00:00<00:00, 356.03 examples/s]Tokenizing train dataset:  40%|███▉      | 73/184 [00:00<00:00, 359.30 examples/s]Tokenizing train dataset:  60%|█████▉    | 110/184 [00:00<00:00, 360.64 examples/s]Tokenizing train dataset:  61%|██████    | 112/184 [00:00<00:00, 366.18 examples/s]Tokenizing train dataset:  81%|████████  | 149/184 [00:00<00:00, 369.92 examples/s]Tokenizing train dataset:  83%|████████▎ | 152/184 [00:00<00:00, 378.39 examples/s]Tokenizing train dataset: 100%|██████████| 184/184 [00:00<00:00, 335.88 examples/s]
+Truncating train dataset:   0%|          | 0/184 [00:00<?, ? examples/s]Truncating train dataset: 100%|██████████| 184/184 [00:00<00:00, 42633.52 examples/s]
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+Tokenizing train dataset: 100%|██████████| 184/184 [00:00<00:00, 343.28 examples/s]
+Truncating train dataset:   0%|          | 0/184 [00:00<?, ? examples/s]Truncating train dataset: 100%|██████████| 184/184 [00:00<00:00, 43364.16 examples/s]
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'bos_token_id': None, 'pad_token_id': 151643}.
+  0%|          | 0/12 [00:00<?, ?it/s]  8%|▊         | 1/12 [00:13<02:31, 13.81s/it] 17%|█▋        | 2/12 [00:23<01:53, 11.32s/it] 25%|██▌       | 3/12 [00:31<01:30, 10.08s/it] 33%|███▎      | 4/12 [00:39<01:14,  9.26s/it] 42%|████▏     | 5/12 [01:03<01:41, 14.47s/it] 50%|█████     | 6/12 [01:13<01:16, 12.76s/it] 58%|█████▊    | 7/12 [01:21<00:57, 11.44s/it] 67%|██████▋   | 8/12 [01:29<00:40, 10.24s/it] 75%|███████▌  | 9/12 [01:54<00:44, 14.82s/it] 83%|████████▎ | 10/12 [02:03<00:25, 12.95s/it]                                               {'loss': 0.84, 'grad_norm': 1.3527170851706576, 'learning_rate': 5e-06, 'entropy': 0.7618815104166666, 'num_tokens': 541659.0, 'mean_token_accuracy': 0.7975733402447823, 'epoch': 2.52}
+ 83%|████████▎ | 10/12 [02:03<00:25, 12.95s/it] 92%|█████████▏| 11/12 [02:12<00:11, 11.77s/it]100%|██████████| 12/12 [02:19<00:00, 10.48s/it]                                               {'train_runtime': 154.3605, 'train_samples_per_second': 3.576, 'train_steps_per_second': 0.078, 'train_loss': 0.8064188162485758, 'entropy': 0.6166666666666667, 'num_tokens': 626580.0, 'mean_token_accuracy': 0.8368112524350484, 'epoch': 3.0}
+100%|██████████| 12/12 [02:34<00:00, 10.48s/it]100%|██████████| 12/12 [02:34<00:00, 12.86s/it]
+wandb: updating run metadata
+wandb: updating run metadata
+wandb: uploading config.yaml; uploading output.log
+wandb: uploading data
+wandb: 🚀 View run sft_filter_full_mgsm_ja at: https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning/runs/ilit2mgl
+wandb: ⭐️ View project at: https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260316_132708-ilit2mgl/logs
+Saved SFT model to /external1/alfred/models/ml-reasoning-exp_v2/sft_filter_full_mgsm_ja
+wandb: 🚀 View run sft_filter_full_mgsm_ja at: https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning/runs/vh9yxnwc
+wandb: ⭐️ View project at: https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260316_132708-vh9yxnwc/logs
+Saved SFT model to /external1/alfred/models/ml-reasoning-exp_v2/sft_filter_full_mgsm_ja
+wandb: updating run metadata
+wandb: uploading output.log; uploading wandb-summary.json; uploading config.yaml
+wandb: uploading summary, console lines 9-9
+wandb: 
+wandb: Run history:
+wandb:             train/entropy █▁
+wandb:               train/epoch ▁█
+wandb:         train/global_step ▁█
+wandb:           train/grad_norm ▁
+wandb:       train/learning_rate ▁
+wandb:                train/loss ▁
+wandb: train/mean_token_accuracy ▁█
+wandb:          train/num_tokens ▁█
+wandb: 
+wandb: Run summary:
+wandb:                total_flos 548622376960.0
+wandb:             train/entropy 0.61667
+wandb:               train/epoch 3
+wandb:         train/global_step 12
+wandb:           train/grad_norm 1.35272
+wandb:       train/learning_rate 1e-05
+wandb:                train/loss 0.84
+wandb: train/mean_token_accuracy 0.83681
+wandb:          train/num_tokens 626580
+wandb:                train_loss 0.80642
+wandb:                        +3 ...
+wandb: 
+wandb: 🚀 View run sft_filter_full_mgsm_ja at: https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning/runs/wq4jrrcf
+wandb: ⭐️ View project at: https://wandb.ai/alfred-leong-national-university-of-singapore/ml-reasoning
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260316_132709-wq4jrrcf/logs
+Saved SFT model to /external1/alfred/models/ml-reasoning-exp_v2/sft_filter_full_mgsm_ja

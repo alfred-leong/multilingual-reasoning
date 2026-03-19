@@ -63,10 +63,12 @@ def main():
     parser.add_argument("--language", type=str, choices=["ja", "bn", "sw"], required=True)
     parser.add_argument("--model_dir", type=str, required=True)
     parser.add_argument("--full_finetune", action="store_true")
+    parser.add_argument("--subset", type=str, default=None, help="Subset suffix, e.g. '100' loads test_{lang}_100.jsonl")
     args = parser.parse_args()
 
     # Load test data
-    test_file = PROJECT_ROOT / "data" / "exp_v2" / args.dataset / f"test_{args.language}.jsonl"
+    suffix = f"_{args.subset}" if args.subset else ""
+    test_file = PROJECT_ROOT / "data" / "exp_v2" / args.dataset / f"test_{args.language}{suffix}.jsonl"
     if not test_file.exists():
         print(f"Test file {test_file} not found.")
         return
@@ -79,16 +81,8 @@ def main():
     # Load prompts
     lang_code = LANGUAGE_CODES[args.language]
     prompts = get_translate_dpo_prompts(lang_code)
-    system_prompt = prompts["native_system_prompt"]
+    system_prompt = prompts[f"native_system_prompt_{args.dataset}"]
     thinking_prefix = prompts["thinking_prefix"]
-
-    if args.dataset == "mmmlu":
-        if args.language == "ja":
-            system_prompt += ' 解答欄には選択肢の文字のみを記述してください。例："answer": "C"'
-        elif args.language == "bn":
-            system_prompt += ' উত্তর ক্ষেত্রে আপনার পছন্দ শুধুমাত্র অক্ষরের সাথে দেখান, যেমন, "answer": "C"'
-        elif args.language == "sw":
-            system_prompt += ' Tafadhali onyesha chaguo lako katika sehemu ya jibu na herufi ya chaguo pekee, k.m., "answer": "C"'
 
     # Load model
     dtype = torch.bfloat16 if torch.cuda.is_available() else torch.float32
@@ -96,10 +90,10 @@ def main():
 
     if args.full_finetune:
         tokenizer = AutoTokenizer.from_pretrained(args.model_dir, trust_remote_code=True)
-        model = AutoModelForCausalLM.from_pretrained(args.model_dir, torch_dtype=dtype, device_map="auto", trust_remote_code=True)
+        model = AutoModelForCausalLM.from_pretrained(args.model_dir, dtype=dtype, device_map="auto", trust_remote_code=True)
     else:
         tokenizer = AutoTokenizer.from_pretrained(args.model_dir, trust_remote_code=True)
-        base_model = AutoModelForCausalLM.from_pretrained(base_name, torch_dtype=dtype, device_map="auto", trust_remote_code=True)
+        base_model = AutoModelForCausalLM.from_pretrained(base_name, dtype=dtype, device_map="auto", trust_remote_code=True)
         model = PeftModel.from_pretrained(base_model, args.model_dir)
         model = model.merge_and_unload()
     
@@ -145,7 +139,7 @@ def main():
     acc = correct / total if total > 0 else 0
     print(f"Accuracy: {acc:.2%} ({correct}/{total})")
 
-    out_file = PROJECT_ROOT / "outputs-exp_v2" / f"eval_{Path(args.model_dir).name}.json"
+    out_file = PROJECT_ROOT / "outputs-exp_v2" / f"eval_{args.dataset}{suffix}_{args.language}_{Path(args.model_dir).name}.json"
     out_file.parent.mkdir(parents=True, exist_ok=True)
     with open(out_file, "w", encoding="utf-8") as f:
         json.dump({
