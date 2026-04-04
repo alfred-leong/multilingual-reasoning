@@ -135,7 +135,7 @@ bash scripts/exp_v3/9_evaluate_english_perf.sh
 
 ## Results
 
-SFT results are averaged over 3 seeds. **Bold** indicates the best result per column within each group.
+SFT results are averaged over 3 seeds. **Bold** indicates the best result per column within each group. Learning rate is 2e-7 for Bengali and Japanese, and 2e-5 for Swahili.
 
 ### Qwen3-1.7B
 
@@ -165,11 +165,21 @@ SFT results are averaged over 3 seeds. **Bold** indicates the best result per co
 
 ### Qwen3-8B (Swahili only)
 
+**lr=2e-5:**
+
 | Setting | MGSM | MMMLU | MGSM (EN) | MMMLU (EN) |
 |---------|------|-------|------------|------------|
 | Base | **40.00** | 23.00 | **92.00** | **78.00** |
 | AutoSFT-NoFilter | 0.00 | 23.33 | 60.00 | 57.33 |
 | AutoSFT-Filter | 12.00 | **25.67** | 84.00 | 74.00 |
+
+**lr=2e-7:**
+
+| Setting | MGSM | MMMLU |
+|---------|------|-------|
+| Base | **40.00** | 23.00 |
+| AutoSFT-NoFilter | 38.67 | 19.67 |
+| AutoSFT-Filter | 32.00 | **21.00** |
 
 ## Evaluation Metrics
 
