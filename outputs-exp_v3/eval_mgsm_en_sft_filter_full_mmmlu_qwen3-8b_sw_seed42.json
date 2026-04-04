@@ -1,0 +1,360 @@
+{
+  "model_dir": "/external1/alfred/models/ml-reasoning-exp_v3/sft_filter_full_mmmlu_qwen3-8b_sw_seed42",
+  "dataset": "mgsm",
+  "language": "en",
+  "accuracy": 0.86,
+  "correct": 43,
+  "total": 50,
+  "results": [
+    {
+      "question_index": 240,
+      "response": "<think>\nWe are given the following relationships:\n\n1. **James has 6 more candies than Robert.**\n   So, if Robert has $ R $ candies, then James has $ R + 6 $ candies.\n\n2. **John has twice as many candies as Robert.**\n   So, if Robert has $ R $ candies, then John has $ 2R $ candies.\n\n3. **John has 54 candies.**\n   So, we can set up the equation:\n   $$\n   2R = 54\n   $$\n\n---\n\n### Step 1: Solve for $ R $\n\n$$\n2R = 54 \\Rightarrow R = \\frac{54}{2} = 27\n$$\n\nSo, Robert has **27** candies.\n\n---\n\n### Step 2: Find how many candies James has\n\n$$\n\\text{James} = R + 6 = 27 + 6 = 33\n$$\n\n---\n\n### Step 3: Find how many more candies John has than James\n\n$$\n\\text{John} - \\text{James} = 54 - 33 = 21\n$$\n\n---\n\n### ✅ Final Answer:\n\n$$\n\\boxed{21}\n$$",
+      "pred": "21",
+      "gold": "21",
+      "correct": true
+    },
+    {
+      "question_index": 86,
+      "response": "<think>\nTo find the total number of times the alarm rang, we need to add up the number of times it rang during each of the three events.\n\n---\n\n**First time:**\n- The alarm rang **4 times**.\n\n**Second time:**\n- It rang **3 times as long** as the first time.\n- So, it rang $3 \\times 4 = 12$ times.\n\n**Third time:**\n- It rang **half as long** as the second time.\n- So, it rang $\\frac{1}{2} \\times 12 = 6$ times.\n\n---\n\n**Total number of rings:**\n$$\n4 + 12 + 6 = \\boxed{22}\n$$\n\n---\n\n**Answer:** $\\boxed{22}$",
+      "pred": "22",
+      "gold": "22",
+      "correct": true
+    },
+    {
+      "question_index": 195,
+      "response": "<think>\nTo solve the problem, we are given the following:\n\n- A **pen** costs as much as a **pencil and an eraser combined**.\n- A **pencil** costs **$1.20**.\n- An **eraser** costs **$0.30**.\n- We are asked to find the cost of **8 pens**.\n\n---\n\n### Step 1: Find the cost of one pen\n\nWe are told:\n\n$$\n\\text{Cost of a pen} = \\text{Cost of a pencil} + \\text{Cost of an eraser}\n$$\n\nSubstitute the given values:\n\n$$\n\\text{Cost of a pen} = 1.20 + 0.30 = 1.50\n$$\n\nSo, **one pen costs $1.50**.\n\n---\n\n### Step 2: Find the cost of 8 pens\n\n$$\n\\text{Cost of 8 pens} = 8 \\times 1.50 = 12.00\n$$\n\n---\n\n### Final Answer:\n\n$$\n\\boxed{12.00}\n$$",
+      "pred": "12.00",
+      "gold": "12",
+      "correct": false
+    },
+    {
+      "question_index": 229,
+      "response": "<think>\nTo solve the problem, we'll break it down into steps:\n\n---\n\n### **Step 1: Total number of watermelons**\nThe farm produced:\n\n$$\n120 \\text{ watermelons}\n$$\n\n---\n\n### **Step 2: First harvest (after two months)**\nAshlyn harvested **30%** of the watermelons:\n\n$$\n0.30 \\times 120 = 36 \\text{ watermelons harvested}\n$$\n\nSo, the number of watermelons **remaining** is:\n\n$$\n120 - 36 = 84 \\text{ watermelons remaining}\n$$\n\n---\n\n### **Step 3: Second harvest (two weeks later)**\nAshlyn then harvested **3/4** of the remaining 84 watermelons:\n\n$$\n\\frac{3}{4} \\times 84 = 63 \\text{ watermelons harvested}\n$$\n\nSo, the number of watermelons **not harvested** is:\n\n$$\n84 - 63 = 21\n$$\n\n---\n\n### **Final Answer:**\n\n$$\n\\boxed{21}\n$$",
+      "pred": "21",
+      "gold": "21",
+      "correct": true
+    },
+    {
+      "question_index": 39,
+      "response": "<think>\nTo solve this problem, we are given the following information:\n\n- Dana can **skip** at **3 miles per hour**.\n- She can **run** at a speed **four times faster** than she can **walk**.\n- She can **skip** at a speed that is **half as fast** as she can **run**.\n- She spends **one-third of the time** running and **two-thirds of the time** walking.\n- We are to find how many **miles** she can travel in **6 hours**.\n\n---\n\n### **Step 1: Use the skipping speed to find the running speed**\n\nWe are told:\n\n> \"She can skip at a rate of speed that is half as fast as she can run.\"\n\nThis means:\n\n$$\n\\text{Running speed} = 2 \\times \\text{Skipping speed}\n$$\n\nGiven:\n$$\n\\text{Skipping speed} = 3 \\text{ mph}\n$$\n\n$$\n\\text{Running speed} = 2 \\times 3 = 6 \\text{ mph}\n$$\n\n---\n\n### **Step 2: Use the running speed to find the walking speed**\n\nWe are told:\n\n> \"Dana can run at a rate of speed four times faster than she can walk.\"\n\nThis means:\n\n$$\n\\text{Running speed} = 4 \\times \\text{Walking speed}\n$$\n\n$$\n\\text{Walking speed} = \\frac{\\text{Running speed}}{4} = \\frac{6}{4} = 1.5 \\text{ mph}\n$$\n\n---\n\n### **Step 3: Calculate the time spent running and walking**\n\nShe spends:\n\n- **One-third** of the time running\n- **Two-thirds** of the time walking\n\nTotal time = 6 hours\n\n$$\n\\text{Time running} = \\frac{1}{3} \\times 6 = 2 \\text{ hours}\n$$\n$$\n\\text{Time walking} = \\frac{2}{3} \\times 6 = 4 \\text{ hours}\n$$\n\n---\n\n### **Step 4: Calculate the distance traveled**\n\n- **Distance running**:\n$$\n\\text{Distance} = \\text{Speed} \\times \\text{Time} = 6 \\text{ mph} \\times 2 \\text{ hours} = 12 \\text{ miles}\n$$\n\n- **Distance walking**:\n$$\n\\text{Distance} = 1.5 \\text{ mph} \\times 4 \\text{ hours} = 6 \\text{ miles}\n$$\n\n---\n\n### **Step 5: Add the distances**\n\n$$\n\\text{Total distance} = 12 + 6 = \\boxed{18} \\text{ miles}\n$$\n\n---\n\n### ✅ Final Answer:\n\n$$\n\\boxed{18}\n$$",
+      "pred": "18",
+      "gold": "18",
+      "correct": true
+    },
+    {
+      "question_index": 214,
+      "response": "<think>\nTo solve this problem, let's define the variables and use the information given to set up equations.\n\n---\n\n### Step 1: Define Variables\n\nLet:\n- $ S $ be the **current** amount of water (in gallons) in the **small pool**.\n- $ B $ be the **current** amount of water (in gallons) in the **big pool**.\n\nWe are told:\n- Both pools are leaking at **4 gallons per minute**.\n- **4 minutes ago**, the **big pool had twice as much water** as the **small pool**.\n- **Now**, the **big pool has four times as much water** as the **small pool**.\n\n---\n\n### Step 2: Express Past Amounts\n\nSince both pools are leaking at 4 gallons per minute, **4 minutes ago**, the amount of water in each pool was:\n\n- Small pool: $ S + 4 \\times 4 = S + 16 $\n- Big pool: $ B + 16 $\n\nWe are told that **4 minutes ago**, the **big pool had twice as much water** as the **small pool**:\n\n$$\nB + 16 = 2(S + 16)\n$$\n\n---\n\n### Step 3: Use the Current Relationship\n\nWe are also told that **now**, the **big pool has four times as much water** as the **small pool**:\n\n$$\nB = 4S\n$$\n\n---\n\n### Step 4: Substitute into the First Equation\n\nSubstitute $ B = 4S $ into the equation from Step 2:\n\n$$\n4S + 16 = 2(S + 16)\n$$\n\nSimplify both sides:\n\n$$\n4S + 16 = 2S + 32\n$$\n\nSubtract $ 2S $ from both sides:\n\n$$\n2S + 16 = 32\n$$\n\nSubtract 16 from both sides:\n\n$$\n2S = 16\n$$\n\nDivide by 2:\n\n$$\nS = 8\n$$\n\n---\n\n### Step 5: Find the Current Amount in the Big Pool\n\n$$\nB = 4S = 4 \\times 8 = 32\n$$\n\n---\n\n### ✅ Final Answer:\n\n$$\n\\boxed{8}\n$$",
+      "pred": "8",
+      "gold": "8",
+      "correct": true
+    },
+    {
+      "question_index": 87,
+      "response": "<think>\nTo find Sylvie's annual salary after three more years of service, we need to carefully follow the salary increase policy:\n\n---\n\n### **Step 1: Understand the Salary Increase Policy**\n\n- The company **increases the salary by 10% of the initial salary** every year for employees who have been with the company for **at least 5 years**.\n- The **initial salary** is **$600 per month**.\n- The **increase is applied annually**, meaning it's **10% of the initial salary**, not 10% of the current salary.\n- The **increase is applied once per year**, not compounded.\n\n---\n\n### **Step 2: Determine the Timeframe**\n\n- Sylvie has **just completed 5 years** of service.\n- We are asked to find her **annual salary after 3 more years** of service.\n- So, the **increase will be applied 3 times**, once per year.\n\n---\n\n### **Step 3: Calculate the Monthly Salary After 3 Years**\n\n- **Initial monthly salary**: $600\n- **Annual increase**: 10% of $600 = $60\n- **Total increase over 3 years**: 3 × $60 = $180\n- **New monthly salary after 3 years**: $600 + $180 = **$780**\n\n---\n\n### **Step 4: Convert to Annual Salary**\n\n- **Monthly salary**: $780\n- **Annual salary**: 12 × $780 = **$9,360**\n\n---\n\n### **Final Answer**\n\n$$\n\\boxed{9360}\n$$",
+      "pred": "9360",
+      "gold": "9360",
+      "correct": true
+    },
+    {
+      "question_index": 233,
+      "response": "<think>\nOkay, let's see. There are 36 penguins sunbathing. Hmm, the problem says one-third of them jump into the ocean to swim. So, I need to find out how many that is. Let me calculate one-third of 36 first. Dividing 36 by 3 gives me 12. So, 12 penguins go swimming.\n\nThen, another one-third go into the cave to eat. Wait, is that one-third of the original 36 or one-third of the remaining penguins? The problem says \"another one-third,\" so I think it's referring to the original number. Let me check. If it's another one-third of the original 36, that would be another 12 penguins. So, 12 swimming and 12 going to the cave. That would be 24 penguins gone.\n\nSubtracting that from the original 36, 36 minus 24 equals 12. So, 12 penguins are left sunbathing. Let me make sure I didn't misinterpret the question. If the second one-third was of the remaining penguins after the first group left, the answer would be different. But the way it's phrased, \"another one-third,\" suggests it's based on the original number. Yeah, I think that's right. So, the answer should be 12.\n",
+      "pred": "",
+      "gold": "12",
+      "correct": false
+    },
+    {
+      "question_index": 178,
+      "response": "<think>\nTo solve the problem, we are given the following relationships:\n\n1. **Bo has 40 crabs.**\n2. **Monic has 4 fewer crabs than Bo.**\n3. **Rani has 10 more crabs than Monic.**\n\nWe are asked to find the **total number of crabs** that **Rani, Monic, and Bo** have **together**.\n\n---\n\n### Step 1: Find the number of crabs Monic has\n\nMonic has 4 fewer crabs than Bo:\n\n$$\n\\text{Monic} = \\text{Bo} - 4 = 40 - 4 = 36\n$$\n\n---\n\n### Step 2: Find the number of crabs Rani has\n\nRani has 10 more crabs than Monic:\n\n$$\n\\text{Rani} = \\text{Monic} + 10 = 36 + 10 = 46\n$$\n\n---\n\n### Step 3: Add the number of crabs each person has\n\n$$\n\\text{Total} = \\text{Bo} + \\text{Monic} + \\text{Rani} = 40 + 36 + 46 = 122\n$$\n\n---\n\n### Final Answer:\n\n$$\n\\boxed{122}\n$$",
+      "pred": "122",
+      "gold": "122",
+      "correct": true
+    },
+    {
+      "question_index": 40,
+      "response": "<think>\nTo solve the problem, we'll break it down step by step using the relationships given:\n\n---\n\n### Step 1: Understand the relationships\n\nWe are told:\n\n- **Brandon's iPhone is four times as old as Ben's iPhone.**\n- **Ben's iPhone is two times as old as Suzy's iPhone.**\n- **Suzy's iPhone is 1 year old.**\n\nWe are asked to find the **age of Brandon's iPhone**.\n\n---\n\n### Step 2: Assign variables\n\nLet:\n\n- $ S $ = age of Suzy's iPhone\n- $ B $ = age of Ben's iPhone\n- $ Br $ = age of Brandon's iPhone\n\nWe are given:\n\n- $ S = 1 $\n- $ B = 2 \\times S $\n- $ Br = 4 \\times B $\n\n---\n\n### Step 3: Substitute and calculate\n\nFirst, find Ben's iPhone age:\n\n$$\nB = 2 \\times S = 2 \\times 1 = 2\n$$\n\nNow find Brandon's iPhone age:\n\n$$\nBr = 4 \\times B = 4 \\times 2 = 8\n$$\n\n---\n\n### Final Answer:\n\n$$\n\\boxed{8}\n$$",
+      "pred": "8",
+      "gold": "8",
+      "correct": true
+    },
+    {
+      "question_index": 206,
+      "response": "<think>\nTo find the total distance Micheal rode his bike, we need to calculate the distance he covered in each period and then add them together.\n\n---\n\n### **First Period:**\n- **Rides per week:** 5\n- **Distance per ride:** 25 km\n- **Number of weeks:** 4\n\n**Total distance in the first period:**\n$$\n5 \\times 25 \\times 4 = 500 \\text{ km}\n$$\n\n---\n\n### **Second Period:**\n- **Rides per week:** 2\n- **Distance per ride:** 60 km\n- **Number of weeks:** 3\n\n**Total distance in the second period:**\n$$\n2 \\times 60 \\times 3 = 360 \\text{ km}\n$$\n\n---\n\n### **Total Distance:**\n$$\n500 + 360 = \\boxed{860} \\text{ km}\n$$\n\n**Answer:** $\\boxed{860}$",
+      "pred": "860",
+      "gold": "860",
+      "correct": true
+    },
+    {
+      "question_index": 194,
+      "response": "<think>\nTo find out how much change Violetta will get, we can follow these steps:\n\n1. **Determine the total cost of the crayons:**\n   Violetta wants to buy 5 crayons, and each crayon costs $2.\n   $$\n   \\text{Total cost} = 5 \\times 2 = 10\n   $$\n\n2. **Subtract the total cost from the amount she prepared:**\n   Violetta prepared $20.\n   $$\n   \\text{Change} = 20 - 10 = 10\n   $$\n\n**Answer:** Violetta will get $\\boxed{10}$ dollars in change.",
+      "pred": "10",
+      "gold": "10",
+      "correct": true
+    },
+    {
+      "question_index": 1,
+      "response": "<think>\nTo find the total number of bolts of fiber needed for a robe, we are given:\n\n- The robe requires **2 bolts of blue fiber**.\n- It also requires **half that amount in white fiber**.\n\n---\n\n### Step 1: Determine the amount of white fiber\nSince the robe requires **half** the amount of blue fiber, and blue fiber is **2 bolts**, we calculate:\n\n$$\n\\text{White fiber} = \\frac{1}{2} \\times 2 = 1 \\text{ bolt}\n$$\n\n---\n\n### Step 2: Add the amounts of blue and white fiber\n$$\n\\text{Total fiber} = \\text{Blue fiber} + \\text{White fiber} = 2 + 1 = 3\n$$\n\n---\n\n### Final Answer:\n$$\n\\boxed{3}\n$$",
+      "pred": "3",
+      "gold": "3",
+      "correct": true
+    },
+    {
+      "question_index": 207,
+      "response": "<think>\nTo find the total weight of Joe's bag of candy, we need to calculate the combined weight of the chocolate bars and the candied apples.\n\n---\n\n### **Step 1: Determine the weight of one candied apple**\n\nWe are told:\n- Each chocolate bar weighs **40g**\n- Each chocolate bar weighs **twice as much** as a candied apple\n\nSo, the weight of one candied apple is:\n\n$$\n\\text{Weight of one candied apple} = \\frac{40}{2} = 20 \\text{g}\n$$\n\n---\n\n### **Step 2: Calculate the total weight of all chocolate bars**\n\nThere are **25 chocolate bars**, each weighing **40g**:\n\n$$\n\\text{Total weight of chocolate bars} = 25 \\times 40 = 1000 \\text{g}\n$$\n\n---\n\n### **Step 3: Calculate the total weight of all candied apples**\n\nThere are **80 candied apples**, each weighing **20g**:\n\n$$\n\\text{Total weight of candied apples} = 80 \\times 20 = 1600 \\text{g}\n$$\n\n---\n\n### **Step 4: Add the weights together**\n\n$$\n\\text{Total weight of the bag} = 1000 + 1600 = \\boxed{2600} \\text{g}\n$$\n\n---\n\n### **Final Answer:**\n\n$$\n\\boxed{2600}",
+      "pred": "2600",
+      "gold": "2600",
+      "correct": true
+    },
+    {
+      "question_index": 71,
+      "response": "<think>\nTo solve the problem, we are given:\n\n- The first recipe has **20 instructions**.\n- The second recipe has **twice as many instructions** as the first one.\n\n---\n\n### Step 1: Find the number of instructions in the second recipe\n\nSince the second recipe has **twice as many instructions** as the first one, we calculate:\n\n$$\n2 \\times 20 = 40\n$$\n\nSo, the second recipe has **40 instructions**.\n\n---\n\n### Step 2: Add the instructions from both recipes\n\n$$\n20 + 40 = 60\n$$\n\n---\n\n### Final Answer:\n\n$$\n\\boxed{60}\n$$",
+      "pred": "60",
+      "gold": "60",
+      "correct": true
+    },
+    {
+      "question_index": 150,
+      "response": "<think>\nTo determine how long the winner will wait for the loser, we need to calculate the time it takes for **Steve** and **Tim** to bike/skate from school to their homes, and then find the **difference** in their travel times.\n\n---\n\n### **Step 1: Convert distances to feet**\n\n- **Steve** lives **3 miles** from school:\n  $$\n  3 \\text{ miles} = 3 \\times 5280 = 15840 \\text{ feet}\n  $$\n\n- **Tim** lives **2 miles** from school:\n  $$\n  2 \\text{ miles} = 2 \\times 5280 = 10560 \\text{ feet}\n  $$\n\n---\n\n### **Step 2: Calculate travel times**\n\n- **Steve's speed** = 440 feet per minute\n  $$\n  \\text{Steve's time} = \\frac{15840}{440} = 36 \\text{ minutes}\n  $$\n\n- **Tim's speed** = 264 feet per minute\n  $$\n  \\text{Tim's time} = \\frac{10560}{264} = 40 \\text{ minutes}\n  $$\n\n---\n\n### **Step 3: Determine the winner and waiting time**\n\n- **Steve** finishes in **36 minutes**\n- **Tim** finishes in **40 minutes**\n- So, **Steve** wins the race and waits for **Tim** for:\n  $$\n  40 - 36 = \\boxed{4} \\text{ minutes}\n  $$\n\n---\n\n### **Final Answer:**\n$$\n\\boxed{4}\n$$",
+      "pred": "4",
+      "gold": "4",
+      "correct": true
+    },
+    {
+      "question_index": 114,
+      "response": "<think>\nWe are given the following relationships:\n\n1. **Jamal's phone can hold 6 times more photographs than Brittany's phone.**\n   - So, if Brittany's phone can hold $B$ photos, Jamal's phone can hold $6B$ photos.\n\n2. **The maximum number of photographs that Brittany's phone can hold is 50 times more than the number of birds in Jamal's photograph of the ducks at the zoo.**\n   - Let the number of birds in Jamal's photo be $D$.\n   - Then, Brittany's phone can hold $50D$ photos.\n\n3. **Jamal's phone can hold 1800 photographs.**\n\n---\n\n### Step 1: Use the first relationship\nJamal's phone can hold 1800 photos, and this is 6 times the number of photos Brittany's phone can hold.\n\n$$\n6B = 1800\n$$\n\nSolve for $B$:\n\n$$\nB = \\frac{1800}{6} = 300\n$$\n\nSo, Brittany's phone can hold 300 photos.\n\n---\n\n### Step 2: Use the second relationship\nWe are told:\n\n$$\nB = 50D\n$$\n\nSubstitute $B = 300$:\n\n$$\n300 = 50D\n$$\n\nSolve for $D$:\n\n$$\nD = \\frac{300}{50} = 6\n$$\n\n---\n\n### Final Answer:\n\n$$\n\\boxed{6}\n$$",
+      "pred": "6",
+      "gold": "6",
+      "correct": true
+    },
+    {
+      "question_index": 56,
+      "response": "<think>\nTo determine how many times Peter can go to the movies, we need to calculate the total cost for one movie visit and then divide his weekly budget by that cost.\n\n---\n\n### Step 1: Calculate the cost for one movie visit\n- Movie ticket: $7\n- Popcorn: $7\n- **Total cost per visit** = $7 + $7 = **$14**\n\n---\n\n### Step 2: Divide the weekly budget by the cost per visit\n- Weekly budget: $42\n- Cost per visit: $14\n- **Number of visits** = $ \\frac{42}{14} = 3 $\n\n---\n\n### Final Answer:\nPeter can go to the movies **3 times** this week.\n\n$$\n\\boxed{3}\n$$",
+      "pred": "3",
+      "gold": "3",
+      "correct": true
+    },
+    {
+      "question_index": 107,
+      "response": "<think>\nTo solve the problem, we are given the total amount of TV Frankie watched over the week and the durations of the episodes he watched on specific days. We are asked to find out how many **30-minute episodes** he watched on **Wednesday**.\n\n---\n\n### **Step 1: Sum up the known TV time**\n\nWe are told:\n\n- **Monday and Tuesday**: 1-hour episodes each\n  - That's $2 \\times 1 = 2$ hours\n\n- **Thursday**: 1-hour episode and 1 30-minute episode\n  - That's $1 + 0.5 = 1.5$ hours\n\n- **Friday**: 2 one-hour episodes\n  - That's $2 \\times 1 = 2$ hours\n\nSo far, we have:\n\n$$\n2 \\text{ (Mon/Tue)} + 1.5 \\text{ (Thu)} + 2 \\text{ (Fri)} = 5.5 \\text{ hours}\n$$\n\n---\n\n### **Step 2: Subtract from total to find Wednesday's TV time**\n\nWe are told the **total** TV time for the week is **7 hours**.\n\nSo, the time Frankie watched on **Wednesday** is:\n\n$$\n7 - 5.5 = 1.5 \\text{ hours}\n$$\n\n---\n\n### **Step 3: Determine how many 30-minute episodes = 1.5 hours**\n\nEach episode is **30 minutes**, which is **0.5 hours**.\n\nSo, the number of episodes is:\n\n$$\n\\frac{1.5}{0.5} = 3\n$$\n\n---\n\n### **Final Answer**\n\n$$\n\\boxed{3}\n$$",
+      "pred": "3",
+      "gold": "3",
+      "correct": true
+    },
+    {
+      "question_index": 236,
+      "response": "<think>\nTo solve this problem, we need to carefully track how many pens Ram can use in total, considering that he can refill empty pens using the ink from **five empty pens** to make **one new pen**.\n\n---\n\n### **Step 1: Initial Purchase**\n\nRam buys **25 pens**.\n\n---\n\n### **Step 2: Use Pens and Refill**\n\nHe uses all **25 pens**, and when the ink runs out, he has **25 empty pens**.\n\nNow, he can **refill pens** using the ink from **five empty pens** to make **one new pen**.\n\nSo, from **25 empty pens**, he can make:\n\n$$\n\\left\\lfloor \\frac{25}{5} \\right\\rfloor = 5 \\text{ new pens}\n$$\n\nHe now has **5 new pens**.\n\n---\n\n### **Step 3: Use the Refilled Pens**\n\nHe uses the **5 new pens**, and when they run out, he has **5 more empty pens**.\n\nHe can now refill:\n\n$$\n\\left\\lfloor \\frac{5}{5} \\right\\rfloor = 1 \\text{ new pen}\n$$\n\nHe now has **1 new pen**.\n\n---\n\n### **Step 4: Use the Last Refilled Pen**\n\nHe uses the **1 new pen**, and when it runs out, he has **1 more empty pen**.\n\nHe **cannot** refill this pen, because he needs **5 empty pens** to make **1 new pen**.\n\n---\n\n### **Step 5: Total Pens**\n\nNow, let's add up all the pens he has used or has left:\n\n- **Initial purchase**: 25 pens\n- **Refilled pens**: 5 + 1 = 6 pens\n\nHe has used **25 + 6 = 31 pens** in total.\n\nHe has **1 empty pen** left, but it's not enough to make a new pen.\n\n---\n\n### **Final Answer**\n\n$$\n\\boxed{31}\n$$",
+      "pred": "31",
+      "gold": "31",
+      "correct": true
+    },
+    {
+      "question_index": 179,
+      "response": "<think>\nTo find out how much Lloyd earned in the first two weeks, we can break the problem into smaller steps:\n\n---\n\n### **Step 1: Calculate earnings for the first week**\n\nLloyd earns **$10 per hour** and tutored for **5 hours** in the first week.\n\n$$\n\\text{Earnings for first week} = 10 \\times 5 = 50\n$$\n\n---\n\n### **Step 2: Calculate earnings for the second week**\n\nIn the second week, he tutored for **8 hours**.\n\n$$\n\\text{Earnings for second week} = 10 \\times 8 = 80\n$$\n\n---\n\n### **Step 3: Add the earnings from both weeks**\n\n$$\n\\text{Total earnings} = 50 + 80 = \\boxed{130}\n$$\n\n---\n\n### **Final Answer:**\n\n$$\n\\boxed{130}\n$$",
+      "pred": "130",
+      "gold": "130",
+      "correct": true
+    },
+    {
+      "question_index": 166,
+      "response": "<think>\nTo determine how many times Sandra needs to babysit, we start by calculating how many eggs she needs in total to make 15 Spanish flans.\n\n---\n\n### Step 1: Eggs needed per flan\nSandra needs **3 eggs** to make **1 flan**.\n\n---\n\n### Step 2: Total eggs needed for 15 flans\n$$\n15 \\text{ flans} \\times 3 \\text{ eggs per flan} = 45 \\text{ eggs}\n$$\n\n---\n\n### Step 3: Eggs received per babysitting\nSandra gets **9 eggs** for each babysitting job.\n\n---\n\n### Step 4: Number of babysitting jobs needed\nTo find out how many babysitting jobs Sandra needs to do to get **45 eggs**, we divide the total number of eggs needed by the number of eggs she gets per babysitting:\n\n$$\n\\frac{45 \\text{ eggs}}{9 \\text{ eggs per babysitting}} = 5\n$$\n\n---\n\n### Final Answer:\n$$\n\\boxed{5}\n$$",
+      "pred": "5",
+      "gold": "5",
+      "correct": true
+    },
+    {
+      "question_index": 183,
+      "response": "<think>\nTo determine the margin of victory, we need to calculate the total time it takes for each team to complete the 4 × 400-meter relay and then find the difference between these two times.\n\n---\n\n### **Team A: Well-Rounded Team**\n\n- Each of the 4 runners runs 400 meters in **55 seconds**.\n- Total time = $4 \\times 55 = \\boxed{220}$ seconds.\n\n---\n\n### **Team B: Less Well-Rounded Team**\n\n- The first runner takes **60 seconds**.\n- Each subsequent runner is **3 seconds faster** than the previous one.\n\nThis is an **arithmetic sequence**:\n- First term $a_1 = 60$\n- Common difference $d = -3$\n- Number of terms $n = 4$\n\nWe use the formula for the sum of the first $n$ terms of an arithmetic sequence:\n\n$$\nS_n = \\frac{n}{2}(2a_1 + (n - 1)d)\n$$\n\nSubstitute the values:\n\n$$\nS_4 = \\frac{4}{2}(2 \\cdot 60 + (4 - 1)(-3)) = 2(120 - 9) = 2 \\cdot 111 = \\boxed{222}\n$$\n\nSo, Team B's total time is **222 seconds**.\n\n---\n\n### **Determine the Winning Margin**\n\n- Team A finishes in **220 seconds**\n- Team B finishes in **222 seconds**\n- Difference = $222 - 220 = \\boxed{2}$\n\n---\n\n### **Final Answer**\n\n$$\n\\boxed{2}\n$$",
+      "pred": "2",
+      "gold": "2",
+      "correct": true
+    },
+    {
+      "question_index": 50,
+      "response": "<think>\nTo find out how much Lloyd makes on eggs per week, we can break the problem into smaller steps:\n\n---\n\n### **Step 1: Calculate the number of eggs produced per week**\n\nLloyd's chickens lay **252 eggs per day**.\n\n$$\n\\text{Eggs per week} = 252 \\times 7 = 1764\n$$\n\n---\n\n### **Step 2: Convert the number of eggs to dozens**\n\nSince eggs are sold by the **dozen**, we divide the total number of eggs by 12:\n\n$$\n\\text{Dozens per week} = \\frac{1764}{12} = 147\n$$\n\n---\n\n### **Step 3: Calculate the weekly revenue**\n\nLloyd sells each **dozen of eggs** for **$2**:\n\n$$\n\\text{Weekly revenue} = 147 \\times 2 = 294\n$$\n\n---\n\n### **Final Answer:**\n\n$$\n\\boxed{294}\n$$",
+      "pred": "294",
+      "gold": "294",
+      "correct": true
+    },
+    {
+      "question_index": 143,
+      "response": "<think>\nOkay, let's see. John bought a bunch of items, and I need to figure out the total cost including tax. Hmm, the problem says there's a 10% tax on all non-food items. So first, I should probably separate the food items from the non-food items.\n\nLet me list out the items and their prices again to make sure I have them right. He bought milk for $2, eggs for $3, light bulbs for $3, cups for $3, and roach traps for $4. So, milk and eggs are food, right? And the rest—light bulbs, cups, and roach traps—are non-food. Wait, is that correct? Let me think. Light bulbs and cups are household items, not food. Roach traps are for pest control, so definitely non-food. So that leaves milk and eggs as the food items. The others are non-food.\n\nSo, the tax is 10% on the non-food items. That means I need to calculate the tax for each non-food item and then add it to the original price. Let me write that down.\n\nFirst, let's find the total cost of non-food items before tax. Light bulbs are $3, cups are $3, and roach traps are $4. Adding those up: 3 + 3 + 4. Let me do that step by step. 3 plus 3 is 6, plus 4 is 10. So the total for non-food items is $10.\n\nNow, apply the 10% tax. To find 10% of $10, I can multiply 10 by 0.10, which is 1. So the tax is $1.\n\nThen, the total cost for non-food items including tax would be the original $10 plus the $1 tax, which equals $11.\n\nNow, the food items are milk and eggs. Milk is $2 and eggs are $3. Adding those together: 2 + 3 = $5. There's no tax on food, so that stays the same.\n\nFinally, add the cost of food and non-food items together. The food is $5, and the non-food with tax is $11. So 5 + 11 equals... let me add that up. 5 plus 10 is 15, plus 1 more is 16. So the total cost should be $16.\n\nWait, let me double-check my math to make sure I didn't make a mistake. Non-food items: light bulbs $3, cups $3, roach traps $4. 3 + 3 is 6, plus 4 is 10. Tax is 10% of 10, which is 1. So non-food total is 10 + 1 = 11. Food is milk $2 and eggs $3, which is 5. 11 + 5 is 16. Yeah, that seems right.\n\nI think that's all. The key was to separate the food and non-food items, apply the tax only to the non-food, and then add them together. I don't think I missed any items or miscalculated the tax. So the final total should be $16.\n</think>\n\nTo determine the total cost of John's purchases, we need to account for the **10% tax on non-food items** and **no tax on food items**.\n\n---\n\n### **Step 1: Identify Food and Non-Food Items**\n\n- **Food items** (no tax):\n  - Milk: $2\n  - Eggs: $3\n  - **Total food cost** = $2 + $3 = **$5**\n\n- **Non-food items** (10% tax applies):\n  - Light bulbs: $3\n  - Cups: $3\n  - Roach traps: $4\n  - **Total non-food cost before tax** = $3 + $3 + $4 = **$10**\n\n---\n\n### **Step 2: Calculate Tax on Non-Food Items**\n\n- **Tax rate** = 10% = 0.10\n- **Tax on non-food items** = 10% of $10 = $10 × 0.10 = **$1**\n\n---\n\n### **Step 3: Add Tax to Non-Food Items**\n\n- **Total cost of non-food items with tax** = $10 + $1 = **$11**\n\n---\n\n### **Step 4: Add Food and Non-Food Costs**\n\n- **Total cost** = Food + Non-food with tax = $5 + $11 = **$16**\n\n---\n\n### **Final Answer**\n\n$$\n\\boxed{16}\n$$",
+      "pred": "16",
+      "gold": "16",
+      "correct": true
+    },
+    {
+      "question_index": 247,
+      "response": "<think>\nTo find out how much each person paid, we first need to calculate the **total cost** of all the party supplies Isabelle bought.\n\n---\n\n### **Step 1: Add up all the costs**\n\n- Cake ingredients: $12\n- Birthday presents: $43\n- Decorations: $15\n- Invitations: $4\n- Goodie bags: $22\n\n$$\n\\text{Total cost} = 12 + 43 + 15 + 4 + 22\n$$\n\n$$\n\\text{Total cost} = 96\n$$\n\n---\n\n### **Step 2: Divide the total cost evenly among 3 people**\n\n$$\n\\text{Cost per person} = \\frac{96}{3} = 32\n$$\n\n---\n\n### **Final Answer:**\n\n$$\n\\boxed{32}\n$$",
+      "pred": "32",
+      "gold": "32",
+      "correct": true
+    },
+    {
+      "question_index": 154,
+      "response": "<think>\nTo find out how many hours Kimo spends attending classes in one semester, we need to calculate the total number of hours he spends in classes on each type of day and then multiply that by the number of weeks in the semester.\n\n---\n\n### Step 1: Calculate weekly class hours\n\n- **Monday, Wednesday, Friday**:  \n  Kimo has **3 classes**, each lasting **1 hour**.  \n  So, class hours per day = $3 \\times 1 = 3$ hours.  \n  There are **3 such days** in a week.  \n  Total for these days = $3 \\times 3 = 9$ hours.\n\n- **Tuesday and Thursday**:  \n  Kimo has **2 classes**, each lasting **2 hours**.  \n  So, class hours per day = $2 \\times 2 = 4$ hours.  \n  There are **2 such days** in a week.  \n  Total for these days = $2 \\times 4 = 8$ hours.\n\n---\n\n### Step 2: Add up weekly class hours\n\n$$\n\\text{Total weekly class hours} = 9 + 8 = 17 \\text{ hours}\n$$\n\n---\n\n### Step 3: Multiply by the number of weeks in the semester\n\nThere are **16 weeks** in the semester.\n\n$$\n\\text{Total class hours in the semester} = 17 \\times 16 = 272\n$$\n\n---\n\n### Final Answer:\n\n$$\n\\boxed{272}\n$$",
+      "pred": "272",
+      "gold": "272",
+      "correct": true
+    },
+    {
+      "question_index": 129,
+      "response": "<think>\nTo determine the **profit** the hospital makes from these visits, we need to calculate:\n\n$$\n\\text{Profit} = \\text{Revenue} - \\text{Cost}\n$$\n\n---\n\n### **Step 1: Calculate Total Revenue**\n\n- The hospital sees **500 people per day**.\n- Each visit lasts **24 minutes**, and the hospital **charges $200 per hour**.\n- First, convert the visit duration to hours:\n\n$$\n24 \\text{ minutes} = \\frac{24}{60} = 0.4 \\text{ hours}\n$$\n\n- Revenue per visit:\n\n$$\n0.4 \\text{ hours} \\times 200 \\text{ dollars/hour} = 80 \\text{ dollars}\n$$\n\n- Total daily revenue:\n\n$$\n500 \\text{ visits} \\times 80 \\text{ dollars/visit} = 40,000 \\text{ dollars}\n$$\n\n---\n\n### **Step 2: Calculate Total Cost**\n\n- The **doctors charge $150 per hour** to the hospital.\n- Again, use the **0.4-hour** visit duration:\n\n$$\n0.4 \\text{ hours} \\times 150 \\text{ dollars/hour} = 60 \\text{ dollars}\n$$\n\n- Total daily cost:\n\n$$\n500 \\text{ visits} \\times 60 \\text{ dollars/visit} = 30,000 \\text{ dollars}\n$$\n\n---\n\n### **Step 3: Calculate Profit**\n\n$$\n\\text{Profit} = \\text{Revenue} - \\text{Cost} = 40,000 - 30,000 = \\boxed{10,000}\n$$\n\n---\n\n### **Final Answer:**\n\n$$\n\\boxed{10,000}\n$$",
+      "pred": "10,000",
+      "gold": "10000",
+      "correct": false
+    },
+    {
+      "question_index": 59,
+      "response": "<think>\nTo find the total number of raspberries on the bush, we need to consider two parts:\n\n1. **Raspberries in clusters**:  \n   There are 6 clusters, and each cluster has 20 raspberries.  \n   So, the total number of raspberries in clusters is:  \n   $6 \\times 20 = 120$\n\n2. **Individual raspberries**:  \n   There are 67 individual raspberries scattered on the bush.\n\n3. **Add them together**:  \n   $120 + 67 = 187$\n\n### Final Answer:\n$$\n\\boxed{187}\n$$",
+      "pred": "187",
+      "gold": "187",
+      "correct": true
+    },
+    {
+      "question_index": 55,
+      "response": "<think>\nOkay, let's see. Jean has 30 lollipops to start with. Then Jean eats 2 of them. Hmm, so I need to subtract those 2 from the total first. Let me write that down: 30 minus 2. That should give me the number of lollipops left after Jean eats some.\n\n30 minus 2 is 28. Alright, so now Jean has 28 lollipops left. The next part says Jean wants to package 2 lollipops in each bag. So, to find out how many bags Jean can fill, I need to divide the remaining lollipops by the number of lollipops per bag. That would be 28 divided by 2.\n\nLet me do that division. 28 divided by 2 is 14. Wait, does that mean Jean can fill 14 bags? Let me check my steps again to make sure I didn't skip anything.\n\nOriginal number of lollipops: 30. Jean eats 2, so 30 minus 2 is indeed 28. Then, dividing 28 by 2 lollipops per bag gives 14 bags. That seems right. I don't think there's any remainder here because 28 is an even number. So, Jean can fill exactly 14 bags with 2 lollipops each. I think that's the answer. Let me just confirm once more.\n\nIf each bag has 2 lollipops, then 14 bags would hold 14 times 2, which is 28. And since Jean only has 28 lollipops left after eating, that's all of them. Yep, that matches up. So, the final answer should be 14 bags.",
+      "pred": "",
+      "gold": "14",
+      "correct": false
+    },
+    {
+      "question_index": 23,
+      "response": "<think>\nTo solve this problem, we need to determine how much the candle has melted over the given time period.\n\n---\n\n### **Step 1: Determine the time the candle has been burning**\n\nThe candle burns from **1:00 PM to 5:00 PM**.\n\n$$\n5:00 \\, \\text{PM} - 1:00 \\, \\text{PM} = 4 \\, \\text{hours}\n$$\n\n---\n\n### **Step 2: Calculate the total melting**\n\nThe candle melts **2 centimeters every hour**. Over **4 hours**, the total melting is:\n\n$$\n2 \\, \\text{cm/hour} \\times 4 \\, \\text{hours} = 8 \\, \\text{cm}\n$$\n\n---\n\n### **Final Answer**\n\n$$\n\\boxed{8}\n$$",
+      "pred": "8",
+      "gold": "8",
+      "correct": true
+    },
+    {
+      "question_index": 7,
+      "response": "<think>\nTo solve this problem, we need to calculate the **total time** it takes Carla to download a **200 GB** file, considering the following:\n\n- **Normal download speed**: 2 GB per minute\n- **File size**: 200 GB\n- **Restart occurs**: 40% of the way through the download\n- **Restart time**: 20 minutes\n- **Download restarts from the beginning** after the restart\n\n---\n\n### Step 1: Calculate the point at which the restart occurs\n\nCarla restarts the download **40% of the way** through the file.\n\n$$\n40\\% \\text{ of } 200 \\text{ GB} = 0.4 \\times 200 = 80 \\text{ GB}\n$$\n\nSo, the restart happens after **80 GB** is downloaded.\n\n---\n\n### Step 2: Calculate the time to download the first 80 GB\n\nAt 2 GB per minute:\n\n$$\n\\text{Time to download 80 GB} = \\frac{80}{2} = 40 \\text{ minutes}\n$$\n\n---\n\n### Step 3: Add the restart time\n\nThe restart takes **20 minutes**, so we add that to the time:\n\n$$\n40 \\text{ minutes (download)} + 20 \\text{ minutes (restart)} = 60 \\text{ minutes}\n$$\n\n---\n\n### Step 4: Calculate the time to download the remaining 120 GB\n\nAfter the restart, Carla has to download the **entire 200 GB** from the beginning, so she has to download **200 GB** again.\n\n$$\n\\text{Time to download 200 GB} = \\frac{200}{2} = 100 \\text{ minutes}\n$$\n\n---\n\n### Step 5: Add all the times together\n\n$$\n\\text{Total time} = 60 \\text{ minutes (first 80 GB + restart)} + 100 \\text{ minutes (full download)} = \\boxed{160} \\text{ minutes}\n$$\n\n---\n\n### ✅ Final Answer:\n\n$$\n\\boxed{160} \\text{ minutes}\n$$",
+      "pred": "160",
+      "gold": "160",
+      "correct": true
+    },
+    {
+      "question_index": 8,
+      "response": "<think>\nTo solve this problem, we need to track John's position over time and determine how far he is from home at the end of the 4-hour period.\n\n---\n\n### **Step 1: Determine John's initial position**\n\nJohn drives for **3 hours** at **60 mph** away from home.\n\n$$\n\\text{Distance from home} = 60 \\, \\text{mph} \\times 3 \\, \\text{hours} = 180 \\, \\text{miles}\n$$\n\nSo, after the first 3 hours, John is **180 miles away from home**.\n\n---\n\n### **Step 2: Analyze the next 4 hours**\n\nJohn **turns around** and tries to get back home. We are given the following details for the next **4 hours**:\n\n- **First 2 hours**: He is in **standstill traffic** → **0 mph**\n- **Next 0.5 hours**: He drives at **30 mph**\n- **Remaining time**: He drives at **80 mph**\n\nWe'll calculate the **distance he covers** in each of these time intervals and sum them up to find the **total distance he travels back toward home**.\n\n---\n\n### **Step 3: Calculate distance traveled in each segment**\n\n- **First 2 hours**: $0 \\, \\text{mph} \\times 2 \\, \\text{hours} = 0 \\, \\text{miles}$\n- **Next 0.5 hours**: $30 \\, \\text{mph} \\times 0.5 \\, \\text{hours} = 15 \\, \\text{miles}$\n- **Remaining time**: $4 - 2 - 0.5 = 1.5 \\, \\text{hours}$\n\n$$\n\\text{Distance at 80 mph} = 80 \\, \\text{mph} \\times 1.5 \\, \\text{hours} = 120 \\, \\text{miles}\n$$\n\n---\n\n### **Step 4: Total distance traveled back toward home**\n\n$$\n\\text{Total distance back} = 0 + 15 + 120 = 135 \\, \\text{miles}\n$$\n\n---\n\n### **Step 5: Final distance from home**\n\nJohn was initially **180 miles away** from home. He then drove **135 miles back**.\n\n$$\n\\text{Final distance from home} = 180 - 135 = \\boxed{45} \\, \\text{miles}\n$$\n\n---\n\n### ✅ **Final Answer**:\n\n$$\n\\boxed{45}\n$$",
+      "pred": "45",
+      "gold": "45",
+      "correct": true
+    },
+    {
+      "question_index": 108,
+      "response": "<think>\nTo solve the problem, we'll work backwards from the final number of cookies Henry has, and use the relationships given to find out how many cookies he baked **last year**.\n\n---\n\n### Step 1: Understand the final count\n\nHenry **drops 5 cookies**, and after that, he has **110 cookies**.\n\nSo, **before dropping**, he had:\n\n$$\n110 + 5 = 115 \\text{ cookies}\n$$\n\n---\n\n### Step 2: Account for the extra cookies\n\nHe **baked 15 more cookies than he meant to**, so the **intended number** of cookies is:\n\n$$\n115 - 15 = 100 \\text{ cookies}\n$$\n\n---\n\n### Step 3: Relate to last year's count\n\nHe **wants to make twice as many cookies as he did last year**, and that's the number we just found: **100 cookies**.\n\nSo, if **twice** the number of cookies he baked last year is **100**, then the number of cookies he baked **last year** is:\n\n$$\n\\frac{100}{2} = 50\n$$\n\n---\n\n### ✅ Final Answer:\n\n$$\n\\boxed{50}\n$$",
+      "pred": "50",
+      "gold": "50",
+      "correct": true
+    },
+    {
+      "question_index": 151,
+      "response": "<think>\nOkay, let's see. Shawnda is running a bike tire inflation service, and she charges 25 cents per tire. We need to figure out how much money she made in a day based on the number of people and the types of vehicles they're riding.\n\nFirst, let me break down the information given:\n\n- On the first day, 5 people on bicycles came by. Each bicycle has 2 tires. So, that's 5 people × 2 tires each. Let me calculate that: 5 × 2 = 10 tires.\n\n- Then, 3 people on tricycles came. Tricycles have 3 tires each. So, that's 3 × 3 = 9 tires.\n\n- Finally, 1 person on a unicycle came. A unicycle has 1 tire. So, that's just 1 tire.\n\nNow, adding all those tires together: 10 (from bicycles) + 9 (from tricycles) + 1 (from the unicycle) = 20 tires in total.\n\nShawnda charges 25 cents per tire. To find the total amount of money she made, I need to multiply the number of tires by the cost per tire. So, 20 tires × $0.25 per tire. Let me do that multiplication: 20 × 0.25 = $5.00.\n\nWait, let me double-check my math to make sure I didn't make a mistake. 5 bicycles × 2 tires = 10 tires. 3 tricycles × 3 tires = 9 tires. 1 unicycle × 1 tire = 1 tire. Adding those up: 10 + 9 is 19, plus 1 is 20. Yep, that's 20 tires. And 20 × 0.25 is indeed 5. So, she made $5 that day.\n\nI think that's all. The answer should be $5.",
+      "pred": "",
+      "gold": "5",
+      "correct": false
+    },
+    {
+      "question_index": 22,
+      "response": "<think>\nTo find out how many DVDs Billy sold on Tuesday, we can break down the problem step by step:\n\n---\n\n### Step 1: Understand the customer breakdown\nBilly has **8 customers** in total on Tuesday, and they are divided into groups:\n\n- **First 3 customers** each buy **1 DVD**.\n- **Next 2 customers** each buy **2 DVDs**.\n- **Last 3 customers** buy **0 DVDs**.\n\n---\n\n### Step 2: Calculate the number of DVDs sold\n\n- First 3 customers:  \n  $3 \\text{ customers} \\times 1 \\text{ DVD/customer} = 3 \\text{ DVDs}$\n\n- Next 2 customers:  \n  $2 \\text{ customers} \\times 2 \\text{ DVDs/customer} = 4 \\text{ DVDs}$\n\n- Last 3 customers:  \n  $3 \\text{ customers} \\times 0 \\text{ DVDs/customer} = 0 \\text{ DVDs}$\n\n---\n\n### Step 3: Add the totals\n\n$$\n3 + 4 + 0 = 7\n$$\n\n---\n\n### Final Answer:\n\n$$\n\\boxed{7}\n$$",
+      "pred": "7",
+      "gold": "7",
+      "correct": true
+    },
+    {
+      "question_index": 139,
+      "response": "<think>\nWe are given the following information:\n\n- The number of **pink gumballs** is **22 more than four times** the number of **blue gumballs**.\n- There are **12 blue gumballs**.\n\n---\n\n### Step 1: Define the relationship\n\nLet the number of **pink gumballs** be $ P $, and the number of **blue gumballs** be $ B $.\n\nWe are told:\n\n$$\nP = 4B + 22\n$$\n\n---\n\n### Step 2: Substitute the known value\n\nWe are given $ B = 12 $. Substitute this into the equation:\n\n$$\nP = 4(12) + 22\n$$\n\n$$\nP = 48 + 22 = 70\n$$\n\n---\n\n### Final Answer:\n\n$$\n\\boxed{70}\n$$",
+      "pred": "70",
+      "gold": "70",
+      "correct": true
+    },
+    {
+      "question_index": 228,
+      "response": "<think>\nTo solve the problem, we need to determine how long it will take Kalinda and her mom to complete a 360-piece puzzle, given their individual puzzle-solving rates.\n\n---\n\n### **Step 1: Determine the puzzle-solving rates**\n\n- **Kalinda** can place **4 pieces per minute**.\n- **Her mom** can place **half as many** as Kalinda, so:\n  $$\n  \\text{Mom's rate} = \\frac{4}{2} = 2 \\text{ pieces per minute}\n  $$\n\n---\n\n### **Step 2: Combine their rates**\n\nTo find out how many pieces they can place together in one minute, we add their rates:\n$$\n\\text{Combined rate} = 4 + 2 = 6 \\text{ pieces per minute}\n$$\n\n---\n\n### **Step 3: Calculate the total time in minutes**\n\nWe now divide the total number of puzzle pieces by their combined rate to find the time in **minutes**:\n$$\n\\text{Time (in minutes)} = \\frac{360}{6} = 60 \\text{ minutes}\n$$\n\n---\n\n### **Step 4: Convert time to hours**\n\n$$\n\\text{Time (in hours)} = \\frac{60}{60} = 1 \\text{ hour}\n$$\n\n---\n\n### **Final Answer**\n\n$$\n\\boxed{1}\n$$",
+      "pred": "1",
+      "gold": "1",
+      "correct": true
+    },
+    {
+      "question_index": 246,
+      "response": "<think>\nTo find out how much Jean paid, we need to calculate the total cost of the makeup artist's services, including the hourly rate, the number of hours worked, and the final 10% discount.\n\n---\n\n### **Step 1: Calculate the total number of hours worked**\n\n- **Hours per day**: 6\n- **Days per week**: 4\n- **Weeks of the movie**: 5\n\n$$\n\\text{Total hours} = 6 \\, \\text{hours/day} \\times 4 \\, \\text{days/week} \\times 5 \\, \\text{weeks} = 120 \\, \\text{hours}\n$$\n\n---\n\n### **Step 2: Calculate the total cost before the discount**\n\n- **Hourly rate**: $250\n\n$$\n\\text{Total cost before discount} = 120 \\, \\text{hours} \\times 250 \\, \\text{\\$/hour} = 30,000 \\, \\text{\\$}\n$$\n\n---\n\n### **Step 3: Apply the 10% discount**\n\n$$\n\\text{Discount} = 10\\% \\times 30,000 = 0.10 \\times 30,000 = 3,000\n$$\n\n$$\n\\text{Final cost} = 30,000 - 3,000 = 27,000\n$$\n\n---\n\n### **Final Answer:**\n\n$$\n\\boxed{27000}\n$$",
+      "pred": "27000",
+      "gold": "27000",
+      "correct": true
+    },
+    {
+      "question_index": 173,
+      "response": "<think>\nTo find out how much Jessica pays in a year if she pays **50% more than the minimum** on her debts, we'll follow these steps:\n\n---\n\n### **Step 1: Calculate the total minimum monthly payment**\n\nJessica has three debts:\n\n- **Student loans:** $300/month\n- **Credit card:** $200/month\n- **Mortgage:** $500/month\n\n**Total minimum monthly payment:**\n\n$$\n300 + 200 + 500 = 1000 \\text{ dollars}\n$$\n\n---\n\n### **Step 2: Calculate 50% more than the minimum**\n\nPaying **50% more** than the minimum means she pays:\n\n$$\n1000 + (0.5 \\times 1000) = 1000 + 500 = 1500 \\text{ dollars/month}\n$$\n\n---\n\n### **Step 3: Calculate the annual payment**\n\nTo find out how much she pays in a year:\n\n$$\n1500 \\text{ dollars/month} \\times 12 \\text{ months} = 18000 \\text{ dollars}\n$$\n\n---\n\n### **Final Answer:**\n\n$$\n\\boxed{18000}\n$$",
+      "pred": "18000",
+      "gold": "18000",
+      "correct": true
+    },
+    {
+      "question_index": 26,
+      "response": "<think>\nTo find the total amount Mishka spent on all the clothing items, we need to calculate the cost of each type of clothing separately and then add them together.\n\n---\n\n### **Step 1: Cost of Shorts**\nMishka bought **3 pairs of shorts**, and each pair costs **$16.50**.\n\n$$\n3 \\times 16.50 = 49.50\n$$\n\n---\n\n### **Step 2: Cost of Pants**\nMishka bought **3 pairs of pants**, and each pair costs **$22.50**.\n\n$$\n3 \\times 22.50 = 67.50\n$$\n\n---\n\n### **Step 3: Cost of Shoes**\nMishka bought **3 pairs of shoes**, and each pair costs **$42**.\n\n$$\n3 \\times 42 = 126\n$$\n\n---\n\n### **Step 4: Total Cost**\nNow, add the costs of all the items:\n\n$$\n49.50 + 67.50 + 126 = 243\n$$\n\n---\n\n### **Final Answer**\n$$\n\\boxed{243}\n$$",
+      "pred": "243",
+      "gold": "243",
+      "correct": true
+    },
+    {
+      "question_index": 188,
+      "response": "<think>\nTo find out how many bags of wheat the trader sold, we need to analyze the **costs** and **revenue** involved, and use the **profit** to set up an equation.\n\n---\n\n### **Step 1: Define the variables**\n\nLet:\n- $ x $ = number of bags of wheat sold\n\n---\n\n### **Step 2: Calculate the total cost**\n\n- **Cost to buy the wheat**: The trader buys each bag for $20, so the total cost for the wheat is:\n  $$\n  20x\n  $$\n\n- **Transportation cost**: It costs $2 to transport each bag, so the total transportation cost is:\n  $$\n  2x\n  $$\n\n- **Total cost** = Cost of wheat + Transportation cost:\n  $$\n  \\text{Total cost} = 20x + 2x = 22x\n  $$\n\n---\n\n### **Step 3: Calculate the total revenue**\n\nThe trader sells each bag for $30, so the total revenue is:\n$$\n\\text{Revenue} = 30x\n$$\n\n---\n\n### **Step 4: Use the profit formula**\n\n$$\n\\text{Profit} = \\text{Revenue} - \\text{Total cost}\n$$\n\nWe are given that the **profit is $400**, so:\n$$\n30x - 22x = 400\n$$\n\nSimplify:\n$$\n8x = 400\n$$\n\nSolve for $ x $:\n$$\nx = \\frac{400}{8} = 50\n$$\n\n---\n\n### **Final Answer**\n\n$$\n\\boxed{50}\n$$",
+      "pred": "50",
+      "gold": "50",
+      "correct": true
+    },
+    {
+      "question_index": 35,
+      "response": "<think>\nTo find the total number of points Mike scored, we need to calculate the points he scored in each 20-minute segment and then add them together.\n\n---\n\n### Step 1: Points in the first 20 minutes\nMike scores **4 points** in the first 20 minutes.\n\n---\n\n### Step 2: Points in the second 20 minutes\nIn the second 20 minutes, Mike scores **25% more** points than he did in the first 20 minutes.\n\nTo find 25% of 4:\n$$\n25\\% \\text{ of } 4 = 0.25 \\times 4 = 1\n$$\n\nAdd this to the original 4 points:\n$$\n4 + 1 = 5\n$$\n\nSo, Mike scores **5 points** in the second 20 minutes.\n\n---\n\n### Step 3: Total points\nNow, add the points from both segments:\n$$\n4 + 5 = \\boxed{9}\n$$\n\n---\n\n### Final Answer:\n$$\n\\boxed{9}\n$$",
+      "pred": "9",
+      "gold": "9",
+      "correct": true
+    },
+    {
+      "question_index": 57,
+      "response": "<think>\nTo solve this problem, we are given:\n\n- The **bridge's weight limit** is **5000 pounds**.\n- The **truck (empty) plus driver** weighs **3755 pounds**.\n- Each **box** weighs **15 pounds**.\n- We are to find the **maximum number of boxes** that can be loaded onto the truck **without exceeding** the bridge's weight limit.\n\n---\n\n### Step 1: Determine the remaining weight capacity\n\nThe bridge can carry up to **5000 pounds**, and the **truck and driver** already weigh **3755 pounds**. So, the **remaining weight capacity** for the boxes is:\n\n$$\n5000 - 3755 = 1245 \\text{ pounds}\n$$\n\n---\n\n### Step 2: Determine how many boxes can be loaded\n\nEach box weighs **15 pounds**, so the **maximum number of boxes** that can be loaded is:\n\n$$\n\\left\\lfloor \\frac{1245}{15} \\right\\rfloor\n$$\n\nDo the division:\n\n$$\n\\frac{1245}{15} = 83\n$$\n\nSince 1245 is exactly divisible by 15, there is **no remainder**, so we can load **83 boxes** without exceeding the weight limit.\n\n---\n\n### Final Answer:\n\n$$\n\\boxed{83}\n$$",
+      "pred": "83",
+      "gold": "83",
+      "correct": true
+    },
+    {
+      "question_index": 62,
+      "response": "<think>\nTo determine Marcy's annual pension if she quits after 30 years, we need to understand the **pension formula** and how it applies to her situation.\n\n---\n\n### **Step 1: Understand the Pension Formula**\n\nThe formula for the **annual pension** is:\n\n$$\n\\text{Annual Pension} = \\text{Years of Service} \\times \\text{Pension Rate}\n$$\n\nIn this case, the **pension rate** is **$50,000 per year**, and the **years of service** is **30**.\n\n---\n\n### **Step 2: Apply the Formula**\n\n$$\n\\text{Annual Pension} = 30 \\times 50,000 = 1,500,000\n$$\n\n---\n\n### **Step 3: Interpret the Result**\n\nThis means Marcy would receive **$1,500,000 per year** as her annual pension if she quits after 30 years of service.\n\n---\n\n### **Final Answer**\n\n$$\n\\boxed{1500000}\n$$",
+      "pred": "1500000",
+      "gold": "25000",
+      "correct": false
+    },
+    {
+      "question_index": 70,
+      "response": "<think>\nTo find out how much money Judy makes in a week, we need to calculate her total earnings from all her dance classes.\n\n---\n\n### **Step 1: Calculate the number of classes she teaches in a week**\n\n- **Weekdays (Monday to Friday):** 5 days × 1 class/day = **5 classes**\n- **Saturday:** 8 classes\n- **Sunday:** No classes\n\n**Total classes in a week = 5 + 8 = 13 classes**\n\n---\n\n### **Step 2: Calculate the number of students per week**\n\n- Each class has **15 students**\n- Total students = 13 classes × 15 students/class = **195 students**\n\n---\n\n### **Step 3: Calculate her weekly earnings**\n\n- She charges **$15.00 per student**\n- Total earnings = 195 students × $15.00/student\n\n$$\n195 \\times 15 = 2925\n$$\n\n---\n\n### **Final Answer:**\n\n$$\n\\boxed{2925}\n$$",
+      "pred": "2925",
+      "gold": "7425",
+      "correct": false
+    },
+    {
+      "question_index": 189,
+      "response": "<think>\nTo find out how much each friend paid, we need to calculate the **total cost** of all the expenses and then **divide it by 3** (since there are 3 friends).\n\n---\n\n### **Step 1: Cost of Tickets**\nThey spent **$20.25** on **3 tickets**.\n\n---\n\n### **Step 2: Cost of Food**\nThey spent **$4.50 less** on food than on the tickets.\n\n$$\n\\text{Cost of food} = 20.25 - 4.50 = 15.75\n$$\n\n---\n\n### **Step 3: Cost of Rides**\nThey went on **2 different rides**, and each ride cost **$33**.\n\n$$\n\\text{Cost of rides} = 2 \\times 33 = 66\n$$\n\n---\n\n### **Step 4: Total Cost**\nNow, add up all the costs:\n\n$$\n\\text{Total cost} = \\text{Tickets} + \\text{Food} + \\text{Rides} = 20.25 + 15.75 + 66 = 102\n$$\n\n---\n\n### **Step 5: Split the Cost Evenly**\nThere are **3 friends**, so we divide the total cost by 3:\n\n$$\n\\text{Each friend pays} = \\frac{102}{3} = 34\n$$\n\n---\n\n### **Final Answer**\n$$\n\\boxed{34}\n$$",
+      "pred": "34",
+      "gold": "34",
+      "correct": true
+    },
+    {
+      "question_index": 6,
+      "response": "<think>\nWe are given the following relationships:\n\n- Toulouse has **twice as many sheep** as Charleston.\n- Charleston has **4 times as many sheep** as Seattle.\n- Seattle has **20 sheep**.\n\nWe are asked to find the **total number of sheep** that Toulouse, Charleston, and Seattle have **together**.\n\n---\n\n### Step 1: Assign a variable to the number of sheep in Seattle\n\nWe are told:\n\n$$\n\\text{Seattle} = 20\n$$\n\n---\n\n### Step 2: Use the relationship to find Charleston's sheep\n\nCharleston has **4 times** as many sheep as Seattle:\n\n$$\n\\text{Charleston} = 4 \\times \\text{Seattle} = 4 \\times 20 = 80\n$$\n\n---\n\n### Step 3: Use the relationship to find Toulouse's sheep\n\nToulouse has **twice** as many sheep as Charleston:\n\n$$\n\\text{Toulouse} = 2 \\times \\text{Charleston} = 2 \\times 80 = 160\n$$\n\n---\n\n### Step 4: Add the number of sheep from all three cities\n\n$$\n\\text{Total} = \\text{Seattle} + \\text{Charleston} + \\text{Toulouse} = 20 + 80 + 160 = \\boxed{260}\n$$\n\n---\n\n### Final Answer:\n\n$$\n\\boxed{260}\n$$",
+      "pred": "260",
+      "gold": "260",
+      "correct": true
+    },
+    {
+      "question_index": 28,
+      "response": "<think>\nTo find out how many miles Henry traveled between his first and second stops, we can break the problem into steps:\n\n---\n\n### **Step 1: Understand the total trip**\nHenry's entire trip is **60 miles** long.\n\n---\n\n### **Step 2: Determine the distance to the first stop**\nHe stopped after traveling **20 miles**.\n\n---\n\n### **Step 3: Determine the distance to the second stop**\nHis second stop was **15 miles before the end** of the trip. So, he traveled:\n\n$$\n60 - 15 = 45 \\text{ miles}\n$$\n\nbefore his second stop.\n\n---\n\n### **Step 4: Calculate the distance between the first and second stops**\nTo find the distance between the first and second stops, subtract the distance to the first stop from the distance to the second stop:\n\n$$\n45 - 20 = \\boxed{25}\n$$\n\n---\n\n### **Final Answer:**\n$$\n\\boxed{25}\n$$",
+      "pred": "25",
+      "gold": "25",
+      "correct": true
+    },
+    {
+      "question_index": 163,
+      "response": "<think>\nOkay, let's try to figure out how much all the toys are worth. Hmm, the problem says there are 5 red cars, 3 action figures, and 1 doll. The doll costs as much as 3 action figures. Also, one red car costs $4. And we need to find the total value of all the toys, given that an action figure costs $5. Let me break this down step by step.\n\nFirst, let me list out the information given:\n\n- 5 red cars\n- 3 action figures\n- 1 doll\n- Doll costs as much as 3 action figures\n- 1 red car costs $4\n- 1 action figure costs $5\n\nSo, the goal is to find the total value of all the toys. To do that, I need to find the cost of each type of toy and then multiply by the quantity, then add them all up.\n\nLet me start with the red cars. Each red car is $4, and there are 5 of them. So, 5 times 4. Let me calculate that: 5 * 4 = $20. Okay, so the red cars are worth $20 in total.\n\nNext, the action figures. There are 3 action figures, and each costs $5. So, 3 * 5. That should be $15. Let me check: 3 * 5 is indeed 15. So, the action figures are worth $15.\n\nNow, the doll. The problem says the doll costs as much as 3 action figures. Wait, so if one action figure is $5, then 3 action figures would be 3 * 5 = $15. Therefore, the doll costs $15. Let me make sure I got that right. The doll's cost is equal to the cost of 3 action figures. Since each action figure is $5, 3 of them would be $15. Yep, that seems correct. So, the doll is worth $15.\n\nNow, to find the total value of all the toys, I need to add up the value of the red cars, the action figures, and the doll. So, that's $20 (cars) + $15 (action figures) + $15 (doll). Let me add those together.\n\n20 + 15 is 35, and then 35 + 15 is 50. So, the total value should be $50. Let me just go through each step again to make sure I didn't make any mistakes.\n\nRed cars: 5 cars * $4 each = $20. Correct.\n\nAction figures: 3 figures * $5 each = $15. Correct.\n\nDoll: 3 action figures * $5 each = $15. So, the doll is $15. Correct.\n\nAdding them up: 20 + 15 + 15 = 50. That seems right. I don't think I missed any toys or miscalculated any of the quantities or prices. The key was recognizing that the doll's price is equivalent to 3 action figures, which are $5 each, so $15. Then, multiplying each toy type by its quantity and adding them all up gives the total value. Yeah, I think that's it. The answer should be $50.\n</think>\n\nTo determine the total value of all the toys, we are given the following information:\n\n- 5 red cars\n- 3 action figures\n- 1 doll\n- 1 red car costs $4\n- 1 action figure costs $5\n- The doll costs as much as 3 action figures\n\n---\n\n### Step 1: Calculate the value of the red cars\n\nEach red car costs $4, and there are 5 red cars:\n\n$$\n5 \\times 4 = 20\n$$\n\nSo, the red cars are worth **$20**.\n\n---\n\n### Step 2: Calculate the value of the action figures\n\nEach action figure costs $5, and there are 3 action figures:\n\n$$\n3 \\times 5 = 15\n$$\n\nSo, the action figures are worth **$15**.\n\n---\n\n### Step 3: Calculate the value of the doll\n\nThe doll costs as much as 3 action figures. Since each action figure is $5:\n\n$$\n3 \\times 5 = 15\n$$\n\nSo, the doll is worth **$15**.\n\n---\n\n### Step 4: Add up the values of all the toys\n\n$$\n20 \\text{ (cars)} + 15 \\text{ (action figures)} + 15 \\text{ (doll)} = 50\n$$\n\n---\n\n### Final Answer:\n\n$$\n\\boxed{50}\n$$",
+      "pred": "50",
+      "gold": "50",
+      "correct": true
+    }
+  ]
+}

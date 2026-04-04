@@ -9,9 +9,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", type=str, choices=["mmmlu", "mgsm"], required=True)
     parser.add_argument("--language", type=str, choices=["bn", "ja", "sw"], required=True)
+    parser.add_argument("--model", type=str, default="qwen3-1_7b",
+                        help="Short name of the source model (e.g. qwen3-8b)")
     args = parser.parse_args()
 
-    input_file = PROJECT_ROOT / "data" / "exp_v2" / "qwen3-1_7b" / args.dataset / "translated" / f"translated_{args.language}_responses.jsonl"
+    input_file = PROJECT_ROOT / "data" / "exp_v2" / args.model / args.dataset / "translated_gemma-27b" / f"translated_{args.language}_responses.jsonl"
 
     if not input_file.exists():
         print(f"File not found: {input_file}")

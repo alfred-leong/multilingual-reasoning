@@ -8,9 +8,11 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", type=str, choices=["mmmlu", "mgsm"], required=True)
+    parser.add_argument("--model", type=str, default="qwen3-1_7b",
+                        help="Short name of the source model (e.g. qwen3-8b)")
     args = parser.parse_args()
 
-    input_file = PROJECT_ROOT / "data" / "exp_v2" / "qwen3-1_7b" / args.dataset / "english" / "english_responses.jsonl"
+    input_file = PROJECT_ROOT / "data" / "exp_v2" / args.model / args.dataset / "english" / "english_responses.jsonl"
 
     if not input_file.exists():
         print(f"File not found: {input_file}")

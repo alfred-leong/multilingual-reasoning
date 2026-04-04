@@ -21,7 +21,13 @@ _BOXED_RE = re.compile(r"\\boxed{([^}]*)}")
 LANGUAGE_CODES = {
     "bn": "BN_BD",
     "ja": "JA_JP",
-    "sw": "SW_KE"
+    "sw": "SW_KE",
+    "en": "EN",
+}
+
+ENGLISH_SYSTEM_PROMPTS = {
+    "mgsm": "You are an expert math solver. Please reason step by step, and put your final answer within \\boxed{}.",
+    "mmmlu": 'You are an expert in multiple-choice questions. Please show your choice in the answer field with only the choice letter, e.g., "answer": "C".',
 }
 
 def _extract_mmmlu_answer(text: str) -> str:
@@ -33,8 +39,13 @@ def _extract_mgsm_answer(text: str) -> str:
     return matches[-1].strip() if matches else ""
 
 def _format_mmmlu_question(row: dict) -> str:
-    q = row["Question"]
-    choices = "\n".join(f"{letter}. {row[letter]}" for letter in ("A", "B", "C", "D"))
+    # Handle both English format (lowercase keys, choices list) and translated format (capital keys)
+    if "Question" in row:
+        q = row["Question"]
+        choices = "\n".join(f"{letter}. {row[letter]}" for letter in ("A", "B", "C", "D"))
+    else:
+        q = row["question"]
+        choices = "\n".join(f"{chr(65+i)}. {c}" for i, c in enumerate(row["choices"]))
     return f"{q}\n\n{choices}"
 
 def generate_response(model, tokenizer, messages, thinking_prefix=""):
@@ -60,10 +71,12 @@ def generate_response(model, tokenizer, messages, thinking_prefix=""):
 def main():
     parser = argparse.ArgumentParser("Evaluate trained models on 20% test set.")
     parser.add_argument("--dataset", type=str, choices=["mmmlu", "mgsm"], required=True)
-    parser.add_argument("--language", type=str, choices=["ja", "bn", "sw"], required=True)
+    parser.add_argument("--language", type=str, choices=["ja", "bn", "sw", "en"], required=True)
     parser.add_argument("--model_dir", type=str, required=True)
     parser.add_argument("--full_finetune", action="store_true")
     parser.add_argument("--subset", type=str, default=None, help="Subset suffix, e.g. '100' loads test_{lang}_100.jsonl")
+    parser.add_argument("--output_dir", type=str, default=None, help="Override output directory (default: outputs-exp_v2)")
+    parser.add_argument("--run_name", type=str, default=None, help="Override model name in output filename")
     args = parser.parse_args()
 
     # Load test data
@@ -79,14 +92,18 @@ def main():
             records.append(json.loads(line))
 
     # Load prompts
-    lang_code = LANGUAGE_CODES[args.language]
-    prompts = get_translate_dpo_prompts(lang_code)
-    system_prompt = prompts[f"native_system_prompt_{args.dataset}"]
-    thinking_prefix = prompts["thinking_prefix"]
+    if args.language == "en":
+        system_prompt = ENGLISH_SYSTEM_PROMPTS[args.dataset]
+        thinking_prefix = ""
+    else:
+        lang_code = LANGUAGE_CODES[args.language]
+        prompts = get_translate_dpo_prompts(lang_code)
+        system_prompt = prompts[f"native_system_prompt_{args.dataset}"]
+        thinking_prefix = prompts["thinking_prefix"]
 
     # Load model
     dtype = torch.bfloat16 if torch.cuda.is_available() else torch.float32
-    base_name = "Qwen/Qwen3-1.7B"
+    base_name = "Qwen/Qwen3-8B" if "qwen3-8b" in args.model_dir.lower() else "Qwen/Qwen3-1.7B"
 
     if args.full_finetune:
         tokenizer = AutoTokenizer.from_pretrained(args.model_dir, trust_remote_code=True)
@@ -139,7 +156,9 @@ def main():
     acc = correct / total if total > 0 else 0
     print(f"Accuracy: {acc:.2%} ({correct}/{total})")
 
-    out_file = PROJECT_ROOT / "outputs-exp_v2" / f"eval_{args.dataset}{suffix}_{args.language}_{Path(args.model_dir).name}.json"
+    out_dir_name = args.output_dir if args.output_dir else "outputs-exp_v2"
+    model_label = args.run_name if args.run_name else Path(args.model_dir).name
+    out_file = PROJECT_ROOT / out_dir_name / f"eval_{args.dataset}{suffix}_{args.language}_{model_label}.json"
     out_file.parent.mkdir(parents=True, exist_ok=True)
     with open(out_file, "w", encoding="utf-8") as f:
         json.dump({

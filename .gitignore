@@ -1,12 +1,9 @@
 .vscode
 .env
-models
+.claude
 
-*delta_learning_deprecated*
-outputs-translate_dpo/dpo_*
-outputs-translate_sft
 *.log
-data/translate_dpo
-data/translate_sft
-testing/
+data/exp_v2/qwen3-*/mmmlu/english/
+data/exp_v2/qwen3-*/mmmlu/translated*/
+data/exp_v2/qwen3-*/mmmlu/sft/
 *__pycache__/

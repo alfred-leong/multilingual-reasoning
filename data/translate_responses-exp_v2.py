@@ -6,6 +6,8 @@ import math
 import multiprocessing as mp
 import re
 import sys
+import time
+from collections import deque
 from concurrent.futures import Future, ThreadPoolExecutor
 from datetime import datetime
 from pathlib import Path
@@ -104,7 +106,7 @@ def translate_text(
     model_name: str,
     text: str,
     target_lang_code: str,
-    max_tokens: int = 32768,
+    max_tokens: int = 4096,
     temperature: float = 0.3,
     top_p: float = 0.95,
 ) -> str:
@@ -128,14 +130,21 @@ def translate_text(
 
     prompt = _build_translate_prompt(text, target_lang_code)
 
-    response = client.completions.create(
-        model=model_name,
-        prompt=prompt,
-        max_tokens=max_tokens,
-        temperature=temperature,
-        top_p=top_p,
-    )
-    return (response.choices[0].text or "").strip()
+    for attempt in range(5):
+        try:
+            response = client.completions.create(
+                model=model_name,
+                prompt=prompt,
+                max_tokens=max_tokens,
+                temperature=temperature,
+                top_p=top_p,
+            )
+            return (response.choices[0].text or "").strip()
+        except (openai.APITimeoutError, openai.APIError) as e:
+            if attempt == 4:
+                raise
+            time.sleep(10 * (attempt + 1))
+    return ""
 
 
 def translate_response(
@@ -143,24 +152,41 @@ def translate_response(
     model_name: str,
     english_response: str,
     target_lang_code: str,
-    max_tokens: int = 32768,
+    max_tokens: int = 4096,
     temperature: float = 0.3,
     top_p: float = 0.95,
+    max_think_chars: int = 2000,
+    max_answer_chars: int = 2000,
 ) -> str:
     """Translate a full English response (thinking + answer) to native language.
 
     The ``<think>…</think>`` structure is preserved: the thinking trace and
     the final answer are translated independently, then reassembled.
+
+    Both inputs are hard-capped to keep every request well under 60 seconds
+    on a single GPU (27B model, ~30 tok/s):
+    - max_think_chars=2000  → ~500 tokens input, 512 max output  → ~17s
+    - max_answer_chars=2000 → ~500 tokens input, 256 max output  → ~10s
+    The 9 MMMLU items with answers >50k chars would never complete otherwise.
     """
     thinking, answer = _split_response(english_response)
 
+    if max_think_chars and len(thinking) > max_think_chars:
+        thinking = thinking[:max_think_chars]
+    if max_answer_chars and len(answer) > max_answer_chars:
+        answer = answer[:max_answer_chars]
+
+    # Size max_tokens to the (truncated) input — no idle token budget.
+    think_max_tokens = min(max(len(thinking) // 2, 128), 512)
+    answer_max_tokens = min(max(len(answer) // 2, 64), 256)
+
     translated_thinking = translate_text(
         client, model_name, thinking, target_lang_code,
-        max_tokens, temperature, top_p,
+        think_max_tokens, temperature, top_p,
     )
     translated_answer = translate_text(
         client, model_name, answer, target_lang_code,
-        max_tokens, temperature, top_p,
+        answer_max_tokens, temperature, top_p,
     )
 
     if translated_thinking:
@@ -175,6 +201,7 @@ def _translation_worker(
     tmp_path: str,
     port: int,
     log_dir: str,
+    translate_model: str = "google/translategemma-27b-it",
 ) -> None:
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     logger = _setup_logger(
@@ -184,43 +211,61 @@ def _translation_worker(
     )
     logger.info("Worker %d processing %d rows for %s", rank, len(rows), target_lang)
 
-    client = openai.OpenAI(base_url=f"http://localhost:{port}/v1", api_key="EMPTY")
-    model_name = "google/translategemma-4b-it"
+    # Each request is now ~500-1000 tokens total (capped input + small output).
+    # 5 workers × 3 concurrent = 15 requests/GPU max — fine for short requests.
+    CONCURRENT = 3
+
+    client = openai.OpenAI(base_url=f"http://localhost:{port}/v1", api_key="EMPTY", timeout=90.0)
+    model_name = translate_model
+
+    def _make_record(row: dict, translated_response: str) -> dict:
+        final_text = translated_response.split("</think>")[-1] if "</think>" in translated_response else translated_response
+        if dataset == "mgsm":
+            translated_answer = _extract_mgsm_answer(final_text)
+        else:
+            translated_answer = _extract_mmmlu_answer(final_text)
+        if not translated_answer:
+            translated_answer = row.get("english_answer", "")
+        record = row.copy()
+        record["translated_response"] = translated_response
+        record["translated_answer"] = translated_answer
+        record["english_ans=translated_ans"] = (row.get("english_answer", "") == translated_answer)
+        return record
 
     with (
         open(tmp_path, "w", encoding="utf-8") as fout,
-        ThreadPoolExecutor(max_workers=2) as pool,
+        ThreadPoolExecutor(max_workers=CONCURRENT) as pool,
     ):
-        for idx, row in enumerate(tqdm(rows, desc=f"[{target_lang}|w{rank}]", position=rank)):
+        # Sliding window: keep up to CONCURRENT futures in-flight at once.
+        # deque of (future, row) pairs; drain from the left when window is full.
+        window: deque[tuple[Future, dict]] = deque()
+        pbar = tqdm(total=len(rows), desc=f"[{target_lang}|w{rank}]", position=rank)
+
+        def _drain_one() -> None:
+            fut, row = window.popleft()
+            try:
+                translated_response = fut.result()
+            except (openai.APITimeoutError, openai.APIError) as e:
+                logger.warning("qid=%s failed after retries: %s. Skipping.", row.get("question_index"), e)
+                pbar.update(1)
+                return
+            fout.write(json.dumps(_make_record(row, translated_response), ensure_ascii=False) + "\n")
+            pbar.update(1)
+
+        for row in rows:
             english_response = row.get("english_response", "")
             if not english_response:
+                pbar.update(1)
                 continue
-            
-            fut: Future = pool.submit(
-                translate_response,
-                client, model_name, english_response, target_lang
-            )
-            
-            translated_response = fut.result()
-            
-            # Extract final answer
-            final_text = translated_response.split("</think>")[-1] if "</think>" in translated_response else translated_response
-            if dataset == "mgsm":
-                translated_answer = _extract_mgsm_answer(final_text)
-            else:
-                translated_answer = _extract_mmmlu_answer(final_text)
-            
-            # Fallback
-            if not translated_answer:
-                translated_answer = row.get("english_answer", "")
+            if len(window) >= CONCURRENT:
+                _drain_one()
+            window.append((pool.submit(translate_response, client, model_name, english_response, target_lang), row))
 
-            record = row.copy()
-            record["translated_response"] = translated_response
-            record["translated_answer"] = translated_answer
-            is_same = (row.get("english_answer", "") == translated_answer)
-            record["english_ans=translated_ans"] = is_same
+        # Drain remaining
+        while window:
+            _drain_one()
 
-            fout.write(json.dumps(record, ensure_ascii=False) + "\n")
+        pbar.close()
 
     logger.info("[w%d] Done", rank)
 
@@ -230,10 +275,14 @@ def main() -> None:
     parser.add_argument("--language", type=str, choices=["bn", "ja", "sw"], required=True)
     parser.add_argument("--port", type=int, default=8400)
     parser.add_argument("--workers", type=int, default=4)
+    parser.add_argument("--source-model", type=str, default="qwen3-1_7b",
+                        help="Short name of the source model (e.g. qwen3-8b)")
+    parser.add_argument("--translate-model", type=str, default="google/translategemma-27b-it",
+                        help="HuggingFace model ID or local path for the translation model")
     args = parser.parse_args()
 
-    input_file = PROJECT_ROOT / "data" / "exp_v2" / "qwen3-1_7b" / args.dataset / "english" / "english_responses.jsonl"
-    out_dir = PROJECT_ROOT / "data" / "exp_v2" / "qwen3-1_7b" / args.dataset / "translated"
+    input_file = PROJECT_ROOT / "data" / "exp_v2" / args.source_model / args.dataset / "english" / "english_responses.jsonl"
+    out_dir = PROJECT_ROOT / "data" / "exp_v2" / args.source_model / args.dataset / "translated_gemma-27b"
     out_dir.mkdir(parents=True, exist_ok=True)
     log_dir = PROJECT_ROOT / "outputs-exp_v2" / "logs"
 
@@ -301,7 +350,7 @@ def main() -> None:
     for rank, (chunk, tmp_path) in enumerate(zip(chunks, tmp_paths)):
         p = ctx.Process(
             target=_translation_worker,
-            args=(rank, chunk, args.dataset, args.language, tmp_path, args.port, str(log_dir)),
+            args=(rank, chunk, args.dataset, args.language, tmp_path, args.port, str(log_dir), args.translate_model),
         )
         p.start()
         procs.append(p)

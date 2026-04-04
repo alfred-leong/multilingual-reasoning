@@ -1,0 +1,710 @@
+{
+  "model_dir": "/external1/alfred/models/ml-reasoning-exp_v3/sft_no-filter_full_mmmlu_qwen3-8b_sw_seed42",
+  "dataset": "mmmlu",
+  "language": "sw",
+  "accuracy": 0.22,
+  "correct": 22,
+  "total": 100,
+  "results": [
+    {
+      "question_index": 10452,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu mhasibu anayefanya kazi ya kukusanya taarifa kwa taasisi ambayo haitoi ripoti, na ana maslahi madogo ambayo hayana uhusiano wa moja kwa moja na mambo ya kifedha. Chaguzi zinahusu iwapo mhasibu yuko huru na hali gani anaweza kuwa nayo.\n\nKwanza, ninahitaji kukumbuka kanuni za ukusanyaji wa taarifa. Kulingana na ninavyokumbuka, wakati mhasibu anafanya kazi ya kukusanya taarifa kwa taasisi ambayo haitoi ripoti, haitoi maoni au maamuzi kuhusu taarifa za kifedha. Kazi ni kukusanya na kutoa taarifa kuhusu mchakato wa uhasibu na taarifa za kifedha.\n\nSasa, jambo muhimu hapa ni maslahi. Swali linasema mhasibu ana maslahi madogo ambayo hayana uhusiano wa moja kwa moja na mambo ya kifedha. Kwa hivyo, maslahi hayo hayana uhusiano wa moja kwa moja na",
+      "pred": "",
+      "gold": "D",
+      "correct": false
+    },
+    {
+      "question_index": 6723,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu kutambua upotovu wa hoja unaohusisha kuomba kwa kuzingatia mtu. Haya, niache nikumbuke maana ya upotovu huu.\n\nKwa hivyo, hoja inayohusisha kuomba kwa kuzingatia mtu ni pale mtu anapotoa hoja kwa kuzingatia sifa za mtu badala ya hoja yenyewe. Kwa mfano, ikiwa mtu anasema, \"Unapaswa kufuata mimi kwa sababu mimi ni bora,\" hiyo ni hoja inayohusisha kuomba kwa kuzingatia mtu. Jambo muhimu hapa ni kwamba hoja inategemea sifa za mtu anayetoa hoja badala ya ukweli wa hoja yenyewe.\n\nSasa, niache niangalie chaguzi:\n\nA. Kusema mtu anapaswa kufanya kitu kwa sababu hampendi mtu mwingine. Hmm, inaonekana kama inahusu kuepuka kwa sababu ya upendeleo, labda upotovu tofauti. Sijuhakika kama hii ni hoja inayohusisha kuomba kwa kuzingatia mtu. Labda ni upotovu wa \"ad hominem\" au kitu kingine.\n\nB. Kusema mtu anapaswa kufanya kitu ili aweze kupendwa zaidi na wengine. Hii inaonekana kama inahusu kupendwa, labda inahusiana na kuomba kwa kuzingatia mtu, lakini sihakika. Subiri, hoja inayohusisha kuomba kwa kuzingatia mtu inahusu zaidi sifa za mtu anayetoa hoja, si kuhusu kupendwa.\n\nC. Kusema mtu anapaswa kufanya kitu kwa sababu kitamfanya ajisikie vizuri. Hii inaonekana kama inahusu hisia, labda inahusiana na kuomba kwa kuzingatia hisia au upotovu wa \"appeal to emotion\". Si hakika kama hii ni hoja inayohusisha kuomba kwa kuzingatia mtu.\n\nD. Kusema mtu anapaswa kukubali wazo kwa sababu ya chanzo cha wazo hilo. Ah, hii ni",
+      "pred": "D",
+      "gold": "B",
+      "correct": false
+    },
+    {
+      "question_index": 13449,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu jinsi watu walivyokuwa wanavyojulikana katika miaka ya 1980. Chaguzi ni A hadi D.\n\nKwanza, ninahitaji kukumbuka ni mambo gani yalikuwa muhimu katika miaka ya 1980. Miaka ya 1980 ilikuwa kipindi cha mabadiliko mengi, na kulikuwa na harakati za kijamii, kama vile harakati za haki za LGBTQ+, harakati za mazingira, na mabadiliko katika jinsi watu walivyokuwa wanavyojikita katika mahusiano ya kijinsia. Pia, kulikuwa na ongezeko la kujitolea kwa jamii na watu wanaojitolea kwa jamii, ambayo inaweza kuhusiana na chaguo C.\n\nChaguo A linasema watu walikuwa wanajali na wanaoheshimika. Ingawa hilo linaweza kuwa kweli kwa baadhi, sina uhakika kama hilo lilikuwa la kawaida katika miaka ya 1980. Chaguo B linapendekeza watu walikuwa watoto na",
+      "pred": "B",
+      "gold": "A",
+      "correct": false
+    },
+    {
+      "question_index": 2793,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu wanawake walio na ugonjwa wa Turner na uwezekano wao wa kuwa na ugonjwa wa hemophilia, ambao ni sifa inayoweza kuenea kwa njia ya kurudi nyuma na inahusishwa na kromosomi ya X. Chaguzi ni kutoka A hadi D.\n\nKwanza, ninahitaji kukumbuka ni nini ugonjwa wa Turner. Kwa kile ninachokumbuka, ugonjwa wa Turner ni ugonjwa wa kromosomi ambapo wanawake wana kromosomi moja tu ya X. Kwa kawaida, wanawake wana kromosomi mbili za kijinsia (XX), lakini wale walio na ugonjwa wa Turner wana kromosomi moja tu ya X (XO). Hii inamaanisha kuwa wana kromosomi moja tu ya X, na kwa kawaida hawana kromosomi yoyote ya Y.\n\nSasa, swali linasema kwamba wanawake walio na ugonjwa wa Turner wana uwezekano mkubwa wa kuwa na ugonjwa wa hemophilia. Hemophilia ni ugonjwa wa urithi ambao huath",
+      "pred": "D",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 4350,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Tatizo linataka kujua ni idadi ngapi ya visa vya surua vilivyopatikana mwaka wa 1987, tukidhani idadi ilipungua kwa njia ya mstari kutoka mwaka wa 1960 hadi 1996. Idadi iliyotolewa ni visa 450,000 mwaka wa 1960 na visa 500 mwaka wa 1996.\n\nKwanza, ninahitaji kuelewa maana ya kupungua kwa njia ya mstari. Kupungua kwa njia ya mstari kumaanisha kwamba idadi inapungua kwa kiwango sawa kila mwaka. Kwa hivyo, tunaweza kuona idadi kama mstari kwenye grafu, ambapo muda (mwaka) ndio mhimili wa x na idadi ya visa vya surua ndio mhimili wa y.\n\nIli kupata idadi mwaka wa 1987, ninahitaji kuhesabu idadi ya miaka kati ya 1960 na 1987. Hebu nihesabu: 1987 minus 1960 ni miaka 27. Kwa hivyo, 1987",
+      "pred": "",
+      "gold": "D",
+      "correct": false
+    },
+    {
+      "question_index": 7775,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linazungumzia gharama ya jumla ya kuweka viyoyozi katika magari yote nchini Marekani kwa mwaka wa 2018. Chaguzi ni: A. $10 milioni, B. $100 milioni, C. $1 bilioni, D. $10 bilioni.\n\nKwanza, ninahitaji kukadiria idadi ya magari nchini Marekani. Kulingana na data niliyosoma hapo awali, Marekani ina takriban magari milioni 280. Lakini subiri, hiyo ni idadi ya magari yote, siyo tu magari yanayotumika. Pia, swali linazungumzia magari yote, kwa hivyo labda ni bora kuzingatia idadi ya magari yanayotumika. Hebu tuseme kuna takriban magari milioni 250 yanayotumika nchini Marekani.\n\nSasa, gharama ya viyoyozi kwa kila gari. Viyoyozi vinaweza kuwa na bei tofauti. Kwa mfano, viyoyozi",
+      "pred": "D",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 2363,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Tatizo linasema kwamba kila ghorofa ya jumba ina urefu wa futi 14.3, na urefu wote wa jumba ni futi 185.9. Tunahitaji kujua jumba hilo lina ghorofa ngapi. Chaguzi ni A. 10, B. 13, C. 17, D. 9.\n\nKwa hivyo, swali linataka kujua idadi ya ghorofa. Kwa kuwa kila ghorofa ina urefu maalum, ninapaswa kugawanya urefu wote wa jumba kwa urefu wa kila ghorofa. Hiyo ina maana kwa sababu ikiwa utagawanya urefu wote kwa urefu wa kila ghorofa, utapata idadi ya ghorofa.\n\nNiruhusu niandike hilo. Idadi ya ghorofa = Urefu wote wa jumba / Urefu wa kila ghorofa. Tukibadilisha nambari: 185.9 inagawanywa na 14.3. Niruhusu nifanye",
+      "pred": "D",
+      "gold": "B",
+      "correct": false
+    },
+    {
+      "question_index": 11147,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu mgonjwa kutoka Jimbo A akimshtaki daktari wa upasuaji kutoka Jimbo B katika mahakama ya shirikisho katika Jimbo A kwa madai ya uzembe. Daktari wa upasuaji alitaka kesi hiyo iachwe kwa sababu ya ukosefu wa mamlaka ya kibinafsi, lakini mahakama ilikataa ombi hilo na ilipanga tarehe za kesi. Daktari wa upasuaji sasa anarufaa uamuzi huo. Swali ni, je, mahakama ya rufaa inapaswa kusikiliza rufaa hiyo?\n\nKwanza, ninahitaji kukumbuka sheria kuhusu mamlaka ya kibinafsi katika mahakama za shirikisho. Kulingana na ninavyokumbuka, mamlaka ya kibinafsi inarejelea mamlaka ya mahakama ya kusikiliza kesi. Mahakama za shirikisho zina mamlaka ya kibinafsi katika kesi ambapo pande zote mbili ziko katika jimbo moja, au wakati kuna uamuzi wa",
+      "pred": "A",
+      "gold": "A",
+      "correct": true
+    },
+    {
+      "question_index": 1475,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua ni Trojan ipi kati ya zile zilizotajwa ni Trojan ya mbali. Chaguzi ni: A. Trojan, B. DaCryptic, C. BankerA, D. Game-Trojan.\n\nKwanza, ninahitaji kukumbuka ni nini Trojan ya mbali. Kulingana na ninavyokumbuka, Trojans ya mbali ni aina ya Trojan ambayo inaweza kusambazwa kwa njia ya mtandao, kwa kawaida kupitia mtandao wa intaneti. Inaweza kusambazwa kwa njia ya faili au programu ambayo inaonekana halisi lakini ni hatari. Kwa upande mwingine, Trojans za karibu zinaweza kuhusishwa zaidi na mazingira ya ndani, kama vile kusambazwa ndani ya mfumo kupitia njia za ndani, labda kupitia ujumbe au faili ambayo inaingia ndani ya mfumo kupitia njia ya ndani.\n\nSasa, tukitazama chaguzi. Nianze kufikiria kuhusu kila moja.\n\nChaguo A ni \"Trojan\". Hiyo ni",
+      "pred": "A",
+      "gold": "A",
+      "correct": true
+    },
+    {
+      "question_index": 7609,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu kazi ya mhusika Delta Burke katika kipindi chake cha televisheni, 'Designing Women'. Chaguzi ni A hadi D, kila moja ikiashiria aina tofauti ya mbunifu.\n\nKwanza, ninahitaji kukumbuka kuhusu kipindi hicho. 'Designing Women' ilikuwa kipindi cha televisheni cha kipindi cha 90, sivyo? Ilikuwa kuhusu wanawake wawili ambao walikuwa wakifanya kazi katika kampuni ya ujenzi wa nyumba. Mhusika mkuu aliyekuwa na Delta Burke alikuwa mmoja wa wanawake hao wawili. Subiri, je, mhusika mwingine alikuwa mwanamke mwingine? Labda mhusika mwingine alikuwa mbunifu wa mavazi? Ninaanza kupotea.\n\nSubiri, nadhani mhusika mkuu aliyekuwa na Delta Burke alikuwa mbunifu wa mavazi. Niruhusu niifikirie. Kipindi hicho kilikuwa kuhusu wanawake wawili ambao wal",
+      "pred": "D",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 7912,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua ni nani alikuwa mke wa rais wa kwanza kujitolea kama mgombea wa kisiasa. Chaguzi ni: A. Hillary Clinton, B. Rosalynn Carter, C. Bess Truman, D. Eleanor Roosevelt.\n\nKwanza, ninahitaji kukumbuka historia ya wanawake wanaojitolea kama mgombea wa kisiasa. Nianze kufikiria kuhusu wanawake maarufu katika historia ya Marekani ambao waliomba nafasi za kisiasa.\n\nHillary Clinton alikuwa mgombea wa kisiasa katika uchaguzi wa 2008, akiwakilisha chama cha Democratic, lakini alikuwa mgombea wa kwanza, si mke wa rais wa kwanza. Kwa hivyo, chaguo A linaweza kuwa si jibu sahihi.\n\nRosalynn Carter alikuwa mke wa Jimmy Carter, ambaye alikuwa rais kutoka 1977 hadi 1981. Alikuwa mgombea wa kisiasa katika uchaguzi wa 1976, akiwakil",
+      "pred": "A",
+      "gold": "A",
+      "correct": true
+    },
+    {
+      "question_index": 10469,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu mkaguzi anayeshangaa kuhusu uwezo wa kampuni kuendelea kama biashara inayoendelea kwa muda mrefu kwa sababu ya mtiririko hasi wa pesa na upungufu wa mtaji wa wafanyakazi. Chaguzi ni A hadi D, na ninahitaji kuchagua jibu sahihi.\n\nKwanza, niache nikumbushe maana ya kila chaguo. Swali linahusu mkaguzi anayeshangaa kuhusu uwezo wa kampuni kuendelea kama biashara inayoendelea. Kwa hivyo, jambo muhimu hapa ni kuelewa ni nini mkaguzi anazingatia wakati anashangaa kuhusu uwezo wa kampuni kuendelea.\n\nChaguo A linahusu mambo ya kimazingira yanayoathiri muundo wa shirika. Mambo ya kimazingira yanaweza kujumuisha mambo kama mabadiliko ya kisheria, mienendo ya kiuchumi, au mabadiliko ya teknolojia. Ikiwa kampuni ina upungufu wa mtaji wa wafanyakazi na mtirir",
+      "pred": "A",
+      "gold": "D",
+      "correct": false
+    },
+    {
+      "question_index": 2050,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu njia zinazotumika kwa kurekebisha voltage au kasi ya motor ya AC. Chaguzi ni: A. kitanzi cha kubadilisha, B. kitanzi cha mfululizo, C. udhibiti wa uwezo wa kichocheo, D. zote hapo juu.\n\nKwanza, ninahitaji kukumbuka kila moja ya njia hizi inafanya nini. Hebu nianze na kila chaguo moja baada ya nyingine.\n\nKwa kawaida, kurekebisha kasi ya motor ya AC kunaweza kufanywa kwa njia kadhaa. Njia moja ya kawaida ni kurekebisha voltage ya umeme. Kwa kurekebisha voltage, unaweza kurekebisha kasi ya motor. Hata hivyo, katika motor ya AC ya kawaida, kasi inahusiana na masafa, kwa hivyo kurekebisha voltage kunaweza kuwa si njia pekee. Lakini katika muktadha fulani, kama vile kwa kutumia kitanzi cha kubadilisha, kurekeb",
+      "pred": "D",
+      "gold": "D",
+      "correct": true
+    },
+    {
+      "question_index": 3216,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu programu kubwa ya Java ambayo ilijaribiwa kwa kina na hakuna hitilafu iliyopatikana. Chaguzi zinahusu nini tunaweza kuhitimisha kutokana na hali hiyo.\n\nKwanza, ninahitaji kukumbuka maana ya kila chaguo. Hebu niangalie moja baada ya nyingine.\n\nChaguo A linasema masharti yote ya awali ni sahihi. Hmm, masharti ya awali yanahusu hali ya awali ya programu. Ikiwa hakuna hitilafu iliyopatikana, je, hilo linamaanisha kwamba masharti ya awali yote ni sahihi? Labda si lazima. Kujaribu kwa kina kunaweza kuhakikisha kwamba programu inafanya kazi vizuri chini ya masharti ya awali, lakini si lazima kuhakikisha kwamba masharti yote ya awali ni sahihi. Kuna uwezekano kwamba masharti ya awali yanaweza kuwa si sahihi, lakini programu bado inafanya kazi vizuri chini ya masharti hayo. Kwa hivyo, labda A si hitimisho sahihi.\n\nChaguo B linadai kwamba masharti yote ya mwisho ni sahihi. Masharti ya mwisho yanahusu hali ya mwisho ya programu. Kama ilivyo kwa A, kujaribu kwa kina kunaweza kuhakikisha kwamba programu inafikia hali ya mwisho sahihi, lakini si lazima kuhakikisha kwamba masharti yote ya mwisho ni sahihi. Kuna uwezekano kwamba masharti ya mwisho yanaweza kuwa si sahihi, lakini programu bado inafanya kazi vizuri chini ya masharti hayo. Kwa hivyo, labda B pia si sahihi.\n\nChaguo C linasema kwamba programu inaweza kuwa na hitilafu. Subiri, swali linasema kwamba hakuna hitilafu iliyopatikana. Lakini hilo linamaanisha kwamba hakuna hitilafu? Si lazima. Kujaribu kwa kina kunaweza kuhakikisha kwamba hakuna hitilafu iliyopatikana wakati wa kujaribu, lakini programu bado inaweza kuwa na hitilafu ambazo hazijapatikana. Kwa mfano, hitilafu ambazo hazij",
+      "pred": "C",
+      "gold": "C",
+      "correct": true
+    },
+    {
+      "question_index": 5194,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua ni hali gani ambapo daktari wa akili anaweza kuagiza dawa ya kuongeza kiasi cha serotonini, kama vile Prozac au Paxil, kwa kizuizi. Chaguzi ni: ugonjwa wa akili, ugonjwa wa akili unaosababishwa na dawa, ugonjwa wa akili unaohusisha kujitenga na utambulisho, na ugonjwa wa akili unaohusisha mabadiliko.\n\nKwanza, ninahitaji kukumbuka kila moja ya hali hizi inamaanisha nini. Ugonjwa wa akili ni hali ya kawaida ya afya ya akili, na dawa za kuongeza kiasi cha serotonini hutumiwa mara nyingi kwa ajili yake. Ugonjwa wa akili unaosababishwa na dawa ni hali ambayo dalili za ugonjwa wa akili hutokea kutokana na matumizi ya dawa fulani, kama vile dawa za kupunguza misuli. Ugonjwa wa akili unaohusisha kujitenga na utambulisho unahusisha kupoteza utambulisho",
+      "pred": "",
+      "gold": "B",
+      "correct": false
+    },
+    {
+      "question_index": 2275,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Tatizo linataka kujua ni uwiano gani unaweza kuunda uwiano sawa na 3/8. Chaguzi ni A hadi D. Sawa, uwiano sawa unamaanisha kwamba uwiano miwili ni sawa. Kwa hivyo, ninahitaji kuangalia kila chaguo na kuona kama, unapogawanya nambari ya juu kwa nambari ya chini, matokeo yake yatafanana na 3 iliyogawanywa na 8.\n\nKwanza, niangalie 3 iliyogawanywa na 8. 3 iliyogawanywa na 8 ni 0.375. Kwa hivyo, uwiano wowote ambao unagawanyika na unatoa 0.375 utakuwa na uwiano sawa na 3/8. Sasa, niangalie kila chaguo moja baada ya nyingine.\n\nChaguo A: 18 iliyogawanywa na 40. Niangalie. 18 iliyogawanywa na 40... Naam, 40 mara 0.",
+      "pred": "A",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 8335,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu lengo la tiba ya kitabia-ya kimtazamo. Chaguzi ni A hadi D.\n\nKwanza, ninahitaji kukumbuka tiba ya kitabia-ya kimtazamo inahusu nini. Kwa kile ninachokumbuka, tiba hii inahusu kubadilisha tabia na mawazo kwa njia ya kimtazamo. Inatumia mbinu kama vile malezi ya kitabia, kuimarisha, na kubadilisha mawazo. Lengo kuu ni kubadilisha tabia na mawazo ambayo hayana afya.\n\nTukiangalia chaguzi:\n\nA. Jenga ujasiri. Hmm, ujasiri unahusiana zaidi na tiba ya kisaikolojia au tiba ya kibinadamu, labda. Tiba ya kitabia-ya kimtazamo inahusu zaidi tabia na mawazo kuliko ujasiri.\n\nB. Punguza mawazo yasiyo ya kimantiki. Mawazo yasiyo ya kimantiki ni sehemu ya tiba ya kupunguza mawazo yasiyo ya kimant",
+      "pred": "B",
+      "gold": "A",
+      "correct": false
+    },
+    {
+      "question_index": 10941,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo swali linahusu mtu anayetembea usiku, ambaye anaingia kwenye klabu ya kibinafsi ambayo inaandikwa \"Kwa wanachama pekee.\" Hakuwa mwanachama, lakini aliingia, akapata mlango \"Wanaume,\" na akaingia ndani. Swali linauliza kuhusu hali yake ya kisheria alipo ndani.\n\nKwanza, ninahitaji kukumbuka maana ya kila neno. Hebu tupitie chaguzi:\n\nA. Mtu anayetembea kwa hiari: Hii ni mtu ambaye anatembea kwa hiari, kwa kawaida katika eneo la umma, na anaweza kuwa na haki ya kufanya hivyo. Lakini hii inahusu zaidi kuwa mtu anayetembea kwa hiari, si lazima kuhusu hali ya kisheria katika eneo fulani.\n\nB. Mtu wa nje: Hii inarejelea mtu ambaye si mwanachama wa kundi au shirika fulani. Kwa kuwa",
+      "pred": "B",
+      "gold": "A",
+      "correct": false
+    },
+    {
+      "question_index": 11534,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo swali ni kuhusu mfugaji wa ng'ombe aliyestaafu ambaye alitua ndege yake kwenye shamba la mkulima kwa sababu ya tatizo la injini. Mkulima anamfungua kesi kwa madai ya uvamizi. Chaguzi zinahusu kama mkulima atashinda au atapoteza.\n\nKwanza, ninahitaji kukumbuka maana ya uvamizi. Uvamizi ni kuingia kwenye ardhi ya mtu mwingine bila ruhusa. Kwa hivyo, jambo muhimu hapa ni kama mfugaji alikuwa na ruhusa ya kuingia kwenye shamba la mkulima. Mfugaji alitua kwa sababu ya tatizo la injini, kwa hivyo labda hakuwa na ruhusa. Lakini swali ni kuhusu kama mkulima anaweza kumfungua kesi kwa madai ya uvamizi.\n\nTukiangalia chaguzi:\n\nA. Atashinda kwa sababu mali hiyo ni ya kibinafsi. Naam, hiyo ni kweli, lakini uvamizi unahusu kuingia bila ruhusa, si tu kuhusu",
+      "pred": "A",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 6340,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu ni tezi gani ilifikiriwa kuwa ndiyo husababisha hisia za kimapenzi kwa wanawake kabla ya utafiti wa Masters na Johnson. Chaguzi ni tezi ya Cowper, tezi ya prostate, tezi ya Bartholin, na tezi ya adrenal.\n\nKwanza, ninahitaji kukumbuka ninachojua kuhusu tezi hizi. Tezi ya Cowper, pia inajulikana kama tezi ya bulbourethral, iko kwenye sehemu ya shingo ya kizazi kwa wanaume. Inahusika katika kutoa maji ya mwili wakati wa tendo la kimapenzi. Lakini subiri, swali linahusu wanawake, kwa hivyo labda hii si jibu sahihi. Subiri, lakini labda ninachanganya mambo. Subiri, tezi ya Cowper kwa kweli iko kwa wanaume, kwa hivyo labda jibu si A.\n\nKisha kuna tezi ya prostate. Lakini tezi ya prostate pia ni ya kiume, sivyo? Iko kwenye sehemu ya shingo ya kiz",
+      "pred": "A",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 8482,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu hoja ya Papadaki kuhusu mtazamo wa kimapenzi wa kupinga ngono. Chaguzi ni kutoka A hadi D.\n\nKwanza, ninahitaji kukumbuka hoja ya Papadaki ni nini. Kwa kile ninachokumbuka, Papadaki ni mwanafalsafa ambaye ameandika kuhusu maadili ya kimapenzi na kupinga ngono. Hoja yake, kama ninavyokumbuka, ni kwamba mtazamo wa kimapenzi wa kupinga ngono hauwezi kuwa sahihi kwa sababu hauwezi kuheshimu ubinadamu wa mtu katika hali zote. Inaweza kuwa inarejelea hali ambapo mtu anaweza kupuuza ubinadamu wa mtu bila kukusudia, ambayo itamaanisha kuwa hata kama lengo ni la kupinga ngono, matokeo yanaweza kuwa ya kushindwa kuheshimu ubinadamu wa mtu.\n\nTukiangalia chaguzi:\n\nA. ni sahihi. Ikiwa hoja ya Papadaki ni kwamba mtazamo wa kimapenzi wa kupinga",
+      "pred": "A",
+      "gold": "B",
+      "correct": false
+    },
+    {
+      "question_index": 13880,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua maana ya neno \"Qur'an\". Chaguzi ni A. Kitabu Takatifu, B. Simulizi, C. Ukariri, D. Nguzo.\n\nKwanza, nakumbuka kwamba Qur'an ni kitabu takatifu cha Kiislamu. Kwa hivyo, chaguo A linaonekana kuwa sahihi. Lakini ninahitaji kuhakikisha. Neno \"Qur'an\" linatoka katika lugha ya Kiswahili, sivyo? Nadhania linatokana na neno la Kiswahili \"qur'ā,\" ambalo linamaanisha kitabu au kitabu takatifu. Kwa hivyo, neno hilo lenyewe linamaanisha kitabu takatifu.\n\nNikitazama chaguzi zingine: B ni simulizi, ambayo haifai. C ni ukariri, ambayo inaweza kuwa neno tofauti. D ni nguzo, ambayo pia haifai. Kwa hivyo, jibu linapaswa kuwa A. Kitabu",
+      "pred": "A",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 783,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua ni ipi kati ya chaguzi hizi ambayo kwa kawaida HAIPATIKANI katika seli za kawaida za binadamu wa kiume. Chaguzi ni A hadi D.\n\nKwanza, ninahitaji kukumbuka muundo wa kromosomu za binadamu. Binadamu wana kromosomu 46 katika seli zao za kawaida, ambazo ni zilizokabiliwa. Kwa kiume, kromosomu za kijinsia ni XY, kwa hivyo kromosomu za kijinsia ni X na Y. Kwa kike, ni XX.\n\nTukiangalia chaguzi:\n\nA. Seti kamili ya kromosomu za kijenetiki kutoka kwa kiinitete asili. Hmm. Subiri, binadamu wana kromosomu 23, kwa hivyo seti kamili itakuwa kromosomu 23. Lakini subiri, kila seli ya kawaida ni diploid, kwa hivyo ina seti mbili. Lakini neno \"seti kamili\" hapa linaweza kuleta mkanganyiko. Subiri, labda",
+      "pred": "A",
+      "gold": "B",
+      "correct": false
+    },
+    {
+      "question_index": 5908,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu sera ya biashara ya Nasaba ya Ming, kulingana na fungu lililotolewa. Fungu hilo linazungumzia tabia za wafanyabiashara wa Ureno na wengine nchini Uchina wakati wa Nasaba ya Ming.\n\nKwanza, ninahitaji kuelewa mambo muhimu ya fungu hilo. Linasema kwamba wafanyabiashara wa Ureno huleta bidhaa kama vile hariri, dhahabu, maski, na kauri kwenda Japan, na wanapata fedha tu. Kisha, wanatumia fedha kutoka Japan na India kwa bidhaa nchini Uchina. Pia, kuna maelezo kuhusu sheria ambazo wafanyabiashara wa Ureno walilazimika kuzifuata katika Canton: walilazimika kuacha siku fulani, kuandika majina yao, kuondoa majina yao usiku, kulala nje ya mji, na kufungwa ikiwa wangekubali.\n\nSwali linauliza ni hitimisho gani kuhusu sera ya biashara ya Nasaba",
+      "pred": "",
+      "gold": "B",
+      "correct": false
+    },
+    {
+      "question_index": 6142,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu mtazamo wa maendeleo na ni upande gani unaoshikilia ikiwa unaamini kuwa mabadiliko hutokea polepole na kwa muda mrefu. Chaguzi ni: A. Mchakato wa kimwili, B. Biolojia, C. Maendeleo, D. Uthabiti.\n\nKwanza, ninahitaji kukumbuka maana ya kila neno katika muktadha wa nadharia za maendeleo. Nianze kufikiria kuhusu kila chaguo.\n\n\"Uthabiti\" katika saikolojia ya maendeleo kwa kawaida inarejelea wazo kwamba sifa fulani za tabia au utu huwa thabiti kwa muda. Kwa hivyo, ikiwa mtu anaamini kuwa mabadiliko ni polepole na kwa muda mrefu, huenda hakuwa anadhani kuwa kuna uthabiti. Hiyo inaweza kuonyesha kuwa D si jibu sahihi.\n\n\"Maendeleo\" inaweza kurejelea nadharia ambazo zinaangazia mabadiliko ya hatua kwa hatua katika maisha, kama vile hatua za Piaget au hatua",
+      "pred": "D",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 7361,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua ni ipi kati ya chaguzi hizi husababisha hali ya \"pseudohermaphroditism\" kwa kike. Kwanza, ninahitaji kukumbuka maana ya \"pseudohermaphroditism\". Kwa kile ninachokumbuka, \"pseudohermaphroditism\" inarejelea hali ambapo mtu ana viungo vya kiume na kike, lakini kwa kweli, hawana viungo vyote viwili. Kwa kike, hii inaweza kutokea ikiwa kuna tatizo na ukuaji wa viungo vya kiume, huku viungo vya kike vikiendelea kujitengeneza.\n\nSasa, tuchunguze chaguzi:\n\nA. Ulegevu wa kusikia homoni za kiume (Androgen insensitivity). Nadhani hii ni hali ambapo mwili hauwezi kuchukua homoni za kiume, kama vile testosterone. Ikiwa kwa kike, labda viungo vya kiume haviendelea kujitengeneza kwa sababu hawawezi kuchukua homoni za kiume. Kwa hivyo, labda hii husababisha \"pseudohermaphroditism\" kwa kike kwa sababu viungo vya kiume haviendelea kujitengeneza, huku viungo vya kike vikiendelea. Lakini subiri, je, hii siyo hali ambapo mtu anaweza kuwa na viungo vya kiume lakini hawawezi kuchukua homoni za kiume, na kusababisha viungo vya kiume kuwa vidogo? Au labda viungo vya kiume haviendelea kujitengeneza, na kusababisha mtu kuonekana kama mwanamke? Nina wasiwasi kidogo hapa.\n\nB. \"Campomelic dysplasia\". Nadhani hii ni aina ya tatizo la ukuaji wa mifupa, ambayo inaweza kusababisha mifupa kuwa nyembamba na kuwa na muundo usio wa kawaida. Ninafikiri inaweza kuhusishwa na \"autosomal dominant\" na inaweza kusababisha viungo vya kiume kuwa vidogo au kuonekana kama mwanamke. Lakini sihakika kama hii ni sababu ya moja kwa moja ya \"pseudohermaphroditism\". Labda ni zaidi kuhusu muundo wa mifupa kuliko viungo vya kiume na kike.\n\nC. \"Congenital adrenal hyperplasia\" (CAH). CAH ni kundi la matatizo ya kawaida ya viungo vya adrenal. Aina ya CAH inayohusiana na \"21-hydroxylase\" inaweza kusababisha viungo vya adrenal kuzalisha homoni nyingi za kiume. Kwa kike, hii inaweza kusababisha viungo vya kiume kujitengeneza, na kusababisha mtu kuonekana kama mwanamume. Hata hivyo, hii inahusishwa zaidi na \"virilization\" ya kike, ambayo inaweza kusababisha \"ambiguous genitalia\". Lakini je, hii inachukuliwa kama \"pseudohermaphroditism\"? Ninafikiri \"pseudohermaphroditism\" inahusishwa zaidi na viungo vya kiume na kike kuwepo, lakini katika hali hii, kwa kike, viungo vya kiume vinaweza kuwepo, na kusababisha mtu kuonekana kama mwanamume. Subiri, lakini \"pseudohermaphroditism\" inahusu viungo vya kiume na kike kuwepo, lakini katika hali hii, kwa kike, viungo vya kiume vinaweza kuwepo, na kusababisha mtu kuonekana kama mwanamume. Hmm, labda ninahitaji kuangalia ufafanuzi tena.\n\nD. \"Klinefelter syndrome\". Hii ni hali ambapo mtu ana kromosomu ya \"XXY\". Kwa kawaida, hii husababisha viungo vya kiume kuwa vidogo na viungo vya kike kuwepo. Hata hivyo, hii ni hali ya \"gonadal dysgenesis\", na si \"pseudohermaphroditism\". \"Pseudohermaphroditism\" inahusu viungo vya kiume na kike kuwepo, si kromosomu. Kwa hivyo, D inaweza kuwa si jibu.\n\nKwa hivyo, tukirudi nyuma. \"Pseudohermaphroditism\" kwa kike inarejelea hali ambapo mtu ana viungo vya kiume na kike, lakini kwa kweli, hawana viungo vyote viwili. Kwa kike, hii inaweza kutokea ikiwa kuna tatizo na ukuaji wa viungo vya kiume, huku viungo vya kike vikiendelea kujitengeneza. \"Androgen insensitivity syndrome\" (AIS) ni hali ambapo mwili hauwezi kuchukua homoni za kiume. Kwa kike, hii inaweza kusababisha viungo vya kiume haviendelea kujitengeneza, na kusababisha mtu kuonekana kama mwanamke. Hata hivyo, katika hali hii, mtu ana viungo vya kike, lakini hakuna viungo vya kiume. Subiri, lakini \"pseudohermaphrofitism\" inahusu viungo vya kiume na kike kuwepo. Ikiwa mtu ana viungo vya kike lakini hakuna viungo vya kiume, hii si \"pseudohermaphrofitism\". Subiri, labda ninachanganya ufafanuzi.\n\nVinginevyo, labda \"pseudohermaphrofitism\" inarejelea hali ambapo mtu ana viungo vya kiume na kike, lakini kwa kweli, hawana viungo vyote viwili. Kwa mfano, ikiwa kwa kike, viungo vya kiume vinajitengeneza, na kusababisha mtu kuonekana kama mwanamume, huku viungo vya kike vikiendelea kujitengeneza. Lakini hii inahusishwa zaidi na \"congenital adrenal hyperplasia\" (CAH), ambayo inaweza kusababisha viungo vya kiume kujitengeneza. Hata hivyo, katika hali ya CAH, viungo vya kike vinaweza kuwa na muundo usio wa kawaida, na kusababisha \"ambiguous genitalia\". Lakini je, hii inachukuliwa kama \"pseudohermaphrofitism\"?\n\nVinginevyo, \"androgen insensitivity syndrome\" (AIS) inaweza kusababisha viungo vya kiume haviendelea kujitengeneza, na kusababisha mtu kuonekana kama mwanamke. Katika hali hii, mtu ana viungo vya kike, lakini hakuna viungo vya kiume. Hii si \"pseudohermaphrofitism\" kwa sababu hakuna viungo vya kiume. Subiri, lakini \"pseudohermaphrofitism\" inahusu viungo vya kiume na kike kuwepo. Kwa hivyo, ikiwa mtu ana viungo vya kike na hakuna viungo vya kiume, hii si \"pseudohermaphrofitism\". Kwa hivyo, labda jibu ni C, \"congenital adrenal hyperplasia\", ambayo inaweza kusababisha viungo vya kiume kujitengeneza, na kusababisha mtu kuonekana kama mwanamume, huku viungo vya kike vikiendelea kujitengeneza. Hata hivyo, katika hali ya CAH, viungo vya kike vinaweza kuwa na muundo usio wa kawaida, na kusababisha \"ambiguous genitalia\". Lakini je, hii inachukuliwa kama \"pseudohermaphrofitism\"?\n\nVinginevyo, labda \"pseudohermaphrofitism\" inarejelea hali ambapo mtu ana viungo vya kiume na kike, lakini kwa kweli, hawana viungo vyote viwili. Kwa mfano, ikiwa kwa kike, viungo vya kiume vinajitengeneza, na kusababisha mtu kuonekana kama mwanamume, huku viungo vya kike vikiendelea kujitengeneza. Hii itakuwa \"pseudohermaphrofitism\". Katika hali hii, \"congenital adrenal hyperplasia\" (CAH) inaweza kusababisha hili. Hata hivyo, katika hali ya CAH, viungo vya kike vinaweza kuwa na muundo usio wa kawaida, na kusababisha \"ambiguous genitalia\". Kwa hivyo, labda C ndiyo jibu.\n\nLakini basi, \"androgen insensitivity syndrome\" (AIS) inaweza kusababisha viungo vya kiume haviendelea kujitengeneza, na kusababisha mtu kuonekana kama mwanamke. Katika hali hii, mtu ana viungo vya kike, lakini hakuna viungo vya kiume. Hii si \"pseudohermaphrofitism\". Kwa hivyo, labda jibu ni C.\n\nVinginevyo, labda \"campomelic dysplasia\" (B) inahusishwa na \"pseudohermaphrofitism\". Ninafikiri \"campomelic dysplasia\" inahusishwa na \"autosomal dominant\" na inaweza kusababisha viungo vya kiume kuwa vidogo na kuonekana kama mwanamke. Lakini sihakika.\n\nSubiri, nadhani \"pseudohermaphrofitism\" kwa kike inaweza kusababishwa na \"congenital adrenal hyperplasia\" (CAH), ambayo inaweza kusababisha viungo vya kiume kujitengeneza. Hata hivyo, katika hali ya CAH, viungo vya kike vinaweza kuwa na muundo usio wa kawaida, na kusababisha \"ambiguous genitalia\". Kwa hivyo, labda C ndiyo jibu.\n\nVinginevyo, \"androgen insensitivity syndrome\" (A) inaweza kusababisha viungo vya kiume haviendelea kujitengeneza, na kusababisha mtu kuonekana kama mwanamke. Katika hali hii, mtu ana viungo vya kike, lakini hakuna viungo vya kiume. Hii si \"pseudohermaphrofitism\". Kwa hivyo, labda jibu ni C.\n\nNina wasiwasi kidogo, lakini nadhani jibu ni C. \"Congenital adrenal hyperplasia\".",
+      "pred": "C",
+      "gold": "C",
+      "correct": true
+    },
+    {
+      "question_index": 854,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu ni nini husaidia kudumisha umbo la alfa-helisi katika protini. Chaguzi ni A hadi D.\n\nKwanza, nakumbuka kuwa alfa-helisi ni muundo wa msingi wa sekondari wa protini. Muundo huu unatokana na muundo wa msingi wa kimolekuli wa asidi amino. Lakini ni nini husaidia kudumisha umbo hili?\n\nNadhani muundo wa msingi wa sekondari unahusiana na jinsi asidi amino zinavyounganishwa. Miunganisho ya peptidi ni miunganisho kati ya asidi amino, sivyo? Lakini hiyo ni sehemu ya muundo wa msingi. Subiri, muundo wa msingi wa sekondari unahusu zaidi mwelekeo na njia ya mlolongo wa polipeptidi.\n\nAlfa-helisi inajulikana kwa kuwa na muunganisho wa hidrojeni. Kila atomu ya nitrojeni katika uti wa peptidi hutoa muunganisho wa hidrojeni kwa atomu ya oksijeni katika uti wa peptidi",
+      "pred": "D",
+      "gold": "A",
+      "correct": false
+    },
+    {
+      "question_index": 9906,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu maoni ya Aristotle kuhusu asili ya mema. Chaguzi ni A hadi D.\n\nKwanza, ninahitaji kukumbuka ninachojua kuhusu falsafa ya maadili ya Aristotle. Aristotle anajulikana kwa dhana yake ya \"eudaimonia,\" ambayo mara nyingi hutafsiriwa kama furaha au ustawi. Alifikiri kuwa lengo la juu la maisha ni kufikia hali hii ya kimapenzi.\n\nSasa, alifikiri kuwa mema ni matokeo ya tabia. Alizungumzia kuhusu tabia za kimapenzi, kama vile ujasiri, uadilifu, na ujasiri, ambazo huendeshwa kupitia mazoezi. Kwa hivyo, ikiwa mtu anafanya mema kwa muda, anakuwa na tabia nzuri, ambayo kwa upande wake hupelekea mema. Hiyo inaonekana kama chaguo A: \"inapatikana kupitia tabia.\"\n\nChaguo B linazungumzia uchunguzi wa kisaikolojia. Sidhani kuwa Aristotle alizingatia uchunguzi wa kisa",
+      "pred": "B",
+      "gold": "A",
+      "correct": false
+    },
+    {
+      "question_index": 2712,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu kwa nini jeni za binadamu na sokwe zina mlolongo sawa wa DNA. Chaguzi ni A hadi D.\n\nKwanza, nakumbuka kuwa DNA inayofanana kati ya spishi tofauti inaweza kuashiria uhusiano wa kibiolojia. Ikiwa binadamu na sokwe wana mlolongo sawa wa DNA katika jeni nyingi, inawezekana wana asili ya kawaida. Lakini ninahitaji kufikiria kuhusu chaguzi zilizotolewa.\n\nChaguo A linasema wana asili ya kawaida ya hivi majuzi. Subiri, lakini binadamu na sokwe ni spishi tofauti. Nadhani wana asili ya kawaida ya zamani, si ya hivi majuzi. Kwa hivyo, labda A si sahihi.\n\nChaguo B linasema binadamu walitoka kwa sokwe. Hiyo inaonekana si sahihi. Kwa kawaida, binadamu na sokwe huonekana kuwa na asili ya kawaida, na binadamu ni spishi tofauti. Kwa hivyo, labda B si sahihi.\n\nChaguo C linasema sokwe walitoka kwa binadamu. Hiyo inaonekana si sahi",
+      "pred": "C",
+      "gold": "A",
+      "correct": false
+    },
+    {
+      "question_index": 8564,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua ni ipi kati ya hali hizi mbili inahusisha mhusika mkuu akifanya jambo ambalo kwa wazi ni kosa kimaadili kulingana na viwango vya Marekani mnamo 2020. Chaguzi ni A hadi D, kila moja ikiunganisha hali hizo mbili kama kosa au si kosa.\n\nKwanza, ninahitaji kuchambua kila hali kwa uhuru.\n\nHali ya 1: \"Tahadhari ya ajali ya gari ilifanya nifikirie kuhusu kuchangamka.\" Mhusika mkuu hapa ni \"mimi.\" Kwa hivyo, mhusika mkuu anafikiria kuhusu kuchangamka baada ya ajali ya gari. Swali ni, je, hii ni kosa kimaadili? Kufikiria kuhusu kuchangamka kwa kawaida huchukuliwa kama majibu ya kawaida kwa ajali. Isipokuwa kuna muktadha fulani kama vile kusababisha madhara au kushindwa kuchukua hatua, lakini hali",
+      "pred": "D",
+      "gold": "B",
+      "correct": false
+    },
+    {
+      "question_index": 9508,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu ujana na chaguzi nne. Hebu niangalie kila chaguo moja baada ya nyingine.\n\nKwanza, chaguo A linasema, \"Ubongo hukua kwa kasi zaidi kuliko hatua yoyote nyingine ya maisha.\" Hmm, nakumbuka kuwa ujana ni hatua ya kasi ya ukuaji wa ubongo. Lakini sihakika kama ni kasi zaidi kuliko hatua zingine. Kwa mfano, ubongo hukua kwa kasi katika miaka ya kwanza ya maisha, kama vile wakati wa kuzaliwa na kufikia umri wa miaka 2-3. Kisha, ujana unafuata, na ubongo unakua kwa kasi, lakini labda si kasi zaidi kuliko hatua zingine. Ninahitaji kuangalia hili.\n\nChaguo B: \"Mfupa unakuwa na uzito mkubwa kabla ya hatua ya kasi ya ukuaji kumalizika.\" Subiri, uzito mkubwa wa mfupa kwa kawaida hutokea wakati wa ujana, lakini nadhani hatua ya kasi ya ukuaji",
+      "pred": "B",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 1234,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu mzunguko wa misuli na ni hatua gani inahitaji ATP pamoja na hatua ya kuinua nguvu. Haya, niache nikumbuke mzunguko wa misuli unavyofanya kazi.\n\nKwa hivyo, mzunguko wa misuli unahusisha mwingiliano kati ya aktini na miosini. Hatua ya kwanza ni kuinua nguvu, ambayo inahitaji ATP. ATP hupunguzwa na kuwa ADP na fosfati isokaboni, na hii hutoa nishati inayohitajika kwa mchakato wa kuinua nguvu. Lakini swali linauliza kuhusu hatua nyingine inayohitaji ATP pamoja na hatua ya kuinua nguvu.\n\nHaya, niache niangalie chaguzi:\n\nA. Mwingiliano kati ya tropomyosin na troponin. Subiri, tropomyosin inafunika sehemu za myosin-binding kwenye aktini. Wakati ioni za kalsiamu zinapofungua troponin, tropomyosin inahamia, na hivyo kuonyesha sehemu za myosin-binding. Lakini mwingil",
+      "pred": "A",
+      "gold": "D",
+      "correct": false
+    },
+    {
+      "question_index": 5456,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Tatizo ni kuhusu kupata upungufu wa kawaida mpya wa thamani ya nyumba baada ya ongezeko la 10%. Hebu niangalie hatua kwa hatua.\n\nKwanza, thamani ya awali ya nyumba ina wastani wa $125,000 na upungufu wa kawaida wa $23,000. Kisha, mji huongeza thamani ya nyumba kwa 10% kwa sababu ya ongezeko la gharama. Swali linauliza upungufu wa kawaida mpya ni upi.\n\nHmm, nakumbuka kuwa unapoongeza thamani ya data kwa kiwango fulani, upungufu wa kawaida pia huongezeka kwa kiwango hicho. Kwa hivyo, ikiwa unazidisha thamani zote kwa 1.10 (ambayo ni 10%), upungufu wa kawaida pia unazidishwa na 1.10. Hebu niithibitishe.\n\nUpungufu wa kawaida wa awali ni $23,000. Kwa hivyo, kuongeza kwa 10% itakuwa 23,000 * 1.10. He",
+      "pred": "",
+      "gold": "A",
+      "correct": false
+    },
+    {
+      "question_index": 5928,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kifungu hiki ni kutoka kwa kitabu cha Mao Zedong, \"Kuhusu Swali la Ushirikiano wa Kilimo,\" kilichochapishwa mwaka wa 1955. Mambo muhimu hapa ni kuhusu mabadiliko ya kilimo, uhusiano wa wafanyakazi na wakulima, na uhitaji wa mageuzi ya ujamaa.\n\nMao anazungumzia jinsi nguvu za ubepari zinavyoongezeka katika maeneo ya vijijini, na wakulima wapya matajiri wanavyochipuka, wakati wengine wanaendelea kuwa maskini. Anasema kwamba ikiwa hali hii itaendelea, uhusiano wa wafanyakazi na wakulima utapotea. Suluhisho lake ni mageuzi ya ujamaa ya kilimo, yaliyoanzishwa kupitia ushirikiano, ili kuondoa wakulima matajiri na uchumi wa mtu binafsi. Lengo ni kuimarisha uhusiano kwa kuhamisha wakulima kwenye mfumo wa pamoja.\n\nSasa, tuchunguze chaguzi:\n\nA. Serikali katika nchi",
+      "pred": "A",
+      "gold": "B",
+      "correct": false
+    },
+    {
+      "question_index": 2815,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu DNA katika seli za ini na ni taarifa gani iliyo sahihi. Haya, niangalie kila chaguo moja baada ya nyingine.\n\nKwanza, chaguo A linasema, \"Seli za ini zina DNA sawa na seli zako za damu nyeupe.\" Hmm, nakumbuka kuwa seli za ini ni seli zinazotawala, kwa hivyo zinapaswa kuwa na DNA sawa na seli zingine za mwili. Seli za damu nyeupe, kama vile seli za erythrocytes, kwa kawaida haina kiini, lakini DNA yao bado ni sawa na DNA ya jumla ya mwili. Kwa hivyo, labda A ni sahihi? Subiri, lakini subiri—seli za ini zina kiini, sivyo? Kwa hivyo, zina DNA kamili. Seli za damu nyeupe, kwa upande mwingine, katika binadamu, kwa kawaida hupoteza kiini lake, kwa hivyo hawana DNA. Subiri, lakini DNA yao bado ni sawa na DNA ya jumla ya mwili. Kwa hivyo, labda A ni sahihi? Au kuna tofauti? Subiri, swali linahusu DNA katika seli za ini ikilinganishwa na seli za damu nyeupe. Kwa kuwa seli za ini zina DNA kamili na seli za damu nyeupe hazina, lakini DNA yao bado ni sawa (kwani zote ni sehemu ya mwili huo huo), labda A ni sahihi. Lakini subiri, labda swali linazingatia kwamba seli za ini zina DNA sawa, lakini seli za damu nyeupe hazina. Kwa hivyo, taarifa itakuwa si sahihi kwa sababu DNA si sawa. Subiri, lakini swali linasema \"DNA katika seli za ini zako ni sawa na DNA katika seli za damu nyeupe zako.\" Ikiwa seli za damu nyeupe hazina DNA, basi taarifa hiyo si sahihi. Lakini labda swali linazingatia kwamba DNA ya seli za damu nyeupe bado ni sehemu ya DNA ya jumla ya mwili. Subiri, hii ni ngumu. Haya, niifikirie tena. Seli za ini zina DNA kamili. Seli za damu nyeupe katika binadamu kwa kawaida hupoteza kiini lake, kwa hivyo hazina DNA. Kwa hivyo, DNA katika seli za ini ni sawa na DNA ya jumla ya mwili, wakati DNA katika seli za damu nyeupe haipo. Kwa hivyo, taarifa",
+      "pred": "A",
+      "gold": "A",
+      "correct": true
+    },
+    {
+      "question_index": 6636,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua ni wakati gani dhana ya 'sheria ya asili' ilipoanza kuonekana. Chaguzi ni: A. Mapinduzi ya Ufaransa, B. Vita vya Uhuru vya Marekani, C. Sheria ya Kirumi, D. Ufikiriaji wa Kigiriki.\n\nKwanza, ninahitaji kukumbuka maana ya sheria ya asili. Kwa kile ninachokumbuka, sheria ya asili ni dhana kwamba kuna aina ya sheria ambayo ni ya asili au ya kimungu, na inatokana na kanuni za maadili badala ya sheria za binadamu. Mara nyingi huhusishwa na wafikiri wa kwanza kama vile Socrates, Plato, na Aristotle. Lakini subiri, chaguzi hapa hazijumuishi wafuasi wa zamani wa Ufilosofia. Hebu niangalie chaguzi tena.\n\nChaguo D ni Ufikiriaji wa Kigiriki. Hiyo ina maana kwa sababu wafikiri wa Kigiriki kama vile Plato na Aristotle walijadili kuhusu kanuni za maadili na",
+      "pred": "D",
+      "gold": "D",
+      "correct": true
+    },
+    {
+      "question_index": 13109,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua ni eneo gani la uhusiano wa umma ambalo huzingatia masuala mapya na athari zake zinazoweza kuathiri shirika. Chaguzi ni: A. Utafiti wa maoni ya umma, B. Usimamizi wa masuala, C. Mambo ya umma, D. Ushawishi.\n\nKwanza, ninahitaji kukumbuka maana ya kila neno katika muktadha wa uhusiano wa umma. Utafiti wa maoni ya umma kwa kawaida unahusisha kutathmini maoni ya umma kuhusu suala fulani, kama vile kupitia tafiti au mahojiano. Hiyo inaonekana kuwa zaidi kuhusu kukusanya data kuliko kusimamia masuala.\n\nUsimamizi wa masuala unaonekana kama unahusisha kusimamia jinsi shirika linavyoshughulikia masuala. Ikiwa kuna suala jipya, usimamizi wa masuala utahusisha kuamua jinsi ya kushughulikia, kushughulikia",
+      "pred": "D",
+      "gold": "B",
+      "correct": false
+    },
+    {
+      "question_index": 1965,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua maana ya kifupi FM. Chaguzi ni A hadi D.\n\nKwanza, nakumbuka kuwa FM ni kifupi kinachotumika katika teknolojia ya sauti. Kulingana na nilichosoma hapo awali, FM inasimamia \"Frequency Modulation\" (Utoaji wa Masafa). Hii ni tofauti na AM, ambayo ni \"Amplitude Modulation\" (Utoaji wa Ukubwa). Kwa hivyo, ikiwa tutaangalia chaguzi, chaguo B ni \"Utoaji wa Masafa\".\n\nNiruhusu niangalie chaguzi zingine ili kuhakikisha. Chaguo A ni \"Utoaji wa Mara kwa Mara\", ambayo haionekani kuwa sahihi. Chaguo C ni \"Kisimamizi wa Masafa\", ambayo inaweza kuhusiana na mifumo ya kisimamizi lakini si FM. Chaguo D ni \"Kisimamizi wa Mara kwa Mara\", ambayo pia haifai.\n\nKwa hivyo, jibu sahihi lin",
+      "pred": "D",
+      "gold": "B",
+      "correct": false
+    },
+    {
+      "question_index": 3460,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu neno linaloelezea eneo la nje ambalo linahudumiwa na kituo cha mijini. Chaguzi ni A. eneo la mstari mwekundu, B. kizingiti, C. umbali, D. eneo la nyuma.\n\nKwanza, ninahitaji kukumbuka maana ya kila neno. Hebu nianze kwa kuchanganua kila chaguo.\n\nEneo la mstari mwekundu: Nakumbuka kuwa eneo la mstari mwekundu linarejelea eneo la moja kwa moja ambalo linahudumiwa na kituo, kama vile jiji. Ni eneo la karibu ambalo hutumiwa zaidi na kituo hicho. Kwa hivyo, labda hilo si jibu sahihi kwa sababu swali linataja \"eneo la nje,\" ambalo linaweza kuashiria eneo pana zaidi.\n\nKizingiti: Neno hili linahusiana na eneo la karibu ambalo linahudumiwa na kituo, kama vile jiji. Kizingiti ni eneo la moja kwa moja ambalo",
+      "pred": "D",
+      "gold": "D",
+      "correct": true
+    },
+    {
+      "question_index": 11116,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu amri ya rais ambayo inazuia usafirishaji na uuzaji wa dawa ya kupunguza shinikizo la damu ndani ya Marekani. Amri hiyo inaruhusu wadau wa serikali kuu kuwashtaki wasafirishaji wa kati ya majimbo. Chaguzi zinahusu ikiwa amri hiyo ni halali au la, na sababu.\n\nKwanza, ninahitaji kukumbuka mamlaka ya rais na mipaka ya mamlaka ya utendaji. Rais anaweza kuweka sera, lakini kuna mipaka. Jambo muhimu hapa ni ikiwa amri hiyo inakidhi mamlaka ya rais au ikiwa inahusisha upanuzi usioruhusiwa wa mamlaka ya utendaji.\n\nAmri hiyo inahusu dawa ambayo inaonekana inasababisha saratani ya mlango kwa kizazi cha sokwe. Rais anadai kuwa kuna ushahidi wa kutosha kuhusu hili. Lakini swali linahusu uhalali wa amri hiyo.\n\nChaguo A linasema kuwa ni halali kwa sababu rais",
+      "pred": "A",
+      "gold": "D",
+      "correct": false
+    },
+    {
+      "question_index": 11111,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, swali linahusu umiliki wa ardhi na mpangilio wa kuandikisha hati. Hebu nianze kwa kuelewa tatizo hatua kwa hatua.\n\nKwanza, mjenzi ndiye mmiliki wa awali wa ardhi, na ana umiliki kamili. Ardhi hiyo ni ardhi isiyo na majengo. Kisha, kuna mfululizo wa uuzaji:\n\n1. Mjenzi anauza kwa msanii.\n2. Msanii anauza kwa diwani.\n3. Diwani anauza kwa daktari wa meno.\n4. Mshauri anauza kwa mhadithi.\n\nLakini mpangilio wa kuandikisha hati ni tofauti. Hati zilizoundwa ni:\n\n- Msanii anauza kwa mshauri (hii ndiyo ya kwanza kuandikishwa)\n- Msanii anauza kwa diwani (hii ndiyo ya pili kuandikishwa)\n- Msanii anauza kwa msanii (hii ndiyo ya tatu kuandikishwa)\n\nSubiri, subiri. Subiri, hati",
+      "pred": "",
+      "gold": "D",
+      "correct": false
+    },
+    {
+      "question_index": 2972,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu faida za mzunguko wa mazao. Haya, niache nikumbuke mzunguko wa mazao ni nini. Ni njia ambapo mazao tofauti huundwa katika eneo moja katika misimu tofauti. Kwa hivyo, kwa mfano, unaweza kuanza na mahindi, kisha na mazao mengine kama nyanya au kunde katika misimu inayofuata.\n\nSasa, chaguzi ni A hadi D. Niache nipitie kila moja.\n\nChaguo A linasema linaruhusu mkulima kuzalisha mazao mengi kwa kiwango kikubwa. Hmm, sina uhakika. Mzunguko wa mazao unahusu zaidi kuchagua mazao tofauti katika muda tofauti badala ya kuzalisha mazao mengi kwa kiwango kikubwa. Labda hii ni njia ya kupoteza muda? Sina uhakika bado.\n\nChaguo B linataja kuongeza uzalishaji na rutuba ya udongo na kupunguza vimelea na wadudu. Hii ina",
+      "pred": "B",
+      "gold": "B",
+      "correct": true
+    },
+    {
+      "question_index": 100,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu athari za kuathiri neva ya uso (facial nerve) katika eneo la foramen ya stylomastoid. Ninahitaji kujua ni vipengele gani huathirika.\n\nKwanza, nakumbuka kuwa neva ya uso hupita kupitia foramen ya stylomastoid ili kuingia kwenye kifua cha uso. Kwa hivyo, kuathiri neva hapa itamaanisha kuathiri neva yenyewe, si tu misuli ambayo inatumika. Subiri, lakini swali linasema \"athari kwenye neva ya uso katika foramen ya stylomastoid.\" Kwa hivyo, labda inahusu kuathiri neva kabla ya kuenea kwenye kifua cha uso?\n\nSasa, neva ya uso ina misuli ya uso, lakini pia ina misuli mingine. Subiri, hapana—neva ya uso ina misuli ya uso, lakini pia ina misuli mingine kama vile misuli ya stylopharyngeus. Subiri, hapana, misuli ya stylopharyngeus inaendeshwa na neva ya glossopharyngeus. Kwa hivyo, labda misuli ya",
+      "pred": "",
+      "gold": "A",
+      "correct": false
+    },
+    {
+      "question_index": 3743,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu ni taarifa gani kuhusu idadi ya watu wanaopiga kura ambayo ni sahihi zaidi. Chaguzi ni A, B, C, D.\n\nKwanza, ninahitaji kukumbuka ninachojua kuhusu tabia ya watu wanaopiga kura. Hebu nipitie kila chaguo moja baada ya nyingine.\n\nChaguo A linasema watu binafsi wana uwezekano mdogo wa kupiga kura katika uchaguzi ambapo kampeni ya ushindani ni ya karibu. Hmm. Nakumbuka kwamba wakati ushindani ni wa karibu, kama katika uchaguzi wa urais au uchaguzi wa jimbo, watu huwa na uwezekano mkubwa wa kupiga kura kwa sababu matokeo yanaweza kuwa muhimu zaidi. Kwa hivyo, labda A si sahihi. Lakini sihakika kabisa. Labda katika baadhi ya matukio, ikiwa ushindani ni wa karibu, watu huenda wasipigie kura? Si hakika. He",
+      "pred": "A",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 1624,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu jinsi vifaa vya kupunguza kelele vinavyotumia sauti. Chaguzi ni uharibifu, kuingilia, kusikika, au kuongeza.\n\nKwanza, ninahitaji kukumbuka vifaa vya kupunguza kelele hufanya nini. Kwa kile ninachokumbuka, vifaa vya kupunguza kelele hutumika kupunguza kelele katika mazingira. Kwa kawaida, hufanya kazi kwa kuingilia mawimbi ya sauti. Kuingilia kunamaanisha kuingilia mawimbi ya sauti ili kupunguza ukubwa wake. Kwa mfano, mpira wa kupunguza kelele unaweza kuingilia mawimbi ya sauti, na hivyo kupunguza kelele.\n\nNiruhusu niangalie chaguzi tena. Chaguo B ni kuingilia. Hiyo inaonekana kuwa sawa. Uharibifu utamaanisha kuharibu sauti, ambayo haifai. Kusikika ni wakati sauti haik",
+      "pred": "B",
+      "gold": "B",
+      "correct": true
+    },
+    {
+      "question_index": 8282,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu maoni ya Shapiro kuhusu matumizi ya dawa kwa idhini ya daktari. Chaguzi ni A hadi D.\n\nKwanza, ninahitaji kukumbuka ni nini maoni ya Shapiro. Kwa kile ninachokumbuka, Shapiro ni mwanasayansi ambaye ameandika kuhusu athari za sheria za dawa kwa upatikanaji na matumizi ya dawa haramu. Hoja yake kuu, kama ninavyokumbuka, ni kwamba sheria za dawa zinaweza kuwa na athari chanya kwa sababu zinapunguza upatikanaji wa dawa haramu. Hata hivyo, swali hapa linahusu maoni ya kawaida, si lazima maoni ya Shapiro. Subiri, swali linasema, \"Kulingana na Shapiro, maoni ya kawaida yanapaswa kuelezea...\" Kwa hivyo, Shapiro anasema nini kuhusu maoni ya kawaida?\n\nSubiri, labda ninachanganya wataalamu. Niruhusu nifikirie tena. Ikiwa swali linahusu maoni ya kawaida kuhusu matumizi ya dawa kwa idhini ya d",
+      "pred": "D",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 12835,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu Nadharia ya Usawa na Haki ya Kimaadili. Kwa hivyo, kwanza, ninahitaji kukumbuka nadharia hizi zinamaanisha nini.\n\nNadharia ya Usawa, kama ninavyokumbuka, inasema kwamba wafanyakazi hutathmini malipo yao kwa kulinganisha na wafanyakazi wengine. Ikiwa mtu anapata malipo ya chini kuliko wengine, anaweza kuhisi kuwa hana usawa, hata kama malipo yake ni ya kutosha. Jambo muhimu hapa ni kwamba malipo ya chini yana athari kubwa kwa utendaji kuliko malipo ya ziada. Kwa hivyo, usawa ni muhimu zaidi kuliko malipo ya ziada.\n\nSasa, swali linauliza Haki ya Kimaadili inarejelea nini. Chaguzi ni A hadi D. Hebu nifikirie kuhusu kila moja.\n\nChaguo A ni usawa wa matokeo. Usawa wa matokeo unahusu kuhakikisha kwamba matokeo ni sawa kwa kila mtu,",
+      "pred": "A",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 10540,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu tofauti kati ya salio baada ya kulipa madeni na dhamana. Chaguzi ni A hadi D.\n\nKwanza, ninahitaji kukumbuka salio baada ya kulipa madeni ni nini. Kwa kile ninachokumbuka, salio baada ya kulipa madeni ni salio ambalo kampuni ina baada ya kulipa madeni yake yote. Ni sehemu ya mali ya kampuni, kwa hivyo haiwezi kutekelezwa kama dhamana. Dhamana, kwa upande mwingine, ni dhamana ambazo kampuni ina, ambazo ni madeni ambayo lazima yalipwe kwa muda.\n\nSasa, swali linauliza ni taarifa gani iliyo sahihi kuhusu salio baada ya kulipa madeni lakini si kuhusu dhamana. Hebu tupitie kila chaguo.\n\nChaguo A: \"Zinaweza kutolewa na kampuni.\" Hmm. Subiri, salio baada ya kulipa madeni ni sehemu ya mali ya kampuni, kwa hivyo hawawezi kutolewa kama dhamana. Dhamana, kwa upande mwingine, zinaweza kutolewa. Kwa hivyo,",
+      "pred": "A",
+      "gold": "B",
+      "correct": false
+    },
+    {
+      "question_index": 9726,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu hoja ya Mill dhidi ya nadharia ya manufaa, haswa ni hoja gani inayotokana na dhana ya \"kutokuwa na uovu\". Chaguzi ni: wajibu, haki, ubora, au kutokuwa na uovu.\n\nKwanza, ninahitaji kukumbuka hoja za Mill dhidi ya nadharia ya manufaa. Kwa kile ninachokumbuka, Mill anajulikana kwa kazi yake kuhusu nadharia ya manufaa, lakini pia alikuwa na upinzani dhidi ya matumizi yake yanayozidi. Mojawapo ya hoja zake kuu ilikuwa kuhusu dhana ya \"kutokuwa na uovu\" na jinsi inavyoweza kutumika kwa njia isiyo sahihi.\n\nSubiri, nadharia ya manufaa inasisitiza kuongeza furaha na kupunguza mateso. Hoja ya Mill dhidi ya matumizi yanayozidi inaweza kuwa kuhusu jinsi dhana ya \"kutokuwa na uovu\" inavyoweza kutumika kwa njia ambayo inaongoza kwenye matokeo ambayo hayahusu",
+      "pred": "",
+      "gold": "B",
+      "correct": false
+    },
+    {
+      "question_index": 8408,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu maoni ya Marquis kuhusu utoaji mimba. Chaguzi ni A hadi D.\n\nKwanza, ninahitaji kukumbuka maoni ya Marquis. Nakumbuka kuwa Marquis ni mwanafalsafa ambaye ameandika kuhusu maadili ya utoaji mimba. Kulingana na ninachokumbuka, anasisitiza kuwa uhai wa kiumbe hai ni jambo la kipekee, na kwamba utoaji mimba ni kosa kwa sababu unazuia uhai wa baadaye. Lakini subiri, je, hilo linamaanisha kuwa anaona utoaji mimba kama kosa kabisa? Au kuna tofauti kati ya kosa na kosa kubwa?\n\nSubiri, swali linahusu ikiwa utoaji mimba ni kosa kabisa (A), kosa kubwa (B), unakubalika kwa ujumla (C), au unakubalika kila wakati (D). Kwa hivyo, maoni ya Marquis ni yapi? Nadhani anadai kuwa utoaji mimba ni kosa kubwa, lakini si lazima iwe kosa kabisa. Kwa sababu anaweza kuwa na ubaguzi, kama vile ikiwa kuna hatari kubwa kwa mama, au ikiwa",
+      "pred": "D",
+      "gold": "B",
+      "correct": false
+    },
+    {
+      "question_index": 349,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu kwa nini hakuna mabwawa ya volkeno kwenye uso wa Io. Chaguzi ni A hadi D.\n\nKwanza, nakumbuka kuwa Io ni mojawapo ya miezi ya sayari ya Jupiter, na inajulikana kwa volkeno nyingi. Volkeno za Io ni za kawaida zaidi katika mfumo wa jua. Kwa hivyo, ikiwa hakuna mabwawa ya volkeno, hiyo ni jambo la kuvutia. Hebu nifikirie kuhusu chaguzi.\n\nChaguo A linasema kuwa mabwawa ya volkeno yaliyokuwepo yamefunikwa na lava. Hiyo inaweza kuwa inawezekana, lakini sina uhakika. Volkeno za Io ni za kawaida, kwa hivyo labda mabwawa hayo yanaonekana, lakini labda yamefunikwa na lava? Au labda mabwawa hayo hayapo kwa sababu nyingine.\n\nChaguo B linasema kuwa Io ni ndogo sana ili iweze kushambuliwa na Mwisho wa Mwisho wa Mashambulizi. Subiri, Mwisho wa Mwisho wa Mashambul",
+      "pred": "B",
+      "gold": "A",
+      "correct": false
+    },
+    {
+      "question_index": 8920,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua ni ipi kati ya hali hizi mbili inahusisha mhusika mkuu akifanya jambo ambalo kwa wazi ni kosa kimaadili kulingana na viwango vya Marekani mnamo 2020. Chaguzi ni A hadi D, kila moja ikiunganisha hali hizo mbili kama kosa au si kosa.\n\nKwanza, ninahitaji kuchambua kila hali kwa uhuru.\n\nHali ya 1: \"Nilificha kwa sababu sikutaka kufanya kazi.\" Kwa hivyo, mhusika mkuu anaficha. Nchini Marekani, kuficha kwa kawaida huchukuliwa kama kosa kimaadili, hasa ikiwa ni kwa makusudi. Ni uongo, ambao unaweza kuwa unakiuka ahadi za kazi na unaweza kuathiri biashara. Kwa hivyo, kwa ujumla, hii inaonekana kama kosa kimaadili.\n\nHali ya 2: \"Nilim",
+      "pred": "D",
+      "gold": "A",
+      "correct": false
+    },
+    {
+      "question_index": 4210,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu nini kitatokea ikiwa teknolojia itafanya uzalishaji uwe bora zaidi na mauzo ya nje yatapungua. Chaguzi zinahusu Pato la Taifa (GDP), kiwango cha bei, n.k.\n\nKwanza, ninahitaji kukumbuka maana ya uzalishaji bora zaidi. Uzalishaji bora zaidi unamaanisha kuwa teknolojia inaruhusu uzalishaji wa bidhaa na huduma kwa ufanisi zaidi, sivyo? Kwa hivyo, ikiwa teknolojia itapunguza gharama za uzalishaji, hiyo inapaswa kuathiri viwango vya bei. Ikiwa uzalishaji unakuwa bora zaidi, wazalishaji wanaweza kutoa bidhaa kwa bei nafuu, na hivyo kusababisha bei kupungua. Hiyo inanifanya nifikirie kuwa kiwango cha bei kitapungua. Kwa hivyo, labda chaguo D ndilo jibu.\n\nSasa, mauzo ya nje yatapungua. Mauzo ya nje ni bidhaa zinazouzwa nje ya n",
+      "pred": "D",
+      "gold": "D",
+      "correct": true
+    },
+    {
+      "question_index": 10430,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu wakati ambapo adhabu kwa mtayarishaji wa taarifa ya ushuru haifanyiki. Chaguzi ni A hadi D.\n\nKwanza, ninahitaji kukumbuka sheria kuhusu adhabu kwa mtayarishaji wa taarifa ya ushuru. Kwa kile ninachokumbuka, adhabu inaweza kutumika ikiwa mtayarishaji alijua au angepaswa kujua kuwa taarifa ilikuwa si ya kweli. Lakini kuna ubaguzi. Kwa mfano, ikiwa hakukuwa na uwezekano wa busara wa kufahamu, labda adhabu haifanyiki.\n\nTukiangalia chaguzi:\n\nA. Kulikuwa na uwezekano mkubwa wa kufahamu. Ikiwa kulikuwa na uwezekano mkubwa, labda adhabu inatumika. Kwa hivyo, hii inaweza kuwa si jibu sahihi.\n\nB. Ni rahisi kuamini kuwa taarifa ilikuwa ya kweli. Ikiwa ni rahisi kuamini kuwa ilikuwa ya kweli, labda mtayarishaji",
+      "pred": "B",
+      "gold": "B",
+      "correct": true
+    },
+    {
+      "question_index": 4161,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu nini kitatokea kwa uchumi ambao tayari uko katika hali ya ajira kamili, wakati ushuru unapunguzwa. Chaguzi zinahusu jinsi halisi ya uzalishaji na kiwango cha bei kinavyobadilika kwa muda mrefu.\n\nKwanza, ninahitaji kukumbuka dhana fulani za msingi za uchumi. Wakati uchumi uko katika hali ya ajira kamili, inaonekana tayari unazalisha kwa uwezo wake, sivyo? Kwa hivyo, katika muda mrefu, mabadiliko katika ushuru yanaweza kuathiri mahitaji ya jumla (AD) au ugavi wa jumla (AS). Lakini kwa kuwa uchumi uko katika hali ya ajira kamili, labda tunazungumzia muda mrefu hapa.\n\nSubiri, ikiwa ushuru unapunguzwa, hiyo ni upunguzaji wa ushuru. Katika mifumo ya msingi ya Keynesian, upunguzaji wa ush",
+      "pred": "",
+      "gold": "D",
+      "correct": false
+    },
+    {
+      "question_index": 2950,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua ni ipi kati ya chaguzi hizi si mfano wa hidrolisisi. Hidrolisisi ni mchakato ambapo molekuli hugawanyika na molekuli ya maji, sivyo? Kwa hivyo, kwa kawaida, inahusisha kuongeza molekuli ya maji (H₂O) na kugawanya kiunganishi, mara nyingi katika kiunganishi cha kikaboni.\n\nNiruhusu niangalie kila chaguo moja baada ya nyingine.\n\nChaguo A: Uundaji wa mafuta kuwa asidi ya mafuta na gliseroli. Subiri, uundaji wa mafuta ni wakati asidi ya mafuta huunganishwa na gliseroli ili kuunda mafuta. Hiyo ni mchakato wa kinyume na hidrolisisi. Kwa hivyo, ikiwa swali linataka kujua ni ipi si hidrolisisi, basi hii inaweza kuwa jibu. Lakini ninahitaji kuangalia chaguzi zingine ili kuhakikisha.\n\nChaguo B: Uundaji wa protini",
+      "pred": "B",
+      "gold": "D",
+      "correct": false
+    },
+    {
+      "question_index": 4906,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu taasisi zote za umma na miongozo yao ya maadili, isipokuwa moja. Chaguzi ni A hadi D.\n\nKwanza, ninahitaji kuelewa kila chaguo linamaanisha nini. Nianzie kwa kuchanganua kila moja.\n\nChaguo A linasema \"kuepuka kudanganya watu bila sababu.\" Hiyo inaonekana kama kanuni ya kawaida ya maadili. Taasisi za umma kwa kawaida zingependa kuepuka kudanganya watu, kwa hivyo hii inaweza kuwa miongozo ya maadili. Kwa hivyo, labda si jibu sahihi.\n\nChaguo B linasema \"kuepuka kusababisha mateso kwa wanadamu na wanyama wengine bila sababu.\" Hiyo inaonekana kuwa kali zaidi. Taasisi za umma zinaweza kuwa na sheria kuhusu kuepuka kusababisha mateso, lakini neno \"wanyama wengine\" linaweza kuwa jambo la kuzingatia. Subiri, lakini baadhi ya ta",
+      "pred": "B",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 1633,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu athari ya Doppler na hali ambayo inatokea. Chaguzi ni A hadi D.\n\nKwanza, ninahitaji kukumbuka athari ya Doppler ni nini. Kwa kile ninachokumbuka, athari ya Doppler inahusu mabadiliko katika masafa ya mawimbi yanayotoka kwa chanzo kinachosonga kuhusiana na mtazamaji. Kwa mawimbi ya sauti, ikiwa chanzo kinasonga kuelekea kwa mtazamaji, masafa yanayotazamwa huongezeka, na hii husababisha sauti kuwa ya juu. Kwa upande mwingine, ikiwa chanzo kinasonga mbali na mtazamaji, masafa yanayotazamwa hupungua, na hii husababisha sauti kuwa ya chini.\n\nKwa hivyo, swali linauliza ni katika hali gani athari ya Doppler inatokea. Chaguzi ni ikiwa chanzo kinasonga kuelekea kwa mtazamaji, mbali, zote mbili, au hakuna. Kulingana na ninachofikiria, athari ya Doppler inatokea",
+      "pred": "D",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 13745,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua ni nini kinachowazuia kuondoa ugonjwa wa polio duniani hadi sasa. Chaguzi ni A hadi D.\n\nKwanza, ninahitaji kukumbuka ninachojua kuhusu elimu ya ugonjwa wa polio. Polio ni ugonjwa unaosababishwa na virusi, na kuna chanjo ya polio. Lengo ni kuondoa ugonjwa huo duniani. Lakini kuna changamoto.\n\nChaguo A linasema ni kutokubalika katika baadhi ya nchi. Nakumbuka kuwa nchi fulani hazikubali chanjo, labda kwa sababu za kidini au kisiasa. Hii inaweza kuwa tatizo. Kwa mfano, nchi fulani zinaweza kutofuata programu za chanjo, na hivyo kuwezesha virusi kuendelea kuenea. Kwa hivyo, kutokubalika kunaweza kuwa sababu.\n\nChaguo B ni chanjo duni au zisizo salama. Subiri, chanjo ya polio ni salama, sivyo? Chanjo ya polio ina aina mbili: chanjo ya polio inayotokana na virusi iliyopunguzwa (OPV) na chanjo ya polio inayotokana na virusi iliyofichwa (IPV). OPV ina hatari ndogo ya kusababisha ugonjwa, lakini kwa ujumla, chanjo ni salama. Kwa hivyo, labda B si jibu sahihi. Isipokuwa kuna chanjo duni ambazo hazitumiki, lakini swali linasema \"had",
+      "pred": "B",
+      "gold": "A",
+      "correct": false
+    },
+    {
+      "question_index": 3090,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo swali linahusu upimaji wa suluhisho la besi dhaifu kwa kutumia suluhisho la asidi kali ya kawaida, na jinsi pH inavyobadilika wakati wa upimaji. Chaguzi ni A, B, C, D.\n\nKwanza, ninahitaji kukumbuka kinachotokea wakati besi dhaifu inapochanganywa na asidi kali. Kwa kuwa asidi kali inachanganya kikamilifu na besi dhaifu, itachanganya na kuunda asidi yake dhaifu. Mmenyuko utakuwa kama vile H+ kutoka asidi kali inachanganya na besi (B) ili kuunda asidi yake dhaifu (HBH+).\n\nSasa, wakati wa upimaji, pH inabadilika kwa njia fulani. Hebu nifikirie kuhusu hatua tofauti. Kuanzia, suluhisho la besi dhaifu lina pH ya juu kuliko 7 kwa sababu ni besi. Wakati asidi kali inachanganywa, pH itapungua.\n\nKatika hatua za mwanzo, wakati asidi kali inachanganywa kwa kiasi kidogo, itachanganya kwa kiasi",
+      "pred": "B",
+      "gold": "A",
+      "correct": false
+    },
+    {
+      "question_index": 8022,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua ni aina gani ya miamba inaweza kuwasha maji. Chaguzi ni matale, chokaa, miamba ya tope, na miamba ya fuwah.\n\nKwanza, ninahitaji kukumbuka kila moja ya miamba hii inajulikana kwa nini. Matale ni miamba ya kawaida, sivyo? Ina miamba ya kawaida, kama ilivyo katika matale ya pwani. Inaweza kuwasha maji, lakini nadhani inahusishwa zaidi na uwanja wa ardhi kuliko maji. Kwa hivyo, labda si chaguo A.\n\nChokaa ni miamba ya kawaida, kama ilivyo katika chokaa. Ina miamba ya kawaida, kama ilivyo katika matale. Inaweza kuwasha maji, lakini tena, inahusishwa zaidi na uwanja wa ardhi. Kwa hivyo, labda B si jibu.\n\nMiamba ya tope... Hmm. Miamba ya tope inajulikana kwa miamba yake ya kawaida na miamba ya",
+      "pred": "B",
+      "gold": "D",
+      "correct": false
+    },
+    {
+      "question_index": 9031,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua ni ipi kati ya hali hizi mbili inahusisha mhusika mkuu kufanya jambo ambalo kwa wazi ni kosa kimaadili kulingana na viwango vya Marekani mnamo 2020. Chaguzi ni A hadi D, kila moja ikiunganisha hali hizo mbili kama kosa au si kosa.\n\nKwanza, ninahitaji kuchambua kila hali kwa uhuru.\n\nHali ya 1: \"Nilipotambua kwamba dawa ya bibi ilikuwa dawa isiyo sahihi, nilimpa.\" Kwa hivyo, mhusika mkuu anampeleka dawa isiyo sahihi. Subiri, lakini kwa nini hiyo itakuwa kosa kimaadili? Ikiwa dawa ilikuwa isiyo sahihi, labda bibi alikuwa anapata dawa isiyo sahihi, na mhusika mkuu alimpeleka. Lakini ikiwa mhusika mkuu alitambua kuwa ilikuwa isiyo sahihi, labda alikuwa anajaribu kumzuia bibi apate dawa hiyo. Subiri, lakini maneno yana",
+      "pred": "D",
+      "gold": "B",
+      "correct": false
+    },
+    {
+      "question_index": 4719,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu faida ya kulinganisha na faida ya moja kwa moja, na ni taarifa gani ambayo HAIWEZI kuwa sahihi. Haya, niweze kukumbusha maana ya maneno haya.\n\nFaida ya kulinganisha inamaanisha kuwa mtu anaweza kuzalisha bidhaa kwa ufanisi zaidi kuliko mtu mwingine. Kwa hivyo, ikiwa mtu ana faida ya kulinganisha katika kuzalisha bidhaa, anaweza kuzalisha bidhaa hiyo kwa gharama ya fursa ndogo kuliko mtu mwingine. Faida ya moja kwa moja ni sawa, lakini inahusu ufanisi wa ndani. Ikiwa mtu ana faida ya moja kwa moja katika kuzalisha bidhaa, anaweza kuzalisha bidhaa hiyo kwa gharama ya fursa ndogo kuliko mtu mwingine, na hii inaweza kuwa kwa sababu ya faida ya kulinganisha.\n\nSasa, niangalie chaguzi:\n\nA. Mtu anaweza kuwa na faida ya kulinganisha katika kuzalisha bidhaa zote mbili. Hmm. Subiri, ikiwa mtu ana faida ya kulinganisha katika kuzalisha bidhaa zote mbili, hilo linawezaje kufaa? Kwa sababu faida ya kulinganisha inamaanisha kuwa anaweza kuzalisha bidhaa zote mbili kwa ufanisi zaidi kuliko wengine. Lakini ikiwa anaweza kuzalisha zote mbili kwa ufanisi zaidi, hilo linawezaje kufaa? Kwa sababu faida ya kulinganisha kwa kawaida inahusu ufanisi wa ndani. Subiri, labda hii ni hila. Ikiwa mtu ana faida ya kulinganisha katika kuzalisha bidhaa zote mbili, hilo linawezaje kufaa? Kwa sababu ikiwa anaweza kuzalisha zote mbili kwa ufanisi zaidi, hilo linaweza kuwa siwezekani. Kwa sababu faida ya kulinganisha inamaanisha kuwa anaweza kuzalisha moja kwa ufanisi zaidi kuliko wengine, lakini ikiwa anaweza kuzalisha zote mbili kwa ufanisi zaidi, hilo linawezaje kufaa? Subiri, labda hii ni",
+      "pred": "A",
+      "gold": "A",
+      "correct": true
+    },
+    {
+      "question_index": 13570,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu mstari wa umaskini ambao umewekwa kwa njia ya \"kamili\". Chaguzi ni A hadi D.\n\nKwanza, ninahitaji kukumbuka maana ya mstari wa umaskini. Kulingana na ninavyokumbuka, mstari wa umaskini ni kiwango kinachotumika kutofautisha kati ya watu walio na maisha ya kutosha na wale wanaoishi katika umaskini. Mstari wa umaskini ambao umewekwa kwa njia ya \"kamili\" huenda unarejelea kiwango kinachowekwa na taasisi au mashirika, kama vile Benki ya Dunia au UN, ili kuonyesha kiwango cha chini cha mapato ambacho kinachukuliwa kuwa kinahitajika ili kudumisha maisha ya kutosha.\n\nTukiangalia chaguzi:\n\nA. Kiwango kikubwa zaidi cha umaskini katika jamii. Hiyo haionekani kuwa sahihi. Mstari wa umaskini si kuhusu kiwango kikubwa zaidi; ni zaidi kuhusu kiwango kinachotumika",
+      "pred": "A",
+      "gold": "B",
+      "correct": false
+    },
+    {
+      "question_index": 12451,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu mwanasaikolojia ambaye tayari ana uhusiano mzuri wa kimatibabu na mtoto. Anaulizwa kuwa shahidi wa kitaalamu katika kesi ya talaka inayohusisha ulezi wa mtoto. Chaguzi zinahusu hatua bora ya kuchukua.\n\nKwanza, ninahitaji kukumbuka miongozo ya maadili kwa wanasaikolojia, labda kutoka APA au mashirika yanayofanana. Nakumbuka kuwa kuna sheria kuhusu uhusiano wa pande mbili na uwezo wa kuwa shahidi.\n\nKwa hivyo, mwanasaikolojia tayari ana uhusiano wa kimatibabu na mtoto. Ikiwa atashuhudia, kuna hatari ya uhusiano wa pande mbili, ambayo inaweza kuathiri uamuzi wake. Hiyo ni tatizo kwa sababu uamuzi wa mwanasaikolojia unaweza kuathiriwa na uhusiano wa kimatibabu badala ya ukweli.\n\nTukiangalia chaguzi:\n\nA. Kukataa ombi. Hiyo inaone",
+      "pred": "A",
+      "gold": "A",
+      "correct": true
+    },
+    {
+      "question_index": 7195,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu hali ambapo mtu anajua kuhusu hali fulani au mazingira, lakini hanaathiri au hubadilisha tabia yao. Chaguzi ni: A. Nyanja ya kurekebisha, B. Nyanja ya kielimu, C. Nyanja ya urembo, D. Nyanja ya kutokuwa na uwezo.\n\nKwanza, ninahitaji kukumbuka maana ya kila neno. Hebu nifikirie kuhusu kila chaguo.\n\nNyanja ya kurekebisha inaonekana kama mahali ambapo unaweza kurekebisha au kurekebisha kitu. Labda kama nyanja ya kurekebisha programu? Lakini swali linahusu mtu anayejua kuhusu hali lakini hanaathiri. Sijui kama hiyo inafaa.\n\nNyanja ya kielimu ni mahali ambapo unapata elimu. Hiyo inahusu zaidi kujifunza, si lazima kuhusu kujua kuhusu hali na kutobadilisha. Kwa hivyo, labda si B.\n\nN",
+      "pred": "B",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 4066,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu jinsi bidhaa zinazoboreka katika ubora zinavyoathiri Kiwango cha Bei cha Watumiaji (CPI). Chaguzi ni A hadi D.\n\nKwanza, ninahitaji kukumbuka CPI ni nini. CPI ni kipimo cha mabadiliko ya wastani kwa muda katika bei zinazolipwa na watumiaji wa mijini kwa bidhaa na huduma mbalimbali. Inaundwa kwa kuchukua wastani wa bei za bidhaa na huduma, kila moja ikiwa na uzito kulingana na matumizi yake.\n\nSasa, swali linahusu bidhaa zinazoboreka katika ubora. Ikiwa bidhaa inaboreka, inaweza kutoa ubora bora kwa bei ile ile. Kwa mfano, ikiwa chupi inabadilishwa na chupi ya ubora bora, bei inaweza kubaki ile ile, lakini bidhaa inatoa zaidi.\n\nLakini hii inaathirije CPI? Hebu nifikirie. CPI inaundwa kwa kuchukua wastani wa bei. Ikiwa bidhaa inaboreka, inaweza kutoa ubora zaidi kwa bei ile ile. Hata hivyo, CPI haizingatii ubora",
+      "pred": "D",
+      "gold": "D",
+      "correct": true
+    },
+    {
+      "question_index": 1213,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu kuainisha enzaimu mpya kulingana na aina ya majibu ambayo inafanya. Enzaimu hii inashiriki katika uchakataji wa dutu isiyojulikana kwa kutumia viini viwili. Mchakato uliotajwa ni ubadilishaji wa kikundi cha nitrojeni kutoka kwenye kiini kimoja hadi kwenye kiini kingine.\n\nKwanza, ninahitaji kukumbuka aina tofauti za enzaimu na majibu yao. Chaguzi ni Oksidi-Reduksi, Uhamishaji, Hidrolisi, na Liasisi.\n\nUhamishaji unahusisha uhamishaji wa kikundi cha dutu kutoka kwenye dutu moja hadi kwenye dutu nyingine. Hii inaonekana kama kile kinachoelezwa hapa: ubadilishaji wa kikundi cha nitrojeni kutoka kwenye kiini kimoja hadi kwenye kiini kingine. Enzaimu inayofanya hivyo itakuwa enzaimu ya uhamishaji.\n\nOksidi-Reduksi in",
+      "pred": "",
+      "gold": "B",
+      "correct": false
+    },
+    {
+      "question_index": 1070,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, swali linahusu sarufi na ni taarifa zipi ambazo ni za kweli. Sarufi imeelezwa kama ifuatavyo:\n\nS → ( S )\nS → x\n\nKwa hivyo, sarufi ina sheria mbili. Sheria ya kwanza inasema kwamba S inaweza kuundwa kwa kuweka S ndani ya mabano. Sheria ya pili inasema kwamba S inaweza kuwa 'x'.\n\nKwanza, ninahitaji kuelewa ni nini kinawakilishwa na sarufi hii. Hebu nifikirie kuhusu vipengele vinavyowezekana. Kwa kuwa sheria ya kwanza inahitaji S iliyo ndani ya mabano, hiyo inamaanisha kwamba kila wakati unapounda S, lazima uwe na mabano. Sheria ya pili inaruhusu 'x' kama kipengele cha msingi.\n\nKwa hivyo, vipengele vinavyowezekana ni vitu kama vile \"x\", \"(x)\", \"((x))\", n.k. Kila kipengele lazima kih",
+      "pred": "",
+      "gold": "D",
+      "correct": false
+    },
+    {
+      "question_index": 5813,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua ni nukuu gani kutoka kwenye dondoo inafanana na kauli ya Jacob A. Riis katika kitabu chake \"Kama Nusu Nyingine Inavyoishi.\" Chaguzi ni A hadi D.\n\nKwanza, ninahitaji kukumbuka \"Kama Nusu Nyingine Inavyoishi\" inahusu nini. Kwa kile ninachokumbuka, kitabu cha Riis ni kuhusu hali mbaya ya maisha ya watu walio katika nafasi ya chini katika miji ya Marekani, hasa wakati wa karne ya 19. Anazungumzia ukosefu wa usawa wa kijamii, umaskini, na jinsi watu walio katika nafasi ya chini walivyokuwa wakishughulikiwa na jamii. Kazi yake inahusu haki na uhitaji wa mageuzi.\n\nSasa, niangalie dondoo kutoka kwenye jukwaa la Chama cha Progressive la mwaka 1912. Dondoo hiyo inazungumzia kuhusu chama cha Progressive kuchukua jukumu la kudumisha serikali ya watu,",
+      "pred": "D",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 4022,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu athari ya kupunguza kodi na kuongeza matumizi ya serikali kwa Pato la Taifa (GDP) na kiwango cha bei. Haya, niache nikumbuke ninachojua kuhusu sera ya fedha na athari zake.\n\nKwanza, kupunguza kodi kwa watumiaji. Kupunguza kodi kwa kawaida huongeza mapato yanayopatikana, ambayo inapaswa kuhamasisha watumiaji kutumia zaidi. Kwa kuwa matumizi ni sehemu muhimu ya Pato la Taifa, kuongeza matumizi kunapaswa kuongeza Pato la Taifa. Kwa hivyo, sehemu hiyo inaonekana kuongeza Pato la Taifa.\n\nKisha, kuongeza matumizi ya serikali. Matumizi ya serikali ni sehemu ya Pato la Taifa (GDP = C + I + G + (X - M)). Ikiwa serikali itaongeza matumizi, hiyo inapaswa kuongeza moja kwa moja Pato la Ta",
+      "pred": "C",
+      "gold": "D",
+      "correct": false
+    },
+    {
+      "question_index": 8031,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua ni namba gani unapaswa kupiga ili kuweza kufanya simu ya kimataifa kutoka Marekani. Chaguzi ni A. 11, B. 101, C. 888, D. 911.\n\nKwanza, nakumbuka kwamba nchini Marekani, namba ya simu ya kawaida ni 10 au 11 tarakimu. Namba ya simu ya kawaida ya ndani ni 10, kama vile 555-123-4567. Lakini wakati wa kufanya simu ya kimataifa, unahitaji kuongeza namba ya simu ya kawaida ya kimataifa. Namba ya simu ya kawaida ya kimataifa nchini Marekani ni 1, kwa hivyo namba nzima itakuwa 11 tarakimu. Kwa mfano, ikiwa unataka kufanya simu kwa +1 555 123 4567, namba ya kwanza",
+      "pred": "D",
+      "gold": "B",
+      "correct": false
+    },
+    {
+      "question_index": 672,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua ni idadi ngapi ya kromosomi zinapatikana katika seli zote za binadamu. Chaguzi ni A. 3, B. 20, C. 23, D. 46.\n\nKwanza, nakumbuka kwamba binadamu wana kromosomi 46 kwa kawaida. Lakini subiri, swali linasema \"seli zote za binadamu.\" Hmm, je, kuna ubaguzi wowote? Kwa mfano, seli za gameti kama vile mbegu na yai zina kromosomi 23 kila moja kwa sababu zina idadi nusu ya kromosomi. Lakini swali linasema \"seli zote,\" ambayo inaweza kujumuisha seli zote, pamoja na seli za gameti. Hata hivyo, chaguzi zinajumuisha 46 kama chaguo D.\n\nSubiri, lakini labda swali linarejelea idadi ya kawaida. Kwa kuwa seli za kawaida za binadamu (seli zisizo za gameti) zina kromosomi 46, hiyo nd",
+      "pred": "D",
+      "gold": "D",
+      "correct": true
+    },
+    {
+      "question_index": 2607,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu ongezeko la Pato la Taifa kwa kila mtu (GDP per capita) nchini Korea Kusini kutoka 1950 hadi 2016, baada ya kuzingatia mfumuko wa bei na marekebisho ya PPP. Chaguzi ni A hadi D, na jibu ni moja ya hizo.\n\nKwanza, ninahitaji kukumbuka baadhi ya takwimu kuhusu ukuaji wa kiuchumi wa Korea Kusini. Nakumbuka kuwa Korea Kusini imekuwa na ukuaji mkubwa wa kiuchumi katika karne ya 20. Katika miaka ya 1950, ilikuwa nchi yenye viwanda vichache na kiwango cha chini cha maisha. Hata hivyo, baada ya miaka ya 1960 na 1970, ilianza mchakato wa ukuaji wa haraka wa kiuchumi, na kuwa nchi yenye viwanda vingi na kiwango cha juu cha maisha.\n\nPato la Taifa kwa kila mtu ni kipimo cha kiwango cha",
+      "pred": "D",
+      "gold": "D",
+      "correct": true
+    },
+    {
+      "question_index": 13585,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu dhana ya Freud kuhusu 'ego'. Ninahitaji kukumbuka maana ya ego katika nadharia ya Freud.\n\nKwa hivyo, Freud aligawanya akili katika sehemu tatu: id, ego, na superego. Id ni sehemu ya msingi, inayodhaniwa kuwa hai na isiyo na ufahamu, ambayo ina misukumo na hamu. Superego ni sehemu ya maadili, inayodhaniwa kuwa ina maadili na kanuni. Kisha kuna ego, ambayo ni sehemu ya akili.\n\nEgo ndiyo sehemu inayodhibiti mwingiliano kati ya id na superego. Inawajibika kwa kufikia malengo ya id kwa njia inayokubalika kijamii na inakagua matendo ya superego. Ego ni sehemu ya akili, ambayo ina ufahamu na inafanya kazi kwa kuzingatia hali halisi. Inaweka misukumo ya id katika kiwango kinachoweza kufanywa na inakamata hamu za superego ili",
+      "pred": "",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 10987,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo swali linahusu sheria ya jimbo kuhusu ajali, na iwapo mshtakiwa anaweza kuondoa kesi yake kwa msingi wa haki ya kutoa ushahidi dhidi ya yeye. Haya, niangalie kwa undani.\n\nSheria inahitaji mtu anayesababisha ajali kutoa maelezo ya jina lake, anwani, na leseni ya udereva. Mshtakiwa alifanya hivyo, lakini alitaka kuondoa kesi kwa msingi wa haki ya kutoa ushahidi dhidi ya yeye. Chaguzi zinahusu iwapo ombi hilo litakubaliwa au litakataliwa, na sababu.\n\nKwanza, ninahitaji kukumbuka haki ya kutoa ushahidi dhidi ya yeye. Katika maeneo mengi, haki ya kutoa ushahidi dhidi ya yeye inatumika wakati mtu anatoa ushahidi dhidi ya yeye katika kesi ya jinai. Lakini hii inahusu maelezo yanayohitaj",
+      "pred": "",
+      "gold": "D",
+      "correct": false
+    },
+    {
+      "question_index": 11133,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo swali ni kuhusu kama mahakama ya rufaa itathibitisha uamuzi wa mahakama ya chini kuhusu mkataba wa barua. Haya, niangalie hali hii hatua kwa hatua.\n\nKwanza, mwenye hisa pekee na mwekezaji walitia saini \"Mkataba wa Barua\" ambao uloeleza bei, malipo, ufadhili, mali, na maelezo mengine. Hakuna tarehe ya mwisho ya kufunga, lakini mwekezaji alilipa $20,000 kama malipo ya awali. Barua hiyo ilisema kuwa ni makubaliano muhimu, lakini hati rasmi itatengenezwa na wakili. Kisha muuzaji alirudisha pesa na akakataa kuendelea. Mwekezaji alifungua kesi ili kutekelezwa mkataba, na mahakama ya chini ilisema kuwa kulikuwa na mkataba kamili na unaoweza kutekelezwa. Swali ni kama mahakama ya rufaa itathibitisha hilo.\n\nKwa hivyo, chaguzi ni A hadi D. Niangalie kila moja.\n\nChaguo A linasema hapana kwa sababu tarehe ya mwisho ya kufunga haikuwepo na wakili walitakiwa kutenga mkataba. Hmm. Tarehe ya mwisho ya kuf",
+      "pred": "A",
+      "gold": "D",
+      "correct": false
+    },
+    {
+      "question_index": 6548,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua ni taarifa gani kuhusu kesi za Nuremberg na Tokyo ambayo ni ya uongo. Chaguzi ni A, B, C, D.\n\nKwanza, ninahitaji kukumbuka ninachojua kuhusu kesi hizi. Kesi za Nuremberg zilifanyika baada ya Vita vya Pili vya Dunia, sivyo? Zilikuwa kesi za kwanza za kisheria dhidi ya wafuasi wa Nazi. Kesi ya Tokyo ilifanyika baadaye, katika miaka ya 1940, pia baada ya Vita vya Pili vya Dunia. Kwa hivyo, chaguo A linasema kwamba zilifanyika baada ya Vita vya Kwanza vya Dunia. Subiri, Vita vya Kwanza vya Dunia vilikuwa mwanzoni mwa karne ya 20, na Vita vya Pili vya Dunia vilikuwa katikati ya karne hiyo. Kwa hivyo, kesi hizo zilifanyika baada ya Vita vya Pili vya Dunia, si Vita",
+      "pred": "A",
+      "gold": "A",
+      "correct": true
+    },
+    {
+      "question_index": 12900,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu kiwango gani cha uti wa mgongo kinachosababisha ulemavu wa mwili (paraplegia). Chaguzi ni: mgongo, sakrali, foramen, na kifua.\n\nKwanza, ninahitaji kukumbuka maana ya ulemavu wa mwili. Kwa kile ninachokumbuka, ulemavu wa mwili ni ulemavu wa miguu na mifupa, kwa kawaida husababishwa na jeraha kwenye uti wa mgongo. Kwa hivyo, jeraha lazima liwe katika sehemu ya uti wa mgongo ambayo inaunganisha kichwa na miguu.\n\nSasa, uti wa mgongo una viwango tofauti. Nafasi ya kifua iko juu, kisha ni mgongo, kisha foramen (labda hii ni kosa la kuandika? Kwa sababu foramen ni nafasi kati ya mgongo, si kiwango cha uti wa mgongo. Subiri, labda chaguzi zimeandikwa kwa njia isiyo sahihi. Foramen ya",
+      "pred": "",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 2532,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Taarifa iliyotolewa ni: (∀x)[Ax ⊃ (∃y)(Hy • Bxy)]. Hebu niigawanye hatua kwa hatua.\n\nKwanza, alama: Ax inamaanisha x ni nyumba, Hy inamaanisha y ni nyumba, na Bxy inamaanisha x ni kubwa kuliko y. Taarifa inasema kwamba kwa x zote, ikiwa x ni nyumba, basi kuna y ambayo y ni nyumba na x ni kubwa kuliko y.\n\nKwa hivyo, kwa maneno rahisi, inamaanisha kwamba kila nyumba ni kubwa kuliko angalau nyumba moja. Subiri, lakini chaguo za jibu zinahusu nyumba ikilinganishwa na nyumba. Hebu niangalie chaguo tena.\n\nChaguo A: Kila nyumba ni kubwa kuliko angalau nyumba moja. Hiyo inaonekana kuwa sawa kwa sababu taarifa inasema kwamba kwa kila nyumba x, kuna nyumba y ambayo x ni kubwa kuliko y. Kwa hivyo, hiyo itakuwa \"Kila nyumba ni kubwa kuliko angalau nyumba moja,\" ambayo",
+      "pred": "A",
+      "gold": "A",
+      "correct": true
+    },
+    {
+      "question_index": 685,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu kiwango cha juu cha muda mrefu cha nguvu, kinachojulikana pia kama VO2 max. Chaguzi ni A hadi D.\n\nKwanza, ninahitaji kukumbuka maana ya VO2 max. Ni kipimo cha kiwango cha juu cha oksijeni ambacho mwili unaweza kutumia wakati wa shughuli za aerobiki, sivyo? Kwa hivyo, inahusiana na uwezo wa mwili kuchukua na kutumia oksijeni.\n\nTukiangalia chaguzi:\n\nA. Kwa kawaida hubaki sawa wakati wa mbio. Hmm. Nakumbuka kwamba wakati wa mbio, hasa katika mbio za umbali mrefu, wachezaji wanaweza kupunguza kiwango chao cha nguvu kwa sababu ya kupungua kwa glikojeni na kuongezeka kwa asidi ya laktiki. Lakini je, VO2 max hubaki sawa? Subiri, VO2 max ni uwezo wa mwili, ambao huenda usibaki sawa ikiwa mwili unapunguza kasi. Lakini labda wakati wa mbio, ikiwa mtu anafanya kwa kiwango cha chini cha nguvu, kiwango chake cha oksijeni kinaweza kubaki sawa. Au labda kiwango cha juu cha oksijeni kinaweza kupungua ikiwa mwili unapunguza kasi. Nina wasiwasi kidogo hapa. Labda jibu ni A, lakini sina uhakika.\n\nB. Inapungua kadri mbio inavyoendelea. Hii inaonekana kuwa inawezekana. Wakati wa mbio, hasa katika mbio za umbali mrefu, uwezo wa mwili kuchukua oksijeni unaweza kupungua kwa sababu ya kupungua kwa glikojeni, kuongezeka kwa asidi ya laktiki, na kupungua kwa uwezo wa misuli. Kwa hivyo, kiwango cha juu cha oksijeni kinaweza kupungua. Hii inaweza kuwa jibu sahihi.\n\nC. Inaboreshwa na lishe ya mafuta. Lishe ya mafuta inaweza kuboresha uwezo wa mwili kuchukua oksijeni kwa muda mrefu, lakini je, inaboresha VO2 max? Nadhani lishe ya mafuta inaweza kuboresha uwezo wa mwili kuchukua oksijeni kwa muda mrefu, lakini VO2 max inahusiana zaidi na uwezo wa mwili. Hata hivyo, baadhi ya tafiti zinaonyesha kwamba lishe ya mafuta inaweza kuboresha VO2",
+      "pred": "C",
+      "gold": "B",
+      "correct": false
+    },
+    {
+      "question_index": 8900,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua ni ipi kati ya hali hizi mbili inahusisha mhusika mkuu akifanya jambo ambalo kwa wazi ni kosa kimaadili kulingana na viwango vya Marekani mnamo 2020. Chaguzi ni A hadi D, kila moja ikiunganisha hali hizo mbili kama kosa au si kosa.\n\nKwanza, ninahitaji kuchambua kila hali kwa uhuru.\n\nHali ya 1: \"Matajiri hupenda kulewa kwenye boti, na kama kapteni wa boti yao, mimi huwa na uangalifu.\" Mhusika mkuu hapa ni kapteni wa boti. Kujitolea kuwa na uangalifu kama kapteni ni wajibu wa kawaida. Kwa kweli, kuwa na uangalifu ni jambo zuri, si kosa kimaadili. Kwa hivyo, hii inaonekana kuwa si kosa. Kwa hivyo, Hali ya 1 ni \"Si kosa.\"\n\nHali ya 2: \"Nilimsukuma dadangu kutoka kwenye",
+      "pred": "D",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 6615,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu upinzani wa Hume kuhusu sheria ya asili. Chaguzi ni A hadi D.\n\nKwanza, ninahitaji kukumbuka alichosema Hume kuhusu sheria ya asili. Nakumbuka kwamba Hume alikuwa mwanafalsafa wa Uskoti ambaye aliathiriwa na empiricism. Alijadili kuhusu asili ya maadili na sheria ya asili.\n\nKwa hivyo, sheria ya asili ni dhana inayopendekeza kuwa kuna kanuni za maadili au kimaadili ambazo zina uhusiano na asili ya vitu. Wafuasi wa sheria ya asili, kama wafuasi wa Immanuel Kant, wanaamini kuwa kuna kanuni za maadili ambazo zina uhusiano na asili ya vitu.\n\nSasa, upinzani wa Hume kuhusu sheria ya asili. Nadhani alipinga wazo kwamba kuna kanuni za maadili ambazo zina uhusiano na asili ya vitu. Alisema kwamba maadili hayana uhusiano na asili ya vitu. Badala yake, yana uhusiano na hisia na matarajio ya binadamu. Kwa hivyo, ikiwa sheria",
+      "pred": "D",
+      "gold": "A",
+      "correct": false
+    },
+    {
+      "question_index": 1122,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, tatizo ni kuhusu Kate na John wanakamilisha jaribio la mazoezi la GRE la hesabu kwa kushirikiana. Kila mmoja anachukua muda fulani, na tunahitaji kupata muda wote wawili wangechukua ikiwa wangefanya kazi pamoja. Hebu niangalie tatizo tena ili kuhakikisha naelewa vizuri.\n\nKate anachukua siku 10.5 kukamilisha jaribio peke yake, na John anachukua siku 10.5 pia. Subiri, tatizo linasema \"Kate anachukua siku 10.5 kukamilisha jaribio, na John anachukua siku 10.5 pia.\" Kwa hivyo, wote wawili wanachukua siku 10.5 peke yao? Hiyo inaonekana kuwa sawa. Kwa hivyo, kila mmoja anaweza kukamilisha jaribio peke yake katika siku 10.5.\n\nSasa, swali ni, ikiwa wangefanya kazi pamoja, itachukua muda gani wangekamilisha? Kwa kuwa wanafanya kazi pamoja, muda wao unapaswa kuwa muda mdogo kuliko siku 10.5 kila mmoja. Hebu nifikirie jinsi ya kuieleza hili.\n\nKatika matatizo kama haya, kwa kawaida tunatumia dhana ya kazi. Ikiwa mtu anaweza kukamilisha kazi katika muda fulani, kazi yake ni 1/kazi. Kwa hivyo, kwa mfano, ikiwa mtu anaweza kukamilisha jaribio katika siku 10.5, kazi yake ni 1/siku 10.5. Kwa hivyo, kwa kila siku, anafanya 1/10.5 ya jaribio.\n\nKwa kuwa Kate na John wote wana kazi sawa, kazi yao ni sawa. Hebu niandike kazi yao kama C. Kwa hivyo, C = 1/10.5 kwa kila mmoja.\n\nWakati wanafanya kazi pamoja, kazi yao inayojumuishwa ni C + C = 2/10.5. Kwa hivyo, kazi yao pamoja ni 2/10.5 kwa siku. Ili kupata muda w",
+      "pred": "C",
+      "gold": "D",
+      "correct": false
+    },
+    {
+      "question_index": 3872,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu nini kitatokea kwa kiwango cha bei na uzalishaji wakati mhimili wa jumla wa ugavi unahamia upande wa kushoto, tukidhani kuwa mhimili wa jumla wa ugavi unaelekea juu.\n\nKwanza, ninahitaji kukumbuka jinsi mhimili wa jumla wa ugavi unavyoathiri viwango vya bei na uzalishaji. Kwa kawaida, mhimili wa jumla wa ugavi unaelekea juu, kumaanisha kuwa uzalishaji unazidi, bei inaongezeka. Ikiwa mhimili wa jumla wa ugavi unahamia upande wa kushoto, inamaanisha kuwa kwa kila kiwango cha bei, idadi ya bidhaa na huduma zinazotolewa ni ndogo.\n\nKwa hivyo, ikiwa mhimili wa jumla wa ugavi unahamia upande wa kushoto, nini kitatokea kwa usawa? Usawa ni mahali ambapo mhimili wa jumla wa ugavi na mahitaji hukutana. Ikiwa mhim",
+      "pred": "",
+      "gold": "A",
+      "correct": false
+    },
+    {
+      "question_index": 828,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu sehemu ya kromosomi ambayo hutumika kama mahali pa kushikamana na mizunguko ya mitosis wakati wa mgawanyiko wa seli. Chaguzi ni: chromatophore, chromomere, kinetochore, na centriole.\n\nKwanza, ninahitaji kukumbuka maana ya kila neno. Nianzie kwa kufikiria kuhusu mizunguko ya mitosis. Wakati wa mgawanyiko wa seli, kromosomi hugawanywa kati ya seli mbili mpya. Mizunguko ya mitosis ni muundo wa nyuzi ambayo husaidia katika kugawanya kromosomi.\n\nSasa, swali linahusu mahali ambapo mizunguko ya mitosis inashikamana na kromosomi. Nakumbuka kwamba kila kromosomi ina sehemu inayoitwa kinetochore. Kinetochore ni sehemu ambayo huunganisha kromosomi na nyuzi za mizunguko ya mitosis. Kwa hivyo, wakati wa mgawanyiko wa seli, mizunguko ya mitosis inashikamana na kinetochore, na hivyo",
+      "pred": "",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 1612,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu mawimbi yaliyopinda yanayotokana na mawimbi ya maji. Chaguzi ni A hadi D.\n\nKwanza, ninahitaji kukumbuka mawimbi yaliyopinda ni nini. Kwa kile ninachokumbuka, mawimbi yaliyopinda hutokea wakati mawimbi mawili au zaidi ya mawimbi yanapochangamana. Kuchangamana kunamaanisha kuwa mawimbi yanapopita kwa kila moja, na kuunda mawimbi mawili mapya. Kuna aina mbili za kuchangamana: kuchangamana kwa mshirikiano na kuchangamana kwa kusumbua.\n\nKatika kuchangamana kwa mshirikiano, mawimbi yanapochangamana, na kuunda mawimbi yenye urefu mkubwa, ambayo ni mawimbi yaliyopinda. Kwa hivyo, mawimbi yaliyopinda yanatokana na kuchangamana, ambayo ni chaguo A. Hiyo inaonekana kuwa inawezekana.\n\nSasa, ni",
+      "pred": "A",
+      "gold": "D",
+      "correct": false
+    },
+    {
+      "question_index": 10339,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua ni lini Enzi ya Pleistocene ilianza. Chaguzi ni A hadi D, kila moja ikiwa na idadi tofauti ya miaka.\n\nKwanza, ninahitaji kukumbuka ninachojua kuhusu vipindi vya kijiolojia. Enzi ya Pleistocene ni sehemu ya Enzi ya Kati ya Mwafrika. Nakumbuka kuwa Enzi ya Kati ya Mwafrika inajumuisha vipindi kadhaa, ikiwa ni pamoja na Enzi ya Pliocene, Enzi ya Pleistocene, na Enzi ya Holocene.\n\nSubiri, Enzi ya Pleistocene ni eneo la baridi, sivyo? Nadhania ilianza takriban miaka milioni 2.6 iliyopita. Lakini chaguzi hapa hazina idadi hiyo kubwa. Chaguo la kwanza ni miaka milioni 1,000,000, ambayo ni ya zamani kuliko ninavyokumbuka. Chaguo la pili ni miaka",
+      "pred": "D",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 8727,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua ni ipi kati ya hali hizi mbili inahusisha mhusika mkuu akifanya jambo ambalo kwa wazi ni kosa kimaadili kulingana na viwango vya Marekani mnamo 2020. Chaguzi ni A hadi D, kila moja ikiunganisha hali hizo mbili kama kosa au si kosa.\n\nKwanza, ninahitaji kuchambua kila hali kwa uhuru.\n\nHali ya 1: \"Nilimpeleka mtoto wangu wa miaka 13 kwenye uwanja wa dansi wa kucheza ambapo watoto kutoka nje ya nchi wanacheza.\" Hmm. Kwa hivyo, mzazi anampeleka mtoto wake wa miaka 13 kwenye uwanja wa dansi wa kucheza. Watoto kutoka nje ya nchi wanacheza huko. Je, hilo ni kosa kimaadili? Naam, kumpeleka mtoto kwenye uwanja wa dansi wa kucheza ni shughuli ya kawaida. Isipokuwa kuna muktadha fulani kama vile ukiukaji wa sheria",
+      "pred": "D",
+      "gold": "A",
+      "correct": false
+    },
+    {
+      "question_index": 12492,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu tatizo la \"regression to the mean\" na jinsi linavyoathiri uhalali wa ndani katika utafiti. Haya, niache nikumbuke maana ya \"regression to the mean\". Kwa kile ninachokumbuka, ni wakati ambapo makundi ya washiriki ambao wana sifa za kipekee (kama vile alama za juu au za chini) katika jaribio la awali, huwa na uwezekano mkubwa wa kurudi kwenye wastani katika jaribio la baadaye, bila kujali matibabu yao. Hii inaweza kuleta mkanganyiko katika matokeo ya utafiti.\n\nTukiangalia chaguzi:\n\nA. Tofauti katika idadi ya washiriki katika vikundi tofauti. Hmm, hii inaonekana kama tatizo la \"underrepresentation\" au \"overrepresentation\", labda inahusiana na uhalali wa nje, kama vile vikundi visivyo sawa. Sijuhakika kama hii ni \"regression to the mean\".\n\nB. Tofauti kubwa katika idadi ya washiriki wanaoacha vikundi. Hii inaonekana kama tatizo la \"attrition\", ambalo linaweza kuathiri uhalali wa ndani kwa kusababisha vikundi kuwa visivyo sawa. Lakini, hii inahusiana vipi na \"regression to the mean\"? Labda si moja kwa moja.\n\nC. Washiriki wanaachwa kwa sababu ya alama za juu au za chini katika jaribio la awali. Ah, hii inaonekana kama nimeisikia hapo awali! Ikiwa washiriki wanaachwa kwa sababu ya alama zao za juu au za chini, basi alama zao zinaweza kurudi kwenye wastani katika jaribio la baadaye, ambayo ni \"regression to the mean\". Hii itakuwa tatizo kwa sababu mabadiliko yanaweza kuwa ni kwa sababu ya mchakato wa \"regression\" badala ya matibabu. Kwa hivyo, hii inaweza kuwa jibu sahihi.\n\nD. Washiriki hawawezi kugawanywa kwa nasibu. Hii ni tatizo la \"non-random assignment\", ambalo linaweza kuleta vikundi visivyo sawa na kuathiri uhalali wa ndani. Lakini, hii ni zaidi kuhusu",
+      "pred": "D",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 3258,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, swali linahusu kuelewa jinsi utaratibu wa \"Mystery\" unavyofanya kazi. Niache niangalie hatua kwa hatua.\n\nKwanza, utaratibu unakusudiwa kuchunguza nambari ili kuamua ikiwa ni nambari chanya. Subiri, tatizo linasema kwamba nambari ya kuingiza ni nambari chanya. Kwa hivyo, nambari ya kuingiza ni nambari chanya. Utaratibu unafanya kazi kwa kuondoa 2 kutoka kwa nambari hadi iwe 0 au chini ya 0. Kisha, ikiwa nambari ni 0, inarudisha \"kweli\", vinginevyo \"si kweli\".\n\nNiache niifikirie kuhusu kile kinachotokea. Tuseme nambari ya kuingiza ni 5. Kisha, katika mzunguko wa kwanza, nambari inakuwa 3. Kisha 1. Kisha -1. Sasa, nambari ni chini ya 0, kwa hivyo mzunguko unaisha. Kisha, inaangalia ikiwa nambari ni 0.",
+      "pred": "",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 7433,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua ni kitu gani \"Kiholanzi Oven\" (Danish Oven). Chaguzi ni: A. oven ya tosti, B. wimbi la mawimbi, C. chumba cha chai, D. sauna.\n\nKwanza, ninahitaji kukumbuka \"Kiholanzi Oven\" ni nini. Kwa kile ninachokumbuka, \"Kiholanzi Oven\" ni aina ya sauna. Sauna ni chumba kidogo cha kuhifadhi joto ambapo watu hufika ili kupata faida za kiafya za kuongeza joto. Sauna za Kiholanzi, haswa, zinajulikana kwa joto la juu, mara nyingi hadi 80-100°C (176-212°F), na mara nyingi hutumika katika tamasha za Kiholanzi.\n\nNikitazama chaguzi, D ni sauna. Hebu niangalie chaguzi zingine ili kuhakikisha. A ni oven ya tosti, ambayo ni aina ya oven, siyo sawa na sauna. B ni wim",
+      "pred": "B",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 7123,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu ni ipi kati ya chaguzi hizi siyo kitendo cha masoko kulingana na Serikali ya Uingereza. Chaguzi ni A hadi D.\n\nKwanza, ninahitaji kukumbuka ni nini kinachochukuliwa kama kitendo cha masoko. Kwa ujumla, masoko yanahusisha shughuli zinazohusiana na kuendeleza, kudhibiti, na kusimamia shughuli zinazohusiana na masoko ya bidhaa au huduma. Hii inaweza kujumuisha mambo kama vile utafiti wa soko, uundaji wa bidhaa, uuzaji, uhusiano na wateja, na ushirikiano na wadau.\n\nTukiangalia chaguzi:\n\nA. Kuendeleza ujuzi wa masoko. Hii inaonekana kama kitendo cha masoko kwa sababu ujuzi ni muhimu kwa shughuli za masoko. Serikali inaweza kuunga mkono hili kupitia elimu au programu za utafiti.\n\nB. Kuendeleza mbinu",
+      "pred": "B",
+      "gold": "B",
+      "correct": true
+    },
+    {
+      "question_index": 8085,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua kiasi gani cha gesi ya oksijeni (O₂) kina idadi sawa ya molekuli kama gramu 36.0 za maji (H₂O). Kwa hivyo, ninahitaji kuhesabu idadi ya molekuli za maji katika gramu 36.0, kisha kupata kiasi cha oksijeni ambacho kina molekuli sawa.\n\nKwanza, nakumbuka kuwa idadi ya molekuli inaweza kupatikana kwa kugawanya wingi kwa wingi wa molar. Wingi wa molar wa maji ni takriban gramu 18.02 kwa mole. Kwa hivyo, kwa gramu 36.0 za maji, idadi ya molekuli itakuwa 36.0 g iliyogawanywa na 18.02 g/mol. Niruhusu nihesabu hilo. 36.0 iliyogawanywa na 18.02 ni takriban 1.998, ambayo ni takrib",
+      "pred": "",
+      "gold": "A",
+      "correct": false
+    },
+    {
+      "question_index": 7019,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linataka kujua ni aina gani ya utamaduni ambayo ina sifa ya kuwa na uwezo wa kubadilika na kuwa na uwezo wa kubadilika kwa wafanyakazi. Chaguzi ni: Utamaduni wa Timu, Utamaduni wa Ushirikiano, Utamaduni wa Kikundi, na Utamaduni wa Pamoja.\n\nKwanza, ninahitaji kukumbuka maana ya kila neno. Hebu nifikirie. Utamaduni wa timu unahusu timu zinazofanya kazi pamoja kwa kufanya kazi kwa mpangilio na kwa kuzingatia majukumu. Wanaweza kuwa na mbinu zilizowekwa na zinaweza kuwa na uwezo mdogo wa kubadilika kwa sababu wanategemea mbinu zilizowekwa. Utamaduni wa ushirikiano unahusu zaidi ushirikiano na ushirikiano, labda na ushirikiano zaidi kati ya wanachama wa timu? Sijui kama hilo lina uhusiano wa moja kwa moja na uwezo wa kubadilika.\n\n",
+      "pred": "",
+      "gold": "B",
+      "correct": false
+    },
+    {
+      "question_index": 10403,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu mambo muhimu yanayohitajika kuzingatiwa wakati wa kuchagua aina ya vipimo vinavyotumika katika ukaguzi wa taarifa za kifedha. Chaguzi ni A, B, C, D.\n\nKwanza, ninahitaji kukumbuka ninachojua kuhusu vipimo katika ukaguzi. Vipimo ni njia zinazotumika na wakaguzi ili kupata ushahidi kuhusu taarifa za kifedha. Kuna aina tofauti za vipimo, kama vile vipimo vya maelezo, vipimo vya udhibiti, na vipimo vya uchanganuzi.\n\nTukiangalia chaguzi:\n\nChaguo A linasema vipimo vya maelezo kwa kawaida hutoa kiwango kidogo cha uhakika. Subiri, nadhani vipimo vya maelezo ni njia ya kina zaidi, kwa hivyo vinaweza kutoa uhakika zaidi kuliko vipimo vingine. Kwa mfano, ikiwa unafanya vipimo vya maele",
+      "pred": "A",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 6201,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu upotevu wa nywele, na chaguzi ni kutoka A hadi D. Ninahitaji kujua ni ipi kati ya hizo ni sahihi.\n\nKwanza, nitaangalia kila chaguo moja baada ya nyingine.\n\nChaguo A linasema wanaume hupoteza nywele lakini wanawake hawapotezi. Hmm, nakumbuka kuwa upotevu wa nywele hutokea kwa wanaume na wanawake. Kwa mfano, wanaume wanaweza kupoteza nywele kwa sababu ya umri, na wanawake wanaweza kupoteza nywele wakati wa kipindi cha menopau. Kwa hivyo, A inaonekana kuwa si sahihi kwa sababu wanawake pia hupoteza nywele, ingawa labda kwa kiwango tofauti.\n\nChaguo B linadai wanaume hupoteza nywele kwa kiwango kikubwa kuliko wanawake. Subiri, nadhani wanawake wanaweza kupoteza nywele kwa kiwango kikubwa, hasa wakati wa kipindi cha menopau, wakati wanaume wanaweza kupoteza nywele polepole. Lakini sihakika kabisa. Ninahitaji kufikiria kuhusu hili. Labda wanaume hupoteza nywele polepole, lakini wanawake wanaweza kupoteza nywele kwa kiwango kikubwa zaidi, kama vile kupoteza nywele zote. Kwa hivyo, B inaweza kuwa si sahihi.\n\nChaguo C linasema wanawake hupoteza nywele kwa kiwango kidogo lakini kwa kiwango kikubwa kuliko wanaume. Hiyo inaonekana kuwa inawezekana. Ikiwa wanawake hupoteza nywele kwa kiwango kidogo, lakini wakati wanapofanya hivyo, wanapoteza nywele zote, hiyo inaweza kuwa na maana. Kwa mfano, wanawake wanaweza kupoteza nywele zote katika kipindi kifupi, wakati wanaume wanaweza kupoteza nywele polepole kwa muda. Kwa hivyo, C inaweza kuwa jibu sahihi.\n\nChaguo D linadai sababu za kimazingira ndizo",
+      "pred": "D",
+      "gold": "B",
+      "correct": false
+    },
+    {
+      "question_index": 12432,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Mgonjwa ni mwanamke mwenye umri wa miaka 64, ambaye amekuwa akipata ugumu wa kumeza mate kwa muda wa miezi 6. Pia ana matatizo ya lugha. Wakati wa uchunguzi, kuna harakati za kurudia ambazo hazidhibitiki. Kisha, kuna kupungua kwa majibu ya mwili na harakati za misuli (fasciculations) katika sehemu ya chini ya upande wa kushoto wa mwili. Pia, kuna kupungua kwa uwezo wa misuli (hypotonia) katika sehemu ya chini ya mwili.\n\nKwanza, ninahitaji kukumbuka chaguzi. Chaguzi ni ugonjwa wa Lou Gehrig (ALS), ugonjwa wa Friedreich ataxia, ugonjwa wa Pick, na ugonjwa wa Creutzfeldt-Jakob.\n\nNianzie kwa kufikiria kuhusu dalili. Ugumu wa kumeza mate na matatizo ya lugha ni dalili muhimu. Ugumu wa kumeza mate unaweza kuhusiana na matatizo ya neva ya",
+      "pred": "",
+      "gold": "A",
+      "correct": false
+    },
+    {
+      "question_index": 1679,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu jinsi sayari ya Dunia inavyopoteza nishati kupitia anga, na chaguzi ni uhamishaji, uhamishaji wa joto, mionzi, au uachiliaji wa nishati.\n\nKwanza, ninahitaji kukumbuka kila moja ya maneno haya inamaanisha nini. Uhamishaji ni uhamishaji wa nishati kupitia vitu, kama vile joto linalosafirishwa kupitia kioevu au kioevu. Uhamishaji wa joto ni sawa, lakini unahusiana haswa na joto linalosafirishwa kupitia anga, kwa kawaida katika hali ya gesi. Mionzi ni uhamishaji wa nishati kupitia mionzi, kama vile joto la jua linaloenea kwenye anga. Uachiliaji wa nishati ni wakati chembe zinapoteza nishati, kama vile gesi inapoteza nishati wakati inapopoteza kasi.\n\nSwali linataja anga, kwa hivyo uhamishaji na uhamishaji wa joto huenda usitumike sana hapa kwa sababu",
+      "pred": "",
+      "gold": "C",
+      "correct": false
+    },
+    {
+      "question_index": 4506,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Swali linahusu ni chaguo gani linaloelezea kwa usahihi hati miliki, udhibiti wa rasilimali, uchumi wa kiwango, na leseni za kipekee. Chaguo ni kutoka A hadi D.\n\nKwanza, ninahitaji kukumbuka kila mojawapo ya maneno haya inamaanisha nini katika muktadha wa uchumi. Hati miliki ni hati ya umiliki, ambayo inaweza kuwa aina ya vizuizi vya kuingia sokoni kwa sababu inazuia watu wengine kuingia sokoni. Udhibiti wa rasilimali ni wakati serikali inadhibiti rasilimali, ambayo inaweza kuwa njia ya kuzuia ushindani. Uchumi wa kiwango ni mfumo ambapo serikali inadhibiti bei, ambayo pia ni aina ya vizuizi vya kuingia sokoni. Leseni za kipekee ni hati zinazotolewa na serikali kwa kampuni, ambazo huwapa haki ya kipekee ya kufanya kazi katika eneo fulani, na hivyo kuwa",
+      "pred": "D",
+      "gold": "D",
+      "correct": true
+    }
+  ]
+}

@@ -103,6 +103,7 @@ def _generation_worker(
     tmp_path: str,
     port: int,
     log_dir: str,
+    model_name: str = "Qwen/Qwen3-1.7B",
 ) -> None:
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     logger = _setup_logger(
@@ -113,7 +114,6 @@ def _generation_worker(
     logger.info("Worker %d processing %d rows", rank, len(rows))
 
     client = openai.OpenAI(base_url=f"http://localhost:{port}/v1", api_key="EMPTY")
-    model_name = "Qwen/Qwen3-1.7B"
 
     # Set prompts based on dataset
     if dataset == "mgsm":
@@ -163,15 +163,27 @@ def _generation_worker(
 
     logger.info("[w%d] Done", rank)
 
+def _model_short_name(model_id: str) -> str:
+    """Derive a filesystem-friendly short name from a HF model ID.
+
+    E.g. 'Qwen/Qwen3-1.7B' -> 'qwen3-1_7b', 'Qwen/Qwen3-8B' -> 'qwen3-8b'.
+    """
+    name = model_id.split("/")[-1]  # drop org prefix
+    return name.lower().replace(".", "_")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", type=str, choices=["mmmlu", "mgsm"], required=True)
+    parser.add_argument("--model", type=str, default="Qwen/Qwen3-1.7B",
+                        help="HuggingFace model ID (e.g. Qwen/Qwen3-8B)")
     parser.add_argument("--port", type=int, default=8300)
     parser.add_argument("--workers", type=int, default=4)
     args = parser.parse_args()
 
+    short_name = _model_short_name(args.model)
     input_file = PROJECT_ROOT / "data" / "exp_v2" / args.dataset / "train_en.jsonl"
-    out_dir = PROJECT_ROOT / "data" / "exp_v2" / "qwen3-1_7b" / args.dataset / "english"
+    out_dir = PROJECT_ROOT / "data" / "exp_v2" / short_name / args.dataset / "english"
     out_dir.mkdir(parents=True, exist_ok=True)
     log_dir = PROJECT_ROOT / "outputs-exp_v2" / "logs"
 
@@ -193,7 +205,7 @@ def main() -> None:
     for rank, (chunk, tmp_path) in enumerate(zip(chunks, tmp_paths)):
         p = ctx.Process(
             target=_generation_worker,
-            args=(rank, chunk, args.dataset, tmp_path, args.port, str(log_dir)),
+            args=(rank, chunk, args.dataset, tmp_path, args.port, str(log_dir), args.model),
         )
         p.start()
         procs.append(p)

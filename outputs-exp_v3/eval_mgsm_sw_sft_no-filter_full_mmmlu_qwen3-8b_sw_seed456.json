@@ -1,0 +1,360 @@
+{
+  "model_dir": "/external1/alfred/models/ml-reasoning-exp_v3/sft_no-filter_full_mmmlu_qwen3-8b_sw_seed456",
+  "dataset": "mgsm",
+  "language": "sw",
+  "accuracy": 0.0,
+  "correct": 0,
+  "total": 50,
+  "results": [
+    {
+      "question_index": 240,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Tatizo linasema kwamba James ana pipi 6 zaidi ya Robert. Kwa hivyo, ikiwa Robert ana, kwa mfano, pipi 10, James atakuwa na 16. Kisha linasema kwamba John ana pipi mara mbili zaidi ya Robert. Na kwa kuwa John ana pipi 54, tunahitaji kujua John ana pipi ngapi zaidi kuliko James.\n\nKwanza, ninahitaji kupata idadi ya pipi ambazo Robert ana. Kwa kuwa John ana mara mbili zaidi ya Robert na ana pipi 54, labda naweza kugawanya 54 kwa 2 ili kupata idadi ya pipi ambazo Robert ana. Hebu nihesabu: 54 kugawanywa na 2 ni sawa na 27. Kwa hivyo, Robert ana pipi 27.\n\nSasa, James ana pipi 6 zaidi ya Robert. Kwa kuwa Robert ana 27, James atakuwa na 27 pamoja na 6. Hebu nihesabu: 27 pamoja na 6 ni sawa na 33. Kwa hivyo, James",
+      "pred": "",
+      "gold": "21",
+      "correct": false
+    },
+    {
+      "question_index": 86,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, Greg ana king'ora ambalo huangusha mara tatu kwa siku, na kila anapokamilisha, huangusha kwa idadi tofauti. Ninahitaji kupata idadi jumla ya mara ambazo king'ora huo huangusha kwa siku hiyo.\n\nKwanza, niweze kuvunja tatizo hili hatua kwa hatua. Tatizo linaeleza kwamba king'ora huo huangusha mara nne wakati wa mara ya kwanza. Kisha, wakati wa mara ya pili, huangusha mara tatu zaidi ya mara ya kwanza. Kisha, wakati wa mara ya tatu, huangusha nusu ya idadi ya mara ya pili. Kisha, ninahitaji kuongeza idadi hizo tatu ili kupata idadi jumla ya mara ambazo king'ora huo huangusha.\n\nNiweze kuanza kwa kuandika idadi ya mara ambazo king'ora huo huangusha kila wakati.\n\nMara ya kwanza: huangusha mara 4. Hiyo ni rahisi.\n\nMara ya pili: huangusha mara tatu zaidi ya mara ya kwanza. Kwa kuwa mara ya kwanza ilikuwa 4, mara tatu zaidi itakuwa 4 * 3. Niweze kuhesabu: 4 * 3 = 12. Kwa hivyo, mara ya pili, king'ora huo huangusha mara 12.\n\nMara ya tatu: huangusha nusu ya idadi ya mara ya pili. Mara ya pili ilikuwa 12, kwa hivyo nusu ya hiyo ni 12 / 2. Niweze kuhesabu: 12 / 2 = 6. Kwa hivyo, mara ya tatu, king'ora huo huangusha mara 6.\n\nSasa, ili kupata idadi jumla ya mara ambazo king'ora huo huangusha, ninahitaji kuongeza idadi hizo tatu: mara ya kwanza + mara ya pili + mara ya tatu. Hiyo ni 4 + 12 + 6. Niweze kuongeza hatua kwa hatua. 4 + 12 ni 16, na 16 + 6 ni 22. Kwa hivyo, idadi jumla ya mara amb",
+      "pred": "",
+      "gold": "22",
+      "correct": false
+    },
+    {
+      "question_index": 195,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Tatizo linasema kwamba bei ya kalamu ni sawa na jumla ya bei ya penseli na kifaa cha kufuta. Kwa hivyo, kwanza, ninahitaji kuhesabu jumla ya bei ya penseli na kifaa cha kufuta.\n\nBei ya penseli ni $1.20, na bei ya kifaa cha kufuta ni $0.30. Ninapopata jumla, ninaweza kuongeza nambari hizo mbili. Hebu nifanye hivyo: 1.20 pamoja na 0.30. Hmm, 1.20 pamoja na 0.30 ni sawa na 1.50. Kwa hivyo, bei ya kalamu ni $1.50.\n\nSasa, swali linauliza ni kalamu ngapi za $8. Kwa kuwa kila kalamu ni $1.50, ninahitaji kujua ni mara ngapi 1.50 inaingia katika 8. Hebu nihesabu hivyo. Ninaweza kuifikiria kama 8 iliyogaw",
+      "pred": "",
+      "gold": "12",
+      "correct": false
+    },
+    {
+      "question_index": 229,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, kuna shamba la tikitimaji ambalo lilitengeneza tikitimaji 120. Ashlyn alienda hapo baada ya miezi miwili na aligundua kuwa 30% ya tikitimaji hizo zilikuwa tayari kuvunwa, na alizivuna. Kisha alirudi wiki mbili baadaye na akazivuna 3/4 ya tikitimaji zilizosalia. Swali linataka kujua ni tikitimaji ngapi zilikuwa zisivunwa baada ya wiki hizo mbili.\n\nKwanza, ninahitaji kuhesabu ni tikitimaji ngapi zilikuwa tayari kuvunwa kwa mara ya kwanza. 30% ya 120. Nitaifanya hesabu hiyo. 30% ni sawa na 0.3 katika mfumo wa desimali. Kwa hivyo, 120 iliyoongezwa na 0.3 ni sawa na... nitaifanya hesabu hiyo. 120 iliyoongezwa na 0.3 ni sawa na 36. Kwa hivyo, tikitimaji 36 zilikuwa tayari kuvunwa kwa mara ya kwanza.\n\nSasa, Ashlyn alizivuna tikitimaji hizo 36. Kwa hivyo, tikitimaji zilizosalia ambazo hazikuwa zivun",
+      "pred": "",
+      "gold": "21",
+      "correct": false
+    },
+    {
+      "question_index": 39,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, swali linahusu kasi ya kukimbia, kutembea, na kuruka ya Dana. Hebu niweke wazi hatua kwa hatua.\n\nKwanza, tatizo linasema kwamba kasi ya kukimbia ya Dana ni mara nne kuliko kasi ya kutembea yake. Hebu niweke kasi ya kutembea kama vitengo vya kasi. Hebu niweke kasi ya kutembea kama 'x' vitengo vya kasi. Kisha, kasi ya kukimbia itakuwa '4x' vitengo vya kasi, sivyo? Kwa sababu ni mara nne ya kasi ya kutembea.\n\nKisha, kasi ya kuruka ni nusu ya kasi ya kukimbia. Kwa hivyo, ikiwa kasi ya kukimbia ni '4x', basi kasi ya kuruka itakuwa '2x' vitengo vya kasi. Subiri, tatizo linasema kwamba kasi ya kuruka ni nusu ya kasi ya kukimbia. Kwa hivyo, ndiyo, kasi ya kuruka ni '2x'.\n\nSasa, tunaambi",
+      "pred": "",
+      "gold": "18",
+      "correct": false
+    },
+    {
+      "question_index": 214,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, kuna vidimbwi viwili, vyote vinatoa maji kwa kiwango cha galoni 4 kwa dakika. Baada ya dakika 4, vidimbwi vilivyokuwa na maji zaidi vilikuwa na mara mbili ya maji kuliko vidimbwi vilivyokuwa na maji kidogo. Sasa, vidimbwi vilivyokuwa na maji zaidi vina mara nne ya maji kuliko vidimbwi vilivyokuwa na maji kidogo. Tunahitaji kujua vidimbwi vilivyokuwa na maji kidogo vina maji ngapi sasa.\n\nKwanza, niache niweke vidimbwi vilivyokuwa na maji kidogo kama D na vidimbwi vilivyokuwa na maji zaidi kama L. Kwa hivyo, D ni kiasi cha maji katika vidimbwi vilivyokuwa na maji kidogo, na L ni kiasi cha maji katika vidimbwi vilivyokuwa na maji zaidi.\n\nKwa dakika 4, vidimbwi vyote vinatoa maji kwa kiwango cha galoni 4 kwa dakika. Kwa hivyo, kiasi cha maji ambacho vidimbwi vil",
+      "pred": "",
+      "gold": "8",
+      "correct": false
+    },
+    {
+      "question_index": 87,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, tatizo ni kuhusu mishahara ya Sylvie baada ya kufika kwenye kampuni hiyo kwa miaka 5, na kisha kuendelea kufika kwa miaka 3 zaidi. Kampuni hiyo huongeza mishahara yake kwa 10% kila mwaka ikiwa atafika kwenye kampuni hiyo kwa miaka 5. Mishahara yake ya awali ni $600 kwa mwezi.\n\nKwanza, ninahitaji kuhesabu mishahara yake baada ya miaka 5. Kwa kuwa huongezwa kwa 10% kila mwaka, hii ni ukuaji wa kibinafsi. Fomula ya ukuaji wa kibinafsi ni:\n\nMishahara = Mishahara ya awali × (1 + kiwango cha ukuaji)^miaka\n\nKwa hivyo, mishahara yake ya awali ni $600, kiwango cha ukuaji ni 10% au 0.10, na miaka ni 5. Nihesabu hilo:\n\nMishahara = 600 × (1 + 0.10)^5\n",
+      "pred": "",
+      "gold": "9360",
+      "correct": false
+    },
+    {
+      "question_index": 233,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kuna pengwini 36 wanaota jua. Kwanza, theluthi moja wanaruka na kuogelea. Kwa hivyo, ninahitaji kuhesabu theluthi moja ya 36. 36 iliyogawanywa na 3 ni sawa na 12. Kwa hivyo, pengwini 12 wanaruka.\n\nKisha, theluthi moja nyingine wanajifungua kwenye pango. Tena, theluthi moja ya 36 ni 12. Kwa hivyo, pengwini 12 wanajifungua kwenye pango.\n\nSasa, ili kupata pengwini wangapi wanaosalia, ninapaswa kutoa idadi ya pengwini walioruka na wale waliojifungua kutoka kwa idadi jumla. Hiyo ni pengwini 12 walioruka + pengwini 12 waliojifungua, ambayo inatoa pengwini 24.\n\nKwa hivyo, pengwini 36 wote wawili wote walioruka na wale waliojifungua ni pengwini 24. Ili kupata pengwini wanaosalia wakiota jua, ninatoa hiyo kutoka kwa id",
+      "pred": "",
+      "gold": "12",
+      "correct": false
+    },
+    {
+      "question_index": 178,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, tatizo linasema kwamba Rani ana kumi ya kaa zaidi kuliko Monic. Kisha Monic ana kumi na nane ya kaa zaidi kuliko Bo. Na tunajua kwamba Bo ana kumi na ishirini ya kaa. Tunahitaji kupata idadi jumla ya kaa ambazo watu hawa watatu wana.\n\nKwanza, niweze kuandika habari hii kwa njia ya hisabati. Niweze kuashiria idadi ya kaa ambazo Bo ana kama B. Kwa kuwa Bo ana kumi na ishirini ya kaa, B ni sawa na 40. Hiyo ni rahisi.\n\nSasa, Monic ana kumi na nane ya kaa zaidi kuliko Bo. Kwa hivyo, idadi ya kaa ambazo Monic ana itakuwa B pamoja na 48. Kwa kuingiza thamani ya B, itakuwa 40 + 48. Niweze kuhesabu hilo: 40 + 48 ni sawa na 88. Kwa hivyo, Monic ana kumi na nane ya kaa.",
+      "pred": "",
+      "gold": "122",
+      "correct": false
+    },
+    {
+      "question_index": 40,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, tatizo ni kuhusu umri wa vifaa vya kielektroniki vya Ben, Brandon, na Suzy. Niruhusu niieleze hatua kwa hatua.\n\nKwanza, tatizo linasema kwamba vifaa vya kielektroniki vya Brandon ni vya zamani mara nne kuliko vya Ben. Kisha, vifaa vya kielektroniki vya Ben ni vya zamani mara mbili kuliko vya Suzy. Na tunajua kwamba vifaa vya kielektroniki vya Suzy vimekaa kwa mwaka 1. Tunahitaji kujua vifaa vya kielektroniki vya Brandon vimekaa kwa muda gani.\n\nHmm, niruhusu niweke wazi. Niruhusu niweke alama kwa umri wa kila mfumo. Niruhusu niweke alama B kwa umri wa vifaa vya kielektroniki vya Brandon, M kwa umri wa vifaa vya kielektron",
+      "pred": "",
+      "gold": "8",
+      "correct": false
+    },
+    {
+      "question_index": 206,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Micheal anaendesha baiskeli kwa vipindi viwili tofauti. Katika kipindi cha kwanza, anaendesha angalau mara 5 kwa wiki na anaendesha umbali wa kilomita 25 kila mara. Anafanya hivyo kwa wiki 4. Kisha, anaendesha mara 2 kwa wiki, kila mara anaendesha umbali wa kilomita 60, kwa wiki 3. Ninahitaji kupata jumla ya umbali aliyoyafanya kwa kilomita.\n\nKwanza, nitahesabu umbali kutoka kwa kipindi cha kwanza. Anaendesha mara 5 kwa wiki, kila mara anaendesha umbali wa kilomita 25. Kwa hivyo, kwa wiki moja, umbali ni 5 * 25. Nihesabu hilo: 5 * 25 ni kilomita 125. Anafanya hivyo kwa wiki 4, kwa hivyo ni kilomita 125 * 4. Nihesabu hilo: 125 * 4 ni kilomita 500. Kwa hivyo, kipindi cha kwanza",
+      "pred": "",
+      "gold": "860",
+      "correct": false
+    },
+    {
+      "question_index": 194,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Violetta anataka kununua krayoni 5 za rangi tofauti, na kila krayoni inagharimu $2. Kwa hivyo, kwanza, ninahitaji kuhesabu jumla ya gharama ya krayoni zote.\n\nNinaweka krayoni 5 kwa kila moja ikiwa $2. Hiyo ni 5 x 2. Niruhusu nihesabu: 5 x 2 ni sawa na 10. Kwa hivyo, jumla ya gharama ni $10.\n\nVioletta ana $20. Ili kujua anarudishwa salio gani, ninatoa jumla ya gharama kutoka kwa kiasi anachokuwa nayo. Hiyo ni $20 - $10. Niruhusu nifanye uondoaji: 20 - 10 ni sawa na 10.\n\nKwa hivyo, Violetta anarudishwa $10. Ninaweka jibu hilo ndani ya alama za kawaida.\n\n**Jibu**",
+      "pred": "",
+      "gold": "10",
+      "correct": false
+    },
+    {
+      "question_index": 1,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Tatizo linasema kwamba Jojo hutumia komeo 2 za rangi ya bluu na nusu ya idadi hiyo ya komeo za rangi ya nyekundu. Ninahitaji kujua ni komeo ngapi anatumia kwa jumla.\n\nKwanza, nihesabu komeo za rangi ya bluu. Inasema wazi kwamba hutumia komeo 2 za rangi ya bluu. Kwa hivyo, hiyo ni komeo 2.\n\nKisha, komeo za rangi ya nyekundu. Tatizo linasema hutumia nusu ya idadi ya komeo za rangi ya bluu. Kwa kuwa komeo 2 za rangi ya bluu zimetumika, nusu ya hiyo itakuwa 2 iliyogawanywa na 2. Nihesabu: 2 ÷ 2 = komeo 1 ya rangi ya nyekundu.\n\nSasa, ili kupata idadi ya jumla ya komeo, ninahitaji kuongeza komeo za rangi ya bluu na komeo za rangi ya nyekundu. Hiyo ni komeo 2 za rangi ya bluu + komeo 1 ya rangi ya nyekundu. Nihesabu: 2 + 1 = k",
+      "pred": "",
+      "gold": "3",
+      "correct": false
+    },
+    {
+      "question_index": 207,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, tatizo ni kuhusu mfuko wa pipi wa Halloween wa Joe. Kuna pipi 25 za chokoleti na pipi 80 za matunda. Kila pipi ya chokoleti ni nyepesi mara mbili kuliko pipi ya matunda. Kila pipi ya chokoleti ina uzito wa gramu 40. Tunahitaji kupata uzito wa jumla wa mfuko.\n\nKwanza, ninahitaji kuelewa uhusiano kati ya pipi za chokoleti na za matunda. Tatizo linasema kila pipi ya chokoleti ni nyepesi mara mbili kuliko pipi ya matunda. Subiri, kwa hivyo ikiwa pipi ya chokoleti ni nyepesi mara mbili, inamaanisha pipi ya matunda ni nzito mara mbili? Au ni kinyume chake? Hebu nifikirie. Ikiwa pipi ya chokoleti ni nyepesi mara mbili kuliko pipi ya matunda, basi pipi ya matunda itakuwa nzito. Kwa hivyo, ikiwa pipi ya chokoleti ina uzito wa gramu 40, basi pipi ya matunda itakuwa gramu 80? Kwa",
+      "pred": "",
+      "gold": "2600",
+      "correct": false
+    },
+    {
+      "question_index": 71,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Tatizo linasema kwamba Kelian ana mapishi mawili ya kuandaa milo. Mapishi ya kwanza yana maelekezo 20, na mapishi ya pili yana maelekezo mara tatu zaidi ya mapishi ya kwanza. Tunahitaji kujua jumla ya maelekezo ambayo Kelian anapaswa kusoma ili kuandaa milo yote miwili.\n\nKwanza, nitaangalia mapishi ya kwanza. Yana maelekezo 20. Hiyo ni rahisi. Sasa, mapishi ya pili yana maelekezo mara tatu zaidi ya mapishi ya kwanza. Kwa hivyo, ninahitaji kuhesabu mara tatu ya 20. Niruhusu nifanye hesabu hiyo. 20 kuzidishwa na 3 ni sawa na 60. Kwa hivyo, mapishi ya pili yana maelekezo 60.\n\nSasa, ili kupata jumla ya maelekezo, ninahitaji kuongeza mapishi ya kwanza na mapishi ya pili. Hiyo itakuwa 20 pamoja na 60. Niruhusu nion",
+      "pred": "",
+      "gold": "60",
+      "correct": false
+    },
+    {
+      "question_index": 150,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, Steve na Tim wanataka kuona ni nani anaweza kufika nyumbani kwa haraka zaidi. Steve anaishi mbali zaidi kuliko Tim, kwa hivyo anaweza kutumia baiskeli yake. Steve anaishi maili 3 kutoka shule, na anateleza kwa kasi ya futi 440 kwa dakika. Tim anaishi maili 2 kutoka shule na anateleza kwa kasi ya futi 264 kwa dakika. Tunahitaji kujua ni muda gani mshindi anasubiri kabla ya mpinzani wake kufika nyumbani kwao.\n\nKwanza, ninahitaji kuhesabu muda ambao kila mmoja anachukua kuenda nyumbani. Kisha, nitapata tofauti kati ya muda huo ili kujua ni muda gani mshindi anasubiri.\n\nTuanzie na Steve. Anaishi maili 3 kutoka shule. Kasi yake ni futi 440 kwa dakika. Ninahitaji kubadilisha maili kuwa futi kwa sababu kasi yake iko katika futi kwa dakika. Najua kwamba maili 1 ni futi 5280. Kwa hivyo, maili 3 itakuwa 3 kuzidishwa na 5280. Nihesabu: 3 * 5280 = futi 15840. Sasa, ili kupata muda, ninagawanya umbali kwa kasi. Kwa hivyo, muda wa Steve = futi 15840 / futi 440 kwa dakika. Nihesabu: 15840 / 440. Hmm, nihesabu. 440 inaingia mara 36 katika 15840 kwa sababu 440 * 30 = 13200, na 440 * 6 = 2640, kwa hivyo 13200 + 2640 = 15840. Kwa hivyo, muda wa Steve ni dakika 36.\n\nSasa kwa Tim. Anaishi maili 2 kutoka shule. Tena, ninabadilisha hii kuwa futi. Maili 2 * futi 5280 kwa maili = futi 10560. Kasi ya",
+      "pred": "",
+      "gold": "4",
+      "correct": false
+    },
+    {
+      "question_index": 114,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, tatizo ni kuhusu simu za picha za Jamal na Brittany. Simu ya picha ya Jamal inaweza kubeba picha 6 zaidi kuliko ya Brittany. Simu ya picha ya Brittany inaweza kubeba picha 50 zaidi kuliko idadi ya ndege katika picha ya bata ya Jamal. Simu ya picha ya Jamal inaweza kubeba hadi picha 1800. Tunahitaji kupata idadi ya ndege katika picha ya bata ya Jamal.\n\nKwanza, niache niweke wazi tatizo hili hatua kwa hatua. Niache niweke vigezo ili kufanya iwe rahisi. Niache niweke:\n\nHebu $J$ iwe idadi ya picha ambazo simu ya picha ya Jamal inaweza kubeba.\nHebu $B$ iwe idadi ya picha ambazo simu ya picha ya Brittany inaweza kubeba.\nHebu $B_{bat}$ iwe idadi ya ndege katika picha ya bata ya Jamal.\n\nKutokana na tat",
+      "pred": "",
+      "gold": "6",
+      "correct": false
+    },
+    {
+      "question_index": 56,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Pete anataka kwenda kwenye filamu, na anahitaji tiketi na biskuti. Kila kitu hicho kina gharama ya dola 7. Anapanga kutumia dola 42. Swali linataka kujua anaweza kwenda kwenye filamu mara ngapi.\n\nKwanza, ninahitaji kuhesabu jumla ya gharama kwa kila safari. Kwa kuwa tiketi na biskuti kila kitu kina gharama ya dola 7, jumla itakuwa 7 + 7. Hebu nihesabu: 7 pamoja na 7 ni sawa na 14. Kwa hivyo, kila safari inagharimu dola 14.\n\nSasa, Pete ana dola 42. Ili kujua anaweza kwenda kwenye filamu mara ngapi, ninahitaji kugawanya jumla ya pesa anazopanga kutumia kwa gharama kwa kila safari. Hiyo itakuwa dola 42 iliyogawanywa na dola 14 kwa kila safari. Hebu nihesabu: 42 iliyogawanywa na 14 ni sawa na 3. Kwa hivyo, Pete anaweza kwenda kwenye filamu mara 3.\n\nSubiri, hebu niangalie tena. Ikiwa kila safari inagharimu dola 14, basi mara 3 itakuwa 14 * 3. Hebu nihesabu: 14 * 3 ni sawa na 42. Ndiyo, hiyo",
+      "pred": "",
+      "gold": "3",
+      "correct": false
+    },
+    {
+      "question_index": 107,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, Frankie anatazama televisheni baada ya kufanya kazi yake ya ziada. Tatizo linataka kujua alitazama vipindi vingapi vya dakika 30 siku ya Jumatano. Hebu niangalie taarifa iliyotolewa hatua kwa hatua.\n\nKwanza, hebu niandike muda ambao Frankie alitazama kila siku:\n\n- **Jumatatu na Jumanne**: Kila siku, alitazama kipindi cha saa 1 cha filamu. Kwa kuwa kila kipindi ni saa 1, hiyo ni dakika 60. Kwa siku mbili, hiyo ni 2 * 60 = dakika 120.\n\n- **Jumatano**: Alitazama vipindi vichache vya dakika 30. Hebu niweke alitazama vipindi vya dakika 30. Kwa hivyo, muda hapa ni 30 * x, ambapo x ni idadi ya vipindi.\n\n- **Alhamisi**: Alitazama kipindi cha saa 1 (dakika 60) na kipindi cha dakika 30. Kwa hivyo, muda hapa ni 60 + 30 = dakika 90.\n\n- **Ijumaa**: Alitazama vipindi viwili vya saa 1. Kila kipindi ni saa 1, kwa hivyo hiyo ni 2 * 60 = dakika 120.\n\nSasa, muda",
+      "pred": "",
+      "gold": "3",
+      "correct": false
+    },
+    {
+      "question_index": 236,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, tatizo ni kuhusu Ram ambaye anaweza kuunda kalamu mpya kwa kutumia wino kutoka kwa kalamu tano tupu. Ananunua kalamu 25, na tunahitaji kujua atakuwa na kalamu ngapi baada ya kuunda kalamu mpya mara kwa mara hadi wino ukipungua.\n\nKwanza, ninahitaji kuelewa mchakato. Kila wakati anapounda kalamu mpya, anatumia kalamu tano tupu. Kwa hivyo, kila kalamu mpya inatengenezwa kwa kuchanganya kalamu tano tupu. Lakini, baada ya kuunda kalamu mpya, kalamu hiyo mpya inakuwa sehemu ya idadi ya kalamu anazokuwa nayo. Subiri, lakini tatizo linasema anatumia wino kutoka kwa kalamu tano tupu ili kutengeneza kalamu mpya. Kwa hivyo, kila kalamu mpya inatengenezwa kwa kuchanganya kalamu tano tupu. Kwa hivyo, kila kalamu mpya inat",
+      "pred": "",
+      "gold": "31",
+      "correct": false
+    },
+    {
+      "question_index": 179,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, Lloyd anapata $10 kwa saa anapofundisha hisabati. Wiki ya kwanza alifundisha kwa saa 5, na wiki ya pili alifundisha kwa saa 8. Ninahitaji kujua alipata pesa ngapi kwa wiki mbili za kwanza.\n\nKwanza, ninapaswa kuhesabu kiasi cha pesa alipata wiki ya kwanza. Ikiwa anapata $10 kwa saa na alifundisha kwa saa 5, basi ninahitaji kuzidisha 10 kwa 5. Hebu nifanye hivyo: 10 * 5 = 50. Kwa hivyo, alipata $50 wiki ya kwanza.\n\nKisha, nihesabu kwa wiki ya pili. Tena, $10 kwa saa, lakini alifundisha kwa saa 8. Kwa hivyo, 10 * 8 = 80. Hiyo inamaanisha alipata $80 wiki ya pili.\n\nSasa, ili kupata jumla alipata kwa wiki mbili, ninahitaji kuongeza kiasi cha pesa kutoka wiki ya kwanza na wiki ya pili. Hiyo ni $50 + $80. He",
+      "pred": "",
+      "gold": "130",
+      "correct": false
+    },
+    {
+      "question_index": 166,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Sandra anapewa kikapu cha mayai 9 kila anapoyaya. Anahitaji mayai 3 kwa kila keki ya Kihispania. Anapaswa kuandaa keki 15 kwa ajili ya uchangishaji wa fedha.\n\nKwanza, ninahitaji kuhesabu ni mayai ngapi kwa jumla anahitaji. Ikiwa anahitaji mayai 3 kwa kila keki na anapaswa kuandaa keki 15, basi 3 kuzidishwa na 15 ni sawa na mayai 45 kwa jumla.\n\nSasa, kila anapoyaya, anapata kikapu cha mayai 9. Ili kujua anahitaji kuyaya mara ngapi ili kupata mayai 45, ninagawanya 45 kwa 9. 45 kugawanywa na 9 ni sawa na 5.\n\nSubiri, niangalie tena. 9 mara 5 ni 45, ndiyo. Kwa hivyo, anahitaji kuyaya mara 5. Hiyo ina ma",
+      "pred": "",
+      "gold": "5",
+      "correct": false
+    },
+    {
+      "question_index": 183,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kuna timu mbili za mbio za kikundi, na kila timu ina wanachama wanne. Mbio ni ya aina ya \"relay\", kumaanisha kila mwanachama hukimbia mita 400, na timu inashinda ikiwa jumla ya muda wote wa wanachama wote ni mdogo.\n\nTimu ya kwanza ina wanachama wote wazuri. Kila mmoja hukimbia mita 400 kwa muda wa sekunde 55. Kwa hivyo, kwa kuwa kuna wanachama wanne, muda wote wa timu hiyo utakuwa 4 x 55. Nihesabu: 4 x 55 ni sekunde 220.\n\nTimu ya pili ina wanachama ambao hawana uwezo wa kutosha. Mwanachama wa kwanza hukimbia mita 400 kwa sekunde 60. Kisha kila mwanachama anayefuata hukimbia kwa sekunde 3 zaidi ya mwanachama aliyefuata. Kwa hivyo, mwanachama wa pili hukimbia kwa sekunde 60 + 3 = sekunde 63. Mwanachama wa tatu hukimbia kwa sekunde 63 + 3 = sekunde 66. Mwanachama wa nne hukimbia kwa sekunde 66 + 3 = sekunde 69.\n\nSasa, ninahit",
+      "pred": "",
+      "gold": "2",
+      "correct": false
+    },
+    {
+      "question_index": 50,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, Lloyd ana shamba la mayai, na kuku zake hutengeneza mayai 252 kwa siku. Anauza mayai hizo kwa $2 kwa kila dazeni. Swali linataka kujua anapata pesa ngapi kila wiki. Sawa, niruhusu niweke hili hatua kwa hatua.\n\nKwanza, ninahitaji kuhesabu ni mayai ngapi kuku hutoa kwa wiki. Kwa kuwa kuna mayai 252 kwa siku, na wiki ina siku 7, ninaweza kuzidisha 252 kwa 7. Niruhusu nihesabu: 252 mara 7. Hmm, 250 mara 7 ni 1,750, na 2 mara 7 ni 14, kwa hivyo kuongeza hizo pamoja inatoa 1,752 mayai kwa wiki. Sawa, kwa hivyo kila wiki, anapata mayai 1,752.\n\nSasa, anauza mayai hizo kwa $2 kwa kila dazeni. Subiri, dazeni ni",
+      "pred": "",
+      "gold": "294",
+      "correct": false
+    },
+    {
+      "question_index": 143,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, John ananunua bidhaa kadhaa, na kuna ushuru wa 10% kwa bidhaa zisizo za chakula. Ninahitaji kuhesabu jumla ya gharama, ikiwa ni pamoja na ushuru.\n\nKwanza, ninapaswa kuamua ni bidhaa zipi ni za chakula. Tatizo linaorodhesha maziwa, mayai, na mitego ya mende kama bidhaa zisizo za chakula. Subiri, maziwa na mayai ni chakula, sivyo? Kwa hivyo, labda zinaweza kuondolewa kutoka kwa ushuru. Lakini subiri, tatizo linasema \"ushuru wa 10% kwa bidhaa zisizo za chakula.\" Kwa hivyo, bidhaa zisizo za chakula ni balbu za mataa, vikombe, na mitego ya mende. Subiri, lakini mitego ya mende ni chakula. Hmm, labda ninahitaji kuangalia tena.\n\nSubiri, tat",
+      "pred": "",
+      "gold": "16",
+      "correct": false
+    },
+    {
+      "question_index": 247,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Isabelle alinunua vifaa mbalimbali kwa ajili ya sherehe ya siku ya kuzaliwa. Gharama zilikuwa: $12 kwa viambato vya keki, $43 kwa zawadi, $15 kwa mapambo, $4 kwa mialiko, na $22 kwa mifuko ya zawadi ya wageni. Kwa hivyo, kwanza, ninahitaji kuhesabu jumla ya gharama zote.\n\nNiruhusu niweke gharama hizo pamoja. Tuanzie na $12 kwa viambato vya keki. Kisha tunaongeza $43 kwa zawadi. Hiyo itakuwa $12 + $43 = $55. Kisha tunaongeza $15 kwa mapambo. Kwa hivyo, $55 + $15 = $70. Kisha tunaongeza $4 kwa mialiko. Hiyo itakuwa $70 + $4 = $74. Hatimaye, tunaongeza $22 kwa mifuko ya zawadi ya wageni. Kwa hivyo, $74 + $22 = $96. Kwa hivyo, jumla ya gharama ni $96.\n\nSasa, Isabelle anagawanya gharama hizo sawasawa kati ya yeye na wazazi wake wawili. Hiyo inamaanisha kuna watu watatu kwa jumla. Ili kujua kila mtu analipa nini, ninahitaji kugawanya jumla ya gharama kwa watu watatu. Kwa hivyo, $96 iliyogawanywa na 3. Niruhusu nihesabu. 3 mara 32 ni 96, kwa hivyo, $96 iliyogawanywa na 3 ni $32. Kwa hivyo, kila mtu anal",
+      "pred": "",
+      "gold": "32",
+      "correct": false
+    },
+    {
+      "question_index": 154,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, tatizo ni kuhusu Kimo, mwanafunzi wa chuo, na muda anatumia kuhudhuria masomo katika muhula. Hebu niangalie tatizo tena ili kuhakikisha naelewa vizuri.\n\nKwanza, muda wa masomo kwa siku:\n\n- Jumatatu, Jumatano, na Ijumaa: masomo matatu kila siku, kila moja ikiwa na saa 1. Hiyo ni masomo matatu ya saa 1 kila siku.\n- Jumanne na Alhamisi: masomo mawili kila siku, kila moja ikiwa na saa 2. Kwa hivyo, hiyo ni masomo mawili ya saa 2 kila siku.\n\nKisha, kuna wiki 16 katika muhula. Ninahitaji kuhesabu muda wote anatumia kuhudhuria masomo katika muhula huo.\n\nHmm, hebu niweke wazi. Hebu nianze kwa kuhesabu muda wa masomo kwa siku kwa siku, kisha nihesabu kwa wiki, na kisha kwa muhula. Au labda nihesabu kwa wiki moja kwa moja. Hebu nijaribu",
+      "pred": "",
+      "gold": "272",
+      "correct": false
+    },
+    {
+      "question_index": 129,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Tatizo ni kupata faida ya hospitali inayotokana na huduma kwa wagonjwa 500 kwa siku. Kila mgonjwa anahudumiwa kwa dakika 24. Madaktari hutoza $150 kwa saa, na hospitali hutoza $200 kwa saa. Ninahitaji kuhesabu faida ya jumla.\n\nKwanza, ninapaswa kuelewa faida ni nini. Faida ni mapato yote yaliyopunguzwa na gharama. Kwa hivyo, ninahitaji kuhesabu mapato yote ya hospitali na gharama ya huduma, kisha nipunguze gharama kutoka kwa mapato ili kupata faida.\n\nNianzie na mapato. Hospitali hutoza $200 kwa saa. Lakini huduma inatolewa kwa dakika, kwa hivyo ninahitaji kubadilisha dakika kuwa saa. Dakika 24 ni saa 0.4. Kwa hivyo, kila mgonjwa anahudumiwa kwa saa 0.4. Ili kupata mapato y",
+      "pred": "",
+      "gold": "10000",
+      "correct": false
+    },
+    {
+      "question_index": 59,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, tatizo ni kuhusu kuhesabu jumla ya matunda ya kichaka cha raspberry. Kichaka hicho kina makundi 6, na kila kundi lina matunda 20. Pia, kuna matunda 67 ambayo hayajapakwa. Ninahitaji kupata jumla ya matunda.\n\nKwanza, ninapaswa kuhesabu matunda yaliyopakwa. Ikiwa kuna makundi 6 na kila kundi lina matunda 20, basi ninaweza kuzidisha 6 na 20. Hebu nifanye hivyo: 6 mara 20. Hmm, 6 mara 20 ni 120. Kwa hivyo, matunda yaliyopakwa ni 120.\n\nKisha, kuna matunda 67 ambayo hayajapakwa. Ili kupata jumla, ninahitaji kuongeza idadi hizi mbili. Kwa hivyo, 120 pamoja na 67. Hebu niongeze. 120 pamoja na 60 ni 180, na kisha pamoja na 7 zaidi ni 187. Kwa hivyo, jumla ya matunda ya kichaka",
+      "pred": "",
+      "gold": "187",
+      "correct": false
+    },
+    {
+      "question_index": 55,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Jean ana pipi 30 mwanzoni. Kisha anakula pipi 2. Kwa hivyo, kwanza, ninahitaji kuhesabu ni pipi ngapi zilizosalia baada ya Jean kula.\n\n30 minus 2 ni sawa na 28. Kwa hivyo, Jean ana pipi 28 zilizosalia.\n\nSasa, Jean anataka kuweka pipi 2 kwenye kila mfuko. Ili kujua ni mifuko mingapi anahitaji, ninahitaji kugawanya idadi ya pipi zilizosalia kwa idadi ya pipi kwa kila mfuko. Hiyo ni 28 iliyogawanywa na 2.\n\n28 iliyogawanywa na 2 ni sawa na 14. Kwa hivyo, Jean anaweza kujaza mifuko 14.\n\nNiruhusu niangalie tena. Ana pipi 30, anakula 2, kwa hivyo 30 - 2 = 28. Kisha, 28 iliyogawanywa na 2 kwa kila mfuko ni 14",
+      "pred": "",
+      "gold": "14",
+      "correct": false
+    },
+    {
+      "question_index": 23,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Tatizo linasema kwamba mshumaa hupungua kwa sentimita 2 kila saa. Swali linataka kujua ni kiasi gani ambacho mshumaa hupungua kuanzia saa 7:00 asubuhi hadi saa 11:00 usiku. Hmm, kwanza ninahitaji kujua ni saa ngapi zipo kati ya saa 7:00 asubuhi na saa 11:00 usiku.\n\nNiruhusu nihesabu. Kuanzia saa 7:00 asubuhi hadi saa 11:00 asubuhi ni saa 4. Kisha kutoka saa 11:00 asubuhi hadi saa 11:00 usiku ni saa 12. Kwa hivyo, ikiwa nitajumlisha hizo, itakuwa saa 4 + saa 12 = saa 16. Subiri, je, hiyo ni sahihi? Niruhusu niangalie. Kuanzia saa 7:00 asubuhi hadi saa 11:00 asubuhi ni saa 4, kisha kutoka saa 11:00 asubuhi hadi saa 11:00 usiku ni saa 12. Ndiyo, hiyo ni saa 16 kwa jumla. Kwa hivyo, mshumaa unawaka kwa saa 16.\n\nSasa, mshumaa hupungua kwa sentimita 2 kila saa. Kwa hivyo, ili kupata kiasi cha jumla ambacho",
+      "pred": "",
+      "gold": "8",
+      "correct": false
+    },
+    {
+      "question_index": 7,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Carla anapakua faili ya 200GB, na kwa kawaida anapakua 2GB kwa dakika. Kwa hivyo, ikiwa hakuna matatizo, muda utachukua 200GB iliyogawanywa na 2GB kwa dakika, ambayo ni dakika 100. Lakini kuna tatizo hapa.\n\nSwali linasema kwamba wakati Carla anapakua 40% ya faili, Windows hulazimisha kuanza upya, na huchukua dakika 20. Kisha anahitaji kuanza upya kupakua kuanzia mwanzo. Hmm, kwa hivyo anapakua 40% ya faili, kisha kitanzi huchukua dakika 20, na kisha anahitaji kupakua kitanzi hicho upya. Kwa hivyo, muda wote utakuwa muda wa kupakua 40% + dakika 20 ya kitanzi + muda wa kupakua faili nzima upya.\n\nSubiri, lakini ikiwa anapakua 40% ya faili, kisha kitanzi huchukua dakika 20, na kisha anahitaji kupakua kitanzi hicho upya, basi anahitaji kupakua faili nzima upya. Kwa hivyo, muda wote utakuwa muda wa kupakua 40% + dakika 20 ya kitanzi + muda wa kupakua faili nzima upya. Lakini muda wa kupakua faili nzima upya utakuwa sawa na muda wa kupakua faili nzima, ambayo ni dakika 100. Subiri, lakini hiyo si sahihi kwa sababu ikiwa anapakua 40% ya faili, kisha kitanzi huchukua dakika 20, na kisha anahitaji kupakua faili nzima upya, basi muda wote utakuwa muda wa kupakua 40% + dakika 20 ya kitanzi + muda wa kupakua faili nzima upya. Lakini muda wa kupakua faili nzima upya utakuwa sawa na muda wa kupakua faili nzima, ambayo ni dakika 100. Subiri, lakini hiyo itafanya muda wote kuwa 0.4",
+      "pred": "",
+      "gold": "160",
+      "correct": false
+    },
+    {
+      "question_index": 8,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, John anaendesha kwa saa 3 kwa kasi ya maili 60 kwa kila saa. Hebu nihesabu umbali ambao amechukua. Saa 3 zilizoongezwa na maili 60 kwa kila saa ni sawa na... hebu nihesabu. 3 x 60 ni sawa na maili 180. Kwa hivyo, ameacha nyumbani kwa umbali wa maili 180.\n\nKisha, anaamua kurudi nyumbani lakini anatumia saa 2 za kwanza katika trafiki isiyosonga. Trafiki isiyosonga inamaanisha hakuna kasi, kwa hivyo hakuna umbali ambao ameacha. Kwa hivyo, baada ya saa 2 za trafiki, bado yuko katika nafasi ile ile, ambayo ni maili 180 kutoka nyumbani.\n\nKisha, anatumia saa 1/2 akiendesha kwa kasi ya maili 30 kwa kila saa. Hebu nihesabu umbali ambao ameacha katika muda huu. Saa 1/2 zilizoongezwa na maili 30 kwa kila saa ni sawa na... hebu nihesabu. 0.5 x 30 ni sawa na maili 15. Kwa hivyo, sasa ameacha umbali wa maili 15 zaidi kutoka nyumbani, ikimaanisha yuko maili 180 + maili 15 = maili 195 kutoka nyumbani.\n\nBaada ya hapo, anaweza kuendesha kwa saa 4 kwa kasi ya maili 80 kwa kila saa. Hebu nihesabu umbali ambao ameacha katika muda huu. Saa 4 zilizoongezwa na maili 80 kwa kila saa ni sawa na... hebu nihesabu. 4 x 80 ni sawa na maili 320. Kwa hivyo, aneacha umbali wa maili 320 zaidi kutoka nyumbani.\n\nLakini subiri, swali linauliza ni umbali gani kati ya yeye na nyumbani mwishoni mwa saa hizo 4. Kwa hivyo, tunahitaji kuhesabu umbali",
+      "pred": "",
+      "gold": "45",
+      "correct": false
+    },
+    {
+      "question_index": 108,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Henry alitengeneza biskuti mara mbili kuliko alivyotengeneza mwaka jana. Kisha alioka biskuti 15 zaidi ya alivyotarajia. Biskuti 5 zilianguka, na sasa ana biskuti 110. Tunahitaji kujua Henry alitengeneza biskuti ngapi mwaka jana.\n\nKwanza, niache niweke wazi tatizo. Hebu tuite kama idadi ya biskuti ambazo Henry alitengeneza mwaka jana. Kwa hivyo, mwaka jana, alitengeneza biskuti. Mara hii, alitengeneza biskuti mara mbili, ambayo ni 2x.\n\nSasa, alipokua, alioka biskuti 15 zaidi ya alivyotarajia. Kwa hivyo, idadi ya biskuti alizoka ni 2x + 15. Lakini kisha biskuti 5 zilianguka, kwa hivyo tunatoa 5 kutoka kwa idadi hiyo. Matokeo yake, ana biskuti 110. Kwa hivyo, equation inapaswa kuwa:\n\n(2x + 15) - 5 = 110\n\nNiache niweke equation hiyo rahisi.",
+      "pred": "",
+      "gold": "50",
+      "correct": false
+    },
+    {
+      "question_index": 151,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Shawnda anatoza kwa kila tairi, kila moja ikiwa na gharama ya senti 25. Siku hiyo, watu tofauti walitumia huduma kwa idadi tofauti ya tairi. Ninahitaji kuhesabu jumla ya pesa aliyopata.\n\nKwanza, niweze kuelewa tatizo. Kila tairi inatozwa senti 25. Kwa hivyo, kwa kila tairi, Shawnda anapata senti 25. Sasa, watu waliwasiliana kwa idadi tofauti ya tairi. Niweze kuieleza:\n\n- Watu 5 walitumia huduma kwa tairi zao zote mbili. Kwa hivyo, hiyo ni watu 5 * tairi 2 = tairi 10.\n- Watu 3 walitumia huduma kwa tairi tatu kwa kila mtu. Kwa hivyo, hiyo ni watu 3 * tairi 3 = tairi 9.\n- Mtu mmoja alitumia huduma kwa tairi moja. Kwa hivyo, hiyo ni tairi 1.\n\nNiweze kuongeza idadi hii ili kupata jumla ya tairi:",
+      "pred": "",
+      "gold": "5",
+      "correct": false
+    },
+    {
+      "question_index": 22,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, Billy anauza DVD, na ana wateja 8 Jumamosi. Tatizo linataka kujua ni DVD ngapi aliuza siku hiyo. Hebu niweke wateja katika vikundi kulingana na mabaki yao.\n\nKwanza, wateja 3 wa kwanza kila mmoja ananunua DVD 1. Kwa hivyo, hiyo ni 3 x 1. Hebu nihesabu: 3 x 1 ni sawa na 3. Kwa hivyo, wateja wa kwanza walitoa DVD 3.\n\nKisha, wateja 2 wanaofuata kila mmoja ananunua DVD 2. Kwa hivyo, hiyo ni 2 x 2. Hebu nihesabu: 2 x 2 ni sawa na 4. Kwa hivyo, wateja wanaofuata walitoa DVD 4.\n\nKisha, wateja 3 wa mwisho hawanao DVD. Kwa hivyo, hiyo ni 0 x 3, ambayo ni 0.",
+      "pred": "",
+      "gold": "7",
+      "correct": false
+    },
+    {
+      "question_index": 139,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Tatizo linasema kuna pipi za rangi ya pinki ambazo ni 22 zaidi ya mara 4 ya pipi za rangi ya bluu. Na kuna pipi za rangi ya bluu 12. Ninahitaji kupata idadi ya pipi za rangi ya pinki.\n\nKwanza, niweze kuweka tatizo hilo kwa njia rahisi. Ikiwa kuna pipi za rangi ya bluu 12, basi mara 4 ya idadi hiyo itakuwa 4 kuzidishwa na 12. Niweze kuhesabu: 4 * 12 = 48. Kwa hivyo, pipi za rangi ya pinki ni 22 zaidi ya 48. Niweze kuongeza: 48 + 22 = 70. Kwa hivyo, kuna pipi za rangi ya pinki 70. Niweze kuangalia kwa uangalifu. Pipi za rangi ya bluu ni 12, mara 4 ni 48, kuongeza 22 inatoa 70. Ndiyo, inaonekana sawa. Jibu linapaswa kuwa 70.",
+      "pred": "",
+      "gold": "70",
+      "correct": false
+    },
+    {
+      "question_index": 228,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, Kalinda na mama yake wanashughulikia fumbo la vipande 360. Kalinda anaweza kuweka vipande 4 kwa dakika. Mama anaweza kuweka nusu ya kiasi ambacho Kalinda anaweza kuweka kwa dakika. Tunahitaji kujua itachukua muda gani watachukua kuweka fumbo lote.\n\nKwanza, niache nihesabu kiasi gani ambacho mama anaweza kuweka kwa dakika. Kwa kuwa Kalinda anaweza kuweka vipande 4 kwa dakika, nusu ya kiasi hicho itakuwa vipande 2 kwa dakika. Kwa hivyo, mama anaweza kuweka vipande 2 kwa dakika.\n\nSasa, niache nihesabu jumla ya kiasi ambacho wote wanaweza kuweka kwa dakika. Kalinda anaweza kuweka vipande 4, na mama anaweza kuweka vipande 2. Kwa kuongeza hizo, tunapata vipande 4 + vipande 2 = vipande 6 kwa dakika. Kwa hivyo, pamoja, wanaweza kuweka vipande 6 kwa dakika.\n\nSasa, fumbo lote lina vipande 360. Ili kuhesabu muda",
+      "pred": "",
+      "gold": "1",
+      "correct": false
+    },
+    {
+      "question_index": 246,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, Jean alinunua mapambo kutoka kwa msanii, na msanii huyo alitoza $250 kwa saa. Msanii huyo alihitaji mapambo ya kina, na kazi hiyo ilichukua saa 6 kwa siku, na ilifanywa mara 4 kwa wiki. Filamu hiyo ilichukua wiki 5 kukamilika. Kisha, msanii huyo alimpa Jean punguzo la 10% kwa sababu ya kazi nzuri. Swali linataka kujua Jean alilipa kiasi gani.\n\nKwanza, ninahitaji kuhesabu kiasi cha jumla ambacho msanii huyo alipata kabla ya punguzo. Hebu tuangalie hatua kwa hatua.\n\nKazi ilichukua saa 6 kwa siku. Kwa kuwa filamu hiyo ilichukua wiki 5 kukamilika, na kazi ilifanywa mara 4 kwa wiki, basi kazi ilichukua saa 6 * 4 = saa 24 kwa wiki. Kisha, kwa",
+      "pred": "",
+      "gold": "27000",
+      "correct": false
+    },
+    {
+      "question_index": 173,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, Jessica anataka kujua anapaswa kulipa kiasi gani kwa mwaka ikiwa atalipa 50% zaidi ya kiwango cha chini cha malipo ya kila mwezi. Malipo yake ni mikopo ya mwanafunzi, mikopo ya kadi, na mikopo ya nyumba.\n\nKwanza, ninahitaji kupata kiwango cha chini cha malipo ya kila mwezi kwa kila aina ya mkopo. Niweze kuandika:\n\n- Mikopo ya mwanafunzi: $300 kwa mwezi\n- Mikopo ya kadi: $200 kwa mwezi\n- Mikopo ya nyumba: $500 kwa mwezi\n\nSasa, tatizo linasema anataka kulipa 50% zaidi ya kiwango hicho cha chini. Kwa hivyo, ninahitaji kuongeza kila kiwango cha chini kwa 50% ili kupata kiwango cha juu ambacho anataka kulipa. Niweze kufanya hatua hiyo kwa kila aina ya mkopo.\n\nTuanzie na mikopo ya mwanafunzi: $300 kwa mwezi.",
+      "pred": "",
+      "gold": "18000",
+      "correct": false
+    },
+    {
+      "question_index": 26,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, Mishka alinunua jozi 3 za kaptura, jozi 3 za suruali, na jozi 3 za viatu. Kila jozi ina bei tofauti: kaptura ni $16.50 kwa kila jozi, suruali ni $22.50 kwa kila jozi, na viatu ni $42 kwa kila jozi. Ninahitaji kupata jumla ya gharama.\n\nKwanza, ninapaswa kuhesabu gharama ya kila aina ya jozi kando. Tuanzie na kaptura: jozi 3 kuzidishwa na $16.50 kwa kila jozi. Hmm, 3 mara 16 ni 48, na 3 mara 0.50 ni 1.50, kwa hivyo ikiwa tutaongeza, itakuwa $58.50 kwa kaptura.\n\nKisha, suruali: jozi 3 kuzidishwa na $22.50 kwa kila jozi. Niruhusu nihesabu. 3 mara 20 ni 60, na 3 mara 2.50 ni 7.50, kwa hivyo iki",
+      "pred": "",
+      "gold": "243",
+      "correct": false
+    },
+    {
+      "question_index": 188,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, tatizo ni kuhusu muuzaji ambaye ananunua unga kutoka kwa mkulima. Ananunua kwa $20 kwa kila kikapu, na kuna gharama ya usafirishaji ya $2 kwa kila kikapu. Kisha anauza kwa $30 kwa kila kikapu na anapata faida ya jumla ya $400. Tunahitaji kujua aliuza kikapu ngapi. Hmm, niweze kuieleza hatua kwa hatua.\n\nKwanza, niweze kuorodhesha taarifa zote zilizotolewa:\n\n- Bei ya ununuzi kwa kila kikapu: $20\n- Gharama ya usafirishaji kwa kila kikapu: $2\n- Bei ya mauzo kwa kila kikapu: $30\n- Faida ya jumla: $400\n\nKwa hivyo, faida ni mapato yaliyopunguzwa na gharama. Faida ya jumla ni $400. Niweze kufikiria jinsi ya kuweka hii kwa fomula.",
+      "pred": "",
+      "gold": "50",
+      "correct": false
+    },
+    {
+      "question_index": 35,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, Mike anacheza mchezo wa tenisi kwa dakika 40. Katika dakika 20 za kwanza, anapata alama 4. Kisha, katika dakika 20 za pili, anapata alama 25% zaidi. Tunahitaji kujua alama jumla aliyopata.\n\nKwanza, nitaangalia kile kilichopo. Katika dakika 20 za kwanza, alama ni 4. Kisha, katika dakika 20 za pili, anapata alama 25% zaidi. Subiri, 25% zaidi ya nini? Je, ni 25% zaidi ya alama ya awali (ambayo ni 4) au 25% zaidi ya muda (dakika 20)? Tatizo linasema \"anapata alama 25% zaidi,\" ambayo inaweza kumaanisha 25% zaidi ya alama ya awali. Hebu niangalie.\n\nIkiwa ni 25% zaidi ya alama ya awali (4), basi alama katika dakika 20 za pili itakuwa 4 + 0.25 * 4 = 4 + 1 =",
+      "pred": "",
+      "gold": "9",
+      "correct": false
+    },
+    {
+      "question_index": 57,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, tatizo ni kuhusu daraja la mbao ambalo linaweza kubeba hadi pauni 5000. Lori lina maboksi, kila boksi ikiwa na uzito wa pauni 15. Uzito wa lori na dereva pamoja ni pauni 3755. Tunahitaji kupata idadi ya juu ya maboksi ambayo yanaweza kupakiwa kwenye lori bila kuvunja kikomo cha uzito cha daraja.\n\nKwanza, ninahitaji kuelewa tatizo. Daraja lina kikomo cha pauni 5000. Uzito wa lori na dereva tayari ni pauni 3755. Kwa hivyo, uzito wa maboksi ambayo yanaweza kupakiwa ni tofauti kati ya kikomo cha daraja na uzito wa lori na dereva. Hebu niandike:\n\nKikomo cha daraja = pauni 5000\nUzito wa lori na dereva = pauni 3755\nUzito wa kila boksi = pauni 15\n\nKwa hivyo, uzito wa jumla wa maboksi ambayo yanaweza kupakiwa ni 5000 - 3755. He",
+      "pred": "",
+      "gold": "83",
+      "correct": false
+    },
+    {
+      "question_index": 62,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, Mercy alifanya kazi kwa kampuni kwa miaka 40, na anapata malipo ya kila mwaka ya $50,000. Kuanzia mwaka wa 20, anapata 5% ya thamani ya malipo ya kila mwaka. Anaiacha kazi baada ya miaka 30. Tunahitaji kuhesabu malipo yake ya kila mwaka.\n\nKwanza, ninahitaji kuelewa muda. Malipo ya kila mwaka ni $50,000 kwa mwaka. Haki ya kupata 5% ya thamani ya malipo ya kila mwaka inaanza kuanzia mwaka wa 20. Kwa hivyo, kwa miaka 1 hadi 19, anapata tu malipo ya kila mwaka ya $50,000. Kuanzia mwaka wa 20 hadi 40, anapata 5% ya thamani ya malipo ya kila mwaka pamoja na malipo ya kila mwaka.\n\nLakini anaiacha kazi baada ya miaka 30. Kwa hivyo, tunahitaji kuhesabu malipo yake kwa miaka 30. Hebu tuangalie kwa muda",
+      "pred": "",
+      "gold": "25000",
+      "correct": false
+    },
+    {
+      "question_index": 70,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, Judy anafundisha darasa 5 kila siku, siku za wiki, na darasa 8 Jumamosi. Kila darasa lina wanafunzi 15, na anatoa $15.00 kwa kila mwanafunzi. Tunahitaji kujua anatoa pesa ngapi kwa wiki.\n\nKwanza, ninahitaji kuhesabu jumla ya idadi ya darasa anafundisha kwa wiki. Kwa siku za wiki, anafundisha darasa 5 kila siku. Kwa hivyo, siku 5 za wiki, hiyo ni 5 darasa/siku * 5 siku = darasa 25. Kisha, anafundisha darasa 8 Jumamosi. Kwa hivyo, jumla ya idadi ya darasa kwa wiki ni darasa 25 + darasa 8 = darasa 33.\n\nSasa, kila darasa lina wanafunzi 15. Kwa hivyo, jumla ya idadi ya wanafunzi anawafundisha ni darasa 33 * wanafunzi 15. Nihesabu: 33 * 15. Naam, 30",
+      "pred": "",
+      "gold": "7425",
+      "correct": false
+    },
+    {
+      "question_index": 189,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Kwa hivyo, kuna marafiki watatu ambao walitumia $20.25 kununua tiketi 3 za onyesho. Bei ya tiketi ilikuwa sawa na bei ya chakula na $4.50. Pia, walinunua safari 2 tofauti kwa $33 kwa kila safari. Wanataka kugawanya gharama zote kwa usawa. Ninahitaji kujua kila mmoja alilipa nini.\n\nKwanza, niache nieleze tatizo hatua kwa hatua. Tuanzie na tiketi za onyesho. Walinunua tiketi 3 kwa jumla ya $20.25. Kwa hivyo, gharama ya tiketi moja itakuwa jumla iliyogawanywa na idadi ya tiketi. Niache nihesabu: $20.25 iliyogawanywa na 3. Niache nihesabu. 20.25 iliyogawanywa na 3 ni 6.75. Kwa hivyo, kila tiketi ilig",
+      "pred": "",
+      "gold": "34",
+      "correct": false
+    },
+    {
+      "question_index": 6,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Tatizo linasema kwamba Toulouse ina kondoo mara mbili ya idadi ya kondoo katika Charleston. Kisha Charleston ina kondoo mara nne ya idadi ya kondoo katika Seattle. Na tunajua kwamba Seattle ina kondoo 20. Tunahitaji kupata idadi jumla ya kondoo katika majiji yote matatu.\n\nKwanza, niweze kuweka taarifa hii kwa njia ya hisabati. Niweze kuashiria idadi ya kondoo katika Seattle kama S. Kwa mujibu wa tatizo, Charleston ina kondoo mara nne ya idadi ya kondoo katika Seattle. Kwa hivyo, idadi ya kondoo katika Charleston, ambayo niweze kuashiria kama C, itakuwa C = 4 * S. Kisha, Toulouse ina kondoo mara mbili ya idadi ya kondoo katika Charleston, kwa hivyo idadi ya kondoo katika Toulouse, ambayo niweze kuashiria kama To, itakuwa To = 2 * C.\n\nKwa kuwa tunajua kwamba Seattle ina kondoo 20,",
+      "pred": "",
+      "gold": "260",
+      "correct": false
+    },
+    {
+      "question_index": 28,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Henry alisafiri kwa baiskeli kwa umbali wa maili 60. Alisimama mara ya kwanza baada ya maili 20, kisha alisimama mara ya pili baada ya kulipa maili 15 ili kumaliza safari yake. Swali linataka kujua alisafiri umbali gani kati ya kusimama kwa mara ya kwanza na ya pili.\n\nKwa hivyo, kwanza, ninahitaji kuelewa mfululizo wa matukio. Anasafiri kwa umbali wa maili 60 kwa jumla. Alisimama mara ya kwanza baada ya maili 20. Hiyo inamaanisha alikuwa amesafiri maili 20 wakati wa kusimama kwa mara ya kwanza. Kisha, baada ya kusimama, anasafiri tena, na anasimama mara ya pili baada ya kulipa maili 15 ili kumaliza safari yake. Subiri, kwa hivyo kati ya kusimama kwa mara ya kwanza na ya pili, alisafiri maili 15? Lakini swali linataka kujua umbali kati ya kusimama kwa mara ya k",
+      "pred": "",
+      "gold": "25",
+      "correct": false
+    },
+    {
+      "question_index": 163,
+      "response": "<think>\nKwa ombi, nitaanza kufikiria kwa Kiswahili.\n Tatizo linahusu kuhesabu jumla ya gharama ya vifaa vyote vya kuchezea katika chumba. Vifaa hivyo ni magari mekundu, vifaa vya kuchezea kwa watoto, na mwanamuziki. Tatizo linaeleza kuwa gari moja mekundu ni ghali kama vifaa vitatu vya kuchezea kwa watoto na mwanamuziki mmoja. Pia, gari moja mekundu ni ghali $4. Tunahitaji kupata jumla ya gharama ya vifaa vyote vya kuchezea, ikizingatiwa kuwa kifaa kimoja cha kuchezea kwa mtoto ni ghali $5.\n\nKwanza, niache niweke tatizo hili kwa njia rahisi. Niache niweke alama kwa kila kitu:\n\nNiache niweke alama:\n- G: Gharama ya gari moja mekundu\n- T: Gharama ya kifaa kimoja cha kuchezea kwa mtoto\n- M: Gharama ya mwanamuziki mmoja",
+      "pred": "",
+      "gold": "50",
+      "correct": false
+    }
+  ]
+}

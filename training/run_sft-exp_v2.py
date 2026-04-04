@@ -20,10 +20,17 @@ def main():
     parser.add_argument("--language", type=str, choices=["ja", "bn", "sw"], required=True)
     parser.add_argument("--filter", choices=["filter", "no-filter"], required=True)
     parser.add_argument("--full_finetune", action="store_true")
+    parser.add_argument("--model", type=str, default="Qwen/Qwen3-1.7B",
+                        help="HuggingFace model name (e.g. Qwen/Qwen3-1.7B, Qwen/Qwen3-8B)")
+    parser.add_argument("--seed", type=int, default=42, help="Random seed for reproducibility")
+    parser.add_argument("--model_store", type=str, required=True,
+                        help="Base directory where trained models are saved")
     args = parser.parse_args()
 
-    model_name = "Qwen/Qwen3-1.7B"
-    data_path = PROJECT_ROOT / "data" / "exp_v2" / "qwen3-1_7b" / args.dataset / "sft" / f"train_{args.filter}_{args.language}.jsonl"
+    model_name = args.model
+    # Derive a short model key for paths: "Qwen/Qwen3-1.7B" -> "qwen3-1_7b"
+    model_key = model_name.split("/")[-1].lower().replace(".", "_")
+    data_path = PROJECT_ROOT / "data" / "exp_v2" / model_key / args.dataset / "sft" / f"train_{args.filter}_{args.language}.jsonl"
 
     if not data_path.exists():
         print(f"Dataset {data_path} not found.")
@@ -53,8 +60,8 @@ def main():
 
     # Output details
     prefix = f"sft_{args.filter}_full" if args.full_finetune else f"sft_{args.filter}_lora"
-    run_name = f"{prefix}_{args.dataset}_{args.language}"
-    output_dir = Path("/external1/alfred/models/ml-reasoning-exp_v2") / run_name
+    run_name = f"{prefix}_{args.dataset}_{model_key}_{args.language}_seed{args.seed}"
+    output_dir = Path(args.model_store) / run_name
     output_dir.mkdir(parents=True, exist_ok=True)
 
     wandb.init(project="ml-reasoning", name=run_name, group=args.dataset, job_type="sft")
@@ -78,17 +85,19 @@ def main():
 
     sft_config = SFTConfig(
         output_dir=str(output_dir),
-        learning_rate=2e-5,
+        learning_rate=2e-7,
         num_train_epochs=3,
         per_device_train_batch_size=1,
         gradient_accumulation_steps=16,
-        save_strategy="epoch",
+        save_strategy="no",
         bf16=torch.cuda.is_available(),
         report_to="wandb",
         dataset_text_field="text",
         max_length=12288,
         gradient_checkpointing=True,
         gradient_checkpointing_kwargs={"use_reentrant": False},
+        seed=args.seed,
+        data_seed=args.seed,
     )
 
     trainer = SFTTrainer(
