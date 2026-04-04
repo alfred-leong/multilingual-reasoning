@@ -133,6 +133,44 @@ bash scripts/exp_v3/9_evaluate_english_perf.sh
 4. **SFT Train** -- Full-finetune the target model (Qwen3-1.7B or Qwen3-8B) on the translated SFT data using DeepSpeed ZeRO-3 across 3 GPUs. Each configuration is trained with 3 random seeds.
 5. **Evaluate** -- Measure accuracy on MGSM (50 samples) and MMMLU (100 samples from test split) in target languages and English.
 
+## Results
+
+SFT results are averaged over 3 seeds. **Bold** indicates the best result per column within each group.
+
+### Qwen3-1.7B
+
+#### Bengali (BN)
+
+| Setting | MGSM | MMMLU | MGSM (EN) | MMMLU (EN) |
+|---------|------|-------|------------|------------|
+| Base | **22.00** | **28.00** | 78.00 | 60.00 |
+| AutoSFT-NoFilter | 15.33 | 17.00 | 78.00 | **63.67** |
+| AutoSFT-Filter | 20.00 | 21.33 | **80.00** | **63.67** |
+
+#### Japanese (JA)
+
+| Setting | MGSM | MMMLU | MGSM (EN) | MMMLU (EN) |
+|---------|------|-------|------------|------------|
+| Base | **58.00** | **49.00** | 78.00 | 60.00 |
+| AutoSFT-NoFilter | 46.67 | 40.67 | 73.33 | 65.00 |
+| AutoSFT-Filter | 48.00 | 39.67 | **79.33** | **65.67** |
+
+#### Swahili (SW)
+
+| Setting | MGSM | MMMLU | MGSM (EN) | MMMLU (EN) |
+|---------|------|-------|------------|------------|
+| Base | 0.00 | 12.00 | **78.00** | **60.00** |
+| AutoSFT-NoFilter | **7.33** | 33.33 | 73.33 | 57.33 |
+| AutoSFT-Filter | 6.00 | **34.33** | 73.33 | 54.00 |
+
+### Qwen3-8B (Swahili only)
+
+| Setting | MGSM | MMMLU | MGSM (EN) | MMMLU (EN) |
+|---------|------|-------|------------|------------|
+| Base | **40.00** | 23.00 | **92.00** | **78.00** |
+| AutoSFT-NoFilter | 0.00 | 23.33 | 60.00 | 57.33 |
+| AutoSFT-Filter | 12.00 | **25.67** | 84.00 | 74.00 |
+
 ## Evaluation Metrics
 
 - **Accuracy** -- Fraction of questions answered correctly (numerical match for MGSM, letter match for MMMLU).
