@@ -64,21 +64,13 @@ for i in {0..2}; do
     echo " ready! (${elapsed}s)"
 done
 
-# Run translation for MGSM and MMMLU concurrently across languages
-echo "Translating MGSM & MMMLU responses..."
+# Run translation for MMMLU concurrently across languages
+echo "Translating MMMLU responses..."
 TRANS_PIDS=()
 for i in {0..2}; do
     lang="${LANGS[$i]}"
     port="${PORTS[$i]}"
 
-    # mgsm
-    python3 "${PROJECT_ROOT}/data/translate_responses-exp_v2.py" \
-        --dataset mgsm --language "$lang" --port "$port" --workers 3 \
-        --source-model "$SOURCE_MODEL" --translate-model "$TRANSLATE_MODEL" \
-        > "${LOG_DIR}/trans_mgsm_${lang}.log" 2>&1 &
-    TRANS_PIDS+=($!)
-
-    # mmmlu
     python3 "${PROJECT_ROOT}/data/translate_responses-exp_v2.py" \
         --dataset mmmlu --language "$lang" --port "$port" --workers 3 \
         --source-model "$SOURCE_MODEL" --translate-model "$TRANSLATE_MODEL" \
@@ -99,9 +91,8 @@ if [[ $FAIL -eq 1 ]]; then
 fi
 
 # Check outputs
-echo "Checking MGSM and MMMLU translated responses:"
+echo "Checking MMMLU translated responses:"
 for lang in "${LANGS[@]}"; do
-    python3 "${PROJECT_ROOT}/data/check_translated_responses-exp_v2.py" --dataset mgsm --language "$lang" --model "$SOURCE_MODEL"
     python3 "${PROJECT_ROOT}/data/check_translated_responses-exp_v2.py" --dataset mmmlu --language "$lang" --model "$SOURCE_MODEL"
 done
 

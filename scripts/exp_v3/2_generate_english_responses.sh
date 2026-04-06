@@ -8,7 +8,7 @@ source "$CONDA_SETUP"
 conda activate "${CONDA_ENV:-ml-delta}"
 
 # Settings
-MODEL="${1:-Qwen/Qwen3-8B}"
+MODEL="${1:-Qwen/Qwen3-1.7B}"
 MODEL_SHORT=$(echo "${MODEL##*/}" | tr '[:upper:]' '[:lower:]' | tr '.' '_')
 PORT=8300
 PORT_WAIT=300

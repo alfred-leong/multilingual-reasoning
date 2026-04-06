@@ -15,7 +15,7 @@ The core idea is that a model reasons better in English, so a high-quality trans
 | Code | Language | Resource Level |
 |------|----------|----------------|
 | ja   | Japanese | Medium         |
-| bn   | Bengali  | Low            |
+| bn   | Bengali  | Medium         |
 | sw   | Swahili  | Low            |
 
 ## Project Structure
@@ -25,9 +25,9 @@ multilingual-reasoning/
 ├── configs/
 │   └── deepspeed_zero3.json              # DeepSpeed ZeRO-3 config for multi-GPU training
 ├── data/
-│   ├── mgsm/                             # Raw MGSM dataset (tsv files)
+│   ├── mgsm/                             # Raw MGSM dataset (tsv files, 50 samples per language)
 │   ├── exp_v2/                           # Processed data (train/test splits, responses, SFT data)
-│   ├── split_datasets-exp_v2.py          # Split MMMLU into train/test
+│   ├── split_datasets-exp_v2.py          # Split MMMLU into train/test (80/20)
 │   ├── generate_english_responses-exp_v2.py  # Generate English CoT responses for MMMLU via vLLM
 │   ├── check_english_responses-exp_v2.py     # Validate English responses
 │   ├── translate_responses-exp_v2.py         # Translate responses with TranslateGemma
@@ -49,81 +49,116 @@ multilingual-reasoning/
 
 ## Setup
 
+### Prerequisites
+
+- Linux with NVIDIA GPUs (tested on 3x H100 80GB)
+- CUDA 12.x
+- Conda (Miniconda or Anaconda)
+- ~200GB disk for model weights and generated data
+
+### Installation
+
 ```bash
 # 1. Clone the repository
 git clone <repo-url>
 cd multilingual-reasoning
 
 # 2. Create conda environment
-conda create -n ml-delta python=3.11
+conda create -n ml-delta python=3.11 -y
 conda activate ml-delta
 
 # 3. Install dependencies
 pip install -r requirements.txt
 
-# 4. Log in to Hugging Face
-hf auth login
+# 4. Log in to Hugging Face (required for gated models like Qwen3)
+huggingface-cli login
+
+# 5. Log in to Weights & Biases (for training logging)
+wandb login
 ```
 
 ### Environment Variables
 
-The pipeline scripts use environment variables with sensible defaults. Override them as needed:
+The pipeline scripts use environment variables with sensible defaults. Set these before running:
 
-| Variable          | Default                                                     | Description                              |
-|-------------------|-------------------------------------------------------------|------------------------------------------|
-| `CONDA_SETUP`     | `$HOME/miniconda3/etc/profile.d/conda.sh`                  | Path to conda setup script               |
-| `CONDA_ENV`       | `ml-delta`                                                  | Conda environment name                   |
-| `MODEL_STORE`     | NA              | Directory for saving/loading trained models |
-| `TRANSLATE_MODEL` | NA | Path to local TranslateGemma-27B weights |
+| Variable          | Default                                    | Description                              |
+|-------------------|--------------------------------------------|------------------------------------------|
+| `CONDA_SETUP`     | `$HOME/miniconda3/etc/profile.d/conda.sh` | Path to conda setup script               |
+| `CONDA_ENV`       | `ml-delta`                                 | Conda environment name                   |
+| `MODEL_STORE`     | *(required)*                               | Directory for saving/loading trained models |
+| `TRANSLATE_MODEL` | *(required)*                               | Path to local TranslateGemma-27B weights |
 
-Example:
 ```bash
-export MODEL_STORE="/data/models/ml-reasoning-exp_v3"
-export TRANSLATE_MODEL="/data/models/translategemma-27b-it"
+export MODEL_STORE="/path/to/models/ml-reasoning-exp_v3"
+export TRANSLATE_MODEL="/path/to/models/translategemma-27b-it"
 ```
 
-> **Hardware:** Full-scale experiments require multiple GPUs with >= 80 GB VRAM each (e.g. A100). Training uses DeepSpeed ZeRO-3 across 3 GPUs. Evaluation and generation can run on single GPUs.
+### Downloading TranslateGemma-27B
 
-## Pipeline (scripts/exp_v3/)
-
-The pipeline is run step-by-step. Each script is self-contained and idempotent (skips already-completed work).
-
-| Step | Script | Description |
-|------|--------|-------------|
-| 1 | `1_split_datasets.sh` | Split MMMLU into train/test sets |
-| 2 | `2_generate_english_responses.sh [model]` | Start vLLM with the given model (default: Qwen3-8B), generate English CoT responses for MMMLU |
-| 3 | `3_translate_responses_gemma27b.sh` | Start 3 TranslateGemma-27B vLLM servers, translate English responses to ja/bn/sw |
-| 5 | `5_prepare_training_data.sh` | Build SFT training JSONL from translated responses (filtered + unfiltered) |
-| 6 | `6_sft_training_qwen3-1_7b.sh` | Full-finetune Qwen3-1.7B via SFT (3 seeds x 2 filter modes) for all languages, then evaluate |
-| 6 | `6_sft_training_qwen3-8b.sh` | Same as above for Qwen3-8B, Swahili only |
-| 8 | `8_evaluate_models.sh [dataset] [subset]` | Evaluate all trained models on multilingual MGSM/MMMLU |
-| 9 | `9_evaluate_english_perf.sh` | Evaluate all trained models on English MGSM/MMMLU (regression check) |
-
-### Running the pipeline
+The translation step requires a local copy of [google/translategemma-27b-it](https://huggingface.co/google/translategemma-27b-it):
 
 ```bash
-# Step 1: Split MMMLU into train/test
+huggingface-cli download google/translategemma-27b-it --local-dir "$TRANSLATE_MODEL"
+```
+
+## Reproducing Results
+
+### Hardware Requirements
+
+| Step | GPUs | VRAM per GPU | Time Estimate |
+|------|------|--------------|---------------|
+| 2. Generate English responses | 1 GPU | ~20 GB (Qwen3-8B) | ~1 hour |
+| 3. Translate responses | 3 GPUs | ~60 GB each (TranslateGemma-27B) | ~2 hours |
+| 6. SFT training | 3 GPUs | ~80 GB each (DeepSpeed ZeRO-3) | ~3 hours per seed |
+| 8-9. Evaluation | 1-3 GPUs | ~20-40 GB | ~30 min per model |
+
+Total: **3x H100 80GB** recommended. Training is the bottleneck.
+
+### Step-by-Step
+
+GPU IDs below are defaults in the scripts — edit them to match your setup.
+
+```bash
+# ── Step 1: Split MMMLU into train/test (80/20) ──────────────────────────────
+# Creates data/exp_v2/mmmlu/{train,test}_{en,ja,bn,sw}.jsonl
+# MGSM test sets (50 samples) are already included in data/mgsm/*.tsv
 bash scripts/exp_v3/1_split_datasets.sh
 
-# Step 2: Generate English responses (starts a vLLM server, generates, then stops)
-# Accepts an optional model argument (default: Qwen/Qwen3-8B)
-bash scripts/exp_v3/2_generate_english_responses.sh                # uses Qwen3-8B
-bash scripts/exp_v3/2_generate_english_responses.sh Qwen/Qwen3-1.7B  # uses Qwen3-1.7B
+# ── Step 2: Generate English CoT responses for MMMLU ─────────────────────────
+# Starts a vLLM server, generates responses, then stops.
+# Default model: Qwen/Qwen3-1.7B. Pass a different model as argument.
+bash scripts/exp_v3/2_generate_english_responses.sh                  # Qwen3-1.7B
+bash scripts/exp_v3/2_generate_english_responses.sh Qwen/Qwen3-8B   # Qwen3-8B
 
-# Step 3: Translate to target languages (starts 3 vLLM servers)
+# ── Step 3: Translate English responses to target languages ───────────────────
+# Starts 3 TranslateGemma-27B vLLM servers (one per language), translates, stops.
+# Requires TRANSLATE_MODEL to be set.
 bash scripts/exp_v3/3_translate_responses_gemma27b.sh
 
-# Step 5: Prepare SFT training data
+# ── Step 5: Prepare SFT training data ────────────────────────────────────────
+# Pairs translated responses with native-language questions.
+# Creates two variants per language: no-filter (all) and filter (correct only).
 bash scripts/exp_v3/5_prepare_training_data.sh
 
-# Step 6: Train and evaluate (pick one or both)
+# ── Step 6: SFT training + evaluation ────────────────────────────────────────
+# Each script trains 3 seeds x 2 filter modes, then evaluates on MGSM + MMMLU.
+# Qwen3-1.7B: all languages (ja, bn, sw)
 bash scripts/exp_v3/6_sft_training_qwen3-1_7b.sh
+
+# Qwen3-8B: Swahili only
 bash scripts/exp_v3/6_sft_training_qwen3-8b.sh
 
-# Step 8-9: Additional evaluation
+# ── Step 8-9: Additional evaluation (optional) ───────────────────────────────
 bash scripts/exp_v3/8_evaluate_models.sh mmmlu 100
 bash scripts/exp_v3/9_evaluate_english_perf.sh
 ```
+
+### Notes
+
+- All scripts are **idempotent** — they skip already-completed work (trained models, eval results).
+- To re-run a step, delete the corresponding output files first.
+- GPU IDs are hardcoded in each script (e.g. `GPU=5`, `GPU_IDS="2,3,4"`). Edit them to match your hardware.
+- The Qwen3-1.7B SFT data under `data/exp_v2/qwen3-1_7b/` was generated by running steps 2-5 with `Qwen/Qwen3-1.7B`. The Qwen3-8B data under `data/exp_v2/qwen3-8b/` was generated with `Qwen/Qwen3-8B`.
 
 ## How It Works
 

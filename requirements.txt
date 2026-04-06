@@ -1,14 +1,24 @@
-# ml-delta-reasoning requirements
+# Core ML
 torch>=2.1.0
 transformers>=4.40.0
 datasets>=2.18.0
+accelerate>=0.28.0
+deepspeed>=0.14.0
+
+# Fine-tuning
 trl>=0.8.0
 peft>=0.10.0
-accelerate>=0.28.0
-pandas>=2.0.0
-pyyaml>=6.0
+
+# Inference
+vllm>=0.6.0
+openai>=1.30.0
+
+# Experiment tracking
+wandb>=0.16.0
+
+# Tokenizers / serialization
 sentencepiece>=0.2.0
 protobuf>=4.25.0
-openai>=1.30.0
-vllm>=0.6.0
+
+# Utilities
 tqdm>=4.66.0
